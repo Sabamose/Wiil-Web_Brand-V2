@@ -64,6 +64,12 @@ const Contact = () => {
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/Header-background.webp')" }}
           />
+          <div 
+            className="absolute inset-0"
+            style={{ 
+              background: "radial-gradient(ellipse 150% 80% at 50% 100%, #0891b2 0%, #14b8a6 25%, #2dd4bf 50%, rgba(255,255,255,0.1) 75%, transparent 100%)"
+            }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
           
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
