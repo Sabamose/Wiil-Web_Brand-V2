@@ -7,22 +7,6 @@ const Footer = () => {
     <footer className="w-full bg-hero-gradient text-gray-900">
       {/* CTA Section */}
       <div className="section-container py-16 sm:py-20">
-        <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-            Ready to Transform Your Communications?
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 mb-8">
-            Start using Will to automate conversations and grow your success.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-gradient-to-r from-teal-400 to-teal-500 hover:from-teal-500 hover:to-teal-600 text-white px-8 py-3 text-lg">
-              Start Building Free →
-            </Button>
-            <Button variant="outline" className="border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-white px-8 py-3 text-lg">
-              Talk to an Expert
-            </Button>
-          </div>
-        </div>
 
         {/* Footer Links */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-16 border-t border-gray-300">
