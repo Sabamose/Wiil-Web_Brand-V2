@@ -200,7 +200,7 @@ const HumanoidSection = () => {
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
-                    Deploy <span className="text-[#FC4D0A]">Everywhere</span>
+                    Deploy <span className="text-teal-800">Everywhere</span>
                   </h3>
                   <p className="text-teal-700 text-lg">Go live on phone, web, SMS, and other channels instantly.</p>
                 </div>
