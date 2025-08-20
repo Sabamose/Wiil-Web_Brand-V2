@@ -82,7 +82,7 @@ const Contact = () => {
               </Button>
               <Button 
                 variant="outline"
-                className="border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors"
+                className="border-white text-black bg-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
                 onClick={() => window.location.href = 'mailto:contact@wiil.io'}
               >
                 Send Email
