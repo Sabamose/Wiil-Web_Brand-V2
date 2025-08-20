@@ -386,7 +386,7 @@ const Platform = () => {
                       <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
                         Analytics & <span className="text-[#FC4D0A]">Enterprise Security</span>
                       </h3>
-                      <p className="text-white/90 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
+                      <p className="text-foreground/90 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
                       <div className="grid grid-cols-3 gap-6">
                         <div className="text-center">
                           <div className="text-2xl font-bold text-white">Real-time</div>
