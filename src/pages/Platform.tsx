@@ -162,39 +162,39 @@ const Platform = () => {
     <div className="min-h-screen">
       <Navbar />
       <main className="space-y-4 sm:space-y-8">
-        {/* Sales & Lead Management */}
-        <section className="py-16 sm:py-24 bg-white">
+        {/* Customer Support */}
+        <section className="py-16 sm:py-24 bg-gray-50">
           <div className="section-container">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="animate-on-scroll">
+              <div className="animate-on-scroll order-2 lg:order-1">
+                <img 
+                  src="/hero-image.jpg" 
+                  alt="Customer Support" 
+                  className="rounded-2xl shadow-2xl w-full"
+                />
+              </div>
+              <div className="animate-on-scroll order-1 lg:order-2">
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                  Never Miss Another Sale
+                  Delight Customers 24/7
                 </h2>
                 <p className="text-lg text-gray-600 mb-8">
-                  Transform your sales process with AI assistants that capture leads, qualify prospects, and schedule meetings 24/7.
+                  Provide instant, accurate support across all channels while your human agents focus on complex issues.
                 </p>
                 <div className="space-y-6 mb-8">
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                    <span className="text-gray-700 font-medium">Leads Captured</span>
-                    <span className="text-2xl font-bold text-pulse-500">90% more</span>
+                  <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
+                    <span className="text-gray-700 font-medium">Issues Resolved</span>
+                    <span className="text-2xl font-bold text-pulse-500">90% instantly</span>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
+                  <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
                     <span className="text-gray-700 font-medium">Time Saved</span>
-                    <span className="text-2xl font-bold text-pulse-500">15h/week</span>
+                    <span className="text-2xl font-bold text-pulse-500">25h/week</span>
                   </div>
-                  <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl">
-                    <span className="text-gray-700 font-medium">Revenue Increase</span>
-                    <span className="text-2xl font-bold text-pulse-500">35%</span>
+                  <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
+                    <span className="text-gray-700 font-medium">Retention Boost</span>
+                    <span className="text-2xl font-bold text-pulse-500">40%</span>
                   </div>
                 </div>
                 <button className="text-pulse-500 font-semibold hover:underline">Learn More →</button>
-              </div>
-              <div className="animate-on-scroll">
-                <img 
-                  src="/hero-image.jpg" 
-                  alt="Sales Dashboard" 
-                  className="rounded-2xl shadow-2xl w-full"
-                />
               </div>
             </div>
           </div>
