@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import GoogleMap from "@/components/GoogleMap";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -283,9 +284,10 @@ const Contact = () => {
               </div>
 
               <div className="animate-on-scroll">
-                <div className="bg-gray-200 rounded-2xl h-96 flex items-center justify-center">
-                  <p className="text-gray-600">Map placeholder - Integrate with Google Maps or similar service</p>
-                </div>
+                <GoogleMap 
+                  address="1177 Market Street, San Francisco, CA 94102"
+                  className="h-96 relative"
+                />
               </div>
             </div>
           </div>
