@@ -70,7 +70,7 @@ const Navbar = () => {
           </Link>
           <Link to="/platform" className="nav-link">Platform</Link>
           <Link to="/use-cases" className="nav-link">Use cases</Link>
-          <a href="#details" className="nav-link">Contact</a>
+          <Link to="/contact" className="nav-link">Contact</Link>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -120,8 +120,8 @@ const Navbar = () => {
           >
             Use cases
           </Link>
-          <a 
-            href="#details" 
+          <Link 
+            to="/contact" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
@@ -129,7 +129,7 @@ const Navbar = () => {
             }}
           >
             Contact
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
