@@ -409,33 +409,29 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
-                      <div className="lg:col-span-2">
+                    <div className="flex flex-col gap-6 w-full h-full justify-center">
+                      <div className="text-center mb-4">
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                          Analytics & Testing
+                          Analytics & Booking Management
                         </h3>
-                        <p className="text-white/90 text-lg mb-6">Test your assistant's performance in real-time with comprehensive analytics. Monitor conversations and optimize responses instantly.</p>
-                        <div className="grid grid-cols-3 gap-4">
-                          <div className="text-center">
-                            <div className="text-xl font-bold text-white">Real-time</div>
-                            <div className="text-xs text-white/70">testing</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-xl font-bold text-white">GDPR</div>
-                            <div className="text-xs text-white/70">compliant</div>
-                          </div>
-                          <div className="text-center">
-                            <div className="text-xl font-bold text-white">24/7</div>
-                            <div className="text-xs text-white/70">support</div>
-                          </div>
-                        </div>
+                        <p className="text-white/90 text-lg">Complete analytics dashboard with booking management and real-time performance metrics.</p>
                       </div>
-                      <div className="lg:col-span-3">
-                        <img 
-                          src="/lovable-uploads/b3e99566-6a27-431e-a577-ebe0c18d1fa2.png" 
-                          alt="Voice Testing Interface" 
-                          className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-6 scale-125"
-                        />
+                      
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div>
+                          <img 
+                            src="/lovable-uploads/38a0607e-3a53-4ecc-8d25-1b2714078005.png" 
+                            alt="Booking Management Dashboard" 
+                            className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          />
+                        </div>
+                        <div>
+                          <img 
+                            src="/lovable-uploads/fc972dfc-4b12-4c7c-9594-ae3305e6faa6.png" 
+                            alt="Analytics Dashboard with Support Metrics" 
+                            className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
