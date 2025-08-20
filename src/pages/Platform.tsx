@@ -232,8 +232,8 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
-                      <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
+                      <div className="lg:col-span-2">
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
                           Professional Phone System
                         </h3>
@@ -253,11 +253,11 @@ const Platform = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="lg:justify-self-end">
+                      <div className="lg:col-span-3">
                         <img 
                           src="/lovable-uploads/6d0d2660-8bd0-4786-9ae3-f438b3319333.png" 
                           alt="Phone Numbers Management Interface" 
-                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-6 scale-125"
                         />
                       </div>
                     </div>
@@ -291,8 +291,8 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
-                      <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
+                      <div className="lg:col-span-2">
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
                           Omnichannel Communication
                         </h3>
@@ -312,11 +312,11 @@ const Platform = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="lg:justify-self-end">
+                      <div className="lg:col-span-3">
                         <img 
                           src="/lovable-uploads/1e5994b0-caf7-4d2e-a5ce-35394670ec5e.png" 
                           alt="Customer List Management" 
-                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-6 scale-125"
                         />
                       </div>
                     </div>
@@ -350,8 +350,8 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
-                      <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
+                      <div className="lg:col-span-2">
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
                           Intelligent Conversation Routing
                         </h3>
@@ -371,11 +371,11 @@ const Platform = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="lg:justify-self-end">
+                      <div className="lg:col-span-3">
                         <img 
                           src="/lovable-uploads/fa5d6f43-82d0-45ab-865f-9ec55bc8a045.png" 
                           alt="Call Transfer Settings" 
-                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-6 scale-125"
                         />
                       </div>
                     </div>
@@ -409,8 +409,8 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
-                      <div>
+                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center w-full">
+                      <div className="lg:col-span-2">
                         <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
                           Analytics & Testing
                         </h3>
@@ -430,11 +430,11 @@ const Platform = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="lg:justify-self-end">
+                      <div className="lg:col-span-3">
                         <img 
                           src="/lovable-uploads/b3e99566-6a27-431e-a577-ebe0c18d1fa2.png" 
                           alt="Voice Testing Interface" 
-                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                          className="rounded-lg shadow-lg w-full h-auto bg-white/10 backdrop-blur-sm p-6 scale-125"
                         />
                       </div>
                     </div>
