@@ -41,8 +41,9 @@ const TestimonialCard = ({
   role,
   backgroundImage = "/background-section1.png"
 }: TestimonialProps) => {
-  return <div className="rounded-lg p-8 h-full flex flex-col justify-between text-teal-800 transform transition-transform duration-300 hover:-translate-y-2 relative overflow-hidden bg-gradient-to-br from-white via-teal-50 to-teal-600/20 shadow-[inset_0_0_20px_rgba(13,148,136,0.1)] hover:shadow-[inset_0_0_30px_rgba(13,148,136,0.2),_0_10px_40px_rgba(13,148,136,0.15)] hover:bg-gradient-to-br hover:from-white hover:via-teal-100 hover:to-teal-600/30">
-      <div className="absolute top-0 right-0 w-24 h-24 bg-white z-10"></div>
+  return <div className="rounded-lg p-8 h-full flex flex-col justify-between text-teal-800 transform transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white via-teal-50 to-teal-600/20 shadow-[0_8px_32px_rgba(13,148,136,0.15),_inset_0_0_32px_rgba(13,148,136,0.1)] hover:shadow-[0_20px_60px_rgba(13,148,136,0.4),_inset_0_0_60px_rgba(13,148,136,0.25),_0_0_80px_rgba(13,148,136,0.3)] hover:bg-gradient-to-br hover:from-white hover:via-teal-100 hover:to-teal-600/40 border border-teal-200/50 hover:border-teal-400/70">
+      <div className="absolute top-0 right-0 w-24 h-24 bg-white/80 backdrop-blur-sm z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-400/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
       
       <div className="relative z-0">
         <p className="text-xl mb-8 font-medium leading-relaxed pr-20">{`"${content}"`}</p>
