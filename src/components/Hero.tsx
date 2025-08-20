@@ -128,7 +128,9 @@ const Hero = () => {
               style={{ animationDelay: "0.7s" }}
             >
               <a 
-                href="#get-access" 
+                href="https://console.wiil.io/dashboard" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center group w-full sm:w-auto text-center" 
                 style={{
                   backgroundColor: '#FE5C02',

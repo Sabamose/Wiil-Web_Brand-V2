@@ -188,12 +188,14 @@ const DetailsSection = () => {
                 </div>
                 
                 <div>
-                  <button 
-                    type="submit" 
-                    className="w-full px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300"
+                  <a 
+                    href="https://console.wiil.io/dashboard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300 inline-block text-center"
                   >
                     Start free trial
-                  </button>
+                  </a>
                 </div>
               </form>
             </div>

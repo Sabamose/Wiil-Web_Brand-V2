@@ -265,9 +265,14 @@ const UseCases = () => {
               Start with a free trial or speak with our experts to customize the perfect solution for your needs.
             </p>
             <div className="space-x-4 animate-on-scroll">
-              <button className="bg-white text-pulse-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
+              <a 
+                href="https://console.wiil.io/dashboard"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-pulse-500 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors inline-block"
+              >
                 Start Free Trial
-              </button>
+              </a>
               <button className="border border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-colors">
                 Talk to Expert
               </button>
