@@ -129,11 +129,7 @@ const DetailsSection = () => {
           {/* Right Card - Contact Form */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
-            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex flex-col items-start" style={{
-            backgroundImage: "url('/background-section1.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}>
+            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex flex-col items-start bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800 shadow-[inset_0_0_20px_rgba(13,148,136,0.2)]">
               <div className="inline-block px-4 sm:px-6 py-2 border border-white text-white rounded-full text-xs mb-4">
                 Start free trial
               </div>
