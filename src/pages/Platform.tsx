@@ -232,24 +232,33 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                        Professional Phone System
-                      </h3>
-                      <p className="text-white/90 text-lg mb-6">Get instant access to local and toll-free numbers in 60+ countries with multiple provider redundancy. 99.9% uptime guaranteed.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">99.9%</div>
-                          <div className="text-sm text-white/70">uptime</div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                          Professional Phone System
+                        </h3>
+                        <p className="text-white/90 text-lg mb-6">Get instant access to local and toll-free numbers in 60+ countries with multiple provider redundancy. 99.9% uptime guaranteed.</p>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">99.9%</div>
+                            <div className="text-xs text-white/70">uptime</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">60+</div>
+                            <div className="text-xs text-white/70">countries</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">$1.25</div>
+                            <div className="text-xs text-white/70">per month</div>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">60+</div>
-                          <div className="text-sm text-white/70">countries</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">$1.25</div>
-                          <div className="text-sm text-white/70">per month</div>
-                        </div>
+                      </div>
+                      <div className="lg:justify-self-end">
+                        <img 
+                          src="/lovable-uploads/6d0d2660-8bd0-4786-9ae3-f438b3319333.png" 
+                          alt="Phone Numbers Management Interface" 
+                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                        />
                       </div>
                     </div>
                   </div>
@@ -282,24 +291,33 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                        Omnichannel Communication
-                      </h3>
-                      <p className="text-white/90 text-lg mb-6">One AI assistant that works seamlessly across voice, web, SMS, and mobile platforms. All conversations in one unified inbox.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">4+</div>
-                          <div className="text-sm text-white/70">channels</div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                          Omnichannel Communication
+                        </h3>
+                        <p className="text-white/90 text-lg mb-6">One AI assistant that works seamlessly across voice, web, SMS, and mobile platforms. All conversations in one unified inbox.</p>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">4+</div>
+                            <div className="text-xs text-white/70">channels</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">Universal</div>
+                            <div className="text-xs text-white/70">integration</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">Instant</div>
+                            <div className="text-xs text-white/70">handoffs</div>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Universal</div>
-                          <div className="text-sm text-white/70">integration</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Instant</div>
-                          <div className="text-sm text-white/70">handoffs</div>
-                        </div>
+                      </div>
+                      <div className="lg:justify-self-end">
+                        <img 
+                          src="/lovable-uploads/1e5994b0-caf7-4d2e-a5ce-35394670ec5e.png" 
+                          alt="Customer List Management" 
+                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                        />
                       </div>
                     </div>
                   </div>
@@ -332,24 +350,33 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                        Intelligent Conversation Routing
-                      </h3>
-                      <p className="text-white/90 text-lg mb-6">Smart AI routing ensures customers connect with the perfect assistant or human expert instantly. No more wrong transfers.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">95%</div>
-                          <div className="text-sm text-white/70">accuracy</div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                          Intelligent Conversation Routing
+                        </h3>
+                        <p className="text-white/90 text-lg mb-6">Smart AI routing ensures customers connect with the perfect assistant or human expert instantly. No more wrong transfers.</p>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">95%</div>
+                            <div className="text-xs text-white/70">accuracy</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">Zero</div>
+                            <div className="text-xs text-white/70">wrong transfers</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">Instant</div>
+                            <div className="text-xs text-white/70">escalation</div>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Zero</div>
-                          <div className="text-sm text-white/70">wrong transfers</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Instant</div>
-                          <div className="text-sm text-white/70">escalation</div>
-                        </div>
+                      </div>
+                      <div className="lg:justify-self-end">
+                        <img 
+                          src="/lovable-uploads/fa5d6f43-82d0-45ab-865f-9ec55bc8a045.png" 
+                          alt="Call Transfer Settings" 
+                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                        />
                       </div>
                     </div>
                   </div>
@@ -382,24 +409,33 @@ const Platform = () => {
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                        Analytics & <span className="text-[#FC4D0A]">Enterprise Security</span>
-                      </h3>
-                      <p className="text-white/90 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Real-time</div>
-                          <div className="text-sm text-white/70">analytics</div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                          Analytics & Testing
+                        </h3>
+                        <p className="text-white/90 text-lg mb-6">Test your assistant's performance in real-time with comprehensive analytics. Monitor conversations and optimize responses instantly.</p>
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">Real-time</div>
+                            <div className="text-xs text-white/70">testing</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">GDPR</div>
+                            <div className="text-xs text-white/70">compliant</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="text-xl font-bold text-white">24/7</div>
+                            <div className="text-xs text-white/70">support</div>
+                          </div>
                         </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">SOC 2</div>
-                          <div className="text-sm text-white/70">compliant</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-white">GDPR</div>
-                          <div className="text-sm text-white/70">ready</div>
-                        </div>
+                      </div>
+                      <div className="lg:justify-self-end">
+                        <img 
+                          src="/lovable-uploads/b3e99566-6a27-431e-a577-ebe0c18d1fa2.png" 
+                          alt="Voice Testing Interface" 
+                          className="rounded-lg shadow-lg max-w-full h-auto bg-white/10 backdrop-blur-sm p-4"
+                        />
                       </div>
                     </div>
                   </div>
