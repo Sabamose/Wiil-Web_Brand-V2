@@ -42,7 +42,7 @@ const DetailsSection = () => {
           {/* Left Card - The Details */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
-            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end bg-gradient-to-br from-white via-teal-50 to-teal-600/20">
+            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end bg-gradient-to-br from-white via-teal-100 to-teal-600/30 shadow-[inset_0_0_20px_rgba(13,148,136,0.1)] before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-teal-500/10 before:pointer-events-none">
               <h2 className="text-2xl sm:text-3xl font-display text-teal-800 font-bold">
                 Platform specs
               </h2>
