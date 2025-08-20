@@ -414,7 +414,7 @@ const Platform = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-pulse-600 to-pulse-400"></div>
           <div className="relative z-10 section-container text-center">
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 animate-on-scroll">
-              Ready to build your AI assistant platform?
+              Ready to build your AI assistant?
             </h2>
             <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto animate-on-scroll">
               Start with a free trial or speak with our experts to see the complete platform in action.
