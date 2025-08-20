@@ -19,7 +19,7 @@ const SpecsSection = () => {
         {/* Main content with text mask image - responsive text sizing */}
         <div className="max-w-5xl pl-4 sm:pl-8">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display leading-tight mb-8 sm:mb-12">
-            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-teal-300 via-teal-400 via-teal-500 via-teal-600 via-teal-700 to-teal-800">
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-teal-500/80 via-teal-600 via-teal-600 via-teal-600/90 via-teal-700/80 to-teal-600/70">
               Create intelligent AI assistants that handle sales, support, and operations—without code. Professional AI presence that scales with your business across all conversation channels.
             </span>
           </h2>
