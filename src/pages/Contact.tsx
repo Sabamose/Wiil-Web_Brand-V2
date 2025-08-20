@@ -61,10 +61,11 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/Header-background.webp')" }}
+            className="absolute inset-0"
+            style={{ 
+              background: "radial-gradient(ellipse 150% 100% at 50% 100%, #0891b2 0%, #14b8a6 25%, #2dd4bf 50%, #5eead4 75%, #ccfbf1 100%)"
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
           
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-on-scroll">
