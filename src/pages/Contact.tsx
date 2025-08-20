@@ -61,9 +61,12 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
           <div 
+            className="absolute inset-0 bg-white"
+          />
+          <div 
             className="absolute inset-0"
             style={{ 
-              background: "radial-gradient(ellipse 150% 100% at 50% 100%, #0891b2 0%, #14b8a6 25%, #2dd4bf 50%, #5eead4 75%, #ccfbf1 100%)"
+              background: "radial-gradient(ellipse 150% 80% at 50% 100%, #0891b2 0%, #14b8a6 20%, #2dd4bf 35%, #5eead4 50%, #ccfbf1 65%, rgba(255,255,255,0.8) 80%, transparent 100%)"
             }}
           />
           
