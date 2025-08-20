@@ -60,7 +60,27 @@ const Contact = () => {
       <main className="space-y-4 sm:space-y-8">
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-teal-900 via-teal-700 via-teal-600 via-teal-500 to-teal-300" />
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/Header-background.webp')" }}
+          />
+          
+          {/* Teal Sunrise Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-radial from-cyan-300/80 via-teal-400/70 via-teal-500/60 to-teal-900/90" 
+               style={{
+                 background: `radial-gradient(ellipse 120% 80% at 50% 120%, 
+                   rgba(103, 232, 249, 0.8) 0%,
+                   rgba(45, 212, 191, 0.7) 25%, 
+                   rgba(20, 184, 166, 0.6) 45%,
+                   rgba(15, 118, 110, 0.75) 65%,
+                   rgba(19, 78, 74, 0.85) 80%,
+                   rgba(17, 24, 39, 0.95) 100%)`
+               }}
+          />
+          
+          {/* Additional blur effect for text readability */}
+          <div className="absolute inset-0 backdrop-blur-[1px]" />
           
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-on-scroll">
