@@ -69,7 +69,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/platform" className="nav-link">Platform</Link>
-          <a href="#features" className="nav-link">Use cases</a>
+          <Link to="/use-cases" className="nav-link">Use cases</Link>
           <a href="#details" className="nav-link">Contact</a>
         </nav>
 
@@ -110,8 +110,8 @@ const Navbar = () => {
           >
             Platform
           </Link>
-          <a 
-            href="#features" 
+          <Link 
+            to="/use-cases" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
@@ -119,7 +119,7 @@ const Navbar = () => {
             }}
           >
             Use cases
-          </a>
+          </Link>
           <a 
             href="#details" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
