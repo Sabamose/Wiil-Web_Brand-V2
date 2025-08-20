@@ -73,6 +73,7 @@ const Navbar = () => {
           >
             Home
           </a>
+          <a href="/platform" className="nav-link">Platform</a>
           <a href="#features" className="nav-link">About</a>
           <a href="#details" className="nav-link">Contact</a>
         </nav>
@@ -104,6 +105,16 @@ const Navbar = () => {
             }}
           >
             Home
+          </a>
+          <a 
+            href="/platform" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Platform
           </a>
           <a 
             href="#features" 
