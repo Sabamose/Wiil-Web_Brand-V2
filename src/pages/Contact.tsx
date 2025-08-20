@@ -66,7 +66,7 @@ const Contact = () => {
           <div 
             className="absolute inset-0"
             style={{ 
-              background: "radial-gradient(ellipse 120% 60% at 50% 0%, #0891b2 0%, #14b8a6 20%, #2dd4bf 40%, #5eead4 60%, rgba(255,255,255,0.1) 80%, transparent 100%)"
+              background: "radial-gradient(ellipse 150% 80% at 50% 50%, #0891b2 0%, #14b8a6 20%, #2dd4bf 40%, #5eead4 60%, rgba(255,255,255,0.1) 80%, transparent 100%)"
             }}
           />
           
