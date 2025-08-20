@@ -117,27 +117,24 @@ const HumanoidSection = () => {
               }}
             >
               <div
-                className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/40 to-dark-900/80"
+                className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-50 to-teal-600/20"
                 style={{
-                  backgroundImage: "url('/background-section1.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "top center",
-                  backgroundBlendMode: "overlay"
+                  boxShadow: '0_8px_32px_rgba(13,148,136,0.15), inset_0_0_32px_rgba(13,148,136,0.1)'
                 }}
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-600/20 backdrop-blur-sm text-teal-800 border border-teal-300/50">
+                  <span className="text-sm font-medium">Step 1</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
                     Define Your Use Case
                   </h3>
-                  <p className="text-white/90 text-lg">Sales, support, scheduling, or custom workflows.</p>
+                  <p className="text-teal-700 text-lg">Sales, support, scheduling, or custom workflows.</p>
                 </div>
               </div>
             </div>
@@ -154,27 +151,24 @@ const HumanoidSection = () => {
               }}
             >
               <div
-                className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/40 to-dark-900/80"
+                className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-100 to-teal-400/30"
                 style={{
-                  backgroundImage: "url('/background-section2.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundBlendMode: "overlay"
+                  boxShadow: '0_12px_40px_rgba(13,148,136,0.2), inset_0_0_40px_rgba(13,148,136,0.15)'
                 }}
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-400/20 backdrop-blur-sm text-teal-800 border border-teal-400/60">
+                  <span className="text-sm font-medium">Step 2</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
                     Train Your Assistant
                   </h3>
-                  <p className="text-white/90 text-lg">Upload knowledge, set personality, and define actions.</p>
+                  <p className="text-teal-700 text-lg">Upload knowledge, set personality, and define actions.</p>
                 </div>
               </div>
             </div>
@@ -191,27 +185,24 @@ const HumanoidSection = () => {
               }}
             >
               <div
-                className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/40 to-dark-900/80"
+                className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-200 to-teal-300/40"
                 style={{
-                  backgroundImage: "url('/background-section3.png')",
-                  backgroundSize: "cover",
-                  backgroundPosition: "bottom center",
-                  backgroundBlendMode: "overlay"
+                  boxShadow: '0_16px_50px_rgba(13,148,136,0.25), inset_0_0_50px_rgba(13,148,136,0.2)'
                 }}
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-300/30 backdrop-blur-sm text-teal-800 border border-teal-300/80">
+                  <span className="text-sm font-medium">Step 3</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
                     Deploy <span className="text-[#FC4D0A]">Everywhere</span>
                   </h3>
-                  <p className="text-white/90 text-lg">Go live on phone, web, SMS, and other channels instantly.</p>
+                  <p className="text-teal-700 text-lg">Go live on phone, web, SMS, and other channels instantly.</p>
                 </div>
               </div>
             </div>
