@@ -137,8 +137,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'hero-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(240, 253, 250, 1) 25%, rgba(153, 246, 228, 0.8) 60%, rgba(20, 184, 166, 0.6) 100%)',
-				'hero-gradient-2': 'linear-gradient(180deg, rgba(240, 253, 250, 1) 0%, rgba(99, 242, 218, 0.7) 50%, rgba(13, 148, 136, 0.5) 100%)',
+				'hero-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(240, 253, 250, 1) 25%, rgba(153, 246, 228, 0.8) 50%, rgba(20, 184, 166, 0.4) 75%, rgba(255, 255, 255, 1) 100%)',
+				'hero-gradient-2': 'linear-gradient(180deg, rgba(240, 253, 250, 1) 0%, rgba(99, 242, 218, 0.7) 50%, rgba(255, 255, 255, 1) 100%)',
 				'pulse-gradient': 'linear-gradient(180deg, rgba(20, 184, 166, 0.4) 0%, rgba(20, 184, 166, 0) 100%)',
 			},
 			fontFamily: {
