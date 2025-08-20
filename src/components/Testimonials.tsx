@@ -41,14 +41,18 @@ const TestimonialCard = ({
   role,
   backgroundImage = "/background-section1.png"
 }: TestimonialProps) => {
-  return <div className="rounded-lg p-8 h-full flex flex-col justify-between text-teal-800 transform transition-transform duration-300 hover:-translate-y-2 relative overflow-hidden bg-gradient-to-br from-white via-teal-50 to-teal-600/20 shadow-[inset_0_0_20px_rgba(13,148,136,0.1)] hover:shadow-[inset_0_0_30px_rgba(13,148,136,0.2),_0_10px_40px_rgba(13,148,136,0.15)] hover:bg-gradient-to-br hover:from-white hover:via-teal-100 hover:to-teal-600/30">
-      <div className="absolute top-0 right-0 w-24 h-24 bg-white z-10"></div>
+  return <div className="rounded-2xl p-8 h-full flex flex-col justify-between text-teal-900 transform transition-all duration-500 hover:-translate-y-3 hover:scale-105 relative overflow-hidden bg-gradient-to-br from-white via-teal-100/50 to-teal-200/80 shadow-[0_8px_32px_rgba(13,148,136,0.15),_inset_0_1px_0_rgba(255,255,255,0.8)] hover:shadow-[0_20px_60px_rgba(13,148,136,0.25),_inset_0_1px_0_rgba(255,255,255,0.9)] hover:bg-gradient-to-br hover:from-teal-50 hover:via-teal-100 hover:to-teal-300/60 border border-teal-200/50 hover:border-teal-300/70">
+      {/* Decorative quote icon */}
+      <div className="absolute top-6 left-6 text-teal-300/40 text-6xl font-serif leading-none select-none">"</div>
       
-      <div className="relative z-0">
-        <p className="text-xl mb-8 font-medium leading-relaxed pr-20">{`"${content}"`}</p>
-        <div>
-          <h4 className="font-semibold text-xl">{author}</h4>
-          <p className="text-teal-600">{role}</p>
+      {/* Decorative gradient orb */}
+      <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-teal-600/10 rounded-full blur-xl"></div>
+      
+      <div className="relative z-10">
+        <p className="text-lg mb-8 font-medium leading-relaxed text-teal-800 pl-8 italic">{content}</p>
+        <div className="border-l-4 border-teal-400 pl-4">
+          <h4 className="font-bold text-xl text-teal-900 mb-1">{author}</h4>
+          <p className="text-teal-600 font-medium">{role}</p>
         </div>
       </div>
     </div>;
