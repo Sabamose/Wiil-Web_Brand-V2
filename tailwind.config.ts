@@ -65,17 +65,17 @@ export default {
 				},
 				// Custom colors for Pulse Robot
 				pulse: {
-					"50": "#fff7ed",
-					"100": "#ffedd5",
-					"200": "#fed7aa",
-					"300": "#fdba74",
-					"400": "#fb923c",
-					"500": "#f97316", // Primary orange
-					"600": "#ea580c",
-					"700": "#c2410c",
-					"800": "#9a3412",
-					"900": "#7c2d12",
-					"950": "#431407",
+					"50": "#f0fdfa",
+					"100": "#ccfbf1",
+					"200": "#99f6e4",
+					"300": "#5eead4",
+					"400": "#2dd4bf",
+					"500": "#14b8a6", // Primary teal
+					"600": "#0d9488",
+					"700": "#0f766e",
+					"800": "#115e59",
+					"900": "#134e4a",
+					"950": "#042f2e",
 				},
 				dark: {
 					"900": "#121212", // Almost black
@@ -137,9 +137,9 @@ export default {
 				'float': 'float 6s ease-in-out infinite'
 			},
 			backgroundImage: {
-				'hero-gradient': 'linear-gradient(90deg, hsla(24, 100%, 83%, 1) 0%, hsla(341, 91%, 68%, 1) 100%)',
-				'hero-gradient-2': 'linear-gradient(90deg, hsla(39, 100%, 77%, 1) 0%, hsla(22, 90%, 57%, 1) 100%)',
-				'pulse-gradient': 'linear-gradient(180deg, rgba(249,115,22,0.8) 0%, rgba(249,115,22,0) 100%)',
+				'hero-gradient': 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(240, 253, 250, 1) 50%, rgba(204, 251, 241, 0.6) 100%)',
+				'hero-gradient-2': 'linear-gradient(90deg, rgba(240, 253, 250, 1) 0%, rgba(153, 246, 228, 0.4) 100%)',
+				'pulse-gradient': 'linear-gradient(180deg, rgba(13, 148, 136, 0.2) 0%, rgba(13, 148, 136, 0) 100%)',
 			},
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif'],
