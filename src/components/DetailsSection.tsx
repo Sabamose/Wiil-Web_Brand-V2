@@ -42,12 +42,8 @@ const DetailsSection = () => {
           {/* Left Card - The Details */}
           <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant">
             {/* Card Header with background image instead of gradient */}
-            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end" style={{
-            backgroundImage: "url('/background-section3.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center"
-          }}>
-              <h2 className="text-2xl sm:text-3xl font-display text-white font-bold">
+            <div className="relative h-48 sm:h-64 p-6 sm:p-8 flex items-end bg-gradient-to-br from-white via-teal-50 to-teal-600/20">
+              <h2 className="text-2xl sm:text-3xl font-display text-teal-800 font-bold">
                 Platform specs
               </h2>
             </div>
