@@ -111,7 +111,7 @@ const Contact = () => {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         required
-                        className="w-full"
+                        className="w-full focus-visible:ring-teal-600"
                       />
                     </div>
                     <div>
