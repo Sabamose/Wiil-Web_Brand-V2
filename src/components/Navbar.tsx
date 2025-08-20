@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,13 +46,10 @@ const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a 
-          href="#" 
+        <Link 
+          to="/" 
           className="flex items-center space-x-2"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToTop();
-          }}
+          onClick={scrollToTop}
           aria-label="Pulse Robot"
         >
           <img 
@@ -59,21 +57,18 @@ const Navbar = () => {
             alt="Pulse Robot Logo" 
             className="h-7 sm:h-8" 
           />
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
-            }}
+            onClick={scrollToTop}
           >
             Home
-          </a>
-          <a href="/platform" className="nav-link">Platform</a>
+          </Link>
+          <Link to="/platform" className="nav-link">Platform</Link>
           <a href="#features" className="nav-link">About</a>
           <a href="#details" className="nav-link">Contact</a>
         </nav>
@@ -94,20 +89,19 @@ const Navbar = () => {
         isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
       )}>
         <nav className="flex flex-col space-y-8 items-center mt-8">
-          <a 
-            href="#" 
+          <Link 
+            to="/" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={(e) => {
-              e.preventDefault();
+            onClick={() => {
               scrollToTop();
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
             Home
-          </a>
-          <a 
-            href="/platform" 
+          </Link>
+          <Link 
+            to="/platform" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
@@ -115,7 +109,7 @@ const Navbar = () => {
             }}
           >
             Platform
-          </a>
+          </Link>
           <a 
             href="#features" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
