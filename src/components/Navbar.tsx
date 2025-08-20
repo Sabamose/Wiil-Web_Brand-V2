@@ -69,7 +69,7 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/platform" className="nav-link">Platform</Link>
-          <a href="#features" className="nav-link">About</a>
+          <a href="#features" className="nav-link">Use cases</a>
           <a href="#details" className="nav-link">Contact</a>
         </nav>
 
@@ -118,7 +118,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            About
+            Use cases
           </a>
           <a 
             href="#details" 
