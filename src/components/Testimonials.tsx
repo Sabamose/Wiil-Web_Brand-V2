@@ -41,16 +41,14 @@ const TestimonialCard = ({
   role,
   backgroundImage = "/background-section1.png"
 }: TestimonialProps) => {
-  return <div className="bg-cover bg-center rounded-lg p-8 h-full flex flex-col justify-between text-white transform transition-transform duration-300 hover:-translate-y-2 relative overflow-hidden" style={{
-    backgroundImage: `url('${backgroundImage}')`
-  }}>
+  return <div className="rounded-lg p-8 h-full flex flex-col justify-between text-teal-800 transform transition-transform duration-300 hover:-translate-y-2 relative overflow-hidden bg-gradient-to-br from-white via-teal-50 to-teal-600/20 shadow-[inset_0_0_20px_rgba(13,148,136,0.1)] hover:shadow-[inset_0_0_30px_rgba(13,148,136,0.2),_0_10px_40px_rgba(13,148,136,0.15)] hover:bg-gradient-to-br hover:from-white hover:via-teal-100 hover:to-teal-600/30">
       <div className="absolute top-0 right-0 w-24 h-24 bg-white z-10"></div>
       
       <div className="relative z-0">
         <p className="text-xl mb-8 font-medium leading-relaxed pr-20">{`"${content}"`}</p>
         <div>
           <h4 className="font-semibold text-xl">{author}</h4>
-          <p className="text-white/80">{role}</p>
+          <p className="text-teal-600">{role}</p>
         </div>
       </div>
     </div>;
