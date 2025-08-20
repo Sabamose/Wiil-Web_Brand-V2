@@ -69,7 +69,6 @@ const Navbar = () => {
             Home
           </Link>
           <Link to="/platform" className="nav-link">Platform</Link>
-          <Link to="/use-cases" className="nav-link">Use cases</Link>
           <Link to="/contact" className="nav-link">Contact</Link>
         </nav>
 
@@ -109,16 +108,6 @@ const Navbar = () => {
             }}
           >
             Platform
-          </Link>
-          <Link 
-            to="/use-cases" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={() => {
-              setIsMenuOpen(false);
-              document.body.style.overflow = '';
-            }}
-          >
-            Use cases
           </Link>
           <Link 
             to="/contact" 
