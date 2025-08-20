@@ -50,8 +50,13 @@ const Navbar = () => {
           to="/" 
           className="flex items-center space-x-2"
           onClick={scrollToTop}
-          aria-label="Pulse Robot"
+          aria-label="Wiil"
         >
+          <img 
+            src="/lovable-uploads/863df6e6-619f-40c2-bee9-6b4a10ad50ca.png" 
+            alt="Wiil Logo" 
+            className="h-7 sm:h-8 w-auto" 
+          />
         </Link>
 
         {/* Desktop Navigation */}
