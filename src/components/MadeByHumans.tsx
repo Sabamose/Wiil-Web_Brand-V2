@@ -6,7 +6,7 @@ const MadeByHumans = () => {
         {/* Removed the pulse-chip button/element that was here */}
         
         <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden relative mt-6 sm:mt-8">
-          <div className="bg-no-repeat bg-contain bg-center p-4 sm:p-5 min-h-[250px] sm:min-h-[350px] flex flex-col justify-between" style={{
+          <div className="bg-no-repeat bg-contain bg-center p-4 sm:p-5 min-h-[400px] sm:min-h-[500px] flex flex-col justify-between" style={{
           backgroundImage: "url('/lovable-uploads/e20dbb5c-44f5-4447-8ace-be6bbad04d46.png')"
         }}>
             <div className="flex items-center text-white">
