@@ -154,9 +154,9 @@ const Contact = () => {
         {/* Contact Form */}
         <section className="py-16 sm:py-24 bg-gray-50">
           <div className="section-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="max-w-2xl mx-auto">
               <div className="animate-on-scroll">
-                <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">
                   Send us a message
                 </h2>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -253,55 +253,6 @@ const Contact = () => {
                     Send Message
                   </Button>
                 </form>
-              </div>
-
-              <div className="animate-on-scroll">
-                <Card className="p-8 h-fit">
-                  <h3 className="font-bold text-xl text-gray-900 mb-6">Business Hours</h3>
-                  <div className="space-y-4 mb-8">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Monday - Friday</span>
-                      <span className="text-gray-900 font-medium">9:00 AM - 6:00 PM PST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Saturday</span>
-                      <span className="text-gray-900 font-medium">10:00 AM - 4:00 PM PST</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Sunday</span>
-                      <span className="text-gray-900 font-medium">Closed</span>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-pulse-50 p-4 rounded-lg mb-8">
-                    <p className="text-sm text-gray-700">
-                      For urgent support requests, please email us and we'll respond within 2 hours.
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-4">Quick Links</h4>
-                    <div className="space-y-3">
-                      <a 
-                        href="https://calendly.com/sabamoseshvili-trav-nex/30min" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block text-pulse-500 hover:underline"
-                      >
-                        Schedule a Demo →
-                      </a>
-                      <a href="#" className="block text-pulse-500 hover:underline">
-                        View Documentation →
-                      </a>
-                      <a href="#" className="block text-pulse-500 hover:underline">
-                        Check System Status →
-                      </a>
-                      <a href="#" className="block text-pulse-500 hover:underline">
-                        Join Our Community →
-                      </a>
-                    </div>
-                  </div>
-                </Card>
               </div>
             </div>
           </div>
