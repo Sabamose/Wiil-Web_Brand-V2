@@ -159,7 +159,7 @@ const DetailsSection = () => {
                     value={formData.fullName} 
                     onChange={handleChange} 
                     placeholder="Full name" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     required 
                   />
                 </div>
@@ -171,7 +171,7 @@ const DetailsSection = () => {
                     value={formData.email} 
                     onChange={handleChange} 
                     placeholder="Email address" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     required 
                   />
                 </div>
@@ -183,7 +183,7 @@ const DetailsSection = () => {
                     value={formData.company} 
                     onChange={handleChange} 
                     placeholder="Company (optional)" 
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent" 
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent" 
                   />
                 </div>
                 
