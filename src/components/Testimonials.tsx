@@ -62,9 +62,9 @@ const Testimonials = () => {
   return <section className="py-12 bg-white relative" id="testimonials" ref={sectionRef}> {/* Reduced from py-20 */}
       <div className="section-container opacity-0 animate-on-scroll">
         <div className="flex items-center gap-4 mb-6">
-          <div className="pulse-chip">
-            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">04</span>
-            <span>Testimonials</span>
+          <div className="pulse-chip bg-teal-600/10 border border-teal-600/20">
+            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-teal-600 text-white mr-2">04</span>
+            <span className="text-teal-600">Testimonials</span>
           </div>
         </div>
         
