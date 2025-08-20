@@ -384,7 +384,7 @@ const Platform = () => {
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                     <div className="max-w-2xl">
                       <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                        Analytics & <span className="text-teal-500">Enterprise Security</span>
+                        Analytics & <span className="text-[#FC4D0A]">Enterprise Security</span>
                       </h3>
                       <p className="text-foreground/90 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
                       <div className="grid grid-cols-3 gap-6">
@@ -427,7 +427,7 @@ const Platform = () => {
                   backgroundColor: 'white',
                   borderRadius: '1440px',
                   boxSizing: 'border-box',
-                  color: '#0891b2',
+                  color: '#FE5C02',
                   cursor: 'pointer',
                   fontSize: '14px',
                   fontWeight: '600',
