@@ -111,7 +111,7 @@ const Contact = () => {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         required
-                        className="w-full focus-visible:ring-teal-600"
+                        className="w-full focus-visible:ring-teal-500"
                       />
                     </div>
                     <div>
@@ -124,7 +124,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="w-full"
+                        className="w-full focus-visible:ring-teal-500"
                       />
                     </div>
                   </div>
@@ -138,7 +138,7 @@ const Contact = () => {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full"
+                        className="w-full focus-visible:ring-teal-500"
                       />
                     </div>
                     <div>
@@ -146,7 +146,7 @@ const Contact = () => {
                         Inquiry Type
                       </label>
                       <Select onValueChange={handleSelectChange}>
-                        <SelectTrigger className="w-full">
+                        <SelectTrigger className="w-full focus-visible:ring-teal-500">
                           <SelectValue placeholder="Select inquiry type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -169,7 +169,7 @@ const Contact = () => {
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      className="w-full"
+                      className="w-full focus-visible:ring-teal-500"
                     />
                   </div>
 
@@ -183,13 +183,13 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full"
+                      className="w-full focus-visible:ring-teal-500"
                     />
                   </div>
 
                   <Button 
                     type="submit"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3"
+                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 focus-visible:ring-teal-500"
                   >
                     Send Message
                   </Button>
