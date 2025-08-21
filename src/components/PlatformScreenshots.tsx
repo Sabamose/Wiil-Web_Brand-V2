@@ -4,88 +4,103 @@ const PlatformScreenshots = () => {
   const screenshots = [
     {
       id: 1,
-      title: "Dashboard Analytics",
-      description: "Real-time insights and performance metrics",
-      image: "/lovable-uploads/926c1b21-af4f-449c-a7d7-b0976891088f.png",
-      features: ["Live conversation tracking", "Performance analytics", "Custom reports"]
+      title: "Analytics Dashboard",
+      subtitle: "Real-time insights and performance tracking",
+      description: "Monitor your AI assistants with comprehensive analytics including conversation metrics, global deployment tracking, and detailed response data to optimize performance across all channels.",
+      image: "/lovable-uploads/8e414127-71c0-4a6b-9cec-faa32945ff7a.png",
+      metrics: [
+        { value: "41.3K", label: "responses" },
+        { value: "507.3K", label: "minutes" },
+        { value: "78", label: "deployments" }
+      ]
     },
     {
       id: 2,
-      title: "AI Assistant Builder",
-      description: "No-code assistant creation and customization",
-      image: "/lovable-uploads/926c1b21-af4f-449c-a7d7-b0976891088f.png",
-      features: ["Drag & drop interface", "Voice customization", "Knowledge base integration"]
+      title: "Conversation Editor",
+      subtitle: "Inbound and outbound phone calls",
+      description: "Building AI conversations has never been easier with our no-code, drag and drop UI that comes pre-baked with A/B testing. Create sophisticated conversation flows that handle complex customer interactions.",
+      image: "/lovable-uploads/989120b3-bf7e-486f-bda2-9c919e3a5d68.png",
+      features: ["No-code conversation builder", "Drag & drop interface", "Built-in A/B testing"]
     },
     {
       id: 3,
-      title: "Omnichannel Management",
-      description: "Unified inbox for all communication channels",
-      image: "/lovable-uploads/926c1b21-af4f-449c-a7d7-b0976891088f.png",
-      features: ["Multi-channel support", "Seamless handoffs", "Conversation history"]
+      title: "Agent Customization",
+      subtitle: "Customizable AI agents & One-Time Training",
+      description: "Equip your AI agents with initial call recordings and knowledge bases, and they'll remain continuously updated without further training. Customize personality traits, voices, and behavior to match your brand.",
+      image: "/lovable-uploads/79feed46-52a7-41ab-85ac-9d02ef0bfa46.png",
+      features: ["Voice customization", "Personality traits", "Continuous learning"]
     }
   ];
 
   return (
-    <section className="w-full py-16 sm:py-24 bg-gray-50" id="platform-screenshots">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
+    <section className="w-full py-20 sm:py-32 bg-white" id="platform-screenshots">
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-12 sm:mb-16">
-          <div className="pulse-chip">
-            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">03</span>
-            <span>Platform in Action</span>
+        <div className="text-center mb-16 sm:mb-24">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-200 bg-green-50 mb-6">
+            <div className="w-2 h-2 rounded-full bg-green-500"></div>
+            <span className="text-green-700 text-sm font-medium">Platform in Action</span>
           </div>
-          <div className="flex-1 h-[1px] bg-gray-300"></div>
-        </div>
-
-        <div className="max-w-3xl mb-12 sm:mb-16 animate-on-scroll">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold tracking-tight text-gray-900 mb-4 sm:mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-gray-900 mb-6">
             See the platform in action
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Experience the intuitive interface and powerful features that make our platform 
             the choice for businesses scaling their AI operations.
           </p>
         </div>
 
-        {/* Screenshots Grid */}
-        <div className="space-y-16 sm:space-y-24">
+        {/* Screenshots */}
+        <div className="space-y-32">
           {screenshots.map((screenshot, index) => (
             <div 
               key={screenshot.id}
-              className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 lg:gap-16 items-center animate-on-scroll`}
+              className="animate-on-scroll"
             >
-              {/* Content */}
-              <div className="flex-1 space-y-6">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-gray-900 mb-3">
-                    {screenshot.title}
-                  </h3>
-                  <p className="text-lg text-gray-600 mb-6">
-                    {screenshot.description}
-                  </p>
-                </div>
+              {/* Content Header */}
+              <div className="mb-12">
+                {screenshot.subtitle && (
+                  <p className="text-green-600 text-lg font-medium mb-4">{screenshot.subtitle}</p>
+                )}
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6 leading-tight">
+                  {screenshot.title}
+                </h3>
+                <p className="text-xl text-gray-600 max-w-4xl leading-relaxed mb-8">
+                  {screenshot.description}
+                </p>
                 
-                {/* Features List */}
-                <div className="space-y-3">
-                  {screenshot.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center gap-3">
-                      <div className="w-2 h-2 rounded-full bg-pulse-500 flex-shrink-0"></div>
-                      <span className="text-gray-700">{feature}</span>
-                    </div>
-                  ))}
-                </div>
+                {/* Metrics or Features */}
+                {screenshot.metrics && (
+                  <div className="flex flex-wrap gap-8 mb-12">
+                    {screenshot.metrics.map((metric, metricIndex) => (
+                      <div key={metricIndex} className="text-center">
+                        <div className="text-3xl font-bold text-gray-900 mb-1">{metric.value}</div>
+                        <div className="text-gray-600">{metric.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                
+                {screenshot.features && (
+                  <div className="flex flex-wrap gap-6 mb-12">
+                    {screenshot.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
+                        <span className="text-gray-700">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Screenshot */}
-              <div className="flex-1 max-w-2xl">
-                <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden shadow-2xl">
                   <img 
                     src={screenshot.image}
-                    alt={`${screenshot.title} - ${screenshot.description}`}
+                    alt={`${screenshot.title} interface`}
                     className="w-full h-auto object-cover"
                   />
-                  {/* Overlay gradient for better text visibility if needed */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -93,10 +108,10 @@ const PlatformScreenshots = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16 sm:mt-24 animate-on-scroll">
-          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-pulse-200 bg-white/80 backdrop-blur-sm">
-            <span className="text-gray-700">Ready to see it live?</span>
-            <button className="text-pulse-600 font-medium hover:text-pulse-700 transition-colors">
+        <div className="text-center mt-24 sm:mt-32">
+          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
+            <span className="text-gray-700 text-lg">Ready to see it live?</span>
+            <button className="px-6 py-2 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-medium">
               Request Demo →
             </button>
           </div>
