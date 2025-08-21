@@ -74,7 +74,6 @@ const PlatformScreenshots = () => {
                   <div className="flex flex-wrap gap-8 mb-12">
                     {screenshot.metrics.map((metric, metricIndex) => (
                       <div key={metricIndex} className="text-center">
-                        <div className="text-3xl font-bold text-gray-900 mb-1">{metric.value}</div>
                         <div className="text-gray-600">{metric.label}</div>
                       </div>
                     ))}
