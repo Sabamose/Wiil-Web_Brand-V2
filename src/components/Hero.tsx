@@ -54,7 +54,7 @@ const Hero = () => {
       className="overflow-hidden relative bg-hero-gradient" 
       id="hero" 
       style={{
-        padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
+        padding: isMobile ? '120px 12px 80px' : '160px 20px 120px'
       }}
     >
       <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
