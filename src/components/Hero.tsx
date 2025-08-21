@@ -31,7 +31,9 @@ const Hero = () => {
     >
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/Header-background.webp')" }}
+        style={{ 
+          backgroundImage: "linear-gradient(135deg, #0f766e 0%, #14b8a6 50%, #2dd4bf 100%)"
+        }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
       
