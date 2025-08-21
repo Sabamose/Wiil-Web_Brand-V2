@@ -70,17 +70,6 @@ const PlatformScreenshots = () => {
                 </p>
                 
                 {/* Features */}
-                
-                {screenshot.features && (
-                  <div className="flex flex-wrap gap-6 mb-12">
-                    {screenshot.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <span className="text-gray-700">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
 
               {/* Screenshot */}
