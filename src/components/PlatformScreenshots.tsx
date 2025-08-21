@@ -7,7 +7,7 @@ const PlatformScreenshots = () => {
       title: "Analytics Dashboard",
       subtitle: "Real-time insights and performance tracking",
       description: "Monitor your AI assistants with comprehensive analytics including conversation metrics, global deployment tracking, and detailed response data to optimize performance across all channels.",
-      image: "/lovable-uploads/2a0769e7-710b-4ad7-99d3-e0ba42307ab9.png",
+      image: "/lovable-uploads/f0ac3dc8-c76e-419a-88b5-f02af3e5d8e2.png",
       metrics: [
         { value: "41.3K", label: "responses" },
         { value: "507.3K", label: "minutes" },
