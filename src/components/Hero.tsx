@@ -40,18 +40,18 @@ const Hero = () => {
           style={{ animationDelay: "0.1s" }}
         >
           <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-teal-600 text-white mr-2">01</span>
-          <span className="text-teal-600">AI Platform</span>
+          <span className="text-teal-700">AI Platform</span>
         </div>
         
         <h1 
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-teal-100 mb-6 leading-tight animate-on-scroll"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-teal-50/90 mb-6 leading-tight animate-on-scroll"
           style={{ animationDelay: "0.3s" }}
         >
           AI Assistants for<br className="hidden sm:inline" />every conversation
         </h1>
         
         <p 
-          className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll"
+          className="text-lg sm:text-xl md:text-2xl text-teal-50/80 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll"
           style={{ animationDelay: "0.5s" }}
         >
           Build intelligent AI assistants that handle sales, support, scheduling, and operations. Deploy across voice, chat, and SMS in minutes—no coding required.
