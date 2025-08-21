@@ -29,11 +29,9 @@ const Hero = () => {
       className="relative min-h-screen flex items-center justify-center overflow-hidden" 
       id="hero"
     >
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/Header-background.webp')" }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-teal-600/20 via-transparent to-white/95" />
+      <div className="absolute inset-0 bg-white" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/30 to-teal-600/40" />
+      <div className="absolute inset-0 bg-gradient-to-t from-teal-500/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
       
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
