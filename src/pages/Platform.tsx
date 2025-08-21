@@ -421,7 +421,7 @@ const Platform = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll">
               <a 
-                href="#get-access" 
+                href="https://console.wiil.io/" 
                 className="flex items-center justify-center group text-center" 
                 style={{
                   backgroundColor: 'white',
