@@ -37,10 +37,6 @@ const PlatformScreenshots = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-green-200 bg-green-50 mb-6">
-            <div className="w-2 h-2 rounded-full bg-green-500"></div>
-            <span className="text-green-700 text-sm font-medium">Platform in Action</span>
-          </div>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-gray-900 mb-6">
             See the platform in action
           </h2>
