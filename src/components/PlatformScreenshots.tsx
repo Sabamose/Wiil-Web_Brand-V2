@@ -69,16 +69,7 @@ const PlatformScreenshots = () => {
                   {screenshot.description}
                 </p>
                 
-                {/* Metrics or Features */}
-                {screenshot.metrics && (
-                  <div className="flex flex-wrap gap-8 mb-12">
-                    {screenshot.metrics.map((metric, metricIndex) => (
-                      <div key={metricIndex} className="text-center">
-                        <div className="text-gray-600">{metric.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                {/* Features */}
                 
                 {screenshot.features && (
                   <div className="flex flex-wrap gap-6 mb-12">
