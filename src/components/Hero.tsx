@@ -34,7 +34,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-teal-500/30 via-transparent to-transparent" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
       
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div 
           className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-400/10 border border-teal-500/20 inline-flex" 
           style={{ animationDelay: "0.1s" }}
