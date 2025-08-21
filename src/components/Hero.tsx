@@ -37,7 +37,7 @@ const Hero = () => {
       
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
         <div 
-          className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-600/10 border border-teal-600/20 inline-flex" 
+          className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-400/10 border border-teal-500/20 inline-flex" 
           style={{ animationDelay: "0.1s" }}
         >
           <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-teal-600 text-white mr-2">01</span>
@@ -66,7 +66,7 @@ const Hero = () => {
             href="https://console.wiil.io/" 
             className="flex items-center justify-center group w-full sm:w-auto text-center" 
             style={{
-              backgroundColor: '#0d9488',
+              backgroundColor: '#0f766e',
               borderRadius: '1440px',
               boxSizing: 'border-box',
               color: '#FFFFFF',
@@ -74,7 +74,7 @@ const Hero = () => {
               fontSize: '14px',
               lineHeight: '20px',
               padding: '16px 24px',
-              border: '1px solid #0d9488',
+              border: '1px solid #0f766e',
             }}
           >
             Get Early Access
