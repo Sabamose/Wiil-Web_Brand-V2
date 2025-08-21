@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PlatformScreenshots from "@/components/PlatformScreenshots";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "@/components/LottieAnimation";
 
@@ -408,6 +409,9 @@ const Platform = () => {
             </div>
           </section>
         </div>
+
+        {/* Platform Screenshots Section */}
+        <PlatformScreenshots />
 
         {/* CTA Section */}
         <section className="py-16 sm:py-24 bg-pulse-500 relative overflow-hidden">
