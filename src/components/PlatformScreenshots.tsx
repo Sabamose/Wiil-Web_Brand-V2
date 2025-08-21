@@ -81,16 +81,6 @@ const PlatformScreenshots = () => {
             </div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center mt-24 sm:mt-32">
-          <div className="inline-flex items-center gap-4 px-8 py-4 rounded-full border border-gray-200 bg-gray-50/50 backdrop-blur-sm">
-            <span className="text-gray-700 text-lg">Ready to see it live?</span>
-            <button className="px-6 py-2 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors font-medium">
-              Request Demo →
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
