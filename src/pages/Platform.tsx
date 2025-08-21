@@ -411,7 +411,7 @@ const Platform = () => {
 
         {/* CTA Section */}
         <section className="py-16 sm:py-24 bg-pulse-500 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-pulse-600 to-pulse-400"></div>
+          <div className="absolute inset-0 bg-hero-gradient"></div>
           <div className="relative z-10 section-container text-center">
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 animate-on-scroll">
               Ready to build your AI assistant?
