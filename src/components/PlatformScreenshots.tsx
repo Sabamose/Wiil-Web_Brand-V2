@@ -16,7 +16,7 @@ const PlatformScreenshots = () => {
     },
     {
       id: 2,
-      title: "Conversation Editor",
+      title: "Conversation Monitoring",
       subtitle: "Inbound and outbound phone calls",
       description: "Building AI conversations has never been easier with our no-code, drag and drop UI that comes pre-baked with A/B testing. Create sophisticated conversation flows that handle complex customer interactions.",
       image: "/lovable-uploads/989120b3-bf7e-486f-bda2-9c919e3a5d68.png",
