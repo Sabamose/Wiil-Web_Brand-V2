@@ -125,7 +125,7 @@ const Hero = () => {
                 <img 
                   src="/lovable-uploads/8c1664a7-3fb0-4fa6-a9ce-85f2be0f467d.png" 
                   alt="Analytics Dashboard" 
-                  className="w-full h-auto" 
+                  className="w-full h-auto scale-110" 
                 />
               </div>
               </>
