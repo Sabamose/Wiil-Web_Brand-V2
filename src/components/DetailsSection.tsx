@@ -180,12 +180,12 @@ const DetailsSection = () => {
                 </div>
                 
                 <div>
-                  <a 
-                    href="https://console.wiil.io/"
-                    className="w-full px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-full transition-colors duration-300 inline-block text-center"
+                  <button 
+                    type="submit" 
+                    className="w-full px-6 py-3 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-full transition-colors duration-300"
                   >
                     Get Early Access
-                  </a>
+                  </button>
                 </div>
               </form>
             </div>
