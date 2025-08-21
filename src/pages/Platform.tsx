@@ -413,57 +413,6 @@ const Platform = () => {
         {/* Platform Screenshots Section */}
         <PlatformScreenshots />
 
-        {/* CTA Section */}
-        <section className="py-16 sm:py-24 bg-pulse-500 relative overflow-hidden">
-          <div className="absolute inset-0 bg-hero-gradient"></div>
-          <div className="relative z-10 section-container text-center">
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6 animate-on-scroll">
-              Ready to build your AI assistant?
-            </h2>
-            <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto animate-on-scroll">
-              Start with a free trial or speak with our experts to see the complete platform in action.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll">
-              <a 
-                href="https://console.wiil.io/" 
-                className="flex items-center justify-center group text-center" 
-                style={{
-                  backgroundColor: 'white',
-                  borderRadius: '1440px',
-                  boxSizing: 'border-box',
-                  color: '#FE5C02',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  lineHeight: '20px',
-                  padding: '16px 32px',
-                  border: '1px solid white',
-                }}
-              >
-                Get Early Access
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a 
-                href="#contact" 
-                className="flex items-center justify-center group text-center" 
-                style={{
-                  backgroundColor: 'transparent',
-                  borderRadius: '1440px',
-                  boxSizing: 'border-box',
-                  color: 'white',
-                  cursor: 'pointer',
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  lineHeight: '20px',
-                  padding: '16px 32px',
-                  border: '1px solid white',
-                }}
-              >
-                Talk to Expert
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>
