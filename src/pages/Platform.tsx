@@ -216,40 +216,32 @@ const Platform = () => {
                     opacity: isIntersecting ? 0.8 : 0
                   }}
                 >
-                  <div
-                    className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/50 to-dark-900/90"
-                    style={{
-                      backgroundImage: "url('/background-section1.png')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundBlendMode: "overlay"
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white to-teal-50"></div>
                   
                   <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-50 text-teal-600">
                       <span className="text-sm font-medium">Phone System</span>
                     </div>
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                     <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-gray-900 font-bold leading-tight mb-4">
                         Professional Phone System
                       </h3>
-                      <p className="text-white/90 text-lg mb-6">Get instant access to local and toll-free numbers in 60+ countries with multiple provider redundancy. 99.9% uptime guaranteed.</p>
+                      <p className="text-gray-600 text-lg mb-6">Get instant access to local and toll-free numbers in 60+ countries with multiple provider redundancy. 99.9% uptime guaranteed.</p>
                       <div className="grid grid-cols-3 gap-6">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">99.9%</div>
-                          <div className="text-sm text-white/70">uptime</div>
+                          <div className="text-2xl font-bold text-gray-900">99.9%</div>
+                          <div className="text-sm text-gray-600">uptime</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">60+</div>
-                          <div className="text-sm text-white/70">countries</div>
+                          <div className="text-2xl font-bold text-gray-900">60+</div>
+                          <div className="text-sm text-gray-600">countries</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">$1.25</div>
-                          <div className="text-sm text-white/70">per month</div>
+                          <div className="text-2xl font-bold text-gray-900">$1.25</div>
+                          <div className="text-sm text-gray-600">per month</div>
                         </div>
                       </div>
                     </div>
@@ -266,40 +258,32 @@ const Platform = () => {
                     opacity: activeCardIndex >= 1 ? 0.9 : 0
                   }}
                 >
-                  <div
-                    className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/50 to-dark-900/90"
-                    style={{
-                      backgroundImage: "url('/background-section2.png')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundBlendMode: "overlay"
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white to-teal-50"></div>
                   
                   <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-50 text-teal-600">
                       <span className="text-sm font-medium">Omnichannel</span>
                     </div>
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                     <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-gray-900 font-bold leading-tight mb-4">
                         Omnichannel Communication
                       </h3>
-                      <p className="text-white/90 text-lg mb-6">One AI assistant that works seamlessly across voice, web, SMS, and mobile platforms. All conversations in one unified inbox.</p>
+                      <p className="text-gray-600 text-lg mb-6">One AI assistant that works seamlessly across voice, web, SMS, and mobile platforms. All conversations in one unified inbox.</p>
                       <div className="grid grid-cols-3 gap-6">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">4+</div>
-                          <div className="text-sm text-white/70">channels</div>
+                          <div className="text-2xl font-bold text-gray-900">4+</div>
+                          <div className="text-sm text-gray-600">channels</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Universal</div>
-                          <div className="text-sm text-white/70">integration</div>
+                          <div className="text-2xl font-bold text-gray-900">Universal</div>
+                          <div className="text-sm text-gray-600">integration</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Instant</div>
-                          <div className="text-sm text-white/70">handoffs</div>
+                          <div className="text-2xl font-bold text-gray-900">Instant</div>
+                          <div className="text-sm text-gray-600">handoffs</div>
                         </div>
                       </div>
                     </div>
@@ -316,40 +300,32 @@ const Platform = () => {
                     opacity: activeCardIndex >= 2 ? 0.95 : 0
                   }}
                 >
-                  <div
-                    className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/50 to-dark-900/90"
-                    style={{
-                      backgroundImage: "url('/background-section3.png')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundBlendMode: "overlay"
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white to-teal-50"></div>
                   
                   <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-50 text-teal-600">
                       <span className="text-sm font-medium">Smart Routing</span>
                     </div>
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                     <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-gray-900 font-bold leading-tight mb-4">
                         Intelligent Conversation Routing
                       </h3>
-                      <p className="text-white/90 text-lg mb-6">Smart AI routing ensures customers connect with the perfect assistant or human expert instantly. No more wrong transfers.</p>
+                      <p className="text-gray-600 text-lg mb-6">Smart AI routing ensures customers connect with the perfect assistant or human expert instantly. No more wrong transfers.</p>
                       <div className="grid grid-cols-3 gap-6">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">95%</div>
-                          <div className="text-sm text-white/70">accuracy</div>
+                          <div className="text-2xl font-bold text-gray-900">95%</div>
+                          <div className="text-sm text-gray-600">accuracy</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Zero</div>
-                          <div className="text-sm text-white/70">wrong transfers</div>
+                          <div className="text-2xl font-bold text-gray-900">Zero</div>
+                          <div className="text-sm text-gray-600">wrong transfers</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Instant</div>
-                          <div className="text-sm text-white/70">escalation</div>
+                          <div className="text-2xl font-bold text-gray-900">Instant</div>
+                          <div className="text-sm text-gray-600">escalation</div>
                         </div>
                       </div>
                     </div>
@@ -366,40 +342,32 @@ const Platform = () => {
                     opacity: activeCardIndex >= 3 ? 1 : 0
                   }}
                 >
-                  <div
-                    className="absolute inset-0 z-0 bg-gradient-to-b from-pulse-900/50 to-dark-900/90"
-                    style={{
-                      backgroundImage: "url('/Header-background.webp')",
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      backgroundBlendMode: "overlay"
-                    }}
-                  ></div>
+                  <div className="absolute inset-0 z-0 bg-gradient-to-br from-white to-teal-50"></div>
                   
                   <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-50 text-teal-600">
                       <span className="text-sm font-medium">Enterprise Ready</span>
                     </div>
                   </div>
                   
                   <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                     <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
+                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-gray-900 font-bold leading-tight mb-4">
                         Analytics & <span className="text-[#FC4D0A]">Enterprise Security</span>
                       </h3>
-                      <p className="text-foreground/90 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
+                      <p className="text-gray-600 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
                       <div className="grid grid-cols-3 gap-6">
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">Real-time</div>
-                          <div className="text-sm text-white/70">analytics</div>
+                          <div className="text-2xl font-bold text-gray-900">Real-time</div>
+                          <div className="text-sm text-gray-600">analytics</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">SOC 2</div>
-                          <div className="text-sm text-white/70">compliant</div>
+                          <div className="text-2xl font-bold text-gray-900">SOC 2</div>
+                          <div className="text-sm text-gray-600">compliant</div>
                         </div>
                         <div className="text-center">
-                          <div className="text-2xl font-bold text-white">GDPR</div>
-                          <div className="text-sm text-white/70">ready</div>
+                          <div className="text-2xl font-bold text-gray-900">GDPR</div>
+                          <div className="text-sm text-gray-600">ready</div>
                         </div>
                       </div>
                     </div>
