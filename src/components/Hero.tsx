@@ -29,43 +29,6 @@ const Hero = () => {
       .catch(error => console.error("Error loading Lottie animation:", error));
   }, []);
 
-  useEffect(() => {
-    // Skip effect on mobile
-    if (isMobile) return;
-    
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current || !imageRef.current) return;
-      
-      const {
-        left,
-        top,
-        width,
-        height
-      } = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - left) / width - 0.5;
-      const y = (e.clientY - top) / height - 0.5;
-
-      imageRef.current.style.transform = `perspective(1000px) rotateY(${x * 2.5}deg) rotateX(${-y * 2.5}deg) scale3d(1.02, 1.02, 1.02)`;
-    };
-    
-    const handleMouseLeave = () => {
-      if (!imageRef.current) return;
-      imageRef.current.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1)`;
-    };
-    
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-      container.addEventListener("mouseleave", handleMouseLeave);
-    }
-    
-    return () => {
-      if (container) {
-        container.removeEventListener("mousemove", handleMouseMove);
-        container.removeEventListener("mouseleave", handleMouseLeave);
-      }
-    };
-  }, [isMobile]);
   
   useEffect(() => {
     // Skip parallax on mobile
@@ -158,16 +121,12 @@ const Hero = () => {
               </div>
             ) : (
               <>
-              <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
+              <div className="relative">
                 <img 
-                  ref={imageRef} 
                   src="/lovable-uploads/8c1664a7-3fb0-4fa6-a9ce-85f2be0f467d.png" 
                   alt="Analytics Dashboard" 
-                  className="w-full h-auto object-cover transition-transform duration-500 ease-out" 
-                  style={{ transformStyle: 'preserve-3d' }} 
+                  className="w-full h-auto" 
                 />
-                <div className="absolute inset-0" style={{ backgroundImage: 'url("/hero-image.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', mixBlendMode: 'overlay', opacity: 0.5 }}></div>
               </div>
               </>
             )}
