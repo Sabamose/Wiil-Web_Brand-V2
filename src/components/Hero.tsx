@@ -44,7 +44,7 @@ const Hero = () => {
         </div>
         
         <h1 
-          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight animate-on-scroll"
+          className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-teal-100 mb-6 leading-tight animate-on-scroll"
           style={{ animationDelay: "0.3s" }}
         >
           AI Assistants for<br className="hidden sm:inline" />every conversation
