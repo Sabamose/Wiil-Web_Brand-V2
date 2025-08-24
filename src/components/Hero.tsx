@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [lottieData, setLottieData] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   useEffect(() => {
     // Check if mobile on mount and when window resizes
     const checkMobile = () => {
@@ -68,6 +70,18 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
+  
+  const handlePlayClick = () => {
+    if (iframeRef.current) {
+      const iframe = iframeRef.current;
+      if (isPlaying) {
+        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+      } else {
+        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
   return <section className="overflow-hidden relative bg-hero-gradient" id="hero" style={{
     padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
   }}>
@@ -125,12 +139,23 @@ const Hero = () => {
                 transformStyle: 'preserve-3d'
               }}>
                   <iframe 
-                    src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=1&mute=1&loop=1&playlist=YZZZbfTs-ys"
+                    ref={iframeRef}
+                    src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=0&mute=1&loop=1&playlist=YZZZbfTs-ys"
                     title="AI Assistant Demo"
                     className="w-full h-full object-cover"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
+                  {!isPlaying && (
+                    <button
+                      onClick={handlePlayClick}
+                      className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
+                    >
+                      <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
+                        <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
+                      </div>
+                    </button>
+                  )}
                 </div>
                 <div className="absolute inset-0 pointer-events-none" style={{
                 backgroundImage: 'url("/hero-image.jpg")',
