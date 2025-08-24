@@ -53,7 +53,7 @@ const Navbar = () => {
           aria-label="Wiil"
         >
           <img 
-            src="/lovable-uploads/863df6e6-619f-40c2-bee9-6b4a10ad50ca.png" 
+            src="/lovable-uploads/4e53d8f2-850c-4351-b08f-846f98d30c80.png" 
             alt="Wiil Logo" 
             className="h-7 sm:h-8 w-auto" 
           />
