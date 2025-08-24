@@ -95,7 +95,6 @@ const DemoVideoSection = () => {
                     </div>
                     <div className="absolute bottom-6 left-6 right-6">
                       <h3 className="text-xl font-semibold text-teal-800 mb-2">Watch AI Assistant Demo</h3>
-                      <p className="text-teal-600/80 text-sm">See how our AI handles real conversations</p>
                     </div>
                   </>
                 ) : (
