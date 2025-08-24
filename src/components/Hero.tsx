@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
+
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [lottieData, setLottieData] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     // Check if mobile on mount and when window resizes
     const checkMobile = () => {
@@ -16,9 +18,11 @@ const Hero = () => {
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+
   useEffect(() => {
     fetch('/loop-header.lottie').then(response => response.json()).then(data => setLottieData(data)).catch(error => console.error("Error loading Lottie animation:", error));
   }, []);
+
   useEffect(() => {
     // Skip effect on mobile
     if (isMobile) return;
@@ -50,6 +54,7 @@ const Hero = () => {
       }
     };
   }, [isMobile]);
+
   useEffect(() => {
     // Skip parallax on mobile
     if (isMobile) return;
@@ -68,54 +73,50 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
-  return <section className="overflow-hidden relative bg-hero-gradient" id="hero" style={{
-    padding: isMobile ? '150px 12px 80px' : '180px 20px 120px'
-  }}>
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/Header-background.webp')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
       
-      <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto" ref={containerRef}>
         <div className="flex flex-col items-center text-center gap-6 lg:gap-12">
           <div className="w-full max-w-4xl">
-            <div className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-600/10 border border-teal-600/20" style={{
-            animationDelay: "0.1s"
-          }}>
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-teal-600 text-white mr-2">01</span>
-              <span className="text-teal-600">AI Platform</span>
+            <div className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-orange-600/10 border border-orange-600/20" style={{
+              animationDelay: "0.1s"
+            }}>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-orange-600 text-white mr-2">01</span>
+              <span className="text-orange-600">AI Platform</span>
             </div>
             
-            <h1 className="section-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
-            animationDelay: "0.3s"
-          }}>
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight opacity-0 animate-fade-in" style={{
+              animationDelay: "0.3s"
+            }}>
               AI Assistants for<br className="hidden sm:inline" />Customer Support
             </h1>
             
             <p style={{
-            animationDelay: "0.5s"
-          }} className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-lg sm:text-xl md:text-2xl text-left">Build intelligent AI assistants that handle sales, support, scheduling, and operations. Connect  to phone, website, and SMS in minutes—no coding required.</p>
+              animationDelay: "0.5s"
+            }} className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed opacity-0 animate-fade-in">
+              Build intelligent AI assistants that handle sales, support, scheduling, and operations. Connect to phone, website, and SMS in minutes—no coding required.
+            </p>
             
             <div className="flex justify-center opacity-0 animate-fade-in" style={{
-            animationDelay: "0.7s"
-          }}>
-              <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center" style={{
-              backgroundColor: '#0d9488',
-              borderRadius: '1440px',
-              boxSizing: 'border-box',
-              color: '#FFFFFF',
-              cursor: 'pointer',
-              fontSize: '14px',
-              lineHeight: '20px',
-              padding: '16px 24px',
-              border: '1px solid #0d9488'
+              animationDelay: "0.7s"
             }}>
+              <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center bg-primary hover:bg-primary/90 transition-colors duration-200 text-white rounded-full px-8 py-4 text-lg font-semibold">
                 Get Early Access
-                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      
-      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
