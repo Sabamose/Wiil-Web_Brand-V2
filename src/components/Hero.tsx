@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -107,10 +108,17 @@ const Hero = () => {
             <div className="flex justify-center opacity-0 animate-fade-in" style={{
               animationDelay: "0.7s"
             }}>
-              <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center bg-primary hover:bg-primary/90 transition-colors duration-200 text-white rounded-full px-8 py-4 text-lg font-semibold">
-                Get Early Access
-                <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-              </a>
+              <Button
+                variant="hero"
+                size="lg"
+                asChild
+                className="group w-full sm:w-auto"
+              >
+                <a href="#get-access">
+                  Get Early Access
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
             </div>
           </div>
         </div>
