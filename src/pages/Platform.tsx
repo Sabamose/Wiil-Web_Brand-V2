@@ -175,9 +175,9 @@ const Platform = () => {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight animate-on-scroll">
               Platform
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
-              Professional AI infrastructure built for scale. Everything you need to deploy, manage, and optimize intelligent assistants across your organization.
-            </p>
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
+            Space for Building AI Customer Support Assistants. Everything you need to deploy, manage, and optimize intelligent assistants across your organization.
+          </p>
           </div>
         </section>
 
