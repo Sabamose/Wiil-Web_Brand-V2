@@ -57,15 +57,7 @@ const DemoVideoSection = () => {
   }, [isMobile]);
 
   const handlePlayClick = () => {
-    if (iframeRef.current) {
-      const iframe = iframeRef.current;
-      if (isPlaying) {
-        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
-      } else {
-        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
-      }
-      setIsPlaying(!isPlaying);
-    }
+    setIsPlaying(true);
   };
 
   return (
@@ -83,16 +75,39 @@ const DemoVideoSection = () => {
           <div className="relative" ref={containerRef}>
             <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
             <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-              <div ref={videoRef} className="w-full aspect-[16/10] transition-transform duration-500 ease-out bg-gray-100 flex items-center justify-center" style={{
+              <div ref={videoRef} className="w-full aspect-[16/10] transition-transform duration-500 ease-out relative overflow-hidden rounded-xl" style={{
                 transformStyle: 'preserve-3d'
               }}>
-                <div className="text-center">
-                  <div className="bg-gray-200 rounded-full p-6 mx-auto mb-4 w-20 h-20 flex items-center justify-center">
-                    <Play className="w-8 h-8 text-gray-600" fill="currentColor" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">Demo Video</h3>
-                  <p className="text-gray-500 text-sm">Video will be available soon</p>
-                </div>
+                {!isPlaying ? (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-teal-100 to-teal-200"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-teal-900/20 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <button
+                        onClick={handlePlayClick}
+                        className="group relative z-10 flex items-center justify-center"
+                      >
+                        <div className="absolute inset-0 bg-white/20 rounded-full blur-xl scale-150 group-hover:scale-[2] transition-transform duration-500"></div>
+                        <div className="relative bg-white/90 backdrop-blur-sm rounded-full p-6 shadow-2xl group-hover:scale-110 transition-all duration-300">
+                          <Play className="w-12 h-12 text-teal-600 ml-1" fill="currentColor" />
+                        </div>
+                      </button>
+                    </div>
+                    <div className="absolute bottom-6 left-6 right-6">
+                      <h3 className="text-xl font-semibold text-teal-800 mb-2">Watch AI Assistant Demo</h3>
+                      <p className="text-teal-600/80 text-sm">See how our AI handles real conversations</p>
+                    </div>
+                  </>
+                ) : (
+                  <iframe 
+                    ref={iframeRef}
+                    src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=1&mute=0&loop=1&playlist=YZZZbfTs-ys"
+                    title="AI Assistant Demo"
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                )}
               </div>
               <div className="absolute inset-0 pointer-events-none" style={{
                 backgroundImage: 'url("/hero-image.jpg")',
