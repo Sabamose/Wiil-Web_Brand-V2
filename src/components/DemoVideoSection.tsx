@@ -83,16 +83,27 @@ const DemoVideoSection = () => {
           <div className="relative" ref={containerRef}>
             <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
             <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-              <div ref={videoRef} className="w-full aspect-video transition-transform duration-500 ease-out bg-gray-100 flex items-center justify-center" style={{
+              <div ref={videoRef} className="w-full aspect-[16/10] transition-transform duration-500 ease-out" style={{
                 transformStyle: 'preserve-3d'
               }}>
-                <div className="text-center">
-                  <div className="bg-gray-200 rounded-full p-6 mx-auto mb-4 w-20 h-20 flex items-center justify-center">
-                    <Play className="w-8 h-8 text-gray-600" fill="currentColor" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">Demo Video</h3>
-                  <p className="text-gray-500 text-sm">Video will be available soon</p>
-                </div>
+                <iframe 
+                  ref={iframeRef}
+                  src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=0&mute=1&loop=1&playlist=YZZZbfTs-ys"
+                  title="AI Assistant Demo"
+                  className="w-full h-full object-cover"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                {!isPlaying && (
+                  <button
+                    onClick={handlePlayClick}
+                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
+                  >
+                    <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
+                    </div>
+                  </button>
+                )}
               </div>
               <div className="absolute inset-0 pointer-events-none" style={{
                 backgroundImage: 'url("/hero-image.jpg")',
