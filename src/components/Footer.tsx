@@ -18,7 +18,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-gray-600 text-sm leading-relaxed">
-              The no-code platform for building AI assistants that handle business conversations at scale.
+              The no-code platform for building AI assistants that handle customer conversations at scale.
             </p>
           </div>
 
