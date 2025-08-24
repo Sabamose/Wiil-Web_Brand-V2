@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "@/components/LottieAnimation";
+import { Button } from "@/components/ui/button";
 
 const Platform = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -178,13 +179,14 @@ const Platform = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
               Space for Building AI Customer Support Assistants. Everything you need to deploy, manage, and optimize intelligent assistants across your organization.
             </p>
-            <button 
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium hover:bg-white/30 transition-all duration-300 animate-on-scroll"
+            <Button 
+              variant="glass"
+              className="animate-on-scroll"
               onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
             >
               Watch Demo
               <ArrowRight size={20} />
-            </button>
+            </Button>
           </div>
         </section>
 

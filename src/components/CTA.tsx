@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const CTA = () => {
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -53,13 +54,17 @@ const CTA = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#contact" className="button-primary group flex items-center justify-center w-full sm:w-auto">
-              Request Early Access
-              <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
-            <a href="#" className="button-secondary w-full sm:w-auto text-center">
-              Join Waitlist
-            </a>
+            <Button variant="glass" asChild className="group w-full sm:w-auto">
+              <a href="#contact">
+                Request Early Access
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+            <Button variant="glass" asChild className="w-full sm:w-auto">
+              <a href="#">
+                Join Waitlist
+              </a>
+            </Button>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 
 import React, { useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const RobotShowcaseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -60,9 +61,9 @@ const RobotShowcaseSection = () => {
                   <h3 className="text-white text-xl font-semibold">Next Generation Companion</h3>
                   <p className="text-white/80">Designed for human interaction</p>
                 </div>
-                <button className="px-6 py-3 bg-pulse-500 hover:bg-pulse-600 text-white font-medium rounded-full transition-colors duration-300">
+                <Button variant="glass">
                   Learn More
-                </button>
+                </Button>
               </div>
             </div>
           </div>

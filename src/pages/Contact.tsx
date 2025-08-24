@@ -76,14 +76,15 @@ const Contact = () => {
             </p>
             <div className="space-x-4 animate-on-scroll">
               <Button 
-                className="bg-white text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+                variant="glass"
+                className="px-8 py-4 text-lg"
                 onClick={() => window.open('https://calendly.com/sabamoseshvili-trav-nex/30min', '_blank')}
               >
                 Schedule a Call
               </Button>
               <Button 
-                variant="outline"
-                className="border-white text-black bg-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors"
+                variant="glass"
+                className="px-8 py-4 text-lg"
                 onClick={() => window.location.href = 'mailto:contact@wiil.io'}
               >
                 Send Email
@@ -190,7 +191,8 @@ const Contact = () => {
 
                   <Button 
                     type="submit"
-                    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-3 focus-visible:ring-teal-500"
+                    variant="glass"
+                    className="w-full"
                   >
                     Send Message
                   </Button>
