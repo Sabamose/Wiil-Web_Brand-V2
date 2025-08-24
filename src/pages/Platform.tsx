@@ -208,7 +208,7 @@ const Platform = () => {
                 </div>
                 
                 <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2">
-                  Professional AI infrastructure at your fingertips
+                  Your AI Customer Support Platform
                 </h2>
               </div>
               
