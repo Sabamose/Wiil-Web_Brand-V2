@@ -175,9 +175,16 @@ const Platform = () => {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight animate-on-scroll">
               Platform
             </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
-            Space for Building AI Customer Support Assistants. Everything you need to deploy, manage, and optimize intelligent assistants across your organization.
-          </p>
+            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
+              Space for Building AI Customer Support Assistants. Everything you need to deploy, manage, and optimize intelligent assistants across your organization.
+            </p>
+            <button 
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg text-white font-medium hover:bg-white/30 transition-all duration-300 animate-on-scroll"
+              onClick={() => window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank')}
+            >
+              Watch Demo
+              <ArrowRight size={20} />
+            </button>
           </div>
         </section>
 
