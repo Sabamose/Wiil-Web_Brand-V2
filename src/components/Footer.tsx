@@ -1,7 +1,10 @@
+
 import React from "react";
 import { Button } from "./ui/button";
+
 const Footer = () => {
-  return <footer className="w-full bg-hero-gradient text-gray-900">
+  return (
+    <footer className="w-full bg-gradient-to-br from-teal-600/10 via-white to-teal-600/5 text-gray-900">
       {/* CTA Section */}
       <div className="section-container py-16 sm:py-20">
 
@@ -14,7 +17,9 @@ const Footer = () => {
                 <span className="text-white font-bold text-sm">W</span>
               </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">The no-code platform for building AI assistants that handle customer conversations at scale.</p>
+            <p className="text-gray-600 text-sm leading-relaxed">
+              The no-code platform for building AI assistants that handle business conversations at scale.
+            </p>
           </div>
 
           {/* Product */}
@@ -56,6 +61,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
+
 export default Footer;
