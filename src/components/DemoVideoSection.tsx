@@ -78,9 +78,6 @@ const DemoVideoSection = () => {
             <h2 className="section-title text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight text-teal-800 mb-6">
               See AI Assistants in Action
             </h2>
-            <p className="section-subtitle text-gray-950 font-normal text-base sm:text-lg max-w-2xl mx-auto">
-              Watch how our AI assistants handle real conversations and deliver exceptional results.
-            </p>
           </div>
 
           <div className="relative" ref={containerRef}>
