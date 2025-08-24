@@ -119,8 +119,6 @@ const Hero = () => {
           }}>
                 <LottieAnimation animationPath={lottieData} className="w-full h-auto max-w-lg mx-auto" loop={true} autoplay={true} />
               </div> : <>
-              <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl min-h-[300px] bg-gradient-to-br from-teal-50 via-teal-100 to-teal-200">
-              </div>
               </>}
           </div>
         </div>
