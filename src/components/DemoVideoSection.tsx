@@ -61,8 +61,8 @@ const DemoVideoSection = () => {
   };
 
   return (
-    <section className="overflow-hidden relative bg-hero-gradient py-20" id="demo-video">
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
+    <section className="overflow-hidden relative bg-gradient-to-br from-teal-50 via-white to-teal-50 py-20" id="demo-video">
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-gradient-to-br from-teal-100/30 to-teal-200/20 opacity-20 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -120,7 +120,7 @@ const DemoVideoSection = () => {
         </div>
       </div>
       
-      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
+      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-teal-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
     </section>
   );
 };
