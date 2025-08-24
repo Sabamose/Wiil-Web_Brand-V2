@@ -149,7 +149,7 @@ const Hero = () => {
                   {!isPlaying && (
                     <button
                       onClick={handlePlayClick}
-                      className="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
+                      className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
                     >
                       <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
                         <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
