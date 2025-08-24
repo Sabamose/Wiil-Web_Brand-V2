@@ -86,7 +86,7 @@ const Hero = () => {
             <h1 className="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
             animationDelay: "0.3s"
           }}>
-              AI Assistants for<br className="hidden sm:inline" />every conversation
+              AI Assistants for<br className="hidden sm:inline" />Customer Support
             </h1>
             
             <p style={{
