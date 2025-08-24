@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-hero-gradient text-gray-900">
+    <footer className="w-full bg-gradient-to-br from-teal-50 via-white to-teal-50 text-gray-900">
       {/* CTA Section */}
       <div className="section-container py-16 sm:py-20">
 
