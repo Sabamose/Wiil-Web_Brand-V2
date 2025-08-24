@@ -121,10 +121,18 @@ const Hero = () => {
               </div> : <>
               <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
               <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <img ref={imageRef} src="/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png" alt="Atlas Robot" className="w-full h-auto object-cover transition-transform duration-500 ease-out" style={{
+                <div ref={imageRef} className="w-full aspect-video transition-transform duration-500 ease-out" style={{
                 transformStyle: 'preserve-3d'
-              }} />
-                <div className="absolute inset-0" style={{
+              }}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=1&mute=1&loop=1&playlist=YZZZbfTs-ys"
+                    title="AI Assistant Demo"
+                    className="w-full h-full object-cover"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="absolute inset-0 pointer-events-none" style={{
                 backgroundImage: 'url("/hero-image.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
