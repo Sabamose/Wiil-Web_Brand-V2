@@ -95,7 +95,7 @@ const Hero = () => {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight opacity-0 animate-fade-in" style={{
               animationDelay: "0.3s"
             }}>
-              Your AI Customer Support Platform
+              AI Assistants for<br className="hidden sm:inline" />Customer Support
             </h1>
             
             <p style={{
