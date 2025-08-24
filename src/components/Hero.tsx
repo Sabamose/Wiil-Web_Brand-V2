@@ -69,13 +69,13 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
   return <section className="overflow-hidden relative bg-hero-gradient" id="hero" style={{
-    padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
+    padding: isMobile ? '150px 12px 80px' : '180px 20px 120px'
   }}>
       <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-center">
-          <div className="w-full lg:w-1/2">
+        <div className="flex flex-col items-center text-center gap-6 lg:gap-12">
+          <div className="w-full max-w-4xl">
             <div className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-600/10 border border-teal-600/20" style={{
             animationDelay: "0.1s"
           }}>
@@ -83,7 +83,7 @@ const Hero = () => {
               <span className="text-teal-600">AI Platform</span>
             </div>
             
-            <h1 className="section-title text-3xl sm:text-4xl lg:text-5xl xl:text-6xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
+            <h1 className="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
             animationDelay: "0.3s"
           }}>
               AI Assistants for<br className="hidden sm:inline" />every conversation
@@ -93,7 +93,7 @@ const Hero = () => {
             animationDelay: "0.5s"
           }} className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-base sm:text-lg text-left">Build intelligent AI assistants that handle sales, support, scheduling, and operations. Connect  to phone, website, and SMS in minutes—no coding required.</p>
             
-            <div className="flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in" style={{
+            <div className="flex justify-center opacity-0 animate-fade-in" style={{
             animationDelay: "0.7s"
           }}>
               <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center" style={{
@@ -111,15 +111,6 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
-          </div>
-          
-          <div className="w-full lg:w-1/2 relative mt-6 lg:mt-0">
-            {lottieData ? <div className="relative z-10 animate-fade-in" style={{
-            animationDelay: "0.9s"
-          }}>
-                <LottieAnimation animationPath={lottieData} className="w-full h-auto max-w-lg mx-auto" loop={true} autoplay={true} />
-              </div> : <>
-              </>}
           </div>
         </div>
       </div>
