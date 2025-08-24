@@ -7,7 +7,7 @@ const MadeByHumans = () => {
         
         <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden relative mt-6 sm:mt-8">
           <div className="bg-no-repeat bg-contain bg-center p-4 sm:p-5 min-h-[400px] sm:min-h-[500px] flex flex-col justify-between" style={{
-          backgroundImage: "url('/lovable-uploads/fa4bb74d-add3-4635-939b-3022e7abf40f.png')"
+          backgroundImage: "url('/lovable-uploads/4929286b-7ac0-4a6c-9081-84f4a5aa81f4.png')"
         }}>
             <div className="flex items-center text-white">
               <span className="text-white text-xl font-medium">
