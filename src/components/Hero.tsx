@@ -83,7 +83,7 @@ const Hero = () => {
               <span className="text-teal-600">AI Platform</span>
             </div>
             
-            <h1 className="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
+            <h1 className="section-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
             animationDelay: "0.3s"
           }}>
               AI Assistants for<br className="hidden sm:inline" />Customer Support
@@ -91,7 +91,7 @@ const Hero = () => {
             
             <p style={{
             animationDelay: "0.5s"
-          }} className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-base sm:text-lg text-left">Build intelligent AI assistants that handle sales, support, scheduling, and operations. Connect  to phone, website, and SMS in minutes—no coding required.</p>
+          }} className="section-subtitle mt-3 sm:mt-6 mb-4 sm:mb-8 leading-relaxed opacity-0 animate-fade-in text-gray-950 font-normal text-lg sm:text-xl md:text-2xl text-left">Build intelligent AI assistants that handle sales, support, scheduling, and operations. Connect  to phone, website, and SMS in minutes—no coding required.</p>
             
             <div className="flex justify-center opacity-0 animate-fade-in" style={{
             animationDelay: "0.7s"
