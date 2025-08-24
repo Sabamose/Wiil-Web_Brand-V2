@@ -3,9 +3,7 @@ const ImageShowcaseSection = () => {
   return <section className="w-full pt-0 pb-8 sm:pb-12 bg-white" id="showcase">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 animate-on-scroll">
-          <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">
-            Built for every conversation, everywhere
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">Our conversational AI platform is designed to transform how businesses interact with customers across all communication channels.</h2>
           <p className="text-base sm:text-lg text-gray-600">Our  conversational AI platform is designed to transform how businesses interact with customers across all communication channels.</p>
         </div>
         
