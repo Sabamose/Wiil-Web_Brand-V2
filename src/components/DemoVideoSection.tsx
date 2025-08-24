@@ -1,0 +1,128 @@
+import React, { useRef, useState, useEffect } from "react";
+import { Play } from "lucide-react";
+
+const DemoVideoSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLDivElement>(null);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if mobile on mount and when window resizes
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    // Skip effect on mobile
+    if (isMobile) return;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current || !videoRef.current) return;
+
+      const {
+        left,
+        top,
+        width,
+        height
+      } = containerRef.current.getBoundingClientRect();
+      const x = (e.clientX - left) / width - 0.5;
+      const y = (e.clientY - top) / height - 0.5;
+
+      videoRef.current.style.transform = `perspective(1000px) rotateY(${x * 2.5}deg) rotateX(${-y * 2.5}deg) scale3d(1.02, 1.02, 1.02)`;
+    };
+
+    const handleMouseLeave = () => {
+      if (!videoRef.current) return;
+      videoRef.current.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) scale3d(1, 1, 1)`;
+    };
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (container) {
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseleave", handleMouseLeave);
+      }
+    };
+  }, [isMobile]);
+
+  const handlePlayClick = () => {
+    if (iframeRef.current) {
+      const iframe = iframeRef.current;
+      if (isPlaying) {
+        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
+      } else {
+        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  return (
+    <section className="overflow-hidden relative bg-hero-gradient py-20" id="demo-video">
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
+      
+      <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="section-title text-2xl sm:text-3xl lg:text-4xl xl:text-5xl leading-tight text-teal-800 mb-6">
+              See AI Assistants in Action
+            </h2>
+            <p className="section-subtitle text-gray-950 font-normal text-base sm:text-lg max-w-2xl mx-auto">
+              Watch how our AI assistants handle real conversations and deliver exceptional results.
+            </p>
+          </div>
+
+          <div className="relative" ref={containerRef}>
+            <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
+            <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
+              <div ref={videoRef} className="w-full aspect-video transition-transform duration-500 ease-out" style={{
+                transformStyle: 'preserve-3d'
+              }}>
+                <iframe 
+                  ref={iframeRef}
+                  src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=0&mute=1&loop=1&playlist=YZZZbfTs-ys"
+                  title="AI Assistant Demo"
+                  className="w-full h-full object-cover"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+                {!isPlaying && (
+                  <button
+                    onClick={handlePlayClick}
+                    className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
+                  >
+                    <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
+                    </div>
+                  </button>
+                )}
+              </div>
+              <div className="absolute inset-0 pointer-events-none" style={{
+                backgroundImage: 'url("/hero-image.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                mixBlendMode: 'overlay',
+                opacity: 0.5
+              }}></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
+    </section>
+  );
+};
+
+export default DemoVideoSection;

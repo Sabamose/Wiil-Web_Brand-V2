@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import LottieAnimation from "./LottieAnimation";
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [lottieData, setLottieData] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   useEffect(() => {
     // Check if mobile on mount and when window resizes
     const checkMobile = () => {
@@ -70,18 +68,6 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
-  
-  const handlePlayClick = () => {
-    if (iframeRef.current) {
-      const iframe = iframeRef.current;
-      if (isPlaying) {
-        iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
-      } else {
-        iframe.src = iframe.src.replace('autoplay=0', 'autoplay=1');
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
   return <section className="overflow-hidden relative bg-hero-gradient" id="hero" style={{
     padding: isMobile ? '100px 12px 40px' : '120px 20px 60px'
   }}>
@@ -135,29 +121,10 @@ const Hero = () => {
               </div> : <>
               <div className="absolute inset-0 bg-dark-900 rounded-2xl sm:rounded-3xl -z-10 shadow-xl"></div>
               <div className="relative transition-all duration-500 ease-out overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                <div ref={imageRef} className="w-full aspect-video transition-transform duration-500 ease-out" style={{
+                <img ref={imageRef} src="/lovable-uploads/5663820f-6c97-4492-9210-9eaa1a8dc415.png" alt="Atlas Robot" className="w-full h-auto object-cover transition-transform duration-500 ease-out" style={{
                 transformStyle: 'preserve-3d'
-              }}>
-                  <iframe 
-                    ref={iframeRef}
-                    src="https://www.youtube.com/embed/YZZZbfTs-ys?start=72&autoplay=0&mute=1&loop=1&playlist=YZZZbfTs-ys"
-                    title="AI Assistant Demo"
-                    className="w-full h-full object-cover"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                  {!isPlaying && (
-                    <button
-                      onClick={handlePlayClick}
-                      className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-colors group"
-                    >
-                      <div className="bg-white/90 rounded-full p-4 shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="w-8 h-8 text-gray-900 ml-1" fill="currentColor" />
-                      </div>
-                    </button>
-                  )}
-                </div>
-                <div className="absolute inset-0 pointer-events-none" style={{
+              }} />
+                <div className="absolute inset-0" style={{
                 backgroundImage: 'url("/hero-image.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
