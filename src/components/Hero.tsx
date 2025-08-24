@@ -109,7 +109,7 @@ const Hero = () => {
               animationDelay: "0.7s"
             }}>
               <Button
-                variant="hero"
+                variant="glass"
                 size="lg"
                 asChild
                 className="group w-full sm:w-auto"
