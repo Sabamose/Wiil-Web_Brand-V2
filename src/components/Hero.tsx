@@ -68,25 +68,25 @@ const Hero = () => {
     });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isMobile]);
-  return <section className="overflow-hidden relative bg-platform-gradient" id="hero" style={{
+  return <section className="overflow-hidden relative bg-hero-gradient" id="hero" style={{
     padding: isMobile ? '150px 12px 80px' : '180px 20px 120px'
   }}>
-      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-white/10 opacity-20 blur-3xl rounded-full"></div>
+      <div className="absolute -top-[10%] -right-[5%] w-1/2 h-[70%] bg-pulse-gradient opacity-20 blur-3xl rounded-full"></div>
       
       <div className="container px-4 sm:px-6 lg:px-8" ref={containerRef}>
         <div className="flex flex-col items-center text-center gap-6 lg:gap-12">
           <div className="w-full max-w-4xl">
-            <div className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-white/10 border border-white/20" style={{
+            <div className="pulse-chip mb-3 sm:mb-6 opacity-0 animate-fade-in bg-teal-600/10 border border-teal-600/20" style={{
             animationDelay: "0.1s"
           }}>
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-white text-orange-600 mr-2">01</span>
-              <span className="text-white">AI Platform</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-teal-600 text-white mr-2">01</span>
+              <span className="text-teal-600">AI Platform</span>
             </div>
             
-            <h1 className="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight opacity-0 animate-fade-in text-white font-bold" style={{
+            <h1 className="section-title text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-tight opacity-0 animate-fade-in text-teal-800" style={{
             animationDelay: "0.3s"
           }}>
-              Platform
+              AI Assistants for<br className="hidden sm:inline" />Customer Support
             </h1>
             
             <p style={{
@@ -96,15 +96,16 @@ const Hero = () => {
             <div className="flex justify-center opacity-0 animate-fade-in" style={{
             animationDelay: "0.7s"
           }}>
-              <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center bg-white text-orange-600 hover:bg-white/90 transition-colors" style={{
+              <a href="#get-access" className="flex items-center justify-center group w-full sm:w-auto text-center" style={{
+              backgroundColor: '#0d9488',
               borderRadius: '1440px',
               boxSizing: 'border-box',
+              color: '#FFFFFF',
               cursor: 'pointer',
               fontSize: '14px',
               lineHeight: '20px',
               padding: '16px 24px',
-              border: '1px solid white',
-              fontWeight: '500'
+              border: '1px solid #0d9488'
             }}>
                 Get Early Access
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -114,7 +115,7 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-white/10 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
+      <div className="hidden lg:block absolute bottom-0 left-1/4 w-64 h-64 bg-pulse-100/30 rounded-full blur-3xl -z-10 parallax" data-speed="0.05"></div>
     </section>;
 };
 export default Hero;
