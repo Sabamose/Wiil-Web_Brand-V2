@@ -127,7 +127,7 @@ const AssistantCreationFlow = () => {
   };
 
   const isReadyToDeploy = () => {
-    return selectedOptions.industry && selectedOptions.assistantType && selectedOptions.role && selectedOptions.voice;
+    return selectedOptions.industry && selectedOptions.role && selectedOptions.voice;
   };
 
   return (
@@ -192,48 +192,6 @@ const AssistantCreationFlow = () => {
               </div>
             </div>
 
-            {/* Assistant Type Selection */}
-            <div className="mb-12">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Choose Assistant Type</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {assistantTypes.map((type) => (
-                  <Card 
-                    key={type.id} 
-                    className={`p-6 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
-                      selectedOptions.assistantType === type.id 
-                        ? 'bg-gradient-to-br from-primary/20 to-secondary/20 shadow-xl shadow-primary/25 ring-2 ring-primary/50' 
-                        : 'hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:shadow-lg'
-                    }`}
-                    onClick={() => handleOptionSelect('assistantType', type.id)}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-4 mb-3">
-                        <div className={`w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                          selectedOptions.assistantType === type.id 
-                            ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
-                            : 'bg-primary/10 text-primary group-hover:bg-primary/20'
-                        }`}>
-                          {type.icon}
-                        </div>
-                        <div>
-                          <h4 className="font-semibold group-hover:text-primary transition-colors">{type.name}</h4>
-                          <p className="text-sm text-muted-foreground">{type.description}</p>
-                        </div>
-                      </div>
-                      <div className="space-y-1">
-                        {type.features.map((feature, index) => (
-                          <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <span className="text-primary">✅</span>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
 
             {/* Role Selection */}
             <div className="mb-12">
