@@ -154,6 +154,13 @@ const AssistantCreationFlow = () => {
   ];
   const handleOptionSelect = (stepId: string, optionId: string) => {
     setSelectedOptions(prev => ({ ...prev, [stepId]: optionId }));
+    
+    // Auto-progress to next step after selection (except for the last step)
+    if (currentStep < steps.length - 1) {
+      setTimeout(() => {
+        nextStep();
+      }, 800);
+    }
   };
 
   const nextStep = () => {
