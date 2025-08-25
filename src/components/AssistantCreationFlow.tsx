@@ -390,32 +390,6 @@ const AssistantCreationFlow = () => {
           </p>
         </div>
 
-        {/* Step Progress Indicator */}
-        <div className="flex justify-center mb-12">
-          <div className="flex items-center gap-4 bg-card/60 backdrop-blur-sm border rounded-full px-6 py-3 shadow-elegant">
-            {steps.map((step, index) => (
-              <React.Fragment key={step.id}>
-                <button
-                  onClick={() => goToStep(index)}
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300 ${
-                    index === currentStep
-                      ? 'bg-gradient-primary text-white shadow-glow'
-                      : index < currentStep
-                      ? 'bg-primary/20 text-primary hover:bg-primary/30'
-                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
-                  }`}
-                >
-                  {index < currentStep ? <Check className="w-4 h-4" /> : index + 1}
-                </button>
-                {index < steps.length - 1 && (
-                  <div className={`w-8 h-1 rounded-full transition-colors duration-300 ${
-                    index < currentStep ? 'bg-primary' : 'bg-muted'
-                  }`} />
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
 
         {/* Main Content Card */}
         <Card className="bg-card/60 backdrop-blur-sm border shadow-elegant overflow-hidden">
