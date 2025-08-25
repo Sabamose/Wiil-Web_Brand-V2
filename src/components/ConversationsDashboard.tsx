@@ -132,7 +132,7 @@ const ConversationsDashboard = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
             Engage With Your Audience
           </h1>
           <p className="text-lg text-muted-foreground">

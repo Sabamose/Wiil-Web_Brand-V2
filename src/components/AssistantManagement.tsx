@@ -122,7 +122,7 @@ const AssistantManagement = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-12">
           <div>
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               Build AI Staff That Never Sleep
             </h1>
             <p className="text-lg text-muted-foreground">

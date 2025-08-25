@@ -67,7 +67,7 @@ const ConversationDetailView = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
           <div>
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
               Monitor Conversations in Real-Time
             </h1>
             <p className="text-lg text-muted-foreground mb-4">
