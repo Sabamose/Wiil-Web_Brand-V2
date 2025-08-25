@@ -163,11 +163,11 @@ const AssistantCreationFlow = () => {
             {/* Industry Selection */}
             <div className="mb-12">
               <h3 className="text-xl font-semibold text-foreground mb-6">Choose Your Industry</h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {industries.map((industry) => (
                   <Card 
                     key={industry.id} 
-                    className={`p-4 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
+                    className={`p-8 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
                       selectedOptions.industry === industry.id 
                         ? 'bg-gradient-to-br from-primary/20 to-secondary/20 shadow-xl shadow-primary/25 ring-2 ring-primary/50' 
                         : 'hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:shadow-lg'
@@ -175,16 +175,17 @@ const AssistantCreationFlow = () => {
                     onClick={() => handleOptionSelect('industry', industry.id)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <div className="flex items-center gap-3 relative z-10">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                    <div className="text-center relative z-10">
+                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
                         selectedOptions.industry === industry.id 
-                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/20'
+                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
+                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
                       }`}>
                         {industry.icon}
                       </div>
                       <div>
-                        <h4 className="font-medium text-sm group-hover:text-primary transition-colors">{industry.name}</h4>
+                        <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{industry.name}</h4>
+                        <p className="text-sm text-muted-foreground">{industry.description}</p>
                       </div>
                     </div>
                   </Card>
@@ -196,11 +197,11 @@ const AssistantCreationFlow = () => {
             {/* Role Selection */}
             <div className="mb-12">
               <h3 className="text-xl font-semibold text-foreground mb-6">Choose Its Role</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {roles.map((role) => (
                   <Card 
                     key={role.id} 
-                    className={`p-4 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
+                    className={`p-8 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
                       selectedOptions.role === role.id 
                         ? 'bg-gradient-to-br from-primary/20 to-secondary/20 shadow-xl shadow-primary/25 ring-2 ring-primary/50' 
                         : 'hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:shadow-lg'
@@ -208,17 +209,17 @@ const AssistantCreationFlow = () => {
                     onClick={() => handleOptionSelect('role', role.id)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <div className="flex items-center gap-3 relative z-10">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                    <div className="text-center relative z-10">
+                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
                         selectedOptions.role === role.id 
-                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/20'
+                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
+                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
                       }`}>
                         {role.icon}
                       </div>
                       <div>
-                        <h4 className="font-medium text-sm group-hover:text-primary transition-colors">{role.name}</h4>
-                        <p className="text-xs text-muted-foreground">{role.description}</p>
+                        <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{role.name}</h4>
+                        <p className="text-sm text-muted-foreground text-center">{role.description}</p>
                       </div>
                     </div>
                   </Card>
@@ -229,11 +230,11 @@ const AssistantCreationFlow = () => {
             {/* Voice Selection */}
             <div className="mb-12">
               <h3 className="text-xl font-semibold text-foreground mb-6">Customize Its Voice</h3>
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {voices.map((voice) => (
                   <Card 
                     key={voice.id} 
-                    className={`p-4 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
+                    className={`p-8 cursor-pointer transition-all duration-500 hover-scale group relative overflow-hidden ${
                       selectedOptions.voice === voice.id 
                         ? 'bg-gradient-to-br from-primary/20 to-secondary/20 shadow-xl shadow-primary/25 ring-2 ring-primary/50' 
                         : 'hover:bg-gradient-to-br hover:from-primary/10 hover:to-secondary/10 hover:shadow-lg'
@@ -241,23 +242,21 @@ const AssistantCreationFlow = () => {
                     onClick={() => handleOptionSelect('voice', voice.id)}
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <div className="flex items-center justify-between relative z-10">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                          selectedOptions.voice === voice.id 
-                            ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
-                            : 'bg-primary/10 text-primary group-hover:bg-primary/20'
-                        }`}>
-                          <span className="text-lg">🔊</span>
-                        </div>
-                        <div>
-                          <h4 className="font-medium text-sm group-hover:text-primary transition-colors">{voice.name}</h4>
-                          <p className="text-xs text-muted-foreground">{voice.accent} • {voice.description}</p>
-                        </div>
+                    <div className="text-center relative z-10">
+                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
+                        selectedOptions.voice === voice.id 
+                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
+                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
+                      }`}>
+                        <span className="text-2xl">🔊</span>
                       </div>
-                      <Button variant="outline" size="sm" className="text-xs hover:bg-primary/10 hover:text-primary transition-colors">
-                        Preview
-                      </Button>
+                      <div>
+                        <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{voice.name}</h4>
+                        <p className="text-sm text-muted-foreground mb-3">{voice.accent} • {voice.description}</p>
+                        <Button variant="outline" size="sm" className="text-xs hover:bg-primary/10 hover:text-primary transition-colors">
+                          Preview
+                        </Button>
+                      </div>
                     </div>
                   </Card>
                 ))}
