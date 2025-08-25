@@ -36,7 +36,7 @@ const AssistantManagement = () => {
   const [assistants] = useState<Assistant[]>([
     {
       id: "asst-1",
-      name: "Phone Assistant",
+      name: "Healthcare Receptionist",
       type: "phone",
       industry: "Healthcare", 
       role: "Answers calls and books appointments",
@@ -48,7 +48,7 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-2", 
-      name: "Website Assistant",
+      name: "E-commerce Sales Assistant",
       type: "website",
       industry: "E-commerce",
       role: "Helps customers find and buy products", 
@@ -60,7 +60,7 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-3",
-      name: "Phone Assistant",
+      name: "Customer Support Agent",
       type: "phone", 
       industry: "Technology",
       role: "Provides technical support to customers",
@@ -72,7 +72,7 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-4",
-      name: "Website Assistant",
+      name: "Business Development Rep",
       type: "website",
       industry: "Professional Services",
       role: "Qualifies leads and schedules consultations",
@@ -156,20 +156,18 @@ const AssistantManagement = () => {
                     {assistant.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">{assistant.name}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-1">{assistant.name}</h3>
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  {getTypeIcon(assistant.type)}
+                  <span className="text-sm font-medium text-muted-foreground">
+                    {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
+                  </span>
+                </div>
                 <p className="text-sm text-muted-foreground">{assistant.role}</p>
               </div>
 
-              {/* Platform Type */}
-              <div className="flex items-center justify-center gap-2 mb-6 p-3 bg-muted/30 rounded-lg">
-                {getTypeIcon(assistant.type)}
-                <span className="text-sm font-medium">
-                  {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
-                </span>
-              </div>
-
               {/* Industry Tag */}
-              <div className="text-center">
+              <div className="text-center mt-4">
                 <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">
                   {assistant.industry}
                 </span>
