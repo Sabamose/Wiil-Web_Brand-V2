@@ -52,11 +52,6 @@ const Navbar = () => {
           onClick={scrollToTop}
           aria-label="Wiil"
         >
-          <img 
-            src="/lovable-uploads/4e53d8f2-850c-4351-b08f-846f98d30c80.png" 
-            alt="Wiil Logo" 
-            className="h-7 sm:h-8 w-auto" 
-          />
         </Link>
 
         {/* Desktop Navigation */}
