@@ -138,7 +138,7 @@ const AssistantManagement = () => {
         {/* Live Assistants */}
         {liveAssistants.length > 0 && (
           <div className="mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {liveAssistants.map((assistant) => (
                 <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl">
                   {/* Live Status */}
@@ -184,7 +184,7 @@ const AssistantManagement = () => {
         {/* Draft Assistants */}
         {draftAssistants.length > 0 && (
           <div className="mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {draftAssistants.map((assistant) => (
                 <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl opacity-75">
                   {/* Building Status */}
@@ -230,7 +230,7 @@ const AssistantManagement = () => {
         {/* Paused Assistants */}
         {pausedAssistants.length > 0 && (
           <div className="mb-12">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {pausedAssistants.map((assistant) => (
                 <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl opacity-60">
                   {/* Paused Status */}
