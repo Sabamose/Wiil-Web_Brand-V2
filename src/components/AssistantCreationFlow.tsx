@@ -135,14 +135,24 @@ const AssistantCreationFlow = () => {
   ];
 
   return (
-    <section className="w-full py-20 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+    <section className="w-full py-20 bg-gradient-to-br from-background via-background to-muted/20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+        <div className="text-center mb-16 animate-fade-in">
+          <div className="inline-flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-full text-primary text-sm font-medium mb-6 border border-primary/20">
+            <Bot className="w-4 h-4" />
+            AI Assistant Creation
+          </div>
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
             Create Your Custom AI Assistants
           </h1>
-          <p className="text-lg text-muted-foreground mb-4">
+          <p className="text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
             Build specialized AI assistants tailored to your industry and business needs in minutes
           </p>
         </div>
@@ -150,21 +160,28 @@ const AssistantCreationFlow = () => {
         {/* Section 1: Choose Your Industry */}
         <div className="mb-20">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-xs font-medium text-muted-foreground mb-4 border">
+              Step 1 of 5
+            </div>
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Your Industry</h2>
             <p className="text-lg text-muted-foreground">Select the industry that best describes your business</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((industry) => (
-              <Card key={industry.id} className="p-6 hover:shadow-lg transition-all border-border hover:border-primary/50">
+            {industries.map((industry, index) => (
+              <Card 
+                key={industry.id} 
+                className="group p-6 hover:shadow-elegant transition-all duration-300 border-border hover:border-primary/30 cursor-pointer bg-card/60 backdrop-blur-sm hover:bg-card animate-fade-in hover-scale"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <div className="flex items-center gap-4 mb-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center text-white shadow-glow group-hover:scale-110 transition-transform duration-300">
                     {industry.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-foreground">{industry.name}</h3>
+                    <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{industry.name}</h3>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground">{industry.description}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{industry.description}</p>
               </Card>
             ))}
           </div>
@@ -173,21 +190,32 @@ const AssistantCreationFlow = () => {
         {/* Section 2: Choose Assistant Type */}
         <div className="mb-20">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-xs font-medium text-muted-foreground mb-4 border">
+              Step 2 of 5
+            </div>
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Assistant Type</h2>
             <p className="text-lg text-muted-foreground">How will your customers interact with your assistant?</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {assistantTypes.map((type) => (
-              <Card key={type.id} className="p-8 hover:shadow-lg transition-all border-border hover:border-primary/50">
+            {assistantTypes.map((type, index) => (
+              <Card 
+                key={type.id} 
+                className="group p-8 hover:shadow-elegant transition-all duration-300 border-border hover:border-primary/30 cursor-pointer bg-card/60 backdrop-blur-sm hover:bg-card animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4 text-white shadow-glow group-hover:scale-110 transition-transform duration-300">
                     {type.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{type.name}</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{type.name}</h3>
                   <p className="text-muted-foreground mb-4">{type.description}</p>
                   <div className="space-y-2">
-                    {type.features.map((feature, index) => (
-                      <div key={index} className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
+                    {type.features.map((feature, featureIndex) => (
+                      <div 
+                        key={featureIndex} 
+                        className="flex items-center justify-center gap-2 text-sm text-muted-foreground animate-fade-in"
+                        style={{ animationDelay: `${(index * 150) + (featureIndex * 50)}ms` }}
+                      >
                         <Check className="w-4 h-4 text-primary" />
                         {feature}
                       </div>
@@ -202,19 +230,26 @@ const AssistantCreationFlow = () => {
         {/* Section 3: Choose Its Role */}
         <div className="mb-20">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-xs font-medium text-muted-foreground mb-4 border">
+              Step 3 of 5
+            </div>
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Its Role</h2>
             <p className="text-lg text-muted-foreground">What primary function will your assistant perform?</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {roles.map((role) => (
-              <Card key={role.id} className="p-6 hover:shadow-lg transition-all border-border hover:border-primary/50">
+            {roles.map((role, index) => (
+              <Card 
+                key={role.id} 
+                className="group p-6 hover:shadow-elegant transition-all duration-300 border-border hover:border-primary/30 cursor-pointer bg-card/60 backdrop-blur-sm hover:bg-card animate-fade-in hover-scale"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center text-white shadow-glow group-hover:scale-110 transition-transform duration-300">
                     {role.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-foreground mb-2">{role.name}</h3>
-                    <p className="text-sm text-muted-foreground">{role.description}</p>
+                    <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">{role.name}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{role.description}</p>
                   </div>
                 </div>
               </Card>
@@ -225,23 +260,30 @@ const AssistantCreationFlow = () => {
         {/* Section 4: Customize Its Voice */}
         <div className="mb-20">
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-xs font-medium text-muted-foreground mb-4 border">
+              Step 4 of 5
+            </div>
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Customize Its Voice</h2>
             <p className="text-lg text-muted-foreground">Choose a voice that represents your brand</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {voices.map((voice) => (
-              <Card key={voice.id} className="p-6 hover:shadow-lg transition-all border-border hover:border-primary/50">
+            {voices.map((voice, index) => (
+              <Card 
+                key={voice.id} 
+                className="group p-6 hover:shadow-elegant transition-all duration-300 border-border hover:border-primary/30 cursor-pointer bg-card/60 backdrop-blur-sm hover:bg-card animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                    <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center text-white shadow-glow group-hover:scale-110 transition-transform duration-300">
                       <Volume2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">{voice.name}</h3>
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{voice.name}</h3>
                       <p className="text-sm text-muted-foreground">{voice.accent} • {voice.description}</p>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="group-hover:border-primary/50 transition-colors">
                     Preview
                   </Button>
                 </div>
@@ -252,34 +294,39 @@ const AssistantCreationFlow = () => {
 
         {/* Section 5: Deploy and Serve */}
         <div className="text-center">
-          <h2 className="text-3xl font-display font-bold text-foreground mb-4">Deploy and Serve Your Customers</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+          <div className="inline-flex items-center gap-2 bg-muted/50 px-3 py-1 rounded-full text-xs font-medium text-muted-foreground mb-8 border">
+            Step 5 of 5
+          </div>
+          <h2 className="text-3xl font-display font-bold text-foreground mb-4 bg-gradient-to-r from-foreground to-primary bg-clip-text">
+            Deploy and Serve Your Customers
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Your AI assistant will be ready to serve customers and automate tasks in minutes
           </p>
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Activity className="w-8 h-8 text-primary" />
+            <div className="text-center group animate-fade-in" style={{ animationDelay: '200ms' }}>
+              <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                <Activity className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Instant Deployment</h3>
-              <p className="text-sm text-muted-foreground">Your assistant goes live immediately after creation</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Your assistant goes live immediately after creation</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary" />
+            <div className="text-center group animate-fade-in" style={{ animationDelay: '300ms' }}>
+              <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">24/7 Customer Service</h3>
-              <p className="text-sm text-muted-foreground">Never miss a customer inquiry again</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Never miss a customer inquiry again</p>
             </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                <Bot className="w-8 h-8 text-primary" />
+            <div className="text-center group animate-fade-in" style={{ animationDelay: '400ms' }}>
+              <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                <Bot className="w-8 h-8 text-white" />
               </div>
               <h3 className="font-semibold text-foreground mb-2">Task Automation</h3>
-              <p className="text-sm text-muted-foreground">Automate bookings, support, and sales processes</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">Automate bookings, support, and sales processes</p>
             </div>
           </div>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+          <Button size="lg" className="bg-gradient-primary hover:bg-gradient-primary-hover text-white text-lg px-8 py-4 shadow-glow hover:shadow-elegant transition-all duration-300 animate-fade-in hover-scale" style={{ animationDelay: '500ms' }}>
             <Plus className="w-5 h-5 mr-2" />
             Start Building Your AI Assistant
           </Button>
