@@ -113,33 +113,33 @@ const AssistantManagement = () => {
   };
 
   return (
-    <section className="w-full py-12 bg-background">
+    <section className="w-full py-12 bg-gradient-bg">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+          <div className="animate-slide-in-up">
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 gradient-text">
               Build AI Staff That Never Sleep
             </h1>
             <p className="text-lg text-muted-foreground">
               Create AI employees to handle phone calls and website chats 24/7. No training required.
             </p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90 text-lg px-8 py-3">
+          <Button className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-lg px-8 py-3 shadow-glow hover:shadow-glow-strong transition-all duration-300 floating-element">
             <Plus className="w-5 h-5 mr-2" />
             Create Your First AI Employee
           </Button>
         </div>
 
         {/* Assistants Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {assistants.map((assistant) => (
-            <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 animate-slide-in-up stagger-1">
+          {assistants.map((assistant, index) => (
+            <Card key={assistant.id} className="card-premium p-8 hover:shadow-2xl transition-all duration-500 interactive-card animate-floating" style={{animationDelay: `${index * 0.2}s`}}>
               {/* Status Indicator */}
               <div className="absolute top-4 right-4">
                 {assistant.status === 'live' ? (
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                  <div className="flex items-center gap-2 animate-pulse-glow">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
                     <span className="text-xs text-primary font-medium">Live</span>
                   </div>
                 ) : assistant.status === 'draft' ? (
@@ -151,7 +151,7 @@ const AssistantManagement = () => {
 
               {/* Icon & Title */}
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 hover:scale-110">
                   <div className="text-primary text-2xl">
                     {assistant.icon}
                   </div>
@@ -168,7 +168,7 @@ const AssistantManagement = () => {
 
               {/* Industry Tag */}
               <div className="text-center mt-4">
-                <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                <span className="inline-block px-3 py-1 bg-gradient-to-r from-primary/10 to-primary/20 text-primary text-xs rounded-full transition-all duration-300 hover:from-primary/20 hover:to-primary/30">
                   {assistant.industry}
                 </span>
               </div>
@@ -176,12 +176,12 @@ const AssistantManagement = () => {
           ))}
 
           {/* Create New Assistant Card */}
-          <Card className="p-8 border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 transition-colors cursor-pointer group">
+          <Card className="card-premium p-8 border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 transition-all duration-500 cursor-pointer group interactive-glow">
             <div className="flex flex-col items-center justify-center h-full text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+              <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-2xl flex items-center justify-center mb-4 group-hover:from-primary/20 group-hover:to-primary/30 transition-all duration-300 animate-floating">
                 <Plus className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Add New AI Employee</h3>
+              <h3 className="text-lg font-bold text-foreground mb-2 animate-shimmer">Add New AI Employee</h3>
               <p className="text-sm text-muted-foreground">
                 Ready in minutes
               </p>

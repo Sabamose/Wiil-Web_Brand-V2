@@ -135,11 +135,11 @@ const AssistantCreationFlow = () => {
   ];
 
   return (
-    <section className="w-full py-20 bg-background">
+    <section className="w-full py-20 bg-section-gradient">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
+        <div className="text-center mb-16 animate-slide-in-up">
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 gradient-text">
             Create Your Custom AI Assistants
           </h1>
           <p className="text-lg text-muted-foreground mb-4">
@@ -150,12 +150,12 @@ const AssistantCreationFlow = () => {
         {/* Section 1: Choose Your Industry */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Your Industry</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground mb-4 gradient-text">Choose Your Industry</h2>
             <p className="text-lg text-muted-foreground">Select the industry that best describes your business</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {industries.map((industry) => (
-              <Card key={industry.id} className="p-6 hover:shadow-lg transition-all border-border hover:border-primary/50">
+              <Card key={industry.id} className="card-premium p-6 hover:shadow-2xl transition-all duration-500 interactive-card floating-element">
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
                     {industry.icon}
@@ -173,14 +173,14 @@ const AssistantCreationFlow = () => {
         {/* Section 2: Choose Assistant Type */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Assistant Type</h2>
+            <h2 className="text-3xl font-display font-bold text-foreground mb-4 gradient-text">Choose Assistant Type</h2>
             <p className="text-lg text-muted-foreground">How will your customers interact with your assistant?</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {assistantTypes.map((type) => (
-              <Card key={type.id} className="p-8 hover:shadow-lg transition-all border-border hover:border-primary/50">
+              <Card key={type.id} className="card-premium p-8 hover:shadow-2xl transition-all duration-500 interactive-card interactive-glow">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary hover:scale-110 transition-all duration-300 animate-floating">
                     {type.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">{type.name}</h3>
@@ -200,7 +200,7 @@ const AssistantCreationFlow = () => {
         </div>
 
         {/* Section 3: Choose Its Role */}
-        <div className="mb-20">
+        <div className="mb-20 animate-slide-in-up stagger-2">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Choose Its Role</h2>
             <p className="text-lg text-muted-foreground">What primary function will your assistant perform?</p>
@@ -209,7 +209,7 @@ const AssistantCreationFlow = () => {
             {roles.map((role) => (
               <Card key={role.id} className="p-6 hover:shadow-lg transition-all border-border hover:border-primary/50">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary/10 to-primary/20 rounded-lg flex items-center justify-center text-primary hover:scale-110 transition-transform duration-300">
                     {role.icon}
                   </div>
                   <div className="flex-1">
@@ -223,7 +223,7 @@ const AssistantCreationFlow = () => {
         </div>
 
         {/* Section 4: Customize Its Voice */}
-        <div className="mb-20">
+        <div className="mb-20 animate-slide-in-up stagger-1">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-foreground mb-4">Customize Its Voice</h2>
             <p className="text-lg text-muted-foreground">Choose a voice that represents your brand</p>
@@ -279,7 +279,7 @@ const AssistantCreationFlow = () => {
               <p className="text-sm text-muted-foreground">Automate bookings, support, and sales processes</p>
             </div>
           </div>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-4">
+          <Button size="lg" className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-lg px-8 py-4 shadow-glow hover:shadow-glow-strong transition-all duration-300 floating-element">
             <Plus className="w-5 h-5 mr-2" />
             Start Building Your AI Assistant
           </Button>

@@ -148,8 +148,10 @@ export default {
 				'playfair': ['"Playfair Display"', 'serif'],
 			},
 			boxShadow: {
-				'elegant': '0 4px 20px rgba(0, 0, 0, 0.08)',
-				'elegant-hover': '0 8px 30px rgba(0, 0, 0, 0.12)',
+				'elegant': '0 8px 32px rgba(0, 0, 0, 0.12)',
+				'elegant-hover': '0 16px 48px rgba(0, 0, 0, 0.18)',
+				'glow': '0 0 40px rgba(20, 184, 166, 0.15)',
+				'glow-strong': '0 0 60px rgba(20, 184, 166, 0.25)',
 			}
 		}
 	},
