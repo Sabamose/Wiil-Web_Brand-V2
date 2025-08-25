@@ -364,7 +364,10 @@ const AssistantCreationFlow = () => {
         {/* Progress Header */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-3xl font-bold text-foreground">Create Assistant</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Create Custom AI Assistants</h1>
+            <p className="text-lg text-muted-foreground mb-4">
+              Build specialized AI assistants tailored to your industry and business needs
+            </p>
             <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
               Step {currentStep} of {totalSteps}
             </Badge>

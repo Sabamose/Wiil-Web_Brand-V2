@@ -66,10 +66,13 @@ const ConversationDetailView = () => {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <div>
-              <h1 className="text-2xl font-semibold text-foreground mb-2">
-                Conversation Details
-              </h1>
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Monitor Conversations in Real-Time
+            </h1>
+            <p className="text-lg text-muted-foreground mb-4">
+              Deep insights into every customer interaction with detailed analytics and playback controls
+            </p>
               <div className="flex items-center gap-2">
                 <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                   <Phone className="w-3 h-3 mr-1" />

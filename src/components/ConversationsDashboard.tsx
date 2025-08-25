@@ -132,8 +132,12 @@ const ConversationsDashboard = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Conversations</h1>
-          <p className="text-muted-foreground">Monitor and analyze customer interactions</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Monitor All Customer Conversations
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Track, analyze, and manage every customer interaction across all channels
+          </p>
         </div>
 
         {/* Stats Cards */}
