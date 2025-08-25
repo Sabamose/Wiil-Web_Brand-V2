@@ -173,7 +173,7 @@ const AssistantCreationFlow = () => {
         </div>
 
         {/* Simplified Creation Form */}
-        <Card className="bg-card/60 backdrop-blur-sm border shadow-elegant overflow-hidden">
+        <Card className="bg-card/60 backdrop-blur-sm shadow-elegant overflow-hidden">
           <div className="p-8 md:p-12">
             
             {/* Industry Selection */}
