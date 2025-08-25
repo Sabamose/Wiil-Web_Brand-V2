@@ -170,73 +170,66 @@ const ConversationsDashboard = () => {
           </div>
         </Card>
 
-        {/* Conversations Table */}
         <Card>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left p-4 font-medium text-muted-foreground">Customer</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Contact</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Company</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Type</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Status</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Duration</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Time</th>
-                  <th className="text-left p-4 font-medium text-muted-foreground">Actions</th>
+                <tr className="border-b border-border/50">
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Customer</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Contact</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Type</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Status</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Duration</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Time</th>
+                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide"></th>
                 </tr>
               </thead>
               <tbody>
                 {conversations.map((conversation) => (
-                  <tr key={conversation.id} className="border-b border-border hover:bg-muted/30 transition-colors">
-                    <td className="p-4">
+                  <tr key={conversation.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors">
+                    <td className="p-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-                          <Users className="w-4 h-4 text-primary" />
+                        <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center">
+                          <Users className="w-3.5 h-3.5 text-primary" />
                         </div>
                         <div>
-                          <p className="font-medium text-foreground">{conversation.customer.name}</p>
-                          <p className="text-sm text-muted-foreground">{conversation.id}</p>
+                          <p className="font-medium text-foreground text-sm">{conversation.customer.name}</p>
+                          <p className="text-xs text-muted-foreground font-mono">{conversation.id.split('-')[1]}</p>
                         </div>
                       </div>
                     </td>
-                    <td className="p-4">
+                    <td className="p-3">
                       <div>
                         <p className="text-sm text-foreground">{conversation.customer.email}</p>
-                        <p className="text-sm text-muted-foreground">{conversation.customer.phone}</p>
+                        <p className="text-xs text-muted-foreground">{conversation.customer.company}</p>
                       </div>
                     </td>
-                    <td className="p-4">
-                      <p className="text-sm text-foreground">{conversation.customer.company}</p>
-                    </td>
-                    <td className="p-4">
+                    <td className="p-3">
                       <div className="flex items-center gap-2">
                         {conversation.type === 'phone' ? (
                           <Phone className="w-4 h-4 text-primary" />
                         ) : (
                           <MessageSquare className="w-4 h-4 text-primary" />
                         )}
-                        <span className="text-sm capitalize">{conversation.type}</span>
                       </div>
                     </td>
-                    <td className="p-4">
-                      <Badge variant="outline" className={getStatusColor(conversation.status)}>
+                    <td className="p-3">
+                      <Badge variant="outline" className={`text-xs ${getStatusColor(conversation.status)}`}>
                         {conversation.status}
                       </Badge>
                     </td>
-                    <td className="p-4">
-                      <span className="text-sm text-foreground">{conversation.duration}</span>
+                    <td className="p-3">
+                      <span className="text-sm font-mono text-foreground">{conversation.duration}</span>
                     </td>
-                    <td className="p-4">
+                    <td className="p-3">
                       <span className="text-sm text-muted-foreground">{conversation.timestamp}</span>
                     </td>
-                    <td className="p-4">
-                      <div className="flex items-center gap-2">
-                        <Button variant="outline" size="sm">
-                          <Eye className="w-4 h-4 mr-1" />
-                          View
+                    <td className="p-3">
+                      <div className="flex items-center gap-1">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                          <Eye className="w-4 h-4" />
                         </Button>
-                        <Button variant="ghost" size="sm">
+                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
                           <MoreHorizontal className="w-4 h-4" />
                         </Button>
                       </div>
