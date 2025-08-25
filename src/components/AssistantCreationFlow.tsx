@@ -166,7 +166,7 @@ const AssistantCreationFlow = () => {
             <Bot className="w-4 h-4 animate-pulse" />
             AI Assistant Creation ⚡
           </div>
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-pulse">
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
             Custom AI Assistants Made Simple
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
