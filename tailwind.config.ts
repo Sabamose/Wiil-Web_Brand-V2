@@ -125,6 +125,14 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'spin-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
+				},
+				'shimmer': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' }
 				}
 			},
 			animation: {
@@ -134,7 +142,9 @@ export default {
 				'fade-in-right': 'fade-in-right 0.7s ease-out forwards',
 				'fade-in-left': 'fade-in-left 0.7s ease-out forwards',
 				'pulse-slow': 'pulse-slow 3s infinite',
-				'float': 'float 6s ease-in-out infinite'
+				'float': 'float 6s ease-in-out infinite',
+				'spin-slow': 'spin-slow 20s linear infinite',
+				'shimmer': 'shimmer 3s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'hero-gradient': 'radial-gradient(ellipse 120% 80% at 50% 70%, rgba(251, 146, 60, 0.4) 0%, rgba(249, 115, 22, 0.3) 30%, rgba(234, 88, 12, 0.2) 60%, rgba(194, 65, 12, 0.1) 80%, rgba(0, 0, 0, 0) 100%)',
