@@ -1,14 +1,16 @@
 import React from "react";
-import InteractiveConversationDemo from "./InteractiveConversationDemo";
-import LiveMetricsDashboard from "./LiveMetricsDashboard";
-import ConversationBuilderInterface from "./ConversationBuilderInterface";
+import ConversationDetailView from "./ConversationDetailView";
+import ConversationsDashboard from "./ConversationsDashboard";
+import AssistantManagement from "./AssistantManagement";
+import AssistantCreationFlow from "./AssistantCreationFlow";
 
 const PlatformScreenshots = () => {
   return (
     <div className="space-y-0">
-      <InteractiveConversationDemo />
-      <LiveMetricsDashboard />
-      <ConversationBuilderInterface />
+      <ConversationDetailView />
+      <ConversationsDashboard />
+      <AssistantManagement />
+      <AssistantCreationFlow />
     </div>
   );
 };
