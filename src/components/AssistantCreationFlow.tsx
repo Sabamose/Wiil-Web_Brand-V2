@@ -282,13 +282,13 @@ const AssistantCreationFlow = () => {
                   size="lg" 
                   className={`text-lg px-8 py-4 transition-all duration-300 ${
                     isReadyToDeploy() 
-                      ? 'bg-primary hover:bg-primary/90 text-white shadow-elegant' 
+                      ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-elegant' 
                       : 'bg-muted text-muted-foreground cursor-not-allowed'
                   }`}
                   disabled={!isReadyToDeploy()}
                 >
                   <span className="text-lg mr-2">➕</span>
-                  {isReadyToDeploy() ? 'Create AI Assistant' : 'Complete All Steps Above'}
+                  {isReadyToDeploy() ? 'Create Assistant' : 'Complete All Steps Above'}
                 </Button>
               </a>
             </div>
