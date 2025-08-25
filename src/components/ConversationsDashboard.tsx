@@ -140,56 +140,6 @@ const ConversationsDashboard = () => {
           </p>
         </div>
 
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Total Conversations</p>
-                <p className="text-2xl font-bold text-foreground">{stats.totalConversations}</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Today</p>
-                <p className="text-2xl font-bold text-foreground">{stats.todayConversations}</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Calendar className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Avg Duration</p>
-                <p className="text-2xl font-bold text-foreground">{stats.avgDuration}</p>
-              </div>
-              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                <Clock className="w-5 h-5 text-muted-foreground" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Satisfaction</p>
-                <p className="text-2xl font-bold text-foreground">{stats.satisfaction}%</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-        </div>
 
         {/* Search and Filters */}
         <Card className="mb-6">
