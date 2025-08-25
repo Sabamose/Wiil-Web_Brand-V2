@@ -177,7 +177,7 @@ const AssistantCreationFlow = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Choose Your Industry</h2>
+              <h2 className="text-2xl font-display font-bold text-foreground mb-2">Choose Your Industry</h2>
               <p className="text-muted-foreground">Select the industry that best describes your business</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -220,7 +220,7 @@ const AssistantCreationFlow = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Assistant Type</h2>
+              <h2 className="text-2xl font-display font-bold text-foreground mb-2">Assistant Type</h2>
               <p className="text-muted-foreground">How will your customers interact with your assistant?</p>
             </div>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -269,7 +269,7 @@ const AssistantCreationFlow = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Assistant Role</h2>
+              <h2 className="text-2xl font-display font-bold text-foreground mb-2">Assistant Role</h2>
               <p className="text-muted-foreground">What primary function will your assistant perform?</p>
             </div>
             <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
@@ -310,7 +310,7 @@ const AssistantCreationFlow = () => {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">Voice & Language</h2>
+              <h2 className="text-2xl font-display font-bold text-foreground mb-2">Voice & Language</h2>
               <p className="text-muted-foreground">Choose a voice that represents your brand</p>
             </div>
             <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -364,7 +364,7 @@ const AssistantCreationFlow = () => {
         {/* Progress Header */}
         <div className="mb-12">
           <div className="flex items-center justify-between mb-4">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Create Custom AI Assistants</h1>
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">Create Custom AI Assistants</h1>
             <p className="text-lg text-muted-foreground mb-4">
               Build specialized AI assistants tailored to your industry and business needs
             </p>

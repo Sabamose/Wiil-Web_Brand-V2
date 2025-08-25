@@ -118,7 +118,7 @@ const AssistantManagement = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
               Manage Your AI Assistants
             </h1>
             <p className="text-lg text-muted-foreground">
