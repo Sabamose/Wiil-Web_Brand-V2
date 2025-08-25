@@ -185,8 +185,8 @@ const AssistantCreationFlow = () => {
                     key={industry.id} 
                     className={`p-4 cursor-pointer transition-all duration-300 hover-scale ${
                       selectedOptions.industry === industry.id 
-                        ? 'border-primary bg-primary/5 shadow-elegant' 
-                        : 'border-border hover:border-primary/30'
+                        ? 'bg-primary/5 shadow-elegant' 
+                        : 'hover:bg-primary/5'
                     }`}
                     onClick={() => handleOptionSelect('industry', industry.id)}
                   >
@@ -216,8 +216,8 @@ const AssistantCreationFlow = () => {
                     key={type.id} 
                     className={`p-6 cursor-pointer transition-all duration-300 ${
                       selectedOptions.assistantType === type.id 
-                        ? 'border-primary bg-primary/5 shadow-elegant' 
-                        : 'border-border hover:border-primary/30'
+                        ? 'bg-primary/5 shadow-elegant' 
+                        : 'hover:bg-primary/5'
                     }`}
                     onClick={() => handleOptionSelect('assistantType', type.id)}
                   >
@@ -256,8 +256,8 @@ const AssistantCreationFlow = () => {
                     key={role.id} 
                     className={`p-4 cursor-pointer transition-all duration-300 ${
                       selectedOptions.role === role.id 
-                        ? 'border-primary bg-primary/5 shadow-elegant' 
-                        : 'border-border hover:border-primary/30'
+                        ? 'bg-primary/5 shadow-elegant' 
+                        : 'hover:bg-primary/5'
                     }`}
                     onClick={() => handleOptionSelect('role', role.id)}
                   >
@@ -288,8 +288,8 @@ const AssistantCreationFlow = () => {
                     key={voice.id} 
                     className={`p-4 cursor-pointer transition-all duration-300 ${
                       selectedOptions.voice === voice.id 
-                        ? 'border-primary bg-primary/5 shadow-elegant' 
-                        : 'border-border hover:border-primary/30'
+                        ? 'bg-primary/5 shadow-elegant' 
+                        : 'hover:bg-primary/5'
                     }`}
                     onClick={() => handleOptionSelect('voice', voice.id)}
                   >
