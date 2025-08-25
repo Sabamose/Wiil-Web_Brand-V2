@@ -2,19 +2,19 @@ import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
+import AssistantManagement from "@/components/AssistantManagement";
+import AssistantCreationFlow from "@/components/AssistantCreationFlow";
+import ConversationsDashboard from "@/components/ConversationsDashboard";
+import ConversationDetailView from "@/components/ConversationDetailView";
 import { ArrowRight } from "lucide-react";
 import LottieAnimation from "@/components/LottieAnimation";
 import { Button } from "@/components/ui/button";
 
 const Platform = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const [lottieData, setLottieData] = useState<any>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const ticking = useRef(false);
 
   // Initialize intersection observer
   useEffect(() => {
@@ -96,69 +96,6 @@ const Platform = () => {
     };
   }, [isMobile]);
 
-  // Stacked cards scroll effect
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const [entry] = entries;
-        setIsIntersecting(entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    const handleScroll = () => {
-      if (!ticking.current) {
-        window.requestAnimationFrame(() => {
-          if (!sectionRef.current) return;
-          
-          const sectionRect = sectionRef.current.getBoundingClientRect();
-          const viewportHeight = window.innerHeight;
-          const totalScrollDistance = viewportHeight * 3;
-          
-          let progress = 0;
-          if (sectionRect.top <= 0) {
-            progress = Math.min(1, Math.max(0, Math.abs(sectionRect.top) / totalScrollDistance));
-          }
-          
-          if (progress >= 0.8) {
-            setActiveCardIndex(3);
-          } else if (progress >= 0.6) {
-            setActiveCardIndex(2);
-          } else if (progress >= 0.4) {
-            setActiveCardIndex(1);
-          } else {
-            setActiveCardIndex(0);
-          }
-          
-          ticking.current = false;
-        });
-        
-        ticking.current = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const cardStyle = {
-    height: '70vh',
-    maxHeight: '700px',
-    borderRadius: '20px',
-    transition: 'transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.6s cubic-bezier(0.19, 1, 0.22, 1)',
-    willChange: 'transform, opacity'
-  };
 
   return (
     <div className="min-h-screen">
@@ -190,222 +127,17 @@ const Platform = () => {
           </div>
         </section>
 
-        {/* Platform Features - Stacked Cards Section */}
-        <div 
-          ref={sectionRef} 
-          className="relative" 
-          style={{ height: '400vh' }}
-          id="platform-features"
-        >
-          <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden bg-white">
-            <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
-              <div className="mb-2 md:mb-3">
-                <div className="flex items-center gap-4 mb-2 md:mb-2 pt-8 sm:pt-6 md:pt-4">
-                  <div className="pulse-chip opacity-0 animate-fade-in" style={{
-                    animationDelay: "0.1s"
-                  }}>
-                    <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">02</span>
-                    <span>Platform Features</span>
-                  </div>
-                </div>
-                
-                <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2">
-                  Your AI Customer Support Platform
-                </h2>
-              </div>
-              
-              <div className="relative flex-1 perspective-1000">
-                {/* Phone System Card */}
-                <div 
-                  className={`absolute inset-0 overflow-hidden shadow-xl ${isIntersecting ? 'animate-card-enter' : ''}`} 
-                  style={{
-                    ...cardStyle,
-                    zIndex: 10,
-                    transform: `translateY(${isIntersecting ? '120px' : '200px'}) scale(0.85)`,
-                    opacity: isIntersecting ? 0.8 : 0
-                  }}
-                >
-                  <div 
-                    className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-50 to-teal-600/20"
-                    style={{
-                      boxShadow: '0 8px 32px rgba(13,148,136,0.15), inset 0 0 32px rgba(13,148,136,0.1)'
-                    }}
-                  ></div>
-                  
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-600/20 backdrop-blur-sm text-teal-800 border border-teal-300/50">
-                      <span className="text-sm font-medium">Phone System</span>
-                    </div>
-                  </div>
-                  
-                  <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
-                        Professional Phone System
-                      </h3>
-                      <p className="text-teal-700 text-lg mb-6">Get instant access to local and toll-free numbers in 60+ countries with multiple provider redundancy. 99.9% uptime guaranteed.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">99.9%</div>
-                          <div className="text-sm text-teal-700">uptime</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">60+</div>
-                          <div className="text-sm text-teal-700">countries</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">$1.25</div>
-                          <div className="text-sm text-teal-700">per month</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Omnichannel Card */}
-                <div 
-                  className={`absolute inset-0 overflow-hidden shadow-xl ${activeCardIndex >= 1 ? 'animate-card-enter' : ''}`} 
-                  style={{
-                    ...cardStyle,
-                    zIndex: 20,
-                    transform: `translateY(${activeCardIndex >= 1 ? (activeCardIndex === 1 ? '80px' : '60px') : '200px'}) scale(0.9)`,
-                    opacity: activeCardIndex >= 1 ? 0.9 : 0
-                  }}
-                >
-                  <div 
-                    className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-100 to-teal-400/30"
-                    style={{
-                      boxShadow: '0 12px 40px rgba(13,148,136,0.2), inset 0 0 40px rgba(13,148,136,0.15)'
-                    }}
-                  ></div>
-                  
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-400/20 backdrop-blur-sm text-teal-800 border border-teal-400/60">
-                      <span className="text-sm font-medium">Omnichannel</span>
-                    </div>
-                  </div>
-                  
-                  <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
-                        Omnichannel Communication
-                      </h3>
-                      <p className="text-teal-700 text-lg mb-6">One AI assistant that works seamlessly across voice, web, SMS, and mobile platforms. All conversations in one unified inbox.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">4+</div>
-                          <div className="text-sm text-teal-700">channels</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">Universal</div>
-                          <div className="text-sm text-teal-700">integration</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">Instant</div>
-                          <div className="text-sm text-teal-700">handoffs</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* AI Routing Card */}
-                <div 
-                  className={`absolute inset-0 overflow-hidden shadow-xl ${activeCardIndex >= 2 ? 'animate-card-enter' : ''}`} 
-                  style={{
-                    ...cardStyle,
-                    zIndex: 30,
-                    transform: `translateY(${activeCardIndex >= 2 ? (activeCardIndex === 2 ? '40px' : '20px') : '200px'}) scale(0.95)`,
-                    opacity: activeCardIndex >= 2 ? 0.95 : 0
-                  }}
-                >
-                  <div 
-                    className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-200 to-teal-300/40"
-                    style={{
-                      boxShadow: '0 16px 50px rgba(13,148,136,0.25), inset 0 0 50px rgba(13,148,136,0.2)'
-                    }}
-                  ></div>
-                  
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-300/30 backdrop-blur-sm text-teal-800 border border-teal-300/80">
-                      <span className="text-sm font-medium">Smart Routing</span>
-                    </div>
-                  </div>
-                  
-                  <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
-                        Intelligent Conversation Routing
-                      </h3>
-                      <p className="text-teal-700 text-lg mb-6">Smart AI routing ensures customers connect with the perfect assistant or human expert instantly. No more wrong transfers.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">95%</div>
-                          <div className="text-sm text-teal-700">accuracy</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">Zero</div>
-                          <div className="text-sm text-teal-700">wrong transfers</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">Instant</div>
-                          <div className="text-sm text-teal-700">escalation</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Analytics & Security Card */}
-                <div 
-                  className={`absolute inset-0 overflow-hidden shadow-xl ${activeCardIndex >= 3 ? 'animate-card-enter' : ''}`} 
-                  style={{
-                    ...cardStyle,
-                    zIndex: 40,
-                    transform: `translateY(${activeCardIndex >= 3 ? '0px' : '200px'}) scale(1)`,
-                    opacity: activeCardIndex >= 3 ? 1 : 0
-                  }}
-                >
-                  <div 
-                    className="absolute inset-0 z-0 bg-gradient-to-br from-white via-teal-300 to-teal-200/50"
-                    style={{
-                      boxShadow: '0 20px 60px rgba(13,148,136,0.3), inset 0 0 60px rgba(13,148,136,0.25)'
-                    }}
-                  ></div>
-                  
-                  <div className="absolute top-4 right-4 z-20">
-                    <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-teal-200/40 backdrop-blur-sm text-teal-800 border border-teal-200/90">
-                      <span className="text-sm font-medium">Enterprise Ready</span>
-                    </div>
-                  </div>
-                  
-                  <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="max-w-2xl">
-                      <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
-                        Analytics & <span className="text-[#FC4D0A]">Enterprise Security</span>
-                      </h3>
-                      <p className="text-teal-700 text-lg mb-6">Real-time analytics dashboard with complete visibility and industry-standard security practices protecting all conversations.</p>
-                      <div className="grid grid-cols-3 gap-6">
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">Real-time</div>
-                          <div className="text-sm text-teal-700">analytics</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">SOC 2</div>
-                          <div className="text-sm text-teal-700">compliant</div>
-                        </div>
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-teal-800">GDPR</div>
-                          <div className="text-sm text-teal-700">ready</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
+        {/* 1. Build AI Staff That Never Sleep */}
+        <AssistantManagement />
+
+        {/* 2. Create Your Custom AI Assistants */}
+        <AssistantCreationFlow />
+
+        {/* 3. Engage With Your Audience */}
+        <ConversationsDashboard />
+
+        {/* 4. Monitor Conversations in Real-Time */}
+        <ConversationDetailView />
 
         {/* Platform Screenshots Section */}
         <PlatformScreenshots />
