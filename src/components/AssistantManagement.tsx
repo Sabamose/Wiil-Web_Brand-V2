@@ -36,10 +36,10 @@ const AssistantManagement = () => {
   const [assistants] = useState<Assistant[]>([
     {
       id: "asst-1",
-      name: "Healthcare Assistant",
+      name: "Phone Receptionist",
       type: "phone",
       industry: "Healthcare", 
-      role: "Patient Support Specialist",
+      role: "Answers calls, books appointments",
       status: "live",
       conversations: 1247,
       avgRating: 4.8,
@@ -48,10 +48,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-2", 
-      name: "Sales Support Bot",
+      name: "Website Sales Helper",
       type: "website",
       industry: "E-commerce",
-      role: "Sales Representative", 
+      role: "Helps customers buy products", 
       status: "live",
       conversations: 856,
       avgRating: 4.6,
@@ -60,10 +60,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-3",
-      name: "Customer Service AI",
+      name: "Customer Support Agent",
       type: "phone", 
       industry: "Technology",
-      role: "Customer Support Agent",
+      role: "Solves customer problems",
       status: "draft",
       conversations: 0,
       avgRating: 0,
@@ -72,10 +72,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-4",
-      name: "Business Consultant",
+      name: "Business Advisor",
       type: "website",
       industry: "Professional Services",
-      role: "Business Advisor",
+      role: "Gives business advice",
       status: "paused",
       conversations: 324,
       avgRating: 4.9,
@@ -119,15 +119,15 @@ const AssistantManagement = () => {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-              Manage Your AI Assistants
+              Build AI Staff That Never Sleep
             </h1>
             <p className="text-lg text-muted-foreground">
-              Deploy, monitor, and optimize AI assistants for phone and website interactions
+              Create AI employees to handle phone calls and website chats 24/7. No training required.
             </p>
           </div>
-          <Button className="bg-primary hover:bg-primary/90">
-            <Plus className="w-4 h-4 mr-2" />
-            Create Assistant
+          <Button className="bg-primary hover:bg-primary/90 text-lg px-8 py-3">
+            <Plus className="w-5 h-5 mr-2" />
+            Create Your First AI Employee
           </Button>
         </div>
 
@@ -136,7 +136,7 @@ const AssistantManagement = () => {
           <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-muted-foreground text-sm">Total Assistants</p>
+                <p className="text-muted-foreground text-sm">AI Employees</p>
                 <p className="text-2xl font-bold text-foreground">{stats.totalAssistants}</p>
               </div>
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -148,7 +148,7 @@ const AssistantManagement = () => {
           <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-muted-foreground text-sm">Live Assistants</p>
+                <p className="text-muted-foreground text-sm">Currently Working</p>
                 <p className="text-2xl font-bold text-foreground">{stats.liveAssistants}</p>
               </div>
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -160,7 +160,7 @@ const AssistantManagement = () => {
           <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-muted-foreground text-sm">Total Conversations</p>
+                <p className="text-muted-foreground text-sm">Customer Conversations</p>
                 <p className="text-2xl font-bold text-foreground">{stats.totalConversations.toLocaleString()}</p>
               </div>
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -172,7 +172,7 @@ const AssistantManagement = () => {
           <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-muted-foreground text-sm">Avg Rating</p>
+                <p className="text-muted-foreground text-sm">Customer Satisfaction</p>
                 <p className="text-2xl font-bold text-foreground">{stats.avgRating}</p>
               </div>
               <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
@@ -203,39 +203,39 @@ const AssistantManagement = () => {
 
               <div className="space-y-3 mb-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Type</span>
+                  <span className="text-sm text-muted-foreground">Works on</span>
                   <div className="flex items-center gap-1">
                     {getTypeIcon(assistant.type)}
-                    <span className="text-sm capitalize">{assistant.type}</span>
+                    <span className="text-sm capitalize">{assistant.type === 'phone' ? 'Phone calls' : 'Website chat'}</span>
                   </div>
                 </div>
                 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Industry</span>
+                  <span className="text-sm text-muted-foreground">Business type</span>
                   <span className="text-sm text-foreground">{assistant.industry}</span>
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Status</span>
+                  <span className="text-sm text-muted-foreground">Current status</span>
                   <Badge variant="outline" className={getStatusColor(assistant.status)}>
                     {assistant.status === 'live' && (
                       <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
                     )}
-                    {assistant.status}
+                    {assistant.status === 'live' ? 'Working now' : assistant.status === 'draft' ? 'Being built' : 'Paused'}
                   </Badge>
                 </div>
 
                 {assistant.status !== 'draft' && (
                   <>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Conversations</span>
+                      <span className="text-sm text-muted-foreground">Customers helped</span>
                       <span className="text-sm font-medium text-foreground">
                         {assistant.conversations.toLocaleString()}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Rating</span>
+                      <span className="text-sm text-muted-foreground">Customer happiness</span>
                       <div className="flex items-center gap-1">
                         <span className="text-sm font-medium text-foreground">{assistant.avgRating}</span>
                         <span className="text-muted-foreground">⭐</span>
@@ -245,7 +245,7 @@ const AssistantManagement = () => {
                 )}
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Last Active</span>
+                  <span className="text-sm text-muted-foreground">Last worked</span>
                   <span className="text-sm text-foreground">{assistant.lastActive}</span>
                 </div>
               </div>
@@ -253,7 +253,7 @@ const AssistantManagement = () => {
               <div className="flex items-center gap-2 pt-4 border-t border-border">
                 <Button variant="outline" size="sm" className="flex-1">
                   <Settings className="w-4 h-4 mr-2" />
-                  Configure
+                  Edit Settings
                 </Button>
                 <Button 
                   variant={assistant.status === 'live' ? 'destructive' : 'default'}
@@ -262,13 +262,13 @@ const AssistantManagement = () => {
                 >
                   {assistant.status === 'live' ? (
                     <>
-                      <Pause className="w-4 h-4 mr-2" />
-                      Pause
+                       <Pause className="w-4 h-4 mr-2" />
+                       Stop Working
                     </>
                   ) : (
                     <>
-                      <Play className="w-4 h-4 mr-2" />
-                      Start
+                       <Play className="w-4 h-4 mr-2" />
+                       Start Working
                     </>
                   )}
                 </Button>
@@ -282,9 +282,9 @@ const AssistantManagement = () => {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                 <Plus className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Create New Assistant</h3>
+              <h3 className="font-semibold text-foreground mb-2">Add Your Next AI Employee</h3>
               <p className="text-sm text-muted-foreground">
-                Set up a new AI assistant for your business needs
+                Create an AI that handles customers while you focus on growing your business
               </p>
             </div>
           </Card>
