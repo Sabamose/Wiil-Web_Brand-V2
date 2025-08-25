@@ -176,12 +176,8 @@ const AssistantCreationFlow = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <div className="text-center relative z-10">
-                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
-                        selectedOptions.industry === industry.id 
-                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
-                      }`}>
-                        {industry.icon}
+                      <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300">
+                        <span className="text-3xl">{industry.icon}</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{industry.name}</h4>
@@ -210,12 +206,8 @@ const AssistantCreationFlow = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <div className="text-center relative z-10">
-                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
-                        selectedOptions.role === role.id 
-                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
-                      }`}>
-                        {role.icon}
+                      <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300">
+                        <span className="text-3xl">{role.icon}</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{role.name}</h4>
@@ -243,12 +235,8 @@ const AssistantCreationFlow = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                     <div className="text-center relative z-10">
-                      <div className={`w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300 ${
-                        selectedOptions.voice === voice.id 
-                          ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg transform scale-110' 
-                          : 'bg-primary/10 text-primary group-hover:bg-primary/20 group-hover:scale-105'
-                      }`}>
-                        <span className="text-2xl">🔊</span>
+                      <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 transition-all duration-300">
+                        <span className="text-3xl">🔊</span>
                       </div>
                       <div>
                         <h4 className="font-semibold text-base mb-2 group-hover:text-primary transition-colors">{voice.name}</h4>
