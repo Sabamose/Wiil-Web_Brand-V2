@@ -155,68 +155,23 @@
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20 rounded-2xl shadow-elegant transition-all duration-500 hover:shadow-elegant-hover hover:bg-white/90;
+    @apply bg-white/70 backdrop-blur-sm border border-white/20 rounded-2xl shadow-elegant transition-all duration-300 hover:shadow-elegant-hover;
   }
 
   .feature-card {
-    @apply p-6 rounded-2xl transition-all duration-500 hover:translate-y-[-8px] hover:shadow-2xl;
+    @apply p-6 rounded-2xl transition-all duration-500 hover:translate-y-[-5px];
   }
-
-  .interactive-card {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer;
-  }
-
-  .floating-element {
-    @apply transition-transform duration-300 hover:translate-y-[-4px];
-  }
-
-  .pulse-glow {
-    @apply animate-pulse-glow;
-  }
-
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
-  }
-
-  .gradient-border {
-    @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-primary/50 before:to-primary/20;
-  }
-
+  
   .button-primary {
-    @apply bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98];
+    @apply bg-pulse-500 hover:bg-pulse-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02] active:scale-[0.98];
   }
 
   .button-secondary {
-    @apply bg-transparent border border-gray-300 hover:border-primary text-gray-800 hover:text-primary font-medium py-3 px-6 rounded-full transition-all duration-300 hover:shadow-md;
+    @apply bg-transparent border border-gray-300 hover:border-pulse-500 text-gray-800 hover:text-pulse-500 font-medium py-3 px-6 rounded-full transition-all duration-300;
   }
   
   .nav-link {
-    @apply relative text-gray-800 hover:text-primary py-2 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full;
-  }
-
-  .status-live {
-    @apply bg-primary/10 text-primary border-primary/20 relative;
-  }
-
-  .status-live::before {
-    content: '';
-    @apply absolute left-2 top-1/2 w-2 h-2 bg-primary rounded-full animate-ping;
-  }
-
-  .animated-counter {
-    @apply font-bold transition-all duration-1000 ease-out;
-  }
-
-  .card-premium {
-    @apply bg-gradient-to-br from-white to-gray-50/50 border border-gray-200/50 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:border-primary/30;
-  }
-
-  .gradient-bg {
-    background: radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 50%);
-  }
-
-  .section-gradient {
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.02) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(20, 184, 166, 0.02) 100%);
+    @apply relative text-gray-800 hover:text-pulse-500 py-2 transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pulse-500 after:transition-all hover:after:w-full;
   }
 }
 
@@ -254,113 +209,15 @@
 .stagger-4 { animation-delay: 0.4s; }
 
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Enhanced animations */
-@keyframes pulse-glow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes floating {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
-}
-
-.animate-floating {
-  animation: floating 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+  transform: translateY(-5px);
 }
 
 /* Parallax effect */
 .parallax {
   transform: translateY(var(--parallax-y, 0));
   transition: transform 0.1s ease-out;
-}
-
-/* Interactive elements */
-.interactive-glow:hover {
-  box-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
-}
-
-.card-hover:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Typing animation */
-@keyframes typing {
-  0% { width: 0; }
-  100% { width: 100%; }
-}
-
-.typing-animation {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid;
-  animation: typing 3s steps(40, end);
 }

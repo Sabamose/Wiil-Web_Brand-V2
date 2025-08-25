@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import AnimatedCounter from "@/components/ui/animated-counter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -129,11 +128,11 @@ const ConversationsDashboard = () => {
   };
 
   return (
-    <section className="w-full py-12 bg-section-gradient">
+    <section className="w-full py-12 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-8 animate-slide-in-up">
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 gradient-text">
+        <div className="mb-8">
+          <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
             Monitor All Customer Conversations
           </h1>
           <p className="text-lg text-muted-foreground">
@@ -142,24 +141,24 @@ const ConversationsDashboard = () => {
         </div>
 
         {/* Stats Cards */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8 animate-slide-in-up stagger-1">
-          <Card className="card-premium p-6 floating-element">
+        <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-muted-foreground text-sm">Total Conversations</p>
-                <AnimatedCounter end={stats.totalConversations} className="text-2xl font-bold text-foreground" />
+                <p className="text-2xl font-bold text-foreground">{stats.totalConversations}</p>
               </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center pulse-glow">
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                 <MessageSquare className="w-5 h-5 text-primary" />
               </div>
             </div>
           </Card>
 
-          <Card className="card-premium p-6 floating-element">
+          <Card className="p-6">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-muted-foreground text-sm">Today</p>
-                <AnimatedCounter end={stats.todayConversations} className="text-2xl font-bold text-foreground" />
+                <p className="text-2xl font-bold text-foreground">{stats.todayConversations}</p>
               </div>
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                 <Calendar className="w-5 h-5 text-primary" />
@@ -183,7 +182,7 @@ const ConversationsDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-muted-foreground text-sm">Satisfaction</p>
-                <AnimatedCounter end={stats.satisfaction} suffix="%" className="text-2xl font-bold text-foreground" />
+                <p className="text-2xl font-bold text-foreground">{stats.satisfaction}%</p>
               </div>
               <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-primary" />
@@ -193,7 +192,7 @@ const ConversationsDashboard = () => {
         </div>
 
         {/* Search and Filters */}
-        <Card className="mb-6 card-premium">
+        <Card className="mb-6">
           <div className="p-6">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1 relative">
@@ -222,7 +221,7 @@ const ConversationsDashboard = () => {
         </Card>
 
         {/* Conversations Table */}
-        <Card className="card-premium">
+        <Card>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
@@ -239,10 +238,10 @@ const ConversationsDashboard = () => {
               </thead>
               <tbody>
                 {conversations.map((conversation) => (
-                  <tr key={conversation.id} className="border-b border-border hover:bg-muted/30 transition-all duration-300 card-hover">
+                  <tr key={conversation.id} className="border-b border-border hover:bg-muted/30 transition-colors">
                     <td className="p-4">
-                      <div className="flex items-center gap-3 animate-slide-in-right">
-                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center pulse-glow">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
                           <Users className="w-4 h-4 text-primary" />
                         </div>
                         <div>
@@ -283,11 +282,11 @@ const ConversationsDashboard = () => {
                     </td>
                     <td className="p-4">
                       <div className="flex items-center gap-2">
-                        <Button variant="outline" size="sm" className="floating-element">
+                        <Button variant="outline" size="sm">
                           <Eye className="w-4 h-4 mr-1" />
                           View
                         </Button>
-                        <Button variant="ghost" size="sm" className="floating-element">
+                        <Button variant="ghost" size="sm">
                           <MoreHorizontal className="w-4 h-4" />
                         </Button>
                       </div>

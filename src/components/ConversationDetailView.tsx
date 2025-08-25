@@ -61,13 +61,13 @@ const ConversationDetailView = () => {
   };
 
   return (
-    <section className="w-full py-12 bg-gradient-to-br from-background via-primary/5 to-background">
+    <section className="w-full py-12 bg-background">
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-          <div className="animate-slide-in-up">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 gradient-text">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
               Monitor Conversations in Real-Time
             </h1>
             <p className="text-lg text-muted-foreground mb-4">
@@ -78,12 +78,12 @@ const ConversationDetailView = () => {
                   <Phone className="w-3 h-3 mr-1" />
                   {conversationData.id}
                 </Badge>
-                <Badge variant="secondary" className="status-live animate-pulse-glow">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
                   {conversationData.call.status}
                 </Badge>
               </div>
             </div>
-            <Button variant="outline" size="sm" className="floating-element">
+            <Button variant="outline" size="sm">
               <ExternalLink className="w-4 h-4 mr-2" />
               Export
             </Button>
@@ -94,7 +94,7 @@ const ConversationDetailView = () => {
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Audio Player & Waveform */}
-            <Card className="card-premium animate-slide-in-up stagger-1">
+            <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-semibold text-foreground">Audio Recording</h3>
                 <div className="flex items-center gap-2">
@@ -106,15 +106,15 @@ const ConversationDetailView = () => {
               </div>
 
               {/* Waveform Visualization */}
-              <div className="bg-gradient-to-r from-muted/20 via-muted/30 to-muted/20 rounded-lg p-4 mb-4 relative overflow-hidden">
+              <div className="bg-muted/30 rounded-lg p-4 mb-4">
                 <div className="flex items-end justify-center h-32 gap-1">
                   {conversationData.waveformData.map((height, index) => (
                     <div
                       key={index}
-                      className={`w-1 rounded-sm transition-all duration-200 hover:scale-y-110 ${
+                      className={`w-1 rounded-sm transition-colors duration-200 ${
                         isPlaying && index < 40 
-                          ? 'bg-gradient-to-t from-primary to-primary/60 shadow-glow' 
-                          : 'bg-muted-foreground/40 hover:bg-primary/60'
+                          ? 'bg-primary' 
+                          : 'bg-muted-foreground/40'
                       }`}
                       style={{ height: `${height}%` }}
                     />
@@ -128,7 +128,7 @@ const ConversationDetailView = () => {
                   <Button
                     onClick={togglePlayback}
                     size="sm"
-                    className="bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary shadow-glow hover:shadow-glow-strong transition-all duration-300"
+                    className="bg-primary hover:bg-primary/90"
                   >
                     {isPlaying ? (
                       <Pause className="w-4 h-4" />
@@ -136,31 +136,30 @@ const ConversationDetailView = () => {
                       <Play className="w-4 h-4" />
                     )}
                   </Button>
-                  <Button variant="outline" size="sm" className="floating-element">
+                  <Button variant="outline" size="sm">
                     <RotateCcw className="w-4 h-4" />
                   </Button>
                   <Button 
                     variant="outline" 
                     size="sm"
                     onClick={handleSpeedChange}
-                    className="floating-element"
                   >
                     {playbackSpeed}
                   </Button>
                 </div>
                 <div className="flex items-center gap-2">
                   <Volume2 className="w-4 h-4 text-muted-foreground" />
-                  <div className="w-20 h-1 bg-muted rounded-full overflow-hidden">
-                    <div className="w-3/4 h-full bg-gradient-to-r from-primary to-primary/80 rounded-full transition-all duration-300" />
+                  <div className="w-20 h-1 bg-muted rounded-full">
+                    <div className="w-3/4 h-full bg-primary rounded-full" />
                   </div>
                 </div>
               </div>
             </Card>
 
             {/* Tabs Content */}
-            <Card className="card-premium animate-slide-in-up stagger-2">
+            <Card>
               <Tabs defaultValue="overview" className="w-full">
-                <TabsList className="grid w-full grid-cols-4 bg-gradient-to-r from-muted/20 to-muted/30">
+                <TabsList className="grid w-full grid-cols-4 bg-muted/30">
                   <TabsTrigger value="overview">Overview</TabsTrigger>
                   <TabsTrigger value="transcription">Transcription</TabsTrigger>
                   <TabsTrigger value="client-data">Client data</TabsTrigger>
@@ -171,7 +170,7 @@ const ConversationDetailView = () => {
                   <div className="space-y-6">
                     <div>
                       <h4 className="font-semibold text-foreground mb-3">Call Summary</h4>
-                      <div className="bg-gradient-to-br from-muted/20 to-muted/40 rounded-lg p-4">
+                      <div className="bg-muted/30 rounded-lg p-4">
                         <p className="text-muted-foreground leading-relaxed">
                           Customer called regarding unexpected charges on their account. AI assistant successfully 
                           identified the charges as premium features activated during plan upgrade. Provided detailed 
@@ -183,7 +182,7 @@ const ConversationDetailView = () => {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <h5 className="font-medium text-foreground mb-2">Intent Analysis</h5>
-                        <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20 animate-pulse-glow">
+                        <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                           {conversationData.summary.intent}
                         </Badge>
                       </div>
@@ -243,8 +242,46 @@ const ConversationDetailView = () => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
+            {/* Customer Info */}
+            <Card className="p-6">
+              <h3 className="font-semibold text-foreground mb-4">Customer Information</h3>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <User className="w-4 h-4 text-muted-foreground" />
+                  <div>
+                    <p className="font-medium text-foreground">{conversationData.customer.name}</p>
+                    <p className="text-sm text-muted-foreground">Customer</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm text-foreground">{conversationData.customer.email}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm text-foreground">{conversationData.customer.phone}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Building2 className="w-4 h-4 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm text-foreground">{conversationData.customer.company}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-4 h-4 text-muted-foreground" />
+                  <div>
+                    <p className="text-sm text-foreground">{conversationData.customer.location}</p>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
             {/* Call Details */}
-            <Card className="card-premium animate-slide-in-right stagger-3 p-6">
+            <Card className="p-6">
               <h3 className="font-semibold text-foreground mb-4">Call Details</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
