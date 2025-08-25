@@ -280,15 +280,10 @@ const AssistantCreationFlow = () => {
               <a href="https://console.wiil.io/dashboard" target="_blank" rel="noopener noreferrer">
                 <Button 
                   size="lg" 
-                  className={`text-lg px-8 py-4 transition-all duration-300 ${
-                    isReadyToDeploy() 
-                      ? 'bg-teal-600 hover:bg-teal-700 text-white shadow-elegant' 
-                      : 'bg-muted text-muted-foreground cursor-not-allowed'
-                  }`}
-                  disabled={!isReadyToDeploy()}
+                  className="text-lg px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white shadow-elegant transition-all duration-300"
                 >
                   <span className="text-lg mr-2">➕</span>
-                  {isReadyToDeploy() ? 'Create Assistant' : 'Complete All Steps Above'}
+                  Create Assistant
                 </Button>
               </a>
             </div>
