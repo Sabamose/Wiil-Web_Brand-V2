@@ -134,82 +134,77 @@ const AssistantManagement = () => {
         {/* Assistants Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {assistants.map((assistant) => (
-            <Card key={assistant.id} className="p-6 hover:shadow-lg transition-shadow">
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary">
-                    {assistant.icon}
+            <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative">
+              {/* Status Indicator */}
+              <div className="absolute top-4 right-4">
+                {assistant.status === 'live' ? (
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+                    <span className="text-xs text-primary font-medium">Live</span>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">{assistant.name}</h3>
-                    <p className="text-sm text-muted-foreground">{assistant.role}</p>
-                  </div>
-                </div>
-                <Button variant="ghost" size="sm">
-                  <MoreHorizontal className="w-4 h-4" />
-                </Button>
+                ) : assistant.status === 'draft' ? (
+                  <span className="text-xs text-muted-foreground">Building...</span>
+                ) : (
+                  <span className="text-xs text-muted-foreground">Paused</span>
+                )}
               </div>
 
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Works on</span>
-                  <div className="flex items-center gap-1">
-                    {getTypeIcon(assistant.type)}
-                    <span className="text-sm capitalize">{assistant.type === 'phone' ? 'Phone calls' : 'Website chat'}</span>
+              {/* Icon & Title */}
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="text-primary text-2xl">
+                    {assistant.icon}
                   </div>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Business type</span>
-                  <span className="text-sm text-foreground">{assistant.industry}</span>
-                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{assistant.name}</h3>
+                <p className="text-sm text-muted-foreground">{assistant.role}</p>
+              </div>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Current status</span>
-                  <Badge variant="outline" className={getStatusColor(assistant.status)}>
-                    {assistant.status === 'live' && (
-                      <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                    )}
-                    {assistant.status === 'live' ? 'Working now' : assistant.status === 'draft' ? 'Being built' : 'Paused'}
-                  </Badge>
-                </div>
+              {/* Platform Type */}
+              <div className="flex items-center justify-center gap-2 mb-6 p-3 bg-muted/30 rounded-lg">
+                {getTypeIcon(assistant.type)}
+                <span className="text-sm font-medium">
+                  {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
+                </span>
+              </div>
 
-                {assistant.status !== 'draft' && (
-                  <>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Customers helped</span>
-                      <span className="text-sm font-medium text-foreground">
-                        {assistant.conversations.toLocaleString()}
-                      </span>
+              {/* Key Metrics */}
+              {assistant.status !== 'draft' && (
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-foreground">
+                      {assistant.conversations.toLocaleString()}
                     </div>
-
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">Customer happiness</span>
-                      <div className="flex items-center gap-1">
-                        <span className="text-sm font-medium text-foreground">{assistant.avgRating}</span>
-                        <span className="text-muted-foreground">⭐</span>
-                      </div>
+                    <div className="text-xs text-muted-foreground">Customers</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-lg font-bold text-foreground flex items-center justify-center gap-1">
+                      {assistant.avgRating}
+                      <span className="text-sm">⭐</span>
                     </div>
-                  </>
-                )}
-
-                <div className="flex items-center justify-between">
-                  <span className="text-sm text-muted-foreground">Last worked</span>
-                  <span className="text-sm text-foreground">{assistant.lastActive}</span>
+                    <div className="text-xs text-muted-foreground">Rating</div>
+                  </div>
                 </div>
+              )}
+
+              {/* Industry Tag */}
+              <div className="text-center">
+                <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-xs rounded-full">
+                  {assistant.industry}
+                </span>
               </div>
             </Card>
           ))}
 
           {/* Create New Assistant Card */}
-          <Card className="p-6 border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 transition-colors cursor-pointer group">
-            <div className="flex flex-col items-center justify-center h-full text-center py-8">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <Plus className="w-6 h-6 text-primary" />
+          <Card className="p-8 border-dashed border-2 border-muted-foreground/30 hover:border-primary/50 transition-colors cursor-pointer group">
+            <div className="flex flex-col items-center justify-center h-full text-center">
+              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <Plus className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="font-semibold text-foreground mb-2">Add Your Next AI Employee</h3>
+              <h3 className="text-lg font-bold text-foreground mb-2">Add New AI Employee</h3>
               <p className="text-sm text-muted-foreground">
-                Create an AI that handles customers while you focus on growing your business
+                Ready in minutes
               </p>
             </div>
           </Card>
