@@ -135,23 +135,94 @@ const AssistantManagement = () => {
           </Button>
         </div>
 
-        {/* Live Assistants */}
-        {liveAssistants.length > 0 && (
-          <div className="mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {liveAssistants.map((assistant) => (
-                <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl">
-                  {/* Live Status */}
+        {/* All Assistants */}
+        <div className="mb-12">
+          <div className="grid md:grid-cols-2 gap-6">
+            {assistants.map((assistant) => {
+              const getStatusBadge = (status: string) => {
+                switch (status) {
+                  case 'live':
+                    return (
+                      <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
+                        LIVE
+                      </span>
+                    );
+                  case 'draft':
+                    return (
+                      <span className="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 text-sm font-medium rounded-full">
+                        Building...
+                      </span>
+                    );
+                  case 'paused':
+                    return (
+                      <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">
+                        Paused
+                      </span>
+                    );
+                  default:
+                    return null;
+                }
+              };
+
+              const getCardOpacity = (status: string) => {
+                switch (status) {
+                  case 'live':
+                    return '';
+                  case 'draft':
+                    return 'opacity-75';
+                  case 'paused':
+                    return 'opacity-60';
+                  default:
+                    return '';
+                }
+              };
+
+              const getIconStyles = (status: string) => {
+                switch (status) {
+                  case 'live':
+                    return {
+                      container: 'w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6',
+                      icon: 'text-primary text-3xl'
+                    };
+                  case 'draft':
+                  case 'paused':
+                    return {
+                      container: 'w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6',
+                      icon: 'text-gray-400 text-3xl'
+                    };
+                  default:
+                    return {
+                      container: 'w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6',
+                      icon: 'text-primary text-3xl'
+                    };
+                }
+              };
+
+              const getIndustryTagStyles = (status: string) => {
+                switch (status) {
+                  case 'live':
+                    return 'inline-block px-4 py-2 bg-primary/10 text-primary text-sm rounded-full';
+                  case 'draft':
+                  case 'paused':
+                    return 'inline-block px-4 py-2 bg-gray-100 text-gray-600 text-sm rounded-full';
+                  default:
+                    return 'inline-block px-4 py-2 bg-primary/10 text-primary text-sm rounded-full';
+                }
+              };
+
+              const iconStyles = getIconStyles(assistant.status);
+
+              return (
+                <Card key={assistant.id} className={`p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl ${getCardOpacity(assistant.status)}`}>
+                  {/* Status */}
                   <div className="absolute top-6 right-6">
-                    <span className="inline-flex items-center px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full">
-                      LIVE
-                    </span>
+                    {getStatusBadge(assistant.status)}
                   </div>
 
                   {/* Icon */}
                   <div className="text-center mb-6">
-                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <div className="text-primary text-3xl">
+                    <div className={iconStyles.container}>
+                      <div className={iconStyles.icon}>
                         {assistant.icon}
                       </div>
                     </div>
@@ -171,107 +242,15 @@ const AssistantManagement = () => {
                     <p className="text-muted-foreground mb-6 leading-relaxed">{assistant.role}</p>
                     
                     {/* Industry Tag */}
-                    <span className="inline-block px-4 py-2 bg-primary/10 text-primary text-sm rounded-full">
+                    <span className={getIndustryTagStyles(assistant.status)}>
                       {assistant.industry}
                     </span>
                   </div>
                 </Card>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        )}
-
-        {/* Draft Assistants */}
-        {draftAssistants.length > 0 && (
-          <div className="mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {draftAssistants.map((assistant) => (
-                <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl opacity-75">
-                  {/* Building Status */}
-                  <div className="absolute top-6 right-6">
-                    <span className="inline-flex items-center px-3 py-1 bg-amber-100 text-amber-700 text-sm font-medium rounded-full">
-                      Building...
-                    </span>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="text-center mb-6">
-                    <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <div className="text-gray-400 text-3xl">
-                        {assistant.icon}
-                      </div>
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{assistant.name}</h3>
-                    
-                    {/* Type */}
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                      {getTypeIcon(assistant.type)}
-                      <span className="text-muted-foreground">
-                        {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
-                      </span>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{assistant.role}</p>
-                    
-                    {/* Industry Tag */}
-                    <span className="inline-block px-4 py-2 bg-gray-100 text-gray-600 text-sm rounded-full">
-                      {assistant.industry}
-                    </span>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Paused Assistants */}
-        {pausedAssistants.length > 0 && (
-          <div className="mb-12">
-            <div className="grid md:grid-cols-2 gap-6">
-              {pausedAssistants.map((assistant) => (
-                <Card key={assistant.id} className="p-8 hover:shadow-lg transition-shadow relative bg-white border border-gray-200 rounded-2xl opacity-60">
-                  {/* Paused Status */}
-                  <div className="absolute top-6 right-6">
-                    <span className="inline-flex items-center px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full">
-                      Paused
-                    </span>
-                  </div>
-
-                  {/* Icon */}
-                  <div className="text-center mb-6">
-                    <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <div className="text-gray-400 text-3xl">
-                        {assistant.icon}
-                      </div>
-                    </div>
-                    
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold text-foreground mb-4">{assistant.name}</h3>
-                    
-                    {/* Type */}
-                    <div className="flex items-center justify-center gap-2 mb-4">
-                      {getTypeIcon(assistant.type)}
-                      <span className="text-muted-foreground">
-                        {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
-                      </span>
-                    </div>
-                    
-                    {/* Description */}
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{assistant.role}</p>
-                    
-                    {/* Industry Tag */}
-                    <span className="inline-block px-4 py-2 bg-gray-100 text-gray-600 text-sm rounded-full">
-                      {assistant.industry}
-                    </span>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        )}
+        </div>
 
         {/* Create New Assistant */}
         <div>
