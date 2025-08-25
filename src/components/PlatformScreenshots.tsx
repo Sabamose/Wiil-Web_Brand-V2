@@ -37,9 +37,6 @@ const PlatformScreenshots = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Header */}
         <div className="text-center mb-16 sm:mb-24">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-gray-900 mb-6">
-            See the platform in action
-          </h2>
         </div>
 
         {/* Screenshots */}
