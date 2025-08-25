@@ -254,17 +254,19 @@ const AssistantManagement = () => {
 
         {/* Create New Assistant */}
         <div>
-          <Card className="p-8 border-dashed border-2 border-gray-300 hover:border-primary transition-colors cursor-pointer group bg-white rounded-2xl">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/90 transition-colors">
-                <Plus className="w-8 h-8 text-white" />
+          <a href="https://console.wiil.io/dashboard" target="_blank" rel="noopener noreferrer">
+            <Card className="p-8 border-dashed border-2 border-gray-300 hover:border-primary transition-colors cursor-pointer group bg-white rounded-2xl">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/90 transition-colors">
+                  <Plus className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-foreground mb-4">Add New AI Employee</h3>
+                <p className="text-muted-foreground">
+                  Ready in minutes
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Add New AI Employee</h3>
-              <p className="text-muted-foreground">
-                Ready in minutes
-              </p>
-            </div>
-          </Card>
+            </Card>
+          </a>
         </div>
       </div>
     </section>
