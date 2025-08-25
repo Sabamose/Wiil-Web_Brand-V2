@@ -249,30 +249,6 @@ const AssistantManagement = () => {
                   <span className="text-sm text-foreground">{assistant.lastActive}</span>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2 pt-4 border-t border-border">
-                <Button variant="outline" size="sm" className="flex-1">
-                  <Settings className="w-4 h-4 mr-2" />
-                  Edit Settings
-                </Button>
-                <Button 
-                  variant={assistant.status === 'live' ? 'destructive' : 'default'}
-                  size="sm" 
-                  className="flex-1"
-                >
-                  {assistant.status === 'live' ? (
-                    <>
-                       <Pause className="w-4 h-4 mr-2" />
-                       Stop Working
-                    </>
-                  ) : (
-                    <>
-                       <Play className="w-4 h-4 mr-2" />
-                       Start Working
-                    </>
-                  )}
-                </Button>
-              </div>
             </Card>
           ))}
 
