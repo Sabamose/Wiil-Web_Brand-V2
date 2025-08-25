@@ -131,57 +131,6 @@ const AssistantManagement = () => {
           </Button>
         </div>
 
-        {/* Stats Overview */}
-        <div className="grid md:grid-cols-4 gap-6 mb-8">
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">AI Employees</p>
-                <p className="text-2xl font-bold text-foreground">{stats.totalAssistants}</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Bot className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Currently Working</p>
-                <p className="text-2xl font-bold text-foreground">{stats.liveAssistants}</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Activity className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Customer Conversations</p>
-                <p className="text-2xl font-bold text-foreground">{stats.totalConversations.toLocaleString()}</p>
-              </div>
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-primary" />
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-muted-foreground text-sm">Customer Satisfaction</p>
-                <p className="text-2xl font-bold text-foreground">{stats.avgRating}</p>
-              </div>
-              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
-                <span className="text-muted-foreground text-lg">⭐</span>
-              </div>
-            </div>
-          </Card>
-        </div>
-
         {/* Assistants Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {assistants.map((assistant) => (
