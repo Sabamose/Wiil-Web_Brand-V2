@@ -36,10 +36,10 @@ const AssistantManagement = () => {
   const [assistants] = useState<Assistant[]>([
     {
       id: "asst-1",
-      name: "Phone Receptionist",
+      name: "Phone Assistant",
       type: "phone",
       industry: "Healthcare", 
-      role: "Answers calls, books appointments",
+      role: "Answers calls and books appointments",
       status: "live",
       conversations: 1247,
       avgRating: 4.8,
@@ -48,10 +48,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-2", 
-      name: "Website Sales Helper",
+      name: "Website Assistant",
       type: "website",
       industry: "E-commerce",
-      role: "Helps customers buy products", 
+      role: "Helps customers find and buy products", 
       status: "live",
       conversations: 856,
       avgRating: 4.6,
@@ -60,10 +60,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-3",
-      name: "Customer Support Agent",
+      name: "Phone Assistant",
       type: "phone", 
       industry: "Technology",
-      role: "Solves customer problems",
+      role: "Provides technical support to customers",
       status: "draft",
       conversations: 0,
       avgRating: 0,
@@ -72,10 +72,10 @@ const AssistantManagement = () => {
     },
     {
       id: "asst-4",
-      name: "Business Advisor",
+      name: "Website Assistant",
       type: "website",
       industry: "Professional Services",
-      role: "Gives business advice",
+      role: "Qualifies leads and schedules consultations",
       status: "paused",
       conversations: 324,
       avgRating: 4.9,
@@ -167,25 +167,6 @@ const AssistantManagement = () => {
                   {assistant.type === 'phone' ? 'Phone Calls' : 'Website Chat'}
                 </span>
               </div>
-
-              {/* Key Metrics */}
-              {assistant.status !== 'draft' && (
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-foreground">
-                      {assistant.conversations.toLocaleString()}
-                    </div>
-                    <div className="text-xs text-muted-foreground">Customers</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-lg font-bold text-foreground flex items-center justify-center gap-1">
-                      {assistant.avgRating}
-                      <span className="text-sm">⭐</span>
-                    </div>
-                    <div className="text-xs text-muted-foreground">Rating</div>
-                  </div>
-                </div>
-              )}
 
               {/* Industry Tag */}
               <div className="text-center">
