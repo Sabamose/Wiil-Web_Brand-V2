@@ -40,10 +40,6 @@ const PlatformScreenshots = () => {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight text-gray-900 mb-6">
             See the platform in action
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Experience the intuitive interface and powerful features that make our platform 
-            the choice for businesses scaling their AI operations.
-          </p>
         </div>
 
         {/* Screenshots */}
