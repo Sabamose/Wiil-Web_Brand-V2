@@ -242,44 +242,6 @@ const ConversationDetailView = () => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Customer Info */}
-            <Card className="p-6">
-              <h3 className="font-semibold text-foreground mb-4">Customer Information</h3>
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <User className="w-4 h-4 text-muted-foreground" />
-                  <div>
-                    <p className="font-medium text-foreground">{conversationData.customer.name}</p>
-                    <p className="text-sm text-muted-foreground">Customer</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-foreground">{conversationData.customer.email}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone className="w-4 h-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-foreground">{conversationData.customer.phone}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Building2 className="w-4 h-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-foreground">{conversationData.customer.company}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-muted-foreground" />
-                  <div>
-                    <p className="text-sm text-foreground">{conversationData.customer.location}</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
             {/* Call Details */}
             <Card className="p-6">
               <h3 className="font-semibold text-foreground mb-4">Call Details</h3>
