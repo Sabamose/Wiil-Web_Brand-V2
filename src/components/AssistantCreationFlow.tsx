@@ -1,25 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { 
-  Check,
-  Stethoscope,
-  ShoppingCart,
-  Briefcase,
-  GraduationCap,
-  Car,
-  Home,
-  Phone,
-  Globe,
-  Volume2,
-  Users,
-  Headphones,
-  MessageSquare,
-  UserCheck,
-  Plus,
-  Activity,
-  Bot
-} from "lucide-react";
 
 interface Industry {
   id: string;
@@ -55,37 +36,37 @@ const AssistantCreationFlow = () => {
     {
       id: "healthcare",
       name: "Healthcare",
-      icon: <Stethoscope className="w-5 h-5" />,
+      icon: <span className="text-lg">🩺</span>,
       description: "Medical practices, hospitals, clinics"
     },
     {
       id: "retail",
       name: "Retail & E-commerce", 
-      icon: <ShoppingCart className="w-5 h-5" />,
+      icon: <span className="text-lg">🛒</span>,
       description: "Online stores, retail businesses"
     },
     {
       id: "finance",
       name: "Finance & Banking",
-      icon: <Briefcase className="w-5 h-5" />,
+      icon: <span className="text-lg">💼</span>,
       description: "Banks, insurance, financial services"
     },
     {
       id: "education",
       name: "Education",
-      icon: <GraduationCap className="w-5 h-5" />,
+      icon: <span className="text-lg">🎓</span>,
       description: "Schools, universities, training centers"
     },
     {
       id: "automotive",
       name: "Automotive",
-      icon: <Car className="w-5 h-5" />,
+      icon: <span className="text-lg">🚗</span>,
       description: "Car dealerships, auto services"
     },
     {
       id: "realestate",
       name: "Real Estate",
-      icon: <Home className="w-5 h-5" />,
+      icon: <span className="text-lg">🏠</span>,
       description: "Property management, real estate agencies"
     }
   ];
@@ -94,14 +75,14 @@ const AssistantCreationFlow = () => {
     {
       id: "phone",
       name: "Phone Assistant",
-      icon: <Phone className="w-6 h-6" />,
+      icon: <span className="text-xl">📞</span>,
       description: "Handles incoming and outgoing phone calls",
       features: ["Voice conversations", "Call routing", "Real-time responses", "Human handoff"]
     },
     {
       id: "website", 
       name: "Website Assistant",
-      icon: <Globe className="w-6 h-6" />,
+      icon: <span className="text-xl">🌐</span>,
       description: "Engages visitors on your website via chat",
       features: ["Live chat", "Lead capture", "24/7 availability", "Multi-language support"]
     }
@@ -111,25 +92,25 @@ const AssistantCreationFlow = () => {
     {
       id: "support",
       name: "Customer Support",
-      icon: <Headphones className="w-5 h-5" />,
+      icon: <span className="text-lg">🎧</span>,
       description: "Handle customer inquiries and provide technical support"
     },
     {
       id: "sales",
       name: "Sales Representative", 
-      icon: <MessageSquare className="w-5 h-5" />,
+      icon: <span className="text-lg">💬</span>,
       description: "Qualify leads and guide customers through sales process"
     },
     {
       id: "receptionist",
       name: "Virtual Receptionist",
-      icon: <UserCheck className="w-5 h-5" />,
+      icon: <span className="text-lg">👤</span>,
       description: "Greet visitors, schedule appointments, and route calls"
     },
     {
       id: "specialist",
       name: "Industry Specialist",
-      icon: <Users className="w-5 h-5" />,
+      icon: <span className="text-lg">👥</span>,
       description: "Provide specialized knowledge for your specific industry"
     }
   ];
@@ -163,7 +144,7 @@ const AssistantCreationFlow = () => {
         {/* Enhanced Header */}
         <div className="text-center mb-12 animate-fade-in">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 px-6 py-3 rounded-full text-primary text-sm font-medium mb-6 border border-primary/30 shadow-lg backdrop-blur-sm">
-            <Bot className="w-4 h-4 animate-pulse" />
+            <span className="text-base animate-pulse">🤖</span>
             AI Assistant Creation ⚡
           </div>
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
@@ -243,7 +224,7 @@ const AssistantCreationFlow = () => {
                       <div className="space-y-1">
                         {type.features.map((feature, index) => (
                           <div key={index} className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <Check className="w-3 h-3 text-primary" />
+                            <span className="text-primary">✅</span>
                             {feature}
                           </div>
                         ))}
@@ -309,7 +290,7 @@ const AssistantCreationFlow = () => {
                             ? 'bg-gradient-to-br from-primary to-secondary text-white shadow-lg' 
                             : 'bg-primary/10 text-primary group-hover:bg-primary/20'
                         }`}>
-                          <Volume2 className="w-4 h-4" />
+                          <span className="text-lg">🔊</span>
                         </div>
                         <div>
                           <h4 className="font-medium text-sm group-hover:text-primary transition-colors">{voice.name}</h4>
@@ -330,21 +311,21 @@ const AssistantCreationFlow = () => {
               <div className="grid md:grid-cols-3 gap-6 mb-8">
                 <div className="text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Activity className="w-6 h-6 text-primary" />
+                    <span className="text-xl">⚡</span>
                   </div>
                   <h4 className="font-medium text-sm mb-1">Instant Deployment</h4>
                   <p className="text-xs text-muted-foreground">Goes live immediately</p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Users className="w-6 h-6 text-primary" />
+                    <span className="text-xl">🕒</span>
                   </div>
                   <h4 className="font-medium text-sm mb-1">24/7 Service</h4>
                   <p className="text-xs text-muted-foreground">Never miss customers</p>
                 </div>
                 <div className="text-center">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <Bot className="w-6 h-6 text-primary" />
+                    <span className="text-xl">🤖</span>
                   </div>
                   <h4 className="font-medium text-sm mb-1">Smart Automation</h4>
                   <p className="text-xs text-muted-foreground">Automate complex tasks</p>
@@ -361,7 +342,7 @@ const AssistantCreationFlow = () => {
                   }`}
                   disabled={!isReadyToDeploy()}
                 >
-                  <Plus className="w-5 h-5 mr-2" />
+                  <span className="text-lg mr-2">➕</span>
                   {isReadyToDeploy() ? 'Create AI Assistant' : 'Complete All Steps Above'}
                 </Button>
               </a>
