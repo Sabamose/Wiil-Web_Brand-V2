@@ -390,7 +390,7 @@ const AssistantCreationFlow = () => {
             AI Assistant Creation
           </div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
-            Create Your Custom AI Assistants
+            Custom AI Assistants Made Simple
           </h1>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Build specialized AI assistants tailored to your industry and business needs in minutes
