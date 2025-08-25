@@ -133,7 +133,7 @@ const ConversationsDashboard = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
-            Monitor All Customer Conversations
+            Engage With Your Audience
           </h1>
           <p className="text-lg text-muted-foreground">
             Track, analyze, and manage every customer interaction across all channels
