@@ -87,11 +87,11 @@ const AssistantManagement = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'live':
-        return 'bg-green-100 text-green-700 border-green-200';
+        return 'bg-primary/10 text-primary border-primary/20';
       case 'draft':
         return 'bg-gray-100 text-gray-700 border-gray-200';
       case 'paused':
-        return 'bg-yellow-100 text-yellow-700 border-yellow-200';
+        return 'bg-muted text-muted-foreground border-muted';
       default:
         return 'bg-gray-100 text-gray-700 border-gray-200';
     }
@@ -151,8 +151,8 @@ const AssistantManagement = () => {
                 <p className="text-muted-foreground text-sm">Live Assistants</p>
                 <p className="text-2xl font-bold text-foreground">{stats.liveAssistants}</p>
               </div>
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <Activity className="w-5 h-5 text-green-600" />
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Activity className="w-5 h-5 text-primary" />
               </div>
             </div>
           </Card>
@@ -163,8 +163,8 @@ const AssistantManagement = () => {
                 <p className="text-muted-foreground text-sm">Total Conversations</p>
                 <p className="text-2xl font-bold text-foreground">{stats.totalConversations.toLocaleString()}</p>
               </div>
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <MessageSquare className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <MessageSquare className="w-5 h-5 text-primary" />
               </div>
             </div>
           </Card>
@@ -175,8 +175,8 @@ const AssistantManagement = () => {
                 <p className="text-muted-foreground text-sm">Avg Rating</p>
                 <p className="text-2xl font-bold text-foreground">{stats.avgRating}</p>
               </div>
-              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
-                <span className="text-yellow-600 text-lg">⭐</span>
+              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                <span className="text-muted-foreground text-lg">⭐</span>
               </div>
             </div>
           </Card>
@@ -219,7 +219,7 @@ const AssistantManagement = () => {
                   <span className="text-sm text-muted-foreground">Status</span>
                   <Badge variant="outline" className={getStatusColor(assistant.status)}>
                     {assistant.status === 'live' && (
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
+                      <div className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
                     )}
                     {assistant.status}
                   </Badge>
@@ -238,7 +238,7 @@ const AssistantManagement = () => {
                       <span className="text-sm text-muted-foreground">Rating</span>
                       <div className="flex items-center gap-1">
                         <span className="text-sm font-medium text-foreground">{assistant.avgRating}</span>
-                        <span className="text-yellow-500">⭐</span>
+                        <span className="text-muted-foreground">⭐</span>
                       </div>
                     </div>
                   </>

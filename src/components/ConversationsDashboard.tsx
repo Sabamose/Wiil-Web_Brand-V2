@@ -104,11 +104,11 @@ const ConversationsDashboard = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'completed':
-        return 'bg-green-100 text-green-700 border-green-200';
+        return 'bg-primary/10 text-primary border-primary/20';
       case 'in-progress':
-        return 'bg-blue-100 text-blue-700 border-blue-200';
+        return 'bg-muted text-muted-foreground border-muted';
       case 'missed':
-        return 'bg-red-100 text-red-700 border-red-200';
+        return 'bg-muted text-muted-foreground border-muted';
       default:
         return 'bg-gray-100 text-gray-700 border-gray-200';
     }
@@ -117,13 +117,13 @@ const ConversationsDashboard = () => {
   const getSentimentColor = (sentiment: string) => {
     switch (sentiment) {
       case 'positive':
-        return 'text-green-600';
+        return 'text-primary';
       case 'negative':
-        return 'text-red-600';
+        return 'text-muted-foreground';
       case 'neutral':
-        return 'text-gray-600';
+        return 'text-muted-foreground';
       default:
-        return 'text-gray-600';
+        return 'text-muted-foreground';
     }
   };
 
@@ -160,8 +160,8 @@ const ConversationsDashboard = () => {
                 <p className="text-muted-foreground text-sm">Today</p>
                 <p className="text-2xl font-bold text-foreground">{stats.todayConversations}</p>
               </div>
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Calendar className="w-5 h-5 text-blue-600" />
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <Calendar className="w-5 h-5 text-primary" />
               </div>
             </div>
           </Card>
@@ -172,8 +172,8 @@ const ConversationsDashboard = () => {
                 <p className="text-muted-foreground text-sm">Avg Duration</p>
                 <p className="text-2xl font-bold text-foreground">{stats.avgDuration}</p>
               </div>
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <Clock className="w-5 h-5 text-orange-600" />
+              <div className="w-10 h-10 bg-muted rounded-lg flex items-center justify-center">
+                <Clock className="w-5 h-5 text-muted-foreground" />
               </div>
             </div>
           </Card>
@@ -184,8 +184,8 @@ const ConversationsDashboard = () => {
                 <p className="text-muted-foreground text-sm">Satisfaction</p>
                 <p className="text-2xl font-bold text-foreground">{stats.satisfaction}%</p>
               </div>
-              <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-green-600" />
+              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-primary" />
               </div>
             </div>
           </Card>

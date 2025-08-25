@@ -78,7 +78,7 @@ const ConversationDetailView = () => {
                   <Phone className="w-3 h-3 mr-1" />
                   {conversationData.id}
                 </Badge>
-                <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200">
+                <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
                   {conversationData.call.status}
                 </Badge>
               </div>
@@ -182,13 +182,13 @@ const ConversationDetailView = () => {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <h5 className="font-medium text-foreground mb-2">Intent Analysis</h5>
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
+                        <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                           {conversationData.summary.intent}
                         </Badge>
                       </div>
                       <div>
                         <h5 className="font-medium text-foreground mb-2">Sentiment</h5>
-                        <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">
+                        <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
                           {conversationData.summary.sentiment}
                         </Badge>
                       </div>
