@@ -13,73 +13,95 @@ export default function ConversationMonitorArtistic() {
     <section className="relative w-full bg-white py-28">
       <BackdropCanvas />
 
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Hero Title */}
-        <h1 className="text-6xl font-display font-light tracking-tight text-slate-900">
-          Monitor <span className="text-teal-600">Conversations</span>
-        </h1>
-        <p className="mt-4 text-base text-slate-500">Clarity, precision, and insights from every interaction.</p>
-
-        {/* Waveform framed like art */}
-        <div className="mt-20 flex items-center justify-center">
-          <div className="relative rounded-[2rem] border-4 border-teal-600/30 bg-gradient-to-b from-white to-teal-50 p-10 shadow-2xl">
-            <div className="flex items-center gap-6">
-              <button
-                onClick={() => setPlaying((p) => !p)}
-                className="rounded-full bg-teal-600 p-6 text-white shadow-lg transition hover:bg-teal-700"
-              >
-                {playing ? <Pause className="size-6" /> : <Play className="size-6" />}
-              </button>
-              <Waveform />
-              <span className="ml-6 flex items-center gap-1 text-sm text-slate-400"><Clock className="size-4" /> 4:32</span>
+      <div className="mx-auto max-w-7xl px-6">
+        {/* Header Section */}
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
+          {/* Left: Title and Description */}
+          <div className="lg:col-span-1">
+            <h1 className="text-5xl font-display font-light tracking-tight text-slate-900 leading-tight">
+              Monitor <span className="text-teal-600">Conversations</span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-500 leading-relaxed">
+              Clarity, precision, and insights from every interaction. Track, analyze, and optimize your customer conversations.
+            </p>
+            
+            {/* Tab Navigation */}
+            <div className="mt-10">
+              <div className="flex flex-col gap-2">
+                <button
+                  onClick={() => setActiveTab("transcripts")}
+                  className={`flex items-center gap-3 rounded-xl px-6 py-4 text-left text-sm font-medium transition ${
+                    activeTab === "transcripts" 
+                      ? "bg-teal-50 text-teal-700 border-2 border-teal-200" 
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-2 border-transparent"
+                  }`}
+                >
+                  <MessageSquare className="size-5" />
+                  <div>
+                    <div className="font-semibold">Live Transcripts</div>
+                    <div className="text-xs opacity-70">Real-time conversation flow</div>
+                  </div>
+                </button>
+                <button
+                  onClick={() => setActiveTab("summary")}
+                  className={`flex items-center gap-3 rounded-xl px-6 py-4 text-left text-sm font-medium transition ${
+                    activeTab === "summary" 
+                      ? "bg-teal-50 text-teal-700 border-2 border-teal-200" 
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-2 border-transparent"
+                  }`}
+                >
+                  <FileText className="size-5" />
+                  <div>
+                    <div className="font-semibold">AI Summary</div>
+                    <div className="text-xs opacity-70">Key insights and outcomes</div>
+                  </div>
+                </button>
+                <button
+                  onClick={() => setActiveTab("details")}
+                  className={`flex items-center gap-3 rounded-xl px-6 py-4 text-left text-sm font-medium transition ${
+                    activeTab === "details" 
+                      ? "bg-teal-50 text-teal-700 border-2 border-teal-200" 
+                      : "text-slate-600 hover:text-slate-900 hover:bg-slate-50 border-2 border-transparent"
+                  }`}
+                >
+                  <List className="size-5" />
+                  <div>
+                    <div className="font-semibold">Analytics</div>
+                    <div className="text-xs opacity-70">Performance metrics</div>
+                  </div>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Horizontal Tab Buttons */}
-        <div className="mt-16 flex justify-center">
-          <div className="flex rounded-2xl bg-slate-100 p-2">
-            <button
-              onClick={() => setActiveTab("transcripts")}
-              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
-                activeTab === "transcripts" 
-                  ? "bg-white text-teal-600 shadow-sm" 
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <MessageSquare className="size-4" />
-              Transcripts
-            </button>
-            <button
-              onClick={() => setActiveTab("summary")}
-              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
-                activeTab === "summary" 
-                  ? "bg-white text-teal-600 shadow-sm" 
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <FileText className="size-4" />
-              Summary
-            </button>
-            <button
-              onClick={() => setActiveTab("details")}
-              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
-                activeTab === "details" 
-                  ? "bg-white text-teal-600 shadow-sm" 
-                  : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              <List className="size-4" />
-              Details
-            </button>
+          {/* Right: Audio Player and Content */}
+          <div className="lg:col-span-2 space-y-8">
+            {/* Audio Waveform Player */}
+            <div className="relative rounded-3xl border border-teal-200/50 bg-gradient-to-br from-white to-teal-50/30 p-8 shadow-xl">
+              <div className="flex items-center gap-6">
+                <button
+                  onClick={() => setPlaying((p) => !p)}
+                  className="rounded-full bg-teal-600 p-4 text-white shadow-lg transition hover:bg-teal-700 hover:scale-105"
+                >
+                  {playing ? <Pause className="size-5" /> : <Play className="size-5" />}
+                </button>
+                <div className="flex-1">
+                  <Waveform />
+                </div>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Clock className="size-4" />
+                  <span>4:32</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Tab Content */}
+            <div className="min-h-[400px]">
+              {activeTab === "transcripts" && <TranscriptsContent />}
+              {activeTab === "summary" && <SummaryContent />}
+              {activeTab === "details" && <DetailsContent />}
+            </div>
           </div>
-        </div>
-
-        {/* Tab Content */}
-        <div className="mt-12">
-          {activeTab === "transcripts" && <TranscriptsContent />}
-          {activeTab === "summary" && <SummaryContent />}
-          {activeTab === "details" && <DetailsContent />}
         </div>
       </div>
     </section>
