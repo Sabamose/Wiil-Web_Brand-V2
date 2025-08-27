@@ -74,17 +74,17 @@ const Contact = () => {
             <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
               Ready to transform your customer conversations? We're here to help you get started with AI assistants that work for your business.
             </p>
-            <div className="space-x-4 animate-on-scroll">
+            <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4 items-center justify-center animate-on-scroll">
               <Button 
                 variant="glass"
-                className="px-8 py-4 text-lg"
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
                 onClick={() => window.open('https://calendly.com/sabamoseshvili-trav-nex/30min', '_blank')}
               >
                 Schedule a Call
               </Button>
               <Button 
                 variant="glass"
-                className="px-8 py-4 text-lg"
+                className="px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
                 onClick={() => window.location.href = 'mailto:contact@wiil.io'}
               >
                 Send Email
