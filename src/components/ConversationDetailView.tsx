@@ -13,9 +13,9 @@ export default function ConversationMonitorArtistic() {
     <section className="relative w-full bg-white py-8 sm:py-12 lg:py-20">
       <BackdropCanvas />
 
-      <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
+      <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-6">
         {/* Header Section */}
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-12 items-start">
           {/* Left: Title and Description */}
           <div className="lg:col-span-1">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-light tracking-tight text-slate-900 leading-tight">
@@ -224,11 +224,11 @@ function DetailsContent() {
 
 function Bubble({ children, who, teal }: { children: React.ReactNode; who: string; teal?: boolean }) {
   return (
-    <div className={`max-w-[80%] rounded-2xl px-5 py-3 text-left text-sm leading-relaxed shadow-sm ${
+    <div className={`max-w-[85%] sm:max-w-[80%] rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 text-left text-xs sm:text-sm leading-relaxed shadow-sm ${
       teal ? "ml-auto bg-teal-600 text-white" : "mr-auto bg-slate-100 text-slate-800"
     }`}>
-      <div className="mb-1 text-xs uppercase tracking-wider opacity-70">{who}</div>
-      {children}
+      <div className="mb-1 text-[10px] sm:text-xs uppercase tracking-wider opacity-70 font-medium">{who}</div>
+      <div className="break-words">{children}</div>
     </div>
   );
 }
