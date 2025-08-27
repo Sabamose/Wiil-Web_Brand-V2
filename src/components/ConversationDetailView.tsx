@@ -212,7 +212,7 @@ function DetailsContent() {
               <div className="text-xs text-slate-500">Resolution Time</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-green-600">First Call</div>
+              <div className="text-2xl font-bold text-teal-600">First Call</div>
               <div className="text-xs text-slate-500">Resolution Rate</div>
             </div>
           </div>
