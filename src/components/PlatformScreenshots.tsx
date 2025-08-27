@@ -37,25 +37,29 @@ const PlatformScreenshots = () => {
 
       {/* Foreground CTA line */}
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight tracking-tight">
-          Meet your customers wherever they are, however they
-          <span className="relative ml-3 inline-flex min-w-[7ch] items-baseline align-baseline">
-            {/* word carousel items */}
-            {words.map((w, i) => (
-              <span
-                key={w}
-                aria-hidden={i !== idx}
-                className={`absolute inset-0 origin-left whitespace-nowrap transition duration-600 will-change-auto ${
-                  i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-                } text-primary`}
-              >
-                {w}
-              </span>
-            ))}
-            {/* accessibility live region */}
-            <span className="sr-only" aria-live="polite">{words[idx]}</span>
-          </span>
-        </h1>
+        <div className="text-center">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight tracking-tight">
+            Meet your customers wherever they are,
+            <br />
+            however they{" "}
+            <span className="relative inline-block min-w-[140px] md:min-w-[180px] lg:min-w-[220px]">
+              {/* word carousel items */}
+              {words.map((w, i) => (
+                <span
+                  key={w}
+                  aria-hidden={i !== idx}
+                  className={`absolute left-0 top-0 whitespace-nowrap transition-all duration-500 ease-in-out ${
+                    i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
+                  } text-primary`}
+                >
+                  {w}
+                </span>
+              ))}
+              {/* accessibility live region */}
+              <span className="sr-only" aria-live="polite">{words[idx]}</span>
+            </span>
+          </h1>
+        </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-3 justify-center">
           <a href="#create" className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90">Create an Assistant</a>
