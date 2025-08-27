@@ -92,7 +92,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Order Management & Fulfillment Assistant",
         blurb: "Tracks orders, updates ETAs, and resolves delivery issues.",
         images: [
-          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1600&q=80",
           "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
@@ -106,7 +106,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Technical Support Assistant",
         blurb: "Guides troubleshooting, gathers logs, and files clean tickets.",
         images: [
-          "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
           "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
