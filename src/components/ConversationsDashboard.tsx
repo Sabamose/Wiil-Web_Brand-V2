@@ -1,232 +1,248 @@
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { 
-  Search, 
-  Filter, 
-  Phone, 
-  MessageSquare, 
-  Clock, 
-  TrendingUp,
-  MoreHorizontal,
-  Eye,
-  Users,
-  Calendar
-} from "lucide-react";
+import React, { useMemo, useState } from "react";
+import { Search, Phone, MessageSquare, Eye, Download, Filter, X } from "lucide-react";
 
-interface Conversation {
-  id: string;
-  customer: {
-    name: string;
-    email: string;
-    phone: string;
-    company: string;
-  };
-  type: 'phone' | 'chat';
-  status: 'completed' | 'in-progress' | 'missed';
-  duration: string;
-  timestamp: string;
-  sentiment: 'positive' | 'neutral' | 'negative';
-}
+/**
+ * Engage Section — Elegant Glass Table v2
+ * React + TailwindCSS only
+ *
+ * Refinements vs v1
+ * - Lighter, roomier layout
+ * - Subtle gradient headline + micro-subheading caps
+ * - Glass container with elevated shadow + border fade
+ * - Softer wavy-lines background with mask
+ * - Chip filters + Export
+ * - Animated status pills
+ * - Abstract gradient avatars
+ * - Minimal preview popover
+ */
+export default function EngageElegantV2() {
+  const [query, setQuery] = useState("");
+  const [filter, setFilter] = useState<"all" | "today" | "week" | "missed">("all");
+  const [preview, setPreview] = useState<string | null>(null);
 
-const ConversationsDashboard = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedFilter, setSelectedFilter] = useState("all");
+  const data = [
+    { id: "7F3A", name: "Sarah Johnson", email: "sarah.johnson@email.com", org: "TechCorp Solutions", type: "call", status: "completed", duration: "4:32", time: "2:31 PM" },
+    { id: "8G4B", name: "Michael Chen", email: "m.chen@innovate.com", org: "Innovate Inc", type: "chat", status: "in-progress", duration: "1:45", time: "3:15 PM" },
+    { id: "9H5C", name: "Emily Davis", email: "emily.davis@startup.io", org: "StartupCo", type: "call", status: "completed", duration: "6:12", time: "1:45 PM" },
+    { id: "116D", name: "David Wilson", email: "d.wilson@enterprise.com", org: "Enterprise Corp", type: "call", status: "missed", duration: "0:00", time: "12:30 PM" },
+  ] as const;
 
-  const conversations: Conversation[] = [
-    {
-      id: "CONV-7F3A-B29C-E145",
-      customer: {
-        name: "Sarah Johnson",
-        email: "sarah.johnson@email.com",
-        phone: "+1 (555) 123-4567",
-        company: "TechCorp Solutions"
-      },
-      type: "phone",
-      status: "completed",
-      duration: "4:32",
-      timestamp: "2:31 PM",
-      sentiment: "positive"
-    },
-    {
-      id: "CONV-8G4B-C30D-F256",
-      customer: {
-        name: "Michael Chen",
-        email: "m.chen@innovate.com",
-        phone: "+1 (555) 234-5678",
-        company: "Innovate Inc"
-      },
-      type: "chat",
-      status: "in-progress",
-      duration: "1:45",
-      timestamp: "3:15 PM",
-      sentiment: "neutral"
-    },
-    {
-      id: "CONV-9H5C-D41E-G367",
-      customer: {
-        name: "Emily Davis",
-        email: "emily.davis@startup.io",
-        phone: "+1 (555) 345-6789",
-        company: "StartupCo"
-      },
-      type: "phone",
-      status: "completed",
-      duration: "6:12",
-      timestamp: "1:45 PM",
-      sentiment: "positive"
-    },
-    {
-      id: "CONV-1I6D-E52F-H478",
-      customer: {
-        name: "David Wilson",
-        email: "d.wilson@enterprise.com",
-        phone: "+1 (555) 456-7890",
-        company: "Enterprise Corp"
-      },
-      type: "phone",
-      status: "missed",
-      duration: "0:00",
-      timestamp: "12:30 PM",
-      sentiment: "neutral"
-    }
-  ];
-
-  const stats = {
-    totalConversations: 156,
-    todayConversations: 23,
-    avgDuration: "3:45",
-    satisfaction: 94
-  };
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed':
-        return 'bg-primary/10 text-primary border-primary/20';
-      case 'in-progress':
-        return 'bg-muted text-muted-foreground border-muted';
-      case 'missed':
-        return 'bg-muted text-muted-foreground border-muted';
-      default:
-        return 'bg-gray-100 text-gray-700 border-gray-200';
-    }
-  };
-
-  const getSentimentColor = (sentiment: string) => {
-    switch (sentiment) {
-      case 'positive':
-        return 'text-primary';
-      case 'negative':
-        return 'text-muted-foreground';
-      case 'neutral':
-        return 'text-muted-foreground';
-      default:
-        return 'text-muted-foreground';
-    }
-  };
+  const filtered = useMemo(() => {
+    const q = query.toLowerCase();
+    return data
+      .filter((r) => [r.name, r.email, r.org, r.id].some((v) => v.toLowerCase().includes(q)))
+      .filter((r) => (filter === "missed" ? r.status === "missed" : true));
+  }, [query, filter]);
 
   return (
-    <section className="w-full py-12 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-            Engage With Your Audience
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Track, analyze, and manage every customer interaction across all channels
-          </p>
+    <section className="relative w-full bg-white py-16">
+      {/* Decorative backdrop */}
+      <BackdropLines />
+
+      <div className="mx-auto max-w-6xl px-6">
+        {/* Heading */}
+        <h2 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+          Engage With <span className="bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent">Your Audience</span>
+        </h2>
+        <p className="mt-2 text-[12px] uppercase tracking-[0.22em] text-slate-400">
+          Omni‑channel conversations · Search · Filter · Export
+        </p>
+
+        {/* Controls */}
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <label className="relative block w-full sm:max-w-md">
+            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
+            <input
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search conversations…"
+              className="h-11 w-full rounded-2xl border border-slate-200/80 bg-white/70 pl-10 pr-3 text-sm text-slate-700 shadow-sm outline-none transition focus:border-transparent focus:ring-2 focus:ring-teal-400/60"
+            />
+          </label>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <Chip onClick={() => setFilter("all")} active={filter === "all"}>All</Chip>
+            <Chip onClick={() => setFilter("today")} active={filter === "today"}>Today</Chip>
+            <Chip onClick={() => setFilter("week")} active={filter === "week"}>This Week</Chip>
+            <Chip onClick={() => setFilter("missed")} active={filter === "missed"}>Missed Only</Chip>
+            <button className="ml-1 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs text-slate-600 shadow-sm transition hover:bg-white">
+              <Filter className="size-3.5" /> Filter
+            </button>
+            <button className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs text-teal-700 shadow-sm transition hover:bg-white">
+              <Download className="size-3.5" /> Export
+            </button>
+          </div>
         </div>
 
-
-        {/* Search and Filters */}
-        <Card className="mb-6">
-          <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-            <Input
-              placeholder="Search conversations..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10"
-            />
-          </div>
-        </Card>
-
-        <Card>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="border-b border-border/50">
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Customer</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Contact</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Type</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Status</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Duration</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide">Time</th>
-                  <th className="text-left p-3 font-medium text-muted-foreground text-xs uppercase tracking-wide"></th>
-                </tr>
-              </thead>
-              <tbody>
-                {conversations.map((conversation) => (
-                  <tr key={conversation.id} className="border-b border-border/30 hover:bg-muted/20 transition-colors">
-                    <td className="p-3">
-                      <div className="flex items-center gap-3">
-                        <div className="w-7 h-7 bg-primary/10 rounded-full flex items-center justify-center">
-                          <Users className="w-3.5 h-3.5 text-primary" />
-                        </div>
-                        <div>
-                          <p className="font-medium text-foreground text-sm">{conversation.customer.name}</p>
-                          <p className="text-xs text-muted-foreground font-mono">{conversation.id.split('-')[1]}</p>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="p-3">
+        {/* Table */}
+        <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200/70 bg-white/70 shadow-xl shadow-slate-900/5 backdrop-blur-[2px]">
+          <table className="min-w-full table-fixed">
+            <thead>
+              <tr className="text-left text-[11px] uppercase tracking-wider text-slate-500/80">
+                <Th>Customer</Th>
+                <Th>Contact</Th>
+                <Th className="w-24">Type</Th>
+                <Th className="w-32">Status</Th>
+                <Th className="w-24">Duration</Th>
+                <Th className="w-28">Time</Th>
+                <Th className="w-16 text-center">View</Th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.map((r) => (
+                <tr key={r.id} className="group border-t border-slate-100/80 bg-white/60 transition hover:bg-white">
+                  {/* Customer */}
+                  <td className="p-4">
+                    <div className="flex items-center gap-3">
+                      <AvatarBlob seed={r.id} />
                       <div>
-                        <p className="text-sm text-foreground">{conversation.customer.email}</p>
-                        <p className="text-xs text-muted-foreground">{conversation.customer.company}</p>
+                        <div className="text-sm font-medium text-slate-900">{r.name}</div>
+                        <div className="text-[10px] text-slate-400">{r.id}</div>
                       </div>
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-2">
-                        {conversation.type === 'phone' ? (
-                          <Phone className="w-4 h-4 text-primary" />
-                        ) : (
-                          <MessageSquare className="w-4 h-4 text-primary" />
-                        )}
-                      </div>
-                    </td>
-                    <td className="p-3">
-                      <Badge variant="outline" className={`text-xs ${getStatusColor(conversation.status)}`}>
-                        {conversation.status}
-                      </Badge>
-                    </td>
-                    <td className="p-3">
-                      <span className="text-sm font-mono text-foreground">{conversation.duration}</span>
-                    </td>
-                    <td className="p-3">
-                      <span className="text-sm text-muted-foreground">{conversation.timestamp}</span>
-                    </td>
-                    <td className="p-3">
-                      <div className="flex items-center gap-1">
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                          <Eye className="w-4 h-4" />
-                        </Button>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
-                          <MoreHorizontal className="w-4 h-4" />
-                        </Button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Card>
+                    </div>
+                  </td>
+
+                  {/* Contact */}
+                  <td className="p-4 align-middle">
+                    <div className="text-sm text-slate-700">{r.email}</div>
+                    <div className="text-xs text-slate-400">{r.org}</div>
+                  </td>
+
+                  {/* Type */}
+                  <td className="p-4 align-middle">
+                    <span className="inline-flex items-center gap-1.5 text-sm text-slate-600">
+                      {r.type === "call" ? <Phone className="size-4" /> : <MessageSquare className="size-4" />}
+                      {r.type === "call" ? "Call" : "Chat"}
+                    </span>
+                  </td>
+
+                  {/* Status */}
+                  <td className="p-4 align-middle">
+                    <StatusPill status={r.status as any} />
+                  </td>
+
+                  {/* Duration */}
+                  <td className="p-4 align-middle text-sm text-slate-700">{r.duration}</td>
+
+                  {/* Time */}
+                  <td className="p-4 align-middle text-sm text-slate-700">{r.time}</td>
+
+                  {/* View */}
+                  <td className="p-4 text-center">
+                    <button onClick={() => setPreview(r.id)} className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 p-2 text-slate-600 opacity-80 shadow-sm transition hover:opacity-100">
+                      <Eye className="size-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      {/* Preview Popover */}
+      {preview && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-black/30 p-4" onClick={() => setPreview(null)}>
+          <div onClick={(e) => e.stopPropagation()} className="w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200 bg-white/80 shadow-2xl backdrop-blur">
+            <div className="flex items-center justify-between border-b border-slate-100/80 px-4 py-3">
+              <div className="text-sm font-medium text-slate-900">Conversation Preview</div>
+              <button onClick={() => setPreview(null)} className="rounded-full p-1 text-slate-500 hover:bg-slate-100">
+                <X className="size-4" />
+              </button>
+            </div>
+            <div className="px-4 py-4 text-sm text-slate-700">
+              <div className="mb-2 text-xs uppercase tracking-widest text-slate-400">Transcript (sample)</div>
+              <div className="space-y-2">
+                <p><span className="font-medium text-slate-800">Caller:</span> Hi, I'd like to reschedule my appointment.</p>
+                <p><span className="font-medium text-slate-800">Wiil:</span> Of course. Which day works best for you?</p>
+                <p><span className="font-medium text-slate-800">Caller:</span> Thursday afternoon.</p>
+                <p><span className="font-medium text-slate-800">Wiil:</span> I have 3:30 PM available. Shall I book it?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
-};
+}
 
-export default ConversationsDashboard;
+function Th({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <th className={`px-4 py-3 ${className}`}>{children}</th>;
+}
+
+function Chip({ children, active, onClick }: { children: React.ReactNode; active?: boolean; onClick?: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`inline-flex items-center rounded-full px-3 py-1.5 text-xs shadow-sm transition ${
+        active ? "bg-slate-900 text-white hover:bg-slate-800" : "border border-slate-200 bg-white/70 text-slate-600 hover:bg-white"
+      }`}
+    >
+      {children}
+    </button>
+  );
+}
+
+function StatusPill({ status }: { status: "completed" | "in-progress" | "missed" }) {
+  if (status === "completed") {
+    return <span className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-200">● Completed</span>;
+  }
+  if (status === "in-progress") {
+    return (
+      <span className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-3 py-1 text-xs font-medium text-amber-700 ring-1 ring-amber-200">
+        <span className="relative inline-flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400/70" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-amber-500" />
+        </span>
+        In progress
+      </span>
+    );
+  }
+  return <span className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-medium text-rose-600 ring-1 ring-rose-200">○ Missed</span>;
+}
+
+function AvatarBlob({ seed }: { seed: string }) {
+  const hue = (seed.charCodeAt(0) * 17 + seed.charCodeAt(1) * 7) % 360;
+  const hue2 = (hue + 40) % 360;
+  const bg = `conic-gradient(from 180deg at 50% 50%, hsl(${hue} 90% 80%), hsl(${hue2} 90% 75%), hsl(${hue} 90% 82%))`;
+  return (
+    <div className="relative">
+      <div className="size-9 rounded-full shadow-sm ring-1 ring-black/5" style={{ backgroundImage: bg }} />
+      <div className="absolute inset-0 rounded-full bg-white/30 backdrop-blur-[1px]" />
+    </div>
+  );
+}
+
+function BackdropLines() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[440px] overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/60 to-transparent" />
+      <svg viewBox="0 0 1200 440" className="absolute inset-0 opacity-[0.08]">
+        <defs>
+          <linearGradient id="w2" x1="0" x2="1">
+            <stop offset="0%" stopColor="#8B5CF6" />
+            <stop offset="100%" stopColor="#14B8A6" />
+          </linearGradient>
+          <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stopOpacity="1" />
+            <stop offset="100%" stopOpacity="0" />
+          </linearGradient>
+          <mask id="m">
+            <rect width="1200" height="440" fill="url(#fade)" />
+          </mask>
+        </defs>
+        <g mask="url(#m)">
+          {[...Array(12)].map((_, i) => (
+            <path
+              key={i}
+              d={`M0 ${20 + i * 34} C 320 ${6 + i * 26}, 880 ${38 + i * 24}, 1200 ${20 + i * 34}`}
+              fill="none"
+              stroke="url(#w2)"
+              strokeWidth="1.2"
+            />
+          ))}
+        </g>
+      </svg>
+    </div>
+  );
+}
