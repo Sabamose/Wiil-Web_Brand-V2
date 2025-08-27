@@ -18,7 +18,7 @@ const useCases: UseCase[] = [
   {
     id: "sales",
     title: "Voice bot for credit sales",
-    description: "Automatic dialing of clients from the bank's database with a credit offer. Interested clients are transferred to the bank's call center.",
+    description: "Automatic client outreach with credit offers from bank database.",
     image: "/lovable-uploads/9da631c1-782b-4654-9878-179f6335f54b.png",
     stats: {
       primary: { value: "500,000", label: "calls made in 5 days" },
@@ -28,7 +28,7 @@ const useCases: UseCase[] = [
   {
     id: "technical-support",
     title: "Robot for a mobile operator",
-    description: "Notifying customers about the availability of a more advantageous tariff plan and offering to switch to it",
+    description: "Notify customers about better tariff plans and assist with switching.",
     image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
     stats: {
       primary: { value: "100,000", label: "calls are made weekly" },
@@ -38,7 +38,7 @@ const useCases: UseCase[] = [
   {
     id: "appointment-booking",
     title: "Appointment booking system",
-    description: "Seamless scheduling system that checks availability, books appointments, and sends confirmations automatically.",
+    description: "Check availability, book appointments, and send confirmations automatically.",
     image: "/lovable-uploads/dc88150f-e898-4c4b-9685-7484e19637e4.png",
     stats: {
       primary: { value: "90%", label: "booking success rate" },
@@ -48,7 +48,7 @@ const useCases: UseCase[] = [
   {
     id: "appointment-reminders",
     title: "Smart appointment reminders",
-    description: "Automated reminder calls and messages to reduce no-shows and improve customer experience with intelligent timing.",
+    description: "Automated reminders to reduce no-shows and improve customer experience.",
     image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
     stats: {
       primary: { value: "75%", label: "reduction in no-shows" },
@@ -58,7 +58,7 @@ const useCases: UseCase[] = [
   {
     id: "loan-collector",
     title: "Robot collector",
-    description: "Conducting telephone conversations with debtors: notification of debt, finding out the reason for the delay and encouraging payment",
+    description: "Professional debt collection conversations with payment encouragement.",
     image: "/lovable-uploads/dc88150f-e898-4c4b-9685-7484e19637e4.png",
     stats: {
       primary: { value: "up to 1,000", label: "simultaneous calls within Russia" },
@@ -68,7 +68,7 @@ const useCases: UseCase[] = [
   {
     id: "restaurant-reservations",
     title: "Restaurant reservation assistant",
-    description: "Handle table bookings, special requests, and waitlist management with natural conversation flow and menu recommendations.",
+    description: "Handle bookings, special requests, and waitlist management naturally.",
     image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
     stats: {
       primary: { value: "200%", label: "increase in bookings" },
@@ -78,7 +78,7 @@ const useCases: UseCase[] = [
   {
     id: "bank-issue-resolve",
     title: "Robot for the collection department in a bank",
-    description: "Calling the debtor database: notification of late payment on a car loan and incentives to repay the debt",
+    description: "Notify debtors about late payments and provide repayment incentives.",
     image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
     stats: {
       primary: { value: "70%", label: "level of reaching the customer base" },
