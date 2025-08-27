@@ -31,6 +31,8 @@ export default function CustomizeAssistantsShowcase() {
               </StepCard>
             </Glow>
 
+            <SideLabel title="Give it a Voice" copy="Preview tones and pick a voice that matches your brand." />
+
             <Glow intensity="md">
               <StepCard title="Step 3 · Voice" index={3}>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -65,7 +67,6 @@ export default function CustomizeAssistantsShowcase() {
               </StepCard>
             </Glow>
 
-            <SideLabel title="Give it a Voice" copy="Preview tones and pick a voice that matches your brand." />
 
             <Glow intensity="lg">
               <StepCard title="Step 4 · Industry" index={4}>
