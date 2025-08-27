@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap } from "lucide-react";
+import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap, Calendar } from "lucide-react";
 
 export default function CustomizeAssistantsShowcase() {
   return (
@@ -25,6 +25,7 @@ export default function CustomizeAssistantsShowcase() {
                   <GhostOption label="Support" icon={<Headphones className="size-5 text-teal-700" />} />
                   <GhostOption label="Sales" icon={<MessageSquare className="size-5 text-teal-700" />} />
                   <GhostOption label="Concierge" icon={<Briefcase className="size-5 text-teal-700" />} />
+                  <GhostOption label="Service Booking" icon={<Calendar className="size-5 text-teal-700" />} />
                 </div>
               </StepCard>
             </Glow>
