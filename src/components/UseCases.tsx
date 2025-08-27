@@ -27,7 +27,7 @@ const useCases: UseCase[] = [
   },
   {
     id: "technical-support",
-    title: "Robot for a mobile operator",
+    title: "Assistant As mobile operator",
     description: "Notify customers about better tariff plans and assist with switching.",
     image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
     stats: {
