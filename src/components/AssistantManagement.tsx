@@ -59,7 +59,7 @@ export default function PlatformElegantShowroom() {
           <div>
             <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Wiil Platform</p>
             <h1 className="mt-2 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-              Elegant AI <span className="text-teal-600">Assistants</span>
+              Create AI <span className="text-teal-600">Assistants</span>
             </h1>
             <p className="mt-2 max-w-xl text-slate-500">
               A quiet, capable workforce. Minimal setup. Maximum presence.
