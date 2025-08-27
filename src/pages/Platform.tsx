@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
 import AssistantManagement from "@/components/AssistantManagement";
+import CustomizeAssistantsShowcase from "@/components/CustomizeAssistantsShowcase";
 
 import ConversationsDashboard from "@/components/ConversationsDashboard";
 import ConversationDetailView from "@/components/ConversationDetailView";
@@ -130,6 +131,8 @@ const Platform = () => {
         {/* 1. Build AI Staff That Never Sleep */}
         <AssistantManagement />
 
+        {/* 2. Customize Assistants */}
+        <CustomizeAssistantsShowcase />
 
         {/* 3. Engage With Your Audience */}
         <ConversationsDashboard />
