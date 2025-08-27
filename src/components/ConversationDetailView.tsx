@@ -208,7 +208,7 @@ function DetailsContent() {
               <div className="text-xs text-slate-500">Customer Satisfaction</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-blue-600">2min</div>
+              <div className="text-2xl font-bold text-teal-600">2min</div>
               <div className="text-xs text-slate-500">Resolution Time</div>
             </div>
             <div>
