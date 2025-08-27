@@ -42,7 +42,7 @@ const PlatformScreenshots = () => {
             Meet your customers wherever they are,
             <br />
             however they{" "}
-            <span className="relative inline-block min-w-[140px] md:min-w-[180px] lg:min-w-[220px]">
+            <span className="relative inline-block min-w-[160px] md:min-w-[200px] lg:min-w-[260px] text-left">
               {/* word carousel items */}
               {words.map((w, i) => (
                 <span
