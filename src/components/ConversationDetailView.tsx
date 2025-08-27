@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Play, Pause, Mic, Sparkles, Clock } from "lucide-react";
+import { Play, Pause, Mic, Sparkles, Clock, FileText, MessageSquare, List } from "lucide-react";
 
 /**
  * Conversation Monitor — Artistic Reimagining
@@ -7,6 +7,7 @@ import { Play, Pause, Mic, Sparkles, Clock } from "lucide-react";
  */
 export default function ConversationMonitorArtistic() {
   const [playing, setPlaying] = useState(false);
+  const [activeTab, setActiveTab] = useState("transcripts");
 
   return (
     <section className="relative w-full bg-white py-28">
@@ -35,41 +36,166 @@ export default function ConversationMonitorArtistic() {
           </div>
         </div>
 
-        {/* Value as Exhibit Labels */}
-        <div className="mt-16 grid gap-12 md:grid-cols-3">
-          <Exhibit icon={<Mic className="size-6 text-teal-600" />} title="Sound" subtitle="Pristine Clarity" />
-          <Exhibit icon={<Sparkles className="size-6 text-teal-600" />} title="Meaning" subtitle="AI‑crafted Summaries" />
-          <Exhibit icon={<Clock className="size-6 text-teal-600" />} title="Time" subtitle="Instant Review" />
+        {/* Horizontal Tab Buttons */}
+        <div className="mt-16 flex justify-center">
+          <div className="flex rounded-2xl bg-slate-100 p-2">
+            <button
+              onClick={() => setActiveTab("transcripts")}
+              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
+                activeTab === "transcripts" 
+                  ? "bg-white text-teal-600 shadow-sm" 
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <MessageSquare className="size-4" />
+              Transcripts
+            </button>
+            <button
+              onClick={() => setActiveTab("summary")}
+              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
+                activeTab === "summary" 
+                  ? "bg-white text-teal-600 shadow-sm" 
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <FileText className="size-4" />
+              Summary
+            </button>
+            <button
+              onClick={() => setActiveTab("details")}
+              className={`flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-medium transition ${
+                activeTab === "details" 
+                  ? "bg-white text-teal-600 shadow-sm" 
+                  : "text-slate-600 hover:text-slate-900"
+              }`}
+            >
+              <List className="size-4" />
+              Details
+            </button>
+          </div>
         </div>
 
-        {/* Floating Transcript */}
-        <div className="relative mx-auto mt-24 max-w-3xl">
-          <div className="absolute inset-0 -z-10 mx-auto h-full w-full rounded-3xl bg-gradient-to-br from-teal-50 to-white blur-2xl" />
-          <div className="space-y-4">
-            <Bubble who="Customer">I noticed unexpected charges on my account.</Bubble>
-            <Bubble who="Assistant" teal>
-              Those are premium features from your upgrade. Let me explain.
-            </Bubble>
-            <Bubble who="Customer">Got it. Can we remove extras but keep the plan?</Bubble>
-            <Bubble who="Assistant" teal>
-              Done. I've adjusted your subscription.
-            </Bubble>
-          </div>
+        {/* Tab Content */}
+        <div className="mt-12">
+          {activeTab === "transcripts" && <TranscriptsContent />}
+          {activeTab === "summary" && <SummaryContent />}
+          {activeTab === "details" && <DetailsContent />}
         </div>
       </div>
     </section>
   );
 }
 
-/* --- Components --- */
-function Exhibit({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string }) {
+/* --- Tab Content Components --- */
+function TranscriptsContent() {
   return (
-    <div className="flex flex-col items-center">
-      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 shadow-inner">
-        {icon}
+    <div className="relative mx-auto max-w-3xl">
+      <div className="absolute inset-0 -z-10 mx-auto h-full w-full rounded-3xl bg-gradient-to-br from-teal-50 to-white blur-2xl" />
+      <div className="space-y-4">
+        <Bubble who="Customer">I noticed unexpected charges on my account.</Bubble>
+        <Bubble who="Assistant" teal>
+          Those are premium features from your upgrade. Let me explain.
+        </Bubble>
+        <Bubble who="Customer">Got it. Can we remove extras but keep the plan?</Bubble>
+        <Bubble who="Assistant" teal>
+          Done. I've adjusted your subscription.
+        </Bubble>
+        <Bubble who="Customer">Thank you! When will the changes take effect?</Bubble>
+        <Bubble who="Assistant" teal>
+          The changes are immediate. You'll see the updated billing on your next statement.
+        </Bubble>
       </div>
-      <h3 className="text-lg font-medium text-slate-900">{title}</h3>
-      <p className="mt-1 text-sm text-slate-500">{subtitle}</p>
+    </div>
+  );
+}
+
+function SummaryContent() {
+  return (
+    <div className="relative mx-auto max-w-3xl">
+      <div className="absolute inset-0 -z-10 mx-auto h-full w-full rounded-3xl bg-gradient-to-br from-blue-50 to-white blur-2xl" />
+      <div className="rounded-2xl bg-white/80 p-8 shadow-lg backdrop-blur-sm border border-slate-200">
+        <h3 className="text-xl font-semibold text-slate-900 mb-4">Conversation Summary</h3>
+        <div className="space-y-4 text-slate-700">
+          <p><strong>Issue:</strong> Customer inquired about unexpected charges on their account</p>
+          <p><strong>Resolution:</strong> Charges were identified as premium features from a recent upgrade. Customer requested to remove extras while keeping the base plan.</p>
+          <p><strong>Action Taken:</strong> Assistant adjusted the subscription settings to remove premium features, maintaining the base plan.</p>
+          <p><strong>Outcome:</strong> Customer satisfied with resolution. Changes applied immediately with next billing cycle reflection.</p>
+          <div className="flex items-center gap-4 mt-6 pt-4 border-t border-slate-200">
+            <span className="text-sm text-slate-500">Duration: 4:32</span>
+            <span className="text-sm text-slate-500">Resolution Time: 2 minutes</span>
+            <span className="text-sm text-green-600 font-medium">Status: Resolved</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DetailsContent() {
+  return (
+    <div className="relative mx-auto max-w-3xl">
+      <div className="absolute inset-0 -z-10 mx-auto h-full w-full rounded-3xl bg-gradient-to-br from-purple-50 to-white blur-2xl" />
+      <div className="grid gap-6 md:grid-cols-2">
+        <div className="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur-sm border border-slate-200">
+          <h4 className="font-semibold text-slate-900 mb-3">Call Information</h4>
+          <div className="space-y-2 text-sm text-slate-600">
+            <div className="flex justify-between">
+              <span>Date:</span>
+              <span>Jan 15, 2024</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Time:</span>
+              <span>2:30 PM EST</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Duration:</span>
+              <span>4:32</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Channel:</span>
+              <span>Phone Support</span>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur-sm border border-slate-200">
+          <h4 className="font-semibold text-slate-900 mb-3">Customer Details</h4>
+          <div className="space-y-2 text-sm text-slate-600">
+            <div className="flex justify-between">
+              <span>Customer ID:</span>
+              <span>CX-7849</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Plan:</span>
+              <span>Professional</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Account Age:</span>
+              <span>8 months</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Previous Calls:</span>
+              <span>3</span>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-2xl bg-white/80 p-6 shadow-lg backdrop-blur-sm border border-slate-200 md:col-span-2">
+          <h4 className="font-semibold text-slate-900 mb-3">Analytics</h4>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div>
+              <div className="text-2xl font-bold text-teal-600">98%</div>
+              <div className="text-xs text-slate-500">Customer Satisfaction</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-blue-600">2min</div>
+              <div className="text-xs text-slate-500">Resolution Time</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-green-600">First Call</div>
+              <div className="text-xs text-slate-500">Resolution Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
