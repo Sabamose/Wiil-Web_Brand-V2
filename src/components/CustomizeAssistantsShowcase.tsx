@@ -18,70 +18,83 @@ export default function CustomizeAssistantsShowcase() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           <div className="grid grid-cols-1 gap-6 lg:gap-8">
-            <Glow intensity="md">
-              <StepCard title="Step 1 · Role" index={1}>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <GhostOption label="Receptionist" icon={<span className="text-xl">📞</span>} />
-                  <GhostOption label="Support" icon={<span className="text-xl">🎧</span>} />
-                  <GhostOption label="Sales" icon={<span className="text-xl">💬</span>} />
-                  <GhostOption label="Concierge" icon={<span className="text-xl">🏨</span>} />
-                  <GhostOption label="Service Booking" icon={<span className="text-xl">📅</span>} />
-                  <GhostOption label="Tech Support" icon={<span className="text-xl">⚙️</span>} />
-                </div>
-              </StepCard>
-            </Glow>
+            <div className="relative">
+              <SideLabel title="Pick a Role" copy="Choose what your assistant does best—calls, support, sales, or concierge." />
+              <div className="mt-4">
+                <Glow intensity="md">
+                  <StepCard title="Step 1 · Role" index={1}>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <GhostOption label="Receptionist" icon={<span className="text-xl">📞</span>} />
+                      <GhostOption label="Support" icon={<span className="text-xl">🎧</span>} />
+                      <GhostOption label="Sales" icon={<span className="text-xl">💬</span>} />
+                      <GhostOption label="Concierge" icon={<span className="text-xl">🏨</span>} />
+                      <GhostOption label="Service Booking" icon={<span className="text-xl">📅</span>} />
+                      <GhostOption label="Tech Support" icon={<span className="text-xl">⚙️</span>} />
+                    </div>
+                  </StepCard>
+                </Glow>
+              </div>
+            </div>
 
-            <SideLabel title="Give it a Voice" copy="Preview tones and pick a voice that matches your brand." />
-
-            <Glow intensity="md">
-              <StepCard title="Step 3 · Voice" index={3}>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <VoiceChip name="Sarah" desc="Warm • Professional" gender="female" look="sarah" />
-                  <VoiceChip name="James" desc="Clear • Assured" gender="male" look="james" />
-                  <VoiceChip name="Maria" desc="Friendly • Light" gender="female" look="maria" />
-                  <VoiceChip name="Alex" desc="Neutral • Versatile" gender="male" look="alex" />
-                </div>
-              </StepCard>
-            </Glow>
+            <div className="relative">
+              <SideLabel title="Give it a Voice" copy="Preview tones and pick a voice that matches your brand." />
+              <div className="mt-4">
+                <Glow intensity="md">
+                  <StepCard title="Step 3 · Voice" index={3}>
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <VoiceChip name="Sarah" desc="Warm • Professional" gender="female" look="sarah" />
+                      <VoiceChip name="James" desc="Clear • Assured" gender="male" look="james" />
+                      <VoiceChip name="Maria" desc="Friendly • Light" gender="female" look="maria" />
+                      <VoiceChip name="Alex" desc="Neutral • Versatile" gender="male" look="alex" />
+                    </div>
+                  </StepCard>
+                </Glow>
+              </div>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:gap-8">
-            <SideLabel title="Pick a Role" copy="Choose what your assistant does best—calls, support, sales, or concierge." />
+            <div className="relative">
+              <SideLabel title="Select Language" copy="Choose your assistant's primary language or enable auto-detection." />
+              <div className="mt-4">
+                <Glow intensity="sm">
+                  <StepCard title="Step 2 · Language" index={2}>
+                    <div className="flex flex-wrap gap-2">
+                      {[
+                        { t: "English", f: "🇺🇸" },
+                        { t: "Español", f: "🇪🇸" },
+                        { t: "Français", f: "🇫🇷" },
+                        { t: "Deutsch", f: "🇩🇪" },
+                        { t: "Português", f: "🇵🇹" },
+                        { t: "日本語", f: "🇯🇵" },
+                        { t: "中文", f: "🇨🇳" },
+                      ].map((x) => (
+                        <FlagChip key={x.t} flag={x.f} label={x.t} />
+                      ))}
+                      <FlagChip flag="🌐" label="Auto‑detect" muted />
+                    </div>
+                  </StepCard>
+                </Glow>
+              </div>
+            </div>
 
-            <Glow intensity="sm">
-              <StepCard title="Step 2 · Language" index={2}>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    { t: "English", f: "🇺🇸" },
-                    { t: "Español", f: "🇪🇸" },
-                    { t: "Français", f: "🇫🇷" },
-                    { t: "Deutsch", f: "🇩🇪" },
-                    { t: "Português", f: "🇵🇹" },
-                    { t: "日本語", f: "🇯🇵" },
-                    { t: "中文", f: "🇨🇳" },
-                  ].map((x) => (
-                    <FlagChip key={x.t} flag={x.f} label={x.t} />
-                  ))}
-                  <FlagChip flag="🌐" label="Auto‑detect" muted />
-                </div>
-              </StepCard>
-            </Glow>
-
-
-            <Glow intensity="lg">
-              <StepCard title="Step 4 · Industry" index={4}>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-                  <IconTile icon={<HeartPulse className="size-5 text-teal-700" />} label="Healthcare" />
-                  <IconTile icon={<ShoppingBag className="size-5 text-teal-700" />} label="Retail" />
-                  <IconTile icon={<Building2 className="size-5 text-teal-700" />} label="Professional" />
-                  <IconTile icon={<GraduationCap className="size-5 text-teal-700" />} label="Education" />
-                  <IconTile icon={<Car className="size-5 text-teal-700" />} label="Auto" />
-                  <IconTile icon={<Home className="size-5 text-teal-700" />} label="Real Estate" />
-                </div>
-              </StepCard>
-            </Glow>
-
-            <SideLabel title="Choose an Industry" copy="We'll tailor knowledge, tone, and automations for your space." />
+            <div className="relative">
+              <SideLabel title="Choose an Industry" copy="We'll tailor knowledge, tone, and automations for your space." />
+              <div className="mt-4">
+                <Glow intensity="lg">
+                  <StepCard title="Step 4 · Industry" index={4}>
+                    <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                      <IconTile icon={<HeartPulse className="size-5 text-teal-700" />} label="Healthcare" />
+                      <IconTile icon={<ShoppingBag className="size-5 text-teal-700" />} label="Retail" />
+                      <IconTile icon={<Building2 className="size-5 text-teal-700" />} label="Professional" />
+                      <IconTile icon={<GraduationCap className="size-5 text-teal-700" />} label="Education" />
+                      <IconTile icon={<Car className="size-5 text-teal-700" />} label="Auto" />
+                      <IconTile icon={<Home className="size-5 text-teal-700" />} label="Real Estate" />
+                    </div>
+                  </StepCard>
+                </Glow>
+              </div>
+            </div>
           </div>
         </div>
 
