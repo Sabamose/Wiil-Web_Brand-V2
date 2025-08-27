@@ -64,58 +64,12 @@ export default function ConversationMonitorArtistic() {
 /* --- Components --- */
 function Exhibit({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string }) {
   return (
-    <div className="group relative rounded-2xl border border-slate-200 bg-white/90 p-6 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-teal-200">
-      {/* Conversation Summary Card */}
-      <div className="space-y-4">
-        {/* Header with call info */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100">
-              {icon}
-            </div>
-            <div>
-              <h4 className="font-medium text-slate-900">{title}</h4>
-              <p className="text-xs text-slate-500">{subtitle}</p>
-            </div>
-          </div>
-          <div className="text-xs text-slate-400">3 min call</div>
-        </div>
-
-        {/* Mini conversation snippet */}
-        <div className="space-y-2 border-l-2 border-teal-100 pl-4">
-          <div className="text-xs">
-            <span className="font-medium text-slate-600">Customer:</span>
-            <span className="ml-1 text-slate-500">"Need help with billing..."</span>
-          </div>
-          <div className="text-xs">
-            <span className="font-medium text-teal-600">Assistant:</span>
-            <span className="ml-1 text-slate-500">"I'll check that right away."</span>
-          </div>
-        </div>
-
-        {/* Script guidance */}
-        <div className="rounded-lg bg-gradient-to-r from-teal-50 to-blue-50 p-3">
-          <div className="flex items-start gap-2">
-            <Sparkles className="mt-0.5 h-3 w-3 text-teal-500 flex-shrink-0" />
-            <div className="text-xs">
-              <p className="font-medium text-slate-700 mb-1">Suggested Script:</p>
-              <p className="text-slate-600 leading-relaxed">
-                "Thank you for calling [Company]. I understand you have a billing question. 
-                Let me pull up your account to assist you better."
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Call outcome */}
-        <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-          <span className="inline-flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs text-green-700">
-            <div className="h-1.5 w-1.5 rounded-full bg-green-500"></div>
-            Resolved
-          </span>
-          <span className="text-xs text-slate-400">Rating: 4.8/5</span>
-        </div>
+    <div className="flex flex-col items-center">
+      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 shadow-inner">
+        {icon}
       </div>
+      <h3 className="text-lg font-medium text-slate-900">{title}</h3>
+      <p className="mt-1 text-sm text-slate-500">{subtitle}</p>
     </div>
   );
 }
