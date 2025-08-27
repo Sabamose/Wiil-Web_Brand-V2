@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Phone, Calendar, Headphones, ConciergeBell } from "lucide-react";
+import { ChevronLeft, ChevronRight, Phone, Calendar, Headphones, ConciergeBell, MessageCircle, ShoppingCart, Wrench } from "lucide-react";
 
 /**
  * Wiil Platform — ELEGANT SHOWROOM (Creative Variants)
@@ -126,6 +126,9 @@ export default function PlatformElegantShowroom() {
               <li className="flex items-center gap-3"><Headphones className="size-4" /> Customer support, 24/7</li>
               <li className="flex items-center gap-3"><Calendar className="size-4" /> Scheduling & reminders</li>
               <li className="flex items-center gap-3"><Phone className="size-4" /> Service booking via calls</li>
+              <li className="flex items-center gap-3"><MessageCircle className="size-4" /> Service booking via chat</li>
+              <li className="flex items-center gap-3"><ShoppingCart className="size-4" /> Sales assistant</li>
+              <li className="flex items-center gap-3"><Wrench className="size-4" /> Technical support</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500 italic">* All capabilities also available via chat interface</p>
             <div className="mt-6 space-y-2">
