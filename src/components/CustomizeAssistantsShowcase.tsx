@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap } from "lucide-react";
+import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap, Calendar, CalendarClock } from "lucide-react";
 
 export default function CustomizeAssistantsShowcase() {
   return (
@@ -16,34 +16,28 @@ export default function CustomizeAssistantsShowcase() {
           <p className="mt-2 max-w-xl text-slate-500">Four simple choices. Endless possibilities.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
-          <div className="grid grid-cols-1 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
+          {/* Step 1 - Role */}
+          <div className="order-1">
+            <SideLabel title="Pick a Role" copy="Choose what your assistant does best—from reception to scheduling." />
+          </div>
+          <div className="order-2">
             <Glow intensity="md">
               <StepCard title="Step 1 · Role" index={1}>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                   <GhostOption label="Receptionist" icon={<Phone className="size-5 text-teal-700" />} />
                   <GhostOption label="Support" icon={<Headphones className="size-5 text-teal-700" />} />
                   <GhostOption label="Sales" icon={<MessageSquare className="size-5 text-teal-700" />} />
                   <GhostOption label="Concierge" icon={<Briefcase className="size-5 text-teal-700" />} />
-                </div>
-              </StepCard>
-            </Glow>
-
-            <Glow intensity="md">
-              <StepCard title="Step 3 · Voice" index={3}>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <VoiceChip name="Sarah" desc="Warm • Professional" gender="female" look="sarah" />
-                  <VoiceChip name="James" desc="Clear • Assured" gender="male" look="james" />
-                  <VoiceChip name="Maria" desc="Friendly • Light" gender="female" look="maria" />
-                  <VoiceChip name="Alex" desc="Neutral • Versatile" gender="male" look="alex" />
+                  <GhostOption label="Booking" icon={<Calendar className="size-5 text-teal-700" />} />
+                  <GhostOption label="Scheduler" icon={<CalendarClock className="size-5 text-teal-700" />} />
                 </div>
               </StepCard>
             </Glow>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 lg:gap-8">
-            <SideLabel title="Pick a Role" copy="Choose what your assistant does best—calls, support, sales, or concierge." />
-
+          {/* Step 2 - Language */}
+          <div className="order-3 lg:order-4">
             <Glow intensity="sm">
               <StepCard title="Step 2 · Language" index={2}>
                 <div className="flex flex-wrap gap-2">
@@ -62,12 +56,33 @@ export default function CustomizeAssistantsShowcase() {
                 </div>
               </StepCard>
             </Glow>
+          </div>
+          <div className="order-4 lg:order-3">
+            <SideLabel title="Select Language" copy="Choose the primary language or let us auto-detect from conversations." />
+          </div>
 
+          {/* Step 3 - Voice */}
+          <div className="order-5">
             <SideLabel title="Give it a Voice" copy="Preview tones and pick a voice that matches your brand." />
+          </div>
+          <div className="order-6">
+            <Glow intensity="md">
+              <StepCard title="Step 3 · Voice" index={3}>
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <VoiceChip name="Sarah" desc="Warm • Professional" gender="female" look="sarah" />
+                  <VoiceChip name="James" desc="Clear • Assured" gender="male" look="james" />
+                  <VoiceChip name="Maria" desc="Friendly • Light" gender="female" look="maria" />
+                  <VoiceChip name="Alex" desc="Neutral • Versatile" gender="male" look="alex" />
+                </div>
+              </StepCard>
+            </Glow>
+          </div>
 
+          {/* Step 4 - Industry */}
+          <div className="order-7 lg:order-8">
             <Glow intensity="lg">
               <StepCard title="Step 4 · Industry" index={4}>
-                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   <IconTile icon={<HeartPulse className="size-5 text-teal-700" />} label="Healthcare" />
                   <IconTile icon={<ShoppingBag className="size-5 text-teal-700" />} label="Retail" />
                   <IconTile icon={<Building2 className="size-5 text-teal-700" />} label="Professional" />
@@ -77,7 +92,8 @@ export default function CustomizeAssistantsShowcase() {
                 </div>
               </StepCard>
             </Glow>
-
+          </div>
+          <div className="order-8 lg:order-7">
             <SideLabel title="Choose an Industry" copy="We'll tailor knowledge, tone, and automations for your space." />
           </div>
         </div>
