@@ -128,8 +128,8 @@ const UseCases = () => {
     <section className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-muted/20">
       <div className="section-container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            USE READY-MADE TEMPLATES
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-brockmann font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+            Use Cases
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Choose from our proven use cases designed for maximum efficiency and customer satisfaction
