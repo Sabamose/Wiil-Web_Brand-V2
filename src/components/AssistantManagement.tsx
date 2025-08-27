@@ -176,13 +176,13 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
       <svg viewBox="0 0 800 600" className="h-full w-full">
         <defs>
           <linearGradient id="lineg" x1="0" x2="1">
-            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
-            <stop offset="50%" stopColor="#06B6D4" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.12" />
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.25" />
+            <stop offset="50%" stopColor="#06B6D4" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.22" />
           </linearGradient>
           <linearGradient id="lineg2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.06" />
-            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.02" />
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
+            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.08" />
           </linearGradient>
         </defs>
         {/* Flowing curves */}
@@ -217,13 +217,13 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
       <svg viewBox="0 0 600 600" className="h-full w-full">
         <defs>
           <radialGradient id="rg" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.18" />
-            <stop offset="70%" stopColor="#06B6D4" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.28" />
+            <stop offset="70%" stopColor="#06B6D4" stopOpacity="0.15" />
             <stop offset="100%" stopColor="#14B8A6" stopOpacity="0" />
           </radialGradient>
           <linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.15" />
           </linearGradient>
         </defs>
         {/* Concentric circles */}
@@ -252,12 +252,12 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
       <svg viewBox="0 0 800 600" className="h-full w-full">
         <defs>
           <linearGradient id="meshg" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.12" />
-            <stop offset="50%" stopColor="#14B8A6" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.10" />
+            <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.22" />
+            <stop offset="50%" stopColor="#14B8A6" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.20" />
           </linearGradient>
           <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="url(#meshg)" strokeWidth="1"/>
+            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="url(#meshg)" strokeWidth="1.5"/>
           </pattern>
         </defs>
         {/* Grid pattern */}
@@ -284,17 +284,17 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
   // wave with enhanced linear elements
   return (
     <svg viewBox="0 0 800 600" className="h-full w-full">
-      <defs>
-        <linearGradient id="waveg" x1="0" x2="1" y1="0" y2="0.5">
-          <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
-          <stop offset="50%" stopColor="#0EA5E9" stopOpacity="0.10" />
-          <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.12" />
-        </linearGradient>
-        <linearGradient id="waveg2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.08" />
-          <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.04" />
-        </linearGradient>
-      </defs>
+        <defs>
+          <linearGradient id="waveg" x1="0" x2="1" y1="0" y2="0.5">
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.25" />
+            <stop offset="50%" stopColor="#0EA5E9" stopOpacity="0.20" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.22" />
+          </linearGradient>
+          <linearGradient id="waveg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.18" />
+            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.12" />
+          </linearGradient>
+        </defs>
       {/* Main flowing waves */}
       {[...Array(12)].map((_, i) => (
         <path
