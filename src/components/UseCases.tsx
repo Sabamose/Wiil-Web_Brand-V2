@@ -57,7 +57,7 @@ const useCases: UseCase[] = [
   },
   {
     id: "loan-collector",
-    title: "Robot collector",
+    title: "Assistant for Payment Collection",
     description: "Professional debt collection conversations with payment encouragement.",
     image: "/lovable-uploads/dc88150f-e898-4c4b-9685-7484e19637e4.png",
     stats: {
