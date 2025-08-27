@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap, Calendar, Settings } from "lucide-react";
+import { Headphones, Phone, MessageSquare, Briefcase, Building2, HeartPulse, ShoppingBag, Car, Home, GraduationCap, Calendar, Settings, Play, Pause } from "lucide-react";
 
 export default function CustomizeAssistantsShowcase() {
   return (
@@ -132,6 +132,30 @@ function GhostOption({ icon, label }: { icon: React.ReactNode; label: string }) 
 }
 
 function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; gender: "male" | "female"; look?: "sarah" | "james" | "maria" | "alex" }) {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const getAudioSrc = () => {
+    if (name === "Sarah") return "/audio/sarah-voice.mp3";
+    if (name === "James") return "/audio/james-voice.mp3";
+    return null; // Maria and Alex don't have audio yet
+  };
+
+  const handlePlayPause = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const audioSrc = getAudioSrc();
+
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
       <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-slate-200">
@@ -141,6 +165,22 @@ function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; g
         <div className="truncate text-sm font-medium text-slate-900">{name}</div>
         <div className="truncate text-xs text-slate-400">{desc}</div>
       </div>
+      {audioSrc && (
+        <>
+          <button
+            onClick={handlePlayPause}
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors"
+          >
+            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </button>
+          <audio
+            ref={audioRef}
+            src={audioSrc}
+            onEnded={() => setIsPlaying(false)}
+            preload="metadata"
+          />
+        </>
+      )}
     </div>
   );
 }
