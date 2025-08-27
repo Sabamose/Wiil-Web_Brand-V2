@@ -10,12 +10,12 @@ export default function ConversationMonitorArtistic() {
   const [activeTab, setActiveTab] = useState("transcripts");
 
   return (
-    <section className="relative w-full bg-white py-16 sm:py-20 lg:py-28">
+    <section className="relative w-full bg-white py-8 sm:py-12 lg:py-20">
       <BackdropCanvas />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="mx-auto max-w-7xl px-3 sm:px-4 lg:px-6">
         {/* Header Section */}
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12 items-start">
+        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Left: Title and Description */}
           <div className="lg:col-span-1">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-light tracking-tight text-slate-900 leading-tight">
