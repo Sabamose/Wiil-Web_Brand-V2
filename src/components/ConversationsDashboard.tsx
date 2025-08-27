@@ -152,18 +152,6 @@ const ConversationsDashboard = () => {
               className="pl-10"
             />
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm">
-              <Filter className="w-4 h-4 mr-2" />
-              Filter
-            </Button>
-            <Button variant="outline" size="sm">
-              Today
-            </Button>
-            <Button variant="outline" size="sm">
-              This Week
-            </Button>
-          </div>
         </Card>
 
         <Card>
