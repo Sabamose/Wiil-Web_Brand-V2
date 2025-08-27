@@ -143,28 +143,26 @@ const ConversationsDashboard = () => {
 
         {/* Search and Filters */}
         <Card className="mb-6">
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
-              <Input
-                placeholder="Search conversations..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm">
-                <Filter className="w-4 h-4 mr-2" />
-                Filter
-              </Button>
-              <Button variant="outline" size="sm">
-                Today
-              </Button>
-              <Button variant="outline" size="sm">
-                This Week
-              </Button>
-            </div>
+          <div className="flex-1 relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
+            <Input
+              placeholder="Search conversations..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10"
+            />
+          </div>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm">
+              <Filter className="w-4 h-4 mr-2" />
+              Filter
+            </Button>
+            <Button variant="outline" size="sm">
+              Today
+            </Button>
+            <Button variant="outline" size="sm">
+              This Week
+            </Button>
           </div>
         </Card>
 
