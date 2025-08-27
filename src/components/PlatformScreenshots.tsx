@@ -42,13 +42,13 @@ const PlatformScreenshots = () => {
             Meet your customers wherever they are,
             <br />
             however they{" "}
-            <span className="relative inline-block min-w-[160px] md:min-w-[200px] lg:min-w-[260px] text-left">
+            <span className="relative inline-block min-w-[160px] md:min-w-[200px] lg:min-w-[280px] h-[1.2em]">
               {/* word carousel items */}
               {words.map((w, i) => (
                 <span
                   key={w}
                   aria-hidden={i !== idx}
-                  className={`absolute left-0 top-0 whitespace-nowrap transition-all duration-500 ease-in-out ${
+                  className={`absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ease-in-out ${
                     i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                   } text-primary`}
                 >
