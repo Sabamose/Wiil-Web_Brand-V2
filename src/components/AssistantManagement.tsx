@@ -66,7 +66,6 @@ export default function PlatformElegantShowroom() {
             </p>
           </div>
           <div className="flex gap-2">
-            <Button variant="secondary" className="rounded-2xl">Explore Templates</Button>
             <Button className="rounded-2xl">Create Assistant</Button>
           </div>
         </div>
