@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Phone, MessageCircle, Mail, MessageSquare, Link, Send } from "lucide-react";
+import { Phone, MessageCircle, Mail, MessageSquare, Link, MessageSquareText } from "lucide-react";
 
 /**
  * Magical CTA — Option 4 + Option 1
@@ -10,7 +10,7 @@ import { Phone, MessageCircle, Mail, MessageSquare, Link, Send } from "lucide-re
  */
 const PlatformScreenshots = () => {
   const words = ["connect", "call", "chat", "text", "email", "message"];
-  const icons = [Link, Phone, MessageCircle, MessageSquare, Mail, Send];
+  const icons = [Link, Phone, MessageCircle, MessageSquare, Mail, MessageSquareText];
   const [idx, setIdx] = useState(0);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const PlatformScreenshots = () => {
                             : "opacity-0 translate-y-4 scale-95"
                         } text-primary font-medium`}
                       >
-                        <IconComponent className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 drop-shadow-sm" />
+                        <IconComponent className="w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 drop-shadow-sm text-primary fill-current stroke-current" style={{ filter: 'contrast(1.2) brightness(1.1)' }} />
                         <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                           {w}
                         </span>
