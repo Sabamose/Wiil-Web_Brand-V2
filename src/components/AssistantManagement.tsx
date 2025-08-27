@@ -130,7 +130,6 @@ export default function PlatformElegantShowroom() {
               <li className="flex items-center gap-3"><ShoppingCart className="size-4" /> Sales assistant</li>
               <li className="flex items-center gap-3"><Wrench className="size-4" /> Technical support</li>
             </ul>
-            <p className="mt-4 text-xs text-slate-500 italic">* All capabilities also available via chat interface</p>
             <div className="mt-6 space-y-2">
               <RedactedLine w="w-3/4" />
               <RedactedLine w="w-2/3" />
