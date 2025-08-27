@@ -165,7 +165,7 @@ const UseCases = () => {
                     </h3>
 
                     {/* Round Play Button */}
-                    <div className="flex justify-center">
+                    <div className="flex flex-col items-center space-y-3">
                       <button
                         onClick={handlePlayAudio}
                         className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg"
@@ -178,6 +178,7 @@ const UseCases = () => {
                           <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10 ml-1" />
                         )}
                       </button>
+                      <p className="text-sm text-white/80 font-medium">Click to listen Sample Dialogs</p>
                     </div>
 
                     {/* Compact Statistics */}
