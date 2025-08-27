@@ -84,7 +84,7 @@ export default function PlatformElegantShowroom() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.5 }}
+                  transition={{ duration: 0.15 }}
                   className={`relative flex h-full items-end justify-between overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[index].bg}`}
                 >
                   <div className="pointer-events-none absolute inset-0 opacity-80">
