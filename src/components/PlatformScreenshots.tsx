@@ -97,16 +97,6 @@ const PlatformScreenshots = () => {
             </a>
           </div>
 
-          {/* Trust indicators */}
-          <div className="mt-16 flex flex-col items-center gap-6">
-            <p className="text-sm text-muted-foreground font-medium">Trusted by teams worldwide</p>
-            <div className="flex items-center gap-8 opacity-60">
-              <div className="h-8 w-20 bg-muted-foreground/20 rounded" />
-              <div className="h-8 w-24 bg-muted-foreground/20 rounded" />
-              <div className="h-8 w-16 bg-muted-foreground/20 rounded" />
-              <div className="h-8 w-20 bg-muted-foreground/20 rounded" />
-            </div>
-          </div>
         </div>
       </div>
     </section>
