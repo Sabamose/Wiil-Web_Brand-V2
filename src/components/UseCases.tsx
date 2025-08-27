@@ -157,66 +157,47 @@ const UseCases = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="relative order-1 lg:order-2 p-8 lg:p-12 xl:p-16 flex flex-col justify-center bg-gradient-to-br from-background via-background to-muted/30">
+                <div className="relative order-1 lg:order-2 p-8 lg:p-12 xl:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-br from-background via-background to-muted/30">
                   <div className="space-y-8">
-                    <div>
-                      <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold mb-4 leading-tight">
-                        {useCase.title}
-                      </h3>
-                      <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
-                        {useCase.description}
-                      </p>
+                    {/* Title */}
+                    <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
+                      {useCase.title}
+                    </h3>
+
+                    {/* Round Play Button */}
+                    <div className="flex justify-center">
+                      <button
+                        onClick={handlePlayAudio}
+                        className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
+                        aria-label="Listen to example dialogue"
+                      >
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
+                        {isPlaying ? (
+                          <Pause className="w-8 h-8 lg:w-10 lg:h-10 text-white relative z-10" />
+                        ) : (
+                          <Play className="w-8 h-8 lg:w-10 lg:h-10 text-white relative z-10 ml-1" />
+                        )}
+                      </button>
                     </div>
 
-                    {/* Audio Player with Circular Design */}
-                    <div className="flex items-center justify-center lg:justify-start">
-                      <div className="relative">
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 animate-pulse" />
-                        <Button
-                          variant="outline"
-                          size="lg"
-                          onClick={handlePlayAudio}
-                          className="relative rounded-full px-8 py-4 border-2 border-primary/20 hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
-                        >
-                          {isPlaying ? (
-                            <Pause className="w-5 h-5 mr-3" />
-                          ) : (
-                            <Play className="w-5 h-5 mr-3" />
-                          )}
-                          Listen to an example dialogue
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Statistics Grid */}
-                    <div className="grid grid-cols-2 gap-8">
-                      <div className="text-center lg:text-left">
-                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                    {/* Compact Statistics */}
+                    <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto">
+                      <div>
+                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-white">
                           {useCase.stats.primary.value}
                         </div>
-                        <div className="text-sm lg:text-base text-muted-foreground font-medium">
+                        <div className="text-xs lg:text-sm text-white/70 font-medium">
                           {useCase.stats.primary.label}
                         </div>
                       </div>
-                      <div className="text-center lg:text-left">
-                        <div className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-2 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                      <div>
+                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-white">
                           {useCase.stats.secondary.value}
                         </div>
-                        <div className="text-sm lg:text-base text-muted-foreground font-medium">
+                        <div className="text-xs lg:text-sm text-white/70 font-medium">
                           {useCase.stats.secondary.label}
                         </div>
                       </div>
-                    </div>
-
-                    {/* Use Template Button */}
-                    <div className="flex justify-center lg:justify-end pt-4">
-                      <Button 
-                        variant="link" 
-                        className="text-primary hover:text-primary/80 text-lg font-medium group"
-                      >
-                        Use template 
-                        <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
-                      </Button>
                     </div>
                   </div>
                 </div>
