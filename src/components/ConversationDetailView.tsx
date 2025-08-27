@@ -7,6 +7,9 @@ import { Play, Pause, Mic, Sparkles, Clock } from "lucide-react";
  */
 export default function ConversationMonitorArtistic() {
   const [playing, setPlaying] = useState(false);
+  const [activeTab, setActiveTab] = useState("Summary");
+
+  const tabs = ["Summary", "Transcripts", "Details"];
 
   return (
     <section className="relative w-full bg-white py-28">
@@ -65,6 +68,22 @@ export default function ConversationMonitorArtistic() {
 function Exhibit({ icon, title, subtitle }: { icon: React.ReactNode; title: string; subtitle: string }) {
   return (
     <div className="flex flex-col items-center">
+      {/* Navigation Tabs */}
+      <div className="mb-8 flex rounded-lg bg-slate-100 p-1">
+        {["Summary", "Transcripts", "Details"].map((tab) => (
+          <button
+            key={tab}
+            className={`px-6 py-2 text-sm font-medium rounded-md transition-all ${
+              tab === "Summary" 
+                ? "bg-teal-600 text-white shadow-sm" 
+                : "text-slate-600 hover:text-slate-900"
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+      
       <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-teal-50 shadow-inner">
         {icon}
       </div>
