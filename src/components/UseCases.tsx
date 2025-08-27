@@ -77,7 +77,7 @@ const useCases: UseCase[] = [
   },
   {
     id: "bank-issue-resolve",
-    title: "Assistant for Customer Support",
+    title: "Assistant for Order Processing",
     description: "Notify debtors about late payments and provide repayment incentives.",
     image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
     stats: {
