@@ -67,7 +67,7 @@ const useCases: UseCase[] = [
   },
   {
     id: "restaurant-reservations",
-    title: "Restaurant reservation assistant",
+    title: "Voice Assistant for Sales",
     description: "Handle bookings, special requests, and waitlist management naturally.",
     image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
     stats: {
