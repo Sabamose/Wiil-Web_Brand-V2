@@ -12,7 +12,7 @@ export default function ConversationMonitorArtistic() {
     <section className="relative w-full bg-white py-28">
       <BackdropCanvas />
 
-      <div className="mx-auto max-w-6xl px-6 text-center">
+      <div className="mx-auto max-w-6xl px-6">
         {/* Hero Title */}
         <h1 className="text-6xl font-display font-light tracking-tight text-slate-900">
           Monitor <span className="text-teal-600">Conversations</span>
