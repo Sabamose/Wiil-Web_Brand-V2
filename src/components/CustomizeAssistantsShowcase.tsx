@@ -145,28 +145,156 @@ function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; g
 }
 
 function AvatarFace({ variant = "maria" }: { variant?: "sarah" | "james" | "maria" | "alex" }) {
-  const palettes: Record<string, { skin: string; hair: string; bg: string }> = {
-    sarah: { skin: "#F6D7C3", hair: "#2F2F2F", bg: "#E6FFFB" },
-    james: { skin: "#E8C39E", hair: "#0B3B34", bg: "#EAF7F5" },
-    maria: { skin: "#F1C7B4", hair: "#5A3825", bg: "#F3FFFD" },
-    alex: { skin: "#E9BFA1", hair: "#234F4A", bg: "#EFFCF9" },
-  };
-  const p = palettes[variant];
-  return (
-    <svg width="36" height="36" viewBox="0 0 36 36" className="rounded-full shadow-[inset_0_0_0_3px_rgba(20,184,166,0.15)]" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <clipPath id={`r-${variant}`}><circle cx="18" cy="18" r="18"/></clipPath>
-      </defs>
-      <rect width="36" height="36" rx="18" fill={p.bg} />
-      <g clipPath={`url(#r-${variant})`}>
-        <circle cx="18" cy="16" r="11" fill={p.hair} />
-        <ellipse cx="18" cy="18.5" rx="8.5" ry="9" fill={p.skin} />
-        <circle cx="14.5" cy="18" r="1.2" fill="#1F2937" />
-        <circle cx="21.5" cy="18" r="1.2" fill="#1F2937" />
-        <path d="M13.8 21.4c1.3 1.6 7.1 1.6 8.4 0" stroke="#0f766e" strokeWidth="1.4" strokeLinecap="round" fill="none" />
-      </g>
-    </svg>
-  );
+  const isFemaleName = variant === "sarah" || variant === "maria";
+  
+  if (isFemaleName) {
+    return (
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="relative"
+      >
+        <motion.svg 
+          width="36" 
+          height="36" 
+          viewBox="0 0 36 36" 
+          className="rounded-full shadow-lg"
+          animate={{ 
+            rotateY: [0, 5, 0, -5, 0],
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Female avatar with longer hair and softer features */}
+          <defs>
+            <linearGradient id={`female-bg-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#fdf2f8" />
+              <stop offset="100%" stopColor="#fce7f3" />
+            </linearGradient>
+            <linearGradient id={`female-hair-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8b5a2b" />
+              <stop offset="100%" stopColor="#6b4423" />
+            </linearGradient>
+          </defs>
+          
+          <circle cx="18" cy="18" r="18" fill={`url(#female-bg-${variant})`} />
+          
+          {/* Long flowing hair */}
+          <path d="M8 12 Q18 5 28 12 Q26 8 18 6 Q10 8 8 12 Z" fill={`url(#female-hair-${variant})`} />
+          <ellipse cx="18" cy="14" rx="12" ry="8" fill={`url(#female-hair-${variant})`} />
+          
+          {/* Face */}
+          <ellipse cx="18" cy="20" rx="7" ry="8" fill="#f3d5c0" />
+          
+          {/* Eyes with lashes */}
+          <ellipse cx="15" cy="19" rx="1.5" ry="1" fill="#1f2937" />
+          <ellipse cx="21" cy="19" rx="1.5" ry="1" fill="#1f2937" />
+          <path d="M13.5 17.5 Q15 16.5 16.5 17.5" stroke="#1f2937" strokeWidth="0.8" fill="none" />
+          <path d="M19.5 17.5 Q21 16.5 22.5 17.5" stroke="#1f2937" strokeWidth="0.8" fill="none" />
+          
+          {/* Soft smile with lipstick */}
+          <path d="M15 22.5 Q18 24.5 21 22.5" stroke="#ec4899" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+          
+          {/* Blush */}
+          <ellipse cx="13" cy="21" rx="1.5" ry="1" fill="#fbb6ce" opacity="0.6" />
+          <ellipse cx="23" cy="21" rx="1.5" ry="1" fill="#fbb6ce" opacity="0.6" />
+        </motion.svg>
+        
+        {/* Subtle sparkle animation */}
+        <motion.div
+          className="absolute -top-1 -right-1 text-pink-400"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          ✨
+        </motion.div>
+      </motion.div>
+    );
+  } else {
+    return (
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        className="relative"
+      >
+        <motion.svg 
+          width="36" 
+          height="36" 
+          viewBox="0 0 36 36" 
+          className="rounded-full shadow-lg"
+          animate={{ 
+            rotateY: [0, -5, 0, 5, 0],
+          }}
+          transition={{ 
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          {/* Male avatar with shorter hair and stronger features */}
+          <defs>
+            <linearGradient id={`male-bg-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#eff6ff" />
+              <stop offset="100%" stopColor="#dbeafe" />
+            </linearGradient>
+            <linearGradient id={`male-hair-${variant}`} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#1f2937" />
+              <stop offset="100%" stopColor="#111827" />
+            </linearGradient>
+          </defs>
+          
+          <circle cx="18" cy="18" r="18" fill={`url(#male-bg-${variant})`} />
+          
+          {/* Short hair */}
+          <path d="M10 15 Q18 8 26 15 Q24 12 18 10 Q12 12 10 15 Z" fill={`url(#male-hair-${variant})`} />
+          <ellipse cx="18" cy="14" rx="9" ry="5" fill={`url(#male-hair-${variant})`} />
+          
+          {/* Face with more angular features */}
+          <path d="M11 18 Q18 28 25 18 Q23 24 18 24 Q13 24 11 18 Z" fill="#e8c39e" />
+          
+          {/* Eyes */}
+          <ellipse cx="15" cy="19" rx="1.2" ry="0.8" fill="#1f2937" />
+          <ellipse cx="21" cy="19" rx="1.2" ry="0.8" fill="#1f2937" />
+          
+          {/* Eyebrows */}
+          <path d="M13.5 17 Q15 16.5 16.5 17" stroke="#1f2937" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+          <path d="M19.5 17 Q21 16.5 22.5 17" stroke="#1f2937" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+          
+          {/* Confident smile */}
+          <path d="M15.5 22 Q18 23.5 20.5 22" stroke="#059669" strokeWidth="1.2" strokeLinecap="round" fill="none" />
+          
+          {/* Subtle beard shadow */}
+          <ellipse cx="18" cy="23.5" rx="3" ry="1.5" fill="#374151" opacity="0.2" />
+        </motion.svg>
+        
+        {/* Subtle tech animation */}
+        <motion.div
+          className="absolute -top-1 -right-1 text-blue-500"
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 1, 0.5]
+          }}
+          transition={{ 
+            duration: 2.5,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          💼
+        </motion.div>
+      </motion.div>
+    );
+  }
 }
 
 function FlagChip({ flag, label, muted }: { flag: string; label: string; muted?: boolean }) {
