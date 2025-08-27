@@ -14,7 +14,7 @@ export default function ConversationMonitorArtistic() {
 
       <div className="mx-auto max-w-6xl px-6 text-center">
         {/* Hero Title */}
-        <h1 className="text-6xl font-light tracking-tight text-slate-900">
+        <h1 className="text-6xl font-display font-light tracking-tight text-slate-900">
           Monitor <span className="text-teal-600">Conversations</span>
         </h1>
         <p className="mt-4 text-base text-slate-500">Clarity, precision, and insights from every interaction.</p>
