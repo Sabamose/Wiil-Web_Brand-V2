@@ -164,30 +164,20 @@ const UseCases = () => {
                       {useCase.title}
                     </h3>
 
-                    {/* Round Play Button with Waves */}
+                    {/* Round Play Button */}
                     <div className="flex flex-col items-center space-y-3">
-                      <div className="relative flex items-center justify-center">
-                        {/* Animated Circle Waves */}
-                        <div className="absolute inset-0 w-20 h-20 lg:w-24 lg:h-24">
-                          <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-ping"></div>
-                          <div className="absolute inset-2 rounded-full border-2 border-primary/20 animate-ping" style={{ animationDelay: '0.5s' }}></div>
-                          <div className="absolute inset-4 rounded-full border-2 border-primary/10 animate-ping" style={{ animationDelay: '1s' }}></div>
-                        </div>
-                        
-                        {/* Central Play Button */}
-                        <button
-                          onClick={handlePlayAudio}
-                          className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-white backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg z-10"
-                          aria-label="Listen to example dialogue"
-                        >
-                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300" />
-                          {isPlaying ? (
-                            <Pause className="w-5 h-5 lg:w-6 lg:h-6 text-primary relative z-10" />
-                          ) : (
-                            <Play className="w-5 h-5 lg:w-6 lg:h-6 text-primary relative z-10 ml-0.5" />
-                          )}
-                        </button>
-                      </div>
+                      <button
+                        onClick={handlePlayAudio}
+                        className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg"
+                        aria-label="Listen to example dialogue"
+                      >
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300" />
+                        {isPlaying ? (
+                          <Pause className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10" />
+                        ) : (
+                          <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10 ml-1" />
+                        )}
+                      </button>
                       <p className="text-sm text-foreground font-medium">Click to listen Sample Dialogs</p>
                     </div>
 
