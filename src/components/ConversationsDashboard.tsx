@@ -41,7 +41,7 @@ export default function EngageElegantV2() {
 
       <div className="mx-auto max-w-6xl px-6">
         {/* Heading */}
-        <h2 className="text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
+        <h2 className="text-4xl font-display font-semibold tracking-tight text-slate-900 md:text-5xl">
           Engage With <span className="bg-gradient-to-r from-teal-600 to-indigo-600 bg-clip-text text-transparent">Your Audience</span>
         </h2>
         <p className="mt-2 text-[12px] uppercase tracking-[0.22em] text-slate-400">
