@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PlatformScreenshots from "@/components/PlatformScreenshots";
 import AssistantManagement from "@/components/AssistantManagement";
-import AssistantCreationFlow from "@/components/AssistantCreationFlow";
+
 import ConversationsDashboard from "@/components/ConversationsDashboard";
 import ConversationDetailView from "@/components/ConversationDetailView";
 import { ArrowRight } from "lucide-react";
