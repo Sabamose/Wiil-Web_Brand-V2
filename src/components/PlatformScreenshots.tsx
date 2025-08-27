@@ -1,15 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+/**
+ * Magical CTA — Option 4 + Option 1
+ * - Word carousel (front) that rotates the final verb elegantly
+ * - Subtle infinite marquee of the full phrase in the background with gradient edge masks
+ * - TailwindCSS only (custom keyframes defined inline below)
+ * - Teal‑first palette, elegant/clean
+ */
 const PlatformScreenshots = () => {
+  const words = ["connect", "call", "chat", "text", "email", "message"];
+  const [idx, setIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIdx((i) => (i + 1) % words.length), 2400);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section className="w-full py-48 bg-background">
-      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
-        <div className="text-center">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight">
-            Meet your customers wherever they are, however they connect
-          </h2>
+    <section className="relative isolate w-full overflow-hidden bg-background py-48">
+      {/* Background marquee ribbon */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[140px] select-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
+        {/* left/right fade masks */}
+        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background to-transparent" />
+        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent" />
+        <div className="marquee whitespace-nowrap text-[32px] font-display font-light leading-[140px] text-muted-foreground/30">
+          <div className="marquee-inner inline-block">
+            {Array.from({ length: 2 }).map((_, k) => (
+              <span key={k} className="pr-10">
+                Meet your customers wherever they are, however they connect •
+              </span>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Foreground CTA line */}
+      <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-foreground leading-tight tracking-tight">
+          Meet your customers wherever they are, however they
+          <span className="relative ml-3 inline-flex min-w-[7ch] items-baseline align-baseline">
+            {/* word carousel items */}
+            {words.map((w, i) => (
+              <span
+                key={w}
+                aria-hidden={i !== idx}
+                className={`absolute inset-0 origin-left whitespace-nowrap transition duration-600 will-change-auto ${
+                  i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+                } text-primary`}
+              >
+                {w}
+              </span>
+            ))}
+            {/* accessibility live region */}
+            <span className="sr-only" aria-live="polite">{words[idx]}</span>
+          </span>
+        </h1>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3 justify-center">
+          <a href="#create" className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition hover:bg-primary/90">Create an Assistant</a>
+          <a href="#demo" className="rounded-full border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground shadow-sm transition hover:bg-accent">See Live Demo</a>
+        </div>
+      </div>
+
+      {/* Inline keyframes for marquee + reduced motion support */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .marquee { position: relative; overflow: hidden; }
+        .marquee-inner { animation: marquee 28s linear infinite; }
+        @media (prefers-reduced-motion: reduce) {
+          .marquee-inner { animation: none; }
+        }
+      `}</style>
     </section>
   );
 };
