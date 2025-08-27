@@ -238,15 +238,6 @@ const UseCases = () => {
             ))}
           </div>
 
-          {/* Auto-play indicator */}
-          <div className="text-center mt-4">
-            <button
-              onClick={() => setIsAutoPlay(!isAutoPlay)}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {isAutoPlay ? '⏸️ Pause auto-play' : '▶️ Resume auto-play'}
-            </button>
-          </div>
         </div>
       </div>
     </section>
