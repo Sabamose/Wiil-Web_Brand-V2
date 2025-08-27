@@ -17,7 +17,7 @@ interface UseCase {
 const useCases: UseCase[] = [
   {
     id: "sales",
-    title: "Voice bot for credit sales",
+    title: "Voice Assistant for Credit Sales",
     description: "Automatic client outreach with credit offers from bank database.",
     image: "/lovable-uploads/9da631c1-782b-4654-9878-179f6335f54b.png",
     stats: {
