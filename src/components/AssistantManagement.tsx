@@ -169,24 +169,44 @@ function RedactedLine({ w = "w-1/2" }: { w?: string }) {
   return <div className={`${w} h-3 rounded-md bg-slate-200/70`} />;
 }
 
-// Elegant decorative backgrounds
+// Elegant decorative backgrounds with enhanced linear design
 function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" }) {
   if (variant === "lines") {
     return (
       <svg viewBox="0 0 800 600" className="h-full w-full">
         <defs>
           <linearGradient id="lineg" x1="0" x2="1">
-            <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.08" />
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
+            <stop offset="50%" stopColor="#06B6D4" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.12" />
+          </linearGradient>
+          <linearGradient id="lineg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.06" />
+            <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.02" />
           </linearGradient>
         </defs>
-        {[...Array(12)].map((_, i) => (
+        {/* Flowing curves */}
+        {[...Array(15)].map((_, i) => (
           <path
             key={i}
-            d={`M0 ${50 + i * 40} Q 400 ${20 + i * 60}, 800 ${50 + i * 40}`}
+            d={`M0 ${40 + i * 35} Q 400 ${15 + i * 45}, 800 ${40 + i * 35}`}
             stroke="url(#lineg)"
-            strokeWidth="1.2"
+            strokeWidth="1.5"
             fill="none"
+            opacity={1 - i * 0.06}
+          />
+        ))}
+        {/* Diagonal accents */}
+        {[...Array(8)].map((_, i) => (
+          <line
+            key={`diag-${i}`}
+            x1={i * 120}
+            y1="0"
+            x2={i * 120 + 200}
+            y2="600"
+            stroke="url(#lineg2)"
+            strokeWidth="0.8"
+            opacity="0.4"
           />
         ))}
       </svg>
@@ -197,13 +217,33 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
       <svg viewBox="0 0 600 600" className="h-full w-full">
         <defs>
           <radialGradient id="rg" cx="50%" cy="50%">
-            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.18" />
+            <stop offset="70%" stopColor="#06B6D4" stopOpacity="0.08" />
             <stop offset="100%" stopColor="#14B8A6" stopOpacity="0" />
           </radialGradient>
+          <linearGradient id="rg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.1" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.05" />
+          </linearGradient>
         </defs>
-        {[...Array(7)].map((_, i) => (
-          <circle key={i} cx="300" cy="300" r={60 + i * 60} fill="none" stroke="url(#rg)" strokeWidth="1.3" />
+        {/* Concentric circles */}
+        {[...Array(9)].map((_, i) => (
+          <circle 
+            key={i} 
+            cx="300" 
+            cy="300" 
+            r={50 + i * 45} 
+            fill="none" 
+            stroke="url(#rg)" 
+            strokeWidth="1.8"
+            opacity={1 - i * 0.08}
+          />
         ))}
+        {/* Corner accent lines */}
+        <path d="M50 50 L150 50 L150 150" stroke="url(#rg2)" strokeWidth="2" fill="none" />
+        <path d="M450 50 L550 50 L550 150" stroke="url(#rg2)" strokeWidth="2" fill="none" />
+        <path d="M50 450 L150 450 L150 550" stroke="url(#rg2)" strokeWidth="2" fill="none" />
+        <path d="M450 450 L550 450 L550 550" stroke="url(#rg2)" strokeWidth="2" fill="none" />
       </svg>
     );
   }
@@ -211,43 +251,78 @@ function Decoration({ variant }: { variant: "lines" | "rings" | "mesh" | "wave" 
     return (
       <svg viewBox="0 0 800 600" className="h-full w-full">
         <defs>
-          <linearGradient id="meshg" x1="0" x2="1">
-            <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.08" />
-            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.08" />
+          <linearGradient id="meshg" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.12" />
+            <stop offset="50%" stopColor="#14B8A6" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.10" />
           </linearGradient>
+          <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+            <path d="M 80 0 L 0 0 0 80" fill="none" stroke="url(#meshg)" strokeWidth="1"/>
+          </pattern>
         </defs>
-        {[...Array(10)].map((_, i) => (
+        {/* Grid pattern */}
+        <rect width="100%" height="100%" fill="url(#grid)" opacity="0.6" />
+        {/* Floating geometric shapes */}
+        {[...Array(12)].map((_, i) => (
           <circle
             key={i}
-            cx={80 + i * 80}
-            cy={100 + (i % 2) * 60}
-            r={120}
+            cx={60 + (i % 4) * 180 + (i > 7 ? 90 : 0)}
+            cy={80 + Math.floor(i / 4) * 140}
+            r={25 + (i % 3) * 15}
             fill="none"
             stroke="url(#meshg)"
-            strokeWidth="1.2"
+            strokeWidth="1.5"
+            opacity={0.7 - (i % 4) * 0.1}
           />
         ))}
+        {/* Connecting lines */}
+        <path d="M140 150 Q 400 100, 660 150" stroke="url(#meshg)" strokeWidth="1.2" fill="none" opacity="0.5" />
+        <path d="M140 350 Q 400 300, 660 350" stroke="url(#meshg)" strokeWidth="1.2" fill="none" opacity="0.5" />
       </svg>
     );
   }
-  // wave
+  // wave with enhanced linear elements
   return (
     <svg viewBox="0 0 800 600" className="h-full w-full">
       <defs>
-        <linearGradient id="waveg" x1="0" x2="1">
-          <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.12" />
-          <stop offset="100%" stopColor="#0EA5E9" stopOpacity="0.12" />
+        <linearGradient id="waveg" x1="0" x2="1" y1="0" y2="0.5">
+          <stop offset="0%" stopColor="#14B8A6" stopOpacity="0.15" />
+          <stop offset="50%" stopColor="#0EA5E9" stopOpacity="0.10" />
+          <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.12" />
+        </linearGradient>
+        <linearGradient id="waveg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#06B6D4" stopOpacity="0.08" />
+          <stop offset="100%" stopColor="#14B8A6" stopOpacity="0.04" />
         </linearGradient>
       </defs>
-      {[...Array(10)].map((_, i) => (
+      {/* Main flowing waves */}
+      {[...Array(12)].map((_, i) => (
         <path
           key={i}
-          d={`M0 ${60 + i * 50} C 200 ${20 + i * 40}, 600 ${100 + i * 30}, 800 ${60 + i * 50}`}
+          d={`M0 ${50 + i * 42} C 200 ${15 + i * 35}, 600 ${85 + i * 25}, 800 ${50 + i * 42}`}
           fill="none"
           stroke="url(#waveg)"
-          strokeWidth="1.4"
+          strokeWidth={1.8 - i * 0.08}
+          opacity={1 - i * 0.06}
         />
       ))}
+      {/* Vertical accent lines */}
+      {[...Array(6)].map((_, i) => (
+        <line
+          key={`vert-${i}`}
+          x1={100 + i * 120}
+          y1="0"
+          x2={100 + i * 120}
+          y2="600"
+          stroke="url(#waveg2)"
+          strokeWidth="1"
+          opacity="0.3"
+        />
+      ))}
+      {/* Horizontal guides */}
+      <line x1="0" y1="150" x2="800" y2="150" stroke="url(#waveg2)" strokeWidth="0.8" opacity="0.2" />
+      <line x1="0" y1="300" x2="800" y2="300" stroke="url(#waveg2)" strokeWidth="0.8" opacity="0.2" />
+      <line x1="0" y1="450" x2="800" y2="450" stroke="url(#waveg2)" strokeWidth="0.8" opacity="0.2" />
     </svg>
   );
 }
