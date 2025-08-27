@@ -106,11 +106,19 @@ export default function PlatformElegantShowroom() {
                 </motion.div>
               </AnimatePresence>
               <div className="absolute inset-x-0 bottom-4 flex items-center justify-between px-4">
-                <button onClick={prev} className="rounded-full bg-white/80 p-2 shadow ring-1 ring-black/5 backdrop-blur transition hover:bg-white">
-                  <ChevronLeft className="size-5 text-slate-700" />
+                <button 
+                  onClick={prev} 
+                  className="group rounded-full bg-white/90 p-3 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all duration-200 hover:bg-white hover:scale-105 hover:shadow-xl active:scale-95 touch-manipulation"
+                  aria-label="Previous assistant"
+                >
+                  <ChevronLeft className="size-5 text-slate-700 transition-transform group-hover:-translate-x-0.5" />
                 </button>
-                <button onClick={next} className="rounded-full bg-white/80 p-2 shadow ring-1 ring-black/5 backdrop-blur transition hover:bg-white">
-                  <ChevronRight className="size-5 text-slate-700" />
+                <button 
+                  onClick={next} 
+                  className="group rounded-full bg-white/90 p-3 shadow-lg ring-1 ring-black/10 backdrop-blur-sm transition-all duration-200 hover:bg-white hover:scale-105 hover:shadow-xl active:scale-95 touch-manipulation"
+                  aria-label="Next assistant"
+                >
+                  <ChevronRight className="size-5 text-slate-700 transition-transform group-hover:translate-x-0.5" />
                 </button>
               </div>
             </CardContent>
