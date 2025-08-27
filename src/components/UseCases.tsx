@@ -190,20 +190,7 @@ function Carousel({ items }: { items: Slide[] }) {
   const go = (n: number) => setIdx((p) => (p + n + items.length) % items.length);
   const to = (n: number) => setIdx(((n % items.length) + items.length) % items.length);
 
-  useEffect(() => {
-    stop();
-    timer.current = window.setInterval(() => {
-      setIdx((p) => (p + 1) % items.length);
-    }, 5000);
-    return stop;
-  }, [items.length]);
-
-  const stop = () => {
-    if (timer.current) {
-      clearInterval(timer.current);
-      timer.current = null;
-    }
-  };
+  // Auto-progression removed - slides only change on manual navigation
 
   return (
     <div className="relative">
