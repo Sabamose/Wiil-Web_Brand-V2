@@ -168,14 +168,14 @@ const UseCases = () => {
                     <div className="flex justify-center">
                       <button
                         onClick={handlePlayAudio}
-                        className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:border-white/40 hover:bg-white/20 transition-all duration-300 flex items-center justify-center group"
+                        className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg"
                         aria-label="Listen to example dialogue"
                       >
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-primary/10 animate-pulse opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300" />
                         {isPlaying ? (
-                          <Pause className="w-8 h-8 lg:w-10 lg:h-10 text-white relative z-10" />
+                          <Pause className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10" />
                         ) : (
-                          <Play className="w-8 h-8 lg:w-10 lg:h-10 text-white relative z-10 ml-1" />
+                          <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10 ml-1" />
                         )}
                       </button>
                     </div>
