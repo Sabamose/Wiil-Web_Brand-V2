@@ -20,22 +20,6 @@ const PlatformScreenshots = () => {
 
   return (
     <section className="relative isolate w-full overflow-hidden bg-background py-48">
-      {/* Background marquee ribbon */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[140px] select-none">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent" />
-        {/* left/right fade masks */}
-        <div className="absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-background to-transparent" />
-        <div className="absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-background to-transparent" />
-        <div className="marquee whitespace-nowrap text-[32px] font-display font-light leading-[140px] text-muted-foreground/30">
-          <div className="marquee-inner inline-block">
-            {Array.from({ length: 2 }).map((_, k) => (
-              <span key={k} className="pr-10">
-                Meet your customers wherever they are, however they connect •
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* Foreground CTA line */}
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
