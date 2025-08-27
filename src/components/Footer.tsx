@@ -4,12 +4,12 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-br from-teal-600/10 via-white to-teal-600/5 text-gray-900">
+    <footer className="w-full bg-white border-t-2 border-gray-200 shadow-lg text-gray-900 mt-8">
       {/* CTA Section */}
-      <div className="section-container py-16 sm:py-20">
+      <div className="section-container py-8 sm:py-12 lg:py-16">
 
         {/* Footer Links */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pt-16 border-t border-gray-300">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-8 sm:pt-12 border-t border-gray-300">
           {/* Company Info */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
