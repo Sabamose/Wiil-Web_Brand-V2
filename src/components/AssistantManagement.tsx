@@ -128,7 +128,6 @@ export default function PlatformElegantShowroom() {
               <li className="flex items-center gap-3"><Phone className="size-4" /> Service booking via calls</li>
               <li className="flex items-center gap-3"><MessageCircle className="size-4" /> Service booking via chat</li>
               <li className="flex items-center gap-3"><ShoppingCart className="size-4" /> Sales assistant</li>
-              <li className="flex items-center gap-3"><Wrench className="size-4" /> Technical support</li>
               <li className="flex items-center gap-3"><MessageSquare className="size-4" /> SMS follow ups</li>
             </ul>
             <div className="mt-6 space-y-2">
