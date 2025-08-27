@@ -67,13 +67,13 @@ const Navbar = () => {
           <Link to="/contact" className="nav-link">Contact</Link>
         </nav>
 
-        {/* Mobile menu button - increased touch target */}
+        {/* Mobile menu button - made more visible */}
         <button 
-          className="md:hidden text-gray-700 p-3 focus:outline-none" 
+          className="md:hidden relative z-50 p-2 rounded-lg bg-white/90 backdrop-blur-sm border border-gray-200 shadow-lg hover:bg-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-teal-500" 
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMenuOpen ? <X size={20} className="text-gray-700" /> : <Menu size={20} className="text-gray-700" />}
         </button>
       </div>
 
