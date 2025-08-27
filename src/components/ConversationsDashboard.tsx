@@ -39,17 +39,17 @@ export default function EngageElegantV2() {
       {/* Decorative backdrop */}
       <BackdropLines />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {/* Heading */}
-        <h2 className="text-4xl font-display font-semibold tracking-tight text-slate-900 md:text-5xl">
+        <h2 className="text-3xl font-display font-semibold tracking-tight text-slate-900 sm:text-4xl md:text-5xl">
           Engage With <span className="bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text text-transparent">Your Audience</span>
         </h2>
-        <p className="mt-2 text-[12px] uppercase tracking-[0.22em] text-slate-400">
+        <p className="mt-2 text-[11px] sm:text-[12px] uppercase tracking-[0.22em] text-slate-400">
           Omni‑channel conversations · Search · Filter · Export
         </p>
 
         {/* Controls */}
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-6 sm:mt-7 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <label className="relative block w-full sm:max-w-md">
             <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-slate-400" />
             <input
@@ -63,80 +63,136 @@ export default function EngageElegantV2() {
           <div className="flex flex-wrap items-center gap-2">
             <Chip onClick={() => setFilter("all")} active={filter === "all"}>All</Chip>
             <Chip onClick={() => setFilter("today")} active={filter === "today"}>Today</Chip>
-            <Chip onClick={() => setFilter("week")} active={filter === "week"}>This Week</Chip>
-            <Chip onClick={() => setFilter("missed")} active={filter === "missed"}>Missed Only</Chip>
-            <button className="ml-1 inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs text-slate-600 shadow-sm transition hover:bg-white">
+            <Chip onClick={() => setFilter("week")} active={filter === "week"} className="hidden xs:inline-flex">This Week</Chip>
+            <Chip onClick={() => setFilter("missed")} active={filter === "missed"}>Missed</Chip>
+            <button className="hidden sm:inline-flex items-center gap-1 rounded-full border border-slate-200 bg-white/70 px-3 py-1.5 text-xs text-slate-600 shadow-sm transition hover:bg-white">
               <Filter className="size-3.5" /> Filter
             </button>
             <button className="inline-flex items-center gap-1 rounded-full border border-teal-200 bg-teal-50 px-3 py-1.5 text-xs text-teal-700 shadow-sm transition hover:bg-white">
-              <Download className="size-3.5" /> Export
+              <Download className="size-3.5" /> <span className="hidden xs:inline">Export</span>
             </button>
           </div>
         </div>
 
-        {/* Table */}
-        <div className="mt-6 overflow-hidden rounded-3xl border border-slate-200/70 bg-white/70 shadow-xl shadow-slate-900/5 backdrop-blur-[2px]">
-          <table className="min-w-full table-fixed">
-            <thead>
-              <tr className="text-left text-[11px] uppercase tracking-wider text-slate-500/80">
-                <Th>Customer</Th>
-                <Th>Contact</Th>
-                <Th className="w-24">Type</Th>
-                <Th className="w-32">Status</Th>
-                <Th className="w-24">Duration</Th>
-                <Th className="w-28">Time</Th>
-                <Th className="w-16 text-center">View</Th>
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map((r) => (
-                <tr key={r.id} className="group border-t border-slate-100/80 bg-white/60 transition hover:bg-white">
-                  {/* Customer */}
-                  <td className="p-4">
-                    <div className="flex items-center gap-3">
-                      <AvatarBlob seed={r.id} />
-                      <div>
-                        <div className="text-sm font-medium text-slate-900">{r.name}</div>
-                        <div className="text-[10px] text-slate-400">{r.id}</div>
-                      </div>
+        {/* Mobile Card View */}
+        <div className="mt-6 block sm:hidden space-y-4">
+          {filtered.map((r) => (
+            <div key={r.id} className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 shadow-lg shadow-slate-900/5 backdrop-blur-[2px]">
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center gap-3">
+                    <AvatarBlob seed={r.id} />
+                    <div>
+                      <div className="text-sm font-medium text-slate-900">{r.name}</div>
+                      <div className="text-xs text-slate-400">{r.id}</div>
                     </div>
-                  </td>
-
-                  {/* Contact */}
-                  <td className="p-4 align-middle">
-                    <div className="text-sm text-slate-700">{r.email}</div>
-                    <div className="text-xs text-slate-400">{r.org}</div>
-                  </td>
-
-                  {/* Type */}
-                  <td className="p-4 align-middle">
-                    <span className="inline-flex items-center gap-1.5 text-sm text-slate-600">
-                      {r.type === "call" ? <Phone className="size-4" /> : <MessageSquare className="size-4" />}
+                  </div>
+                  <StatusPill status={r.status as any} />
+                </div>
+                
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Email:</span>
+                    <span className="text-slate-700 truncate max-w-48">{r.email}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Organization:</span>
+                    <span className="text-slate-700">{r.org}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-500">Type:</span>
+                    <span className="inline-flex items-center gap-1.5 text-slate-600">
+                      {r.type === "call" ? <Phone className="size-3" /> : <MessageSquare className="size-3" />}
                       {r.type === "call" ? "Call" : "Chat"}
                     </span>
-                  </td>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Duration:</span>
+                    <span className="text-slate-700">{r.duration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Time:</span>
+                    <span className="text-slate-700">{r.time}</span>
+                  </div>
+                </div>
+                
+                <button 
+                  onClick={() => setPreview(r.id)} 
+                  className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white/70 py-2 text-sm text-slate-600 shadow-sm transition hover:bg-white"
+                >
+                  <Eye className="size-4" />
+                  View Details
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
 
-                  {/* Status */}
-                  <td className="p-4 align-middle">
-                    <StatusPill status={r.status as any} />
-                  </td>
-
-                  {/* Duration */}
-                  <td className="p-4 align-middle text-sm text-slate-700">{r.duration}</td>
-
-                  {/* Time */}
-                  <td className="p-4 align-middle text-sm text-slate-700">{r.time}</td>
-
-                  {/* View */}
-                  <td className="p-4 text-center">
-                    <button onClick={() => setPreview(r.id)} className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 p-2 text-slate-600 opacity-80 shadow-sm transition hover:opacity-100">
-                      <Eye className="size-4" />
-                    </button>
-                  </td>
+        {/* Desktop Table View */}
+        <div className="mt-6 hidden sm:block overflow-hidden rounded-3xl border border-slate-200/70 bg-white/70 shadow-xl shadow-slate-900/5 backdrop-blur-[2px]">
+          <div className="overflow-x-auto">
+            <table className="min-w-full">
+              <thead>
+                <tr className="text-left text-[11px] uppercase tracking-wider text-slate-500/80">
+                  <Th className="min-w-0 w-1/4">Customer</Th>
+                  <Th className="min-w-0 w-1/4">Contact</Th>
+                  <Th className="min-w-0 w-1/6">Type</Th>
+                  <Th className="min-w-0 w-1/6">Status</Th>
+                  <Th className="min-w-0 w-1/12">Duration</Th>
+                  <Th className="min-w-0 w-1/12">Time</Th>
+                  <Th className="min-w-0 w-16 text-center">View</Th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map((r) => (
+                  <tr key={r.id} className="group border-t border-slate-100/80 bg-white/60 transition hover:bg-white">
+                    {/* Customer */}
+                    <td className="p-3 lg:p-4">
+                      <div className="flex items-center gap-3">
+                        <AvatarBlob seed={r.id} />
+                        <div className="min-w-0">
+                          <div className="text-sm font-medium text-slate-900 truncate">{r.name}</div>
+                          <div className="text-[10px] text-slate-400">{r.id}</div>
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Contact */}
+                    <td className="p-3 lg:p-4 align-middle">
+                      <div className="text-sm text-slate-700 truncate">{r.email}</div>
+                      <div className="text-xs text-slate-400 truncate">{r.org}</div>
+                    </td>
+
+                    {/* Type */}
+                    <td className="p-3 lg:p-4 align-middle">
+                      <span className="inline-flex items-center gap-1.5 text-sm text-slate-600">
+                        {r.type === "call" ? <Phone className="size-4" /> : <MessageSquare className="size-4" />}
+                        <span className="hidden md:inline">{r.type === "call" ? "Call" : "Chat"}</span>
+                      </span>
+                    </td>
+
+                    {/* Status */}
+                    <td className="p-3 lg:p-4 align-middle">
+                      <StatusPill status={r.status as any} />
+                    </td>
+
+                    {/* Duration */}
+                    <td className="p-3 lg:p-4 align-middle text-sm text-slate-700">{r.duration}</td>
+
+                    {/* Time */}
+                    <td className="p-3 lg:p-4 align-middle text-sm text-slate-700">{r.time}</td>
+
+                    {/* View */}
+                    <td className="p-3 lg:p-4 text-center">
+                      <button onClick={() => setPreview(r.id)} className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white/70 p-2 text-slate-600 opacity-80 shadow-sm transition hover:opacity-100">
+                        <Eye className="size-4" />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -170,13 +226,13 @@ function Th({ children, className = "" }: { children: React.ReactNode; className
   return <th className={`px-4 py-3 ${className}`}>{children}</th>;
 }
 
-function Chip({ children, active, onClick }: { children: React.ReactNode; active?: boolean; onClick?: () => void }) {
+function Chip({ children, active, onClick, className = "" }: { children: React.ReactNode; active?: boolean; onClick?: () => void; className?: string }) {
   return (
     <button
       onClick={onClick}
       className={`inline-flex items-center rounded-full px-3 py-1.5 text-xs shadow-sm transition ${
         active ? "bg-slate-900 text-white hover:bg-slate-800" : "border border-slate-200 bg-white/70 text-slate-600 hover:bg-white"
-      }`}
+      } ${className}`}
     >
       {children}
     </button>
