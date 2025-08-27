@@ -1,18 +1,16 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 
-/* Tailwind font setup (same as earlier):
-  theme.extend.fontFamily.brockmann = ["Brockmann","ui-sans-serif","system-ui"]
-  @font-face { font-family:Brockmann; src:url('/fonts/Brockmann-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap }
-  @font-face { font-family:Brockmann; src:url('/fonts/Brockmann-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap }
-*/
-
-export default function AssistantUseCasesSlideshow() {
+export default function AssistantUseCasesSlideshowV2() {
   const items: Slide[] = useMemo(
     () => [
       {
+        emoji: "💳",
         title: "AI Sales Assistant for Credit & Finance",
         blurb: "Qualifies borrowers, answers FAQs and routes hot leads.",
-        image: "https://images.unsplash.com/photo-1523285333936-4f1901e0b5b8?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1523285333936-4f1901e0b5b8?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Lead response", v: "<1s" },
           { k: "Availability", v: "24/7" },
@@ -20,9 +18,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/sales.mp3",
       },
       {
+        emoji: "🎧",
         title: "24/7 Customer Support Assistant",
         blurb: "Resolves common issues, gathers context, escalates cleanly.",
-        image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Tickets deflected", v: "68%" },
           { k: "CSAT lift", v: "+14%" },
@@ -30,9 +32,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/support.mp3",
       },
       {
+        emoji: "🏥",
         title: "Virtual Receptionist for Clinics",
         blurb: "Books and manages appointments; answers pre‑visit questions.",
-        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1584811649383-fb3f0b7d1a2b?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "No‑shows reduced", v: "‑32%" },
           { k: "Reminders", v: "Auto" },
@@ -40,9 +46,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/clinic.mp3",
       },
       {
+        emoji: "🍽️",
         title: "Smart Reservation Assistant for Restaurants",
         blurb: "Takes reservations, changes, and cancellations without hold time.",
-        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Calls automated", v: "100%" },
           { k: "Wait time", v: "0 min" },
@@ -50,9 +60,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/restaurant.mp3",
       },
       {
+        emoji: "💸",
         title: "Automated Payment & Billing Assistant",
         blurb: "Collects payments, verifies identity, sends receipts and reminders.",
-        image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1605901309584-818e25960a8b?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Recovery uplift", v: "+22%" },
           { k: "PCI-safe", v: "Yes" },
@@ -60,9 +74,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/billing.mp3",
       },
       {
+        emoji: "🛎️",
         title: "AI Concierge for Hotels & Hospitality",
         blurb: "Answers guest questions, books amenities, handles special requests.",
-        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1501117716987-c8e3f4f04954?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Upsell lift", v: "+15%" },
           { k: "Coverage", v: "24/7" },
@@ -70,9 +88,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/concierge.mp3",
       },
       {
+        emoji: "📦",
         title: "Order Management & Fulfillment Assistant",
         blurb: "Tracks orders, updates ETAs, and resolves delivery issues.",
-        image: "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1596495578065-9c9ae24b84a5?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Status calls cut", v: "‑70%" },
           { k: "NPS", v: "+9" },
@@ -80,9 +102,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/order.mp3",
       },
       {
+        emoji: "🛠️",
         title: "Technical Support Assistant",
         blurb: "Guides troubleshooting, gathers logs, and files clean tickets.",
-        image: "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "First‑contact fix", v: "+24%" },
           { k: "AHT", v: "‑31%" },
@@ -90,9 +116,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/tech.mp3",
       },
       {
+        emoji: "🚚",
         title: "Delivery & Logistics Assistant",
         blurb: "Confirms addresses, schedules drop‑offs, and sends updates.",
-        image: "https://images.unsplash.com/photo-1549921296-3b4a6b2b06b8?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1549921296-3b4a6b2b06b8?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Failed deliveries", v: "‑28%" },
           { k: "Reattempts", v: "‑36%" },
@@ -100,9 +130,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/logistics.mp3",
       },
       {
+        emoji: "🏡",
         title: "Real Estate Inquiry Assistant",
         blurb: "Answers listing questions and books showings instantly.",
-        image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "Lead-to-tour", v: "2x" },
           { k: "Coverage", v: "24/7" },
@@ -110,9 +144,13 @@ export default function AssistantUseCasesSlideshow() {
         audio: "/audio/realestate.mp3",
       },
       {
+        emoji: "📅",
         title: "Appointment Scheduling Assistant",
         blurb: "Books, reschedules, and reminds—across phone, chat, and web.",
-        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1400&auto=format&fit=crop",
+        images: [
+          "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80",
+          "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1600&q=80"
+        ],
         stats: [
           { k: "No‑shows", v: "‑25%" },
           { k: "Channels", v: "Omni" },
@@ -137,9 +175,10 @@ export default function AssistantUseCasesSlideshow() {
 }
 
 type Slide = {
+  emoji: string;
   title: string;
   blurb: string;
-  image: string;
+  images: string[];
   stats: { k: string; v: string }[];
   audio: string;
 };
@@ -207,12 +246,14 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
   return (
     <div className={`grid grid-cols-1 overflow-hidden bg-white transition-opacity duration-500 sm:grid-cols-2 ${active ? "opacity-100" : "hidden opacity-0"}`}>
       <div className="relative h-56 sm:h-[420px]">
-        <img src={s.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/0 via-teal-900/0 to-teal-900/0" />
+        <ImageWithFallback sources={s.images} alt="" />
       </div>
       <div className="flex min-h-[320px] flex-col justify-between p-6 sm:p-8">
         <div>
-          <h3 className="font-brockmann text-[clamp(20px,2.6vw,28px)] font-semibold leading-tight text-slate-900">{s.title}</h3>
+          <h3 className="font-brockmann text-[clamp(20px,2.6vw,28px)] font-semibold leading-tight text-slate-900">
+            <span className="mr-2 align-[-2px]">{s.emoji}</span>
+            {s.title}
+          </h3>
           <p className="mt-2 max-w-[52ch] text-slate-600">{s.blurb}</p>
           <div className="mt-6 flex items-center gap-4">
             <button onClick={() => {
@@ -239,6 +280,37 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function ImageWithFallback({ sources, alt }: { sources: string[]; alt: string }) {
+  const [srcIdx, setSrcIdx] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+
+  const src = sources[srcIdx];
+
+  return (
+    <div className="absolute inset-0">
+      {!loaded && (
+        <div className="absolute inset-0 animate-pulse bg-gradient-to-br from-teal-50 to-white" />
+      )}
+      {src ? (
+        <img
+          src={src}
+          alt={alt}
+          onLoad={() => setLoaded(true)}
+          onError={() => setSrcIdx((i) => (i + 1 < sources.length ? i + 1 : i))}
+          loading="lazy"
+          decoding="async"
+          crossOrigin="anonymous"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-teal-50 to-white">
+          <div className="h-40 w-40 rounded-full bg-teal-100/70 blur-2xl" />
+        </div>
+      )}
     </div>
   );
 }
