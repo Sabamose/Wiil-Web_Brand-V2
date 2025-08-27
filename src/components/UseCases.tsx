@@ -184,18 +184,18 @@ const UseCases = () => {
                     {/* Compact Statistics */}
                     <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto">
                       <div>
-                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-white">
+                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-foreground">
                           {useCase.stats.primary.value}
                         </div>
-                        <div className="text-xs lg:text-sm text-white/70 font-medium">
+                        <div className="text-xs lg:text-sm text-muted-foreground font-medium">
                           {useCase.stats.primary.label}
                         </div>
                       </div>
                       <div>
-                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-white">
+                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-foreground">
                           {useCase.stats.secondary.value}
                         </div>
-                        <div className="text-xs lg:text-sm text-white/70 font-medium">
+                        <div className="text-xs lg:text-sm text-muted-foreground font-medium">
                           {useCase.stats.secondary.label}
                         </div>
                       </div>
