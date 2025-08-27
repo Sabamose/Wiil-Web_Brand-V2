@@ -318,10 +318,23 @@ function IconTile({ icon, label }: { icon: React.ReactNode; label: string }) {
 
 function SideLabel({ title, copy }: { title: string; copy: string }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white/70 p-4 text-center shadow-sm sm:text-left">
-      <div className="text-sm font-medium text-slate-900">{title}</div>
-      <p className="text-xs text-slate-500">{copy}</p>
-    </div>
+    <motion.div 
+      className="group relative rounded-2xl border border-teal-100/60 bg-gradient-to-br from-white/80 to-teal-50/30 p-5 text-center shadow-lg shadow-teal-100/20 backdrop-blur-sm transition-all duration-300 hover:shadow-xl hover:shadow-teal-100/30 sm:text-left"
+      whileHover={{ scale: 1.02, y: -2 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    >
+      {/* Subtle gradient overlay on hover */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-teal-50/0 to-teal-100/0 opacity-0 transition-opacity duration-300 group-hover:from-teal-50/20 group-hover:to-teal-100/10 group-hover:opacity-100" />
+      
+      {/* Content */}
+      <div className="relative z-10">
+        <div className="mb-2 text-sm font-semibold text-slate-800 group-hover:text-teal-700 transition-colors duration-200">{title}</div>
+        <p className="text-xs leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors duration-200">{copy}</p>
+      </div>
+      
+      {/* Decorative corner accent */}
+      <div className="absolute top-3 right-3 h-1.5 w-1.5 rounded-full bg-teal-200 opacity-60" />
+    </motion.div>
   );
 }
 
