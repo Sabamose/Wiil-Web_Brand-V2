@@ -21,12 +21,6 @@ const MadeByHumans = () => {
             maxHeight: "80px",
             marginTop: "40px"
           }}>
-              <h2 style={{
-              marginBottom: "-30px",
-              padding: "0px 0px 100px"
-            }} className="sm:text-5xl font-playfair text-white italic mt-0 mx-0 font-thin text-6xl md:text-7xl py-0 px-0 text-center lg:text-7xl">
-                PLACEHOLDER
-              </h2>
             </div>
             
             {/* White box at the bottom with overflow */}
