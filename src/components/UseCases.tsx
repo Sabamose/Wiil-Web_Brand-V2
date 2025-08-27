@@ -106,8 +106,8 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Technical Support Assistant",
         blurb: "Guides troubleshooting, gathers logs, and files clean tickets.",
         images: [
-          "https://images.unsplash.com/photo-1581091870622-1e7c1c5e8b3f?auto=format&fit=crop&w=1600&q=80",
-          "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1600&q=80"
+          "https://images.unsplash.com/photo-1581091870622-1e7c1c5e8b3f?auto=format&fit=crop&w=1600&q=80&v=2",
+          "https://images.unsplash.com/photo-1581091870622-1e7c1c5e8b3f?auto=format&fit=crop&w=1600&q=80&v=2"
         ],
         stats: [
           { k: "First‑contact fix", v: "+24%" },
