@@ -1,33 +1,12 @@
 
 import React from "react";
+import UseCases from "@/components/UseCases";
+
 const MadeByHumans = () => {
-  return <section id="made-by-humans" className="w-full bg-white py-0 pb-16 sm:pb-20 lg:pb-24">
-      <div className="section-container opacity-0 animate-on-scroll pb-2">
-        {/* Removed the pulse-chip button/element that was here */}
-        
-        <div className="w-full rounded-2xl sm:rounded-3xl overflow-hidden relative mt-6 sm:mt-8">
-          <div className="bg-no-repeat bg-cover bg-center sm:bg-center bg-top p-4 sm:p-5 min-h-[300px] sm:min-h-[400px] md:min-h-[500px] flex flex-col justify-between bg-blend-multiply" style={{
-          backgroundImage: "url('/lovable-uploads/4929286b-7ac0-4a6c-9081-84f4a5aa81f4.png'), linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.3))",
-          backgroundSize: "cover",
-          backgroundPosition: "center top"
-        }}>
-            <div className="flex items-center text-white">
-              <span className="text-white text-xl font-medium">
-            </span>
-            </div>
-            
-            <div style={{
-            overflow: "hidden",
-            maxHeight: "80px",
-            marginTop: "40px"
-          }}>
-            </div>
-            
-            {/* White box at the bottom with overflow */}
-            <div className="w-[120%] bg-white h-10 rounded-t-lg absolute left-[-10%] bottom-0"></div>
-          </div>
-        </div>
-      </div>
-    </section>;
+  return (
+    <section id="made-by-humans" className="w-full bg-background">
+      <UseCases />
+    </section>
+  );
 };
 export default MadeByHumans;
