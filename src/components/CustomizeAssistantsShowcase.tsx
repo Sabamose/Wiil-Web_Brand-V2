@@ -21,12 +21,12 @@ export default function CustomizeAssistantsShowcase() {
             <Glow intensity="md">
               <StepCard title="Step 1 · Role" index={1}>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  <GhostOption label="Receptionist" icon={<Phone className="size-5 text-teal-700" />} />
-                  <GhostOption label="Support" icon={<Headphones className="size-5 text-teal-700" />} />
-                  <GhostOption label="Sales" icon={<MessageSquare className="size-5 text-teal-700" />} />
-                  <GhostOption label="Concierge" icon={<Briefcase className="size-5 text-teal-700" />} />
-                  <GhostOption label="Service Booking" icon={<Calendar className="size-5 text-teal-700" />} />
-                  <GhostOption label="Tech Support" icon={<Settings className="size-5 text-teal-700" />} />
+                  <GhostOption label="Receptionist" icon={<span className="text-xl">📞</span>} />
+                  <GhostOption label="Support" icon={<span className="text-xl">🎧</span>} />
+                  <GhostOption label="Sales" icon={<span className="text-xl">💬</span>} />
+                  <GhostOption label="Concierge" icon={<span className="text-xl">🏨</span>} />
+                  <GhostOption label="Service Booking" icon={<span className="text-xl">📅</span>} />
+                  <GhostOption label="Tech Support" icon={<span className="text-xl">⚙️</span>} />
                 </div>
               </StepCard>
             </Glow>
