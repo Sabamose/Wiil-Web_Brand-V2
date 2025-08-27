@@ -135,26 +135,31 @@ function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; g
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const getAudioSrc = () => {
-    if (name === "Sarah") return "/audio/sarah-voice.mp3";
-    if (name === "James") return "/audio/james-voice.mp3";
-    return null; // Maria and Alex don't have audio yet
-  };
-
   const handlePlayPause = () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
+    if (!audioRef.current) return;
+    
     if (isPlaying) {
-      audio.pause();
+      audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      audio.play();
+      audioRef.current.play();
       setIsPlaying(true);
     }
   };
 
-  const audioSrc = getAudioSrc();
+  const handleAudioEnd = () => {
+    setIsPlaying(false);
+  };
+
+  // Placeholder audio sources - replace with your actual audio files
+  const audioSources = {
+    sarah: "/audio/sarah-voice.mp3",
+    james: "/audio/james-voice.mp3", 
+    maria: "/audio/maria-voice.mp3",
+    alex: "/audio/alex-voice.mp3"
+  };
+
+  const audioSrc = audioSources[look || (gender === "female" ? "maria" : "james")];
 
   return (
     <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
@@ -165,22 +170,20 @@ function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; g
         <div className="truncate text-sm font-medium text-slate-900">{name}</div>
         <div className="truncate text-xs text-slate-400">{desc}</div>
       </div>
-      {audioSrc && (
-        <>
-          <button
-            onClick={handlePlayPause}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors"
-          >
-            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-          </button>
-          <audio
-            ref={audioRef}
-            src={audioSrc}
-            onEnded={() => setIsPlaying(false)}
-            preload="metadata"
-          />
-        </>
-      )}
+      <motion.button
+        onClick={handlePlayPause}
+        className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-50 text-teal-600 hover:bg-teal-100 transition-colors duration-200"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+      </motion.button>
+      <audio
+        ref={audioRef}
+        src={audioSrc}
+        onEnded={handleAudioEnd}
+        preload="metadata"
+      />
     </div>
   );
 }
