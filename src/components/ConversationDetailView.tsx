@@ -75,28 +75,28 @@ export default function ConversationMonitorArtistic() {
           </div>
 
           {/* Right: Audio Player and Content */}
-          <div className="lg:col-span-2 space-y-6 lg:space-y-8">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6 lg:space-y-8 w-full overflow-hidden">
             {/* Audio Waveform Player */}
-            <div className="relative rounded-2xl lg:rounded-3xl border border-teal-200/50 bg-gradient-to-br from-white to-teal-50/30 p-4 sm:p-6 lg:p-8 shadow-xl">
-              <div className="flex items-center gap-3 sm:gap-6">
+            <div className="relative rounded-xl lg:rounded-3xl border border-teal-200/50 bg-gradient-to-br from-white to-teal-50/30 p-3 sm:p-4 lg:p-8 shadow-xl">
+              <div className="flex items-center gap-2 sm:gap-4 lg:gap-6">
                 <button
                   onClick={() => setPlaying((p) => !p)}
-                  className="rounded-full bg-teal-600 p-3 sm:p-4 text-white shadow-lg transition hover:bg-teal-700 hover:scale-105 flex-shrink-0"
+                  className="rounded-full bg-teal-600 p-2 sm:p-3 lg:p-4 text-white shadow-lg transition hover:bg-teal-700 hover:scale-105 flex-shrink-0"
                 >
-                  {playing ? <Pause className="size-4 sm:size-5" /> : <Play className="size-4 sm:size-5" />}
+                  {playing ? <Pause className="size-3 sm:size-4 lg:size-5" /> : <Play className="size-3 sm:size-4 lg:size-5" />}
                 </button>
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 overflow-hidden">
                   <Waveform />
                 </div>
-                <div className="flex items-center gap-2 text-sm text-slate-500 flex-shrink-0">
+                <div className="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm text-slate-500 flex-shrink-0">
                   <Clock className="size-3 sm:size-4" />
-                  <span className="text-xs sm:text-sm">4:32</span>
+                  <span>4:32</span>
                 </div>
               </div>
             </div>
 
             {/* Tab Content */}
-            <div className="min-h-[300px] sm:min-h-[400px]">
+            <div className="min-h-[250px] sm:min-h-[300px] lg:min-h-[400px] w-full overflow-hidden">
               {activeTab === "transcripts" && <TranscriptsContent />}
               {activeTab === "summary" && <SummaryContent />}
               {activeTab === "details" && <DetailsContent />}
@@ -234,11 +234,11 @@ function Bubble({ children, who, teal }: { children: React.ReactNode; who: strin
 }
 
 function Waveform() {
-  const bars = Array.from({ length: 60 }, (_, i) => 10 + Math.round(40 * Math.abs(Math.sin(i / 5))));
+  const bars = Array.from({ length: 30 }, (_, i) => 8 + Math.round(20 * Math.abs(Math.sin(i / 3))));
   return (
-    <div className="flex h-28 items-end gap-[5px]">
+    <div className="flex h-16 sm:h-20 lg:h-28 items-end gap-[2px] sm:gap-[3px] lg:gap-[5px] overflow-hidden">
       {bars.map((h, i) => (
-        <div key={i} className="w-[3px] rounded-full bg-teal-500/70" style={{ height: `${h}px` }} />
+        <div key={i} className="w-[2px] sm:w-[3px] rounded-full bg-teal-500/70 flex-shrink-0" style={{ height: `${h}px` }} />
       ))}
     </div>
   );
