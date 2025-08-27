@@ -178,7 +178,7 @@ const UseCases = () => {
                           <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10 ml-1" />
                         )}
                       </button>
-                      <p className="text-sm text-white/80 font-medium">Click to listen Sample Dialogs</p>
+                      <p className="text-sm text-foreground font-medium">Click to listen Sample Dialogs</p>
                     </div>
 
                     {/* Compact Statistics */}
