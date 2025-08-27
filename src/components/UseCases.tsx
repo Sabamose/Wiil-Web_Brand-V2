@@ -47,7 +47,7 @@ const useCases: UseCase[] = [
   },
   {
     id: "appointment-reminders",
-    title: "Smart appointment reminders",
+    title: "Assistant for Restaurant Reservations",
     description: "Automated reminders to reduce no-shows and improve customer experience.",
     image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
     stats: {
