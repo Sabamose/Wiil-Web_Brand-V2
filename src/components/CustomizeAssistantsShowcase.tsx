@@ -328,8 +328,7 @@ function SideLabel({ title, copy }: { title: string; copy: string }) {
       
       {/* Content */}
       <div className="relative z-10">
-        <div className="mb-2 text-sm font-semibold text-slate-800 group-hover:text-teal-700 transition-colors duration-200">{title}</div>
-        <p className="text-xs leading-relaxed text-slate-600 group-hover:text-slate-700 transition-colors duration-200">{copy}</p>
+        <div className="text-sm font-semibold text-slate-800 group-hover:text-teal-700 transition-colors duration-200">{title}</div>
       </div>
       
       {/* Decorative corner accent */}
