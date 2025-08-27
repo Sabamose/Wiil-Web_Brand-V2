@@ -1,247 +1,244 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Play, Pause, ChevronLeft, ChevronRight } from "lucide-react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 
-interface UseCase {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  stats: {
-    primary: { value: string; label: string };
-    secondary: { value: string; label: string };
-  };
-  audioUrl?: string;
-}
+/* Tailwind font setup (same as earlier):
+  theme.extend.fontFamily.brockmann = ["Brockmann","ui-sans-serif","system-ui"]
+  @font-face { font-family:Brockmann; src:url('/fonts/Brockmann-Regular.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap }
+  @font-face { font-family:Brockmann; src:url('/fonts/Brockmann-Semibold.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap }
+*/
 
-const useCases: UseCase[] = [
-  {
-    id: "sales",
-    title: "Voice Assistant for Credit Sales",
-    description: "Automatic client outreach with credit offers from bank database.",
-    image: "/lovable-uploads/9da631c1-782b-4654-9878-179f6335f54b.png",
-    stats: {
-      primary: { value: "500,000", label: "calls made in 5 days" },
-      secondary: { value: ">70%", label: "makes up a business dial-up" }
-    }
-  },
-  {
-    id: "technical-support",
-    title: "Assistant for Customer Support",
-    description: "Notify customers about better tariff plans and assist with switching.",
-    image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
-    stats: {
-      primary: { value: "100,000", label: "calls are made weekly" },
-      secondary: { value: ">10%", label: "agree to change the tariff" }
-    }
-  },
-  {
-    id: "appointment-booking",
-    title: "Assistant for Clinic Reception",
-    description: "Check availability, book appointments, and send confirmations automatically.",
-    image: "/lovable-uploads/dc88150f-e898-4c4b-9685-7484e19637e4.png",
-    stats: {
-      primary: { value: "90%", label: "booking success rate" },
-      secondary: { value: "24/7", label: "availability" }
-    }
-  },
-  {
-    id: "appointment-reminders",
-    title: "Assistant for Restaurant Reservations",
-    description: "Automated reminders to reduce no-shows and improve customer experience.",
-    image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
-    stats: {
-      primary: { value: "75%", label: "reduction in no-shows" },
-      secondary: { value: "95%", label: "reminder delivery rate" }
-    }
-  },
-  {
-    id: "loan-collector",
-    title: "Assistant for Payment Collection",
-    description: "Professional debt collection conversations with payment encouragement.",
-    image: "/lovable-uploads/dc88150f-e898-4c4b-9685-7484e19637e4.png",
-    stats: {
-      primary: { value: "up to 1,000", label: "simultaneous calls within Russia" },
-      secondary: { value: "0", label: "complaints from the customer" }
-    }
-  },
-  {
-    id: "restaurant-reservations",
-    title: "Assistant for Hotel Concierge Services",
-    description: "Handle bookings, special requests, and waitlist management naturally.",
-    image: "/lovable-uploads/cc9e283f-ecdf-4842-af7b-87a98d6f9185.png",
-    stats: {
-      primary: { value: "200%", label: "increase in bookings" },
-      secondary: { value: "30%", label: "higher table turnover" }
-    }
-  },
-  {
-    id: "bank-issue-resolve",
-    title: "Assistant for Order Processing",
-    description: "Notify debtors about late payments and provide repayment incentives.",
-    image: "/lovable-uploads/75781844-c8c0-4667-a56d-9ca6a232163c.png",
-    stats: {
-      primary: { value: "70%", label: "level of reaching the customer base" },
-      secondary: { value: "up to 1,000", label: "simultaneous calls within Russia" }
-    }
-  }
-];
-
-const UseCases = () => {
-  const [currentCase, setCurrentCase] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isAutoPlay, setIsAutoPlay] = useState(true);
-
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isAutoPlay) return;
-    
-    const interval = setInterval(() => {
-      setCurrentCase((prev) => (prev + 1) % useCases.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlay]);
-
-  const handlePlayAudio = () => {
-    setIsPlaying(!isPlaying);
-  };
-
-  const nextCase = () => {
-    setIsAutoPlay(false);
-    setCurrentCase((prev) => (prev + 1) % useCases.length);
-  };
-
-  const prevCase = () => {
-    setIsAutoPlay(false);
-    setCurrentCase((prev) => (prev - 1 + useCases.length) % useCases.length);
-  };
-
-  const goToCase = (index: number) => {
-    setIsAutoPlay(false);
-    setCurrentCase(index);
-  };
-
-  const useCase = useCases[currentCase];
+export default function AssistantUseCasesSlideshow() {
+  const items: Slide[] = useMemo(
+    () => [
+      {
+        title: "AI Sales Assistant for Credit & Finance",
+        blurb: "Qualifies borrowers, answers FAQs and routes hot leads.",
+        image: "https://images.unsplash.com/photo-1523285333936-4f1901e0b5b8?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Lead response", v: "<1s" },
+          { k: "Availability", v: "24/7" },
+        ],
+        audio: "/audio/sales.mp3",
+      },
+      {
+        title: "24/7 Customer Support Assistant",
+        blurb: "Resolves common issues, gathers context, escalates cleanly.",
+        image: "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Tickets deflected", v: "68%" },
+          { k: "CSAT lift", v: "+14%" },
+        ],
+        audio: "/audio/support.mp3",
+      },
+      {
+        title: "Virtual Receptionist for Clinics",
+        blurb: "Books and manages appointments; answers pre‑visit questions.",
+        image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "No‑shows reduced", v: "‑32%" },
+          { k: "Reminders", v: "Auto" },
+        ],
+        audio: "/audio/clinic.mp3",
+      },
+      {
+        title: "Smart Reservation Assistant for Restaurants",
+        blurb: "Takes reservations, changes, and cancellations without hold time.",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Calls automated", v: "100%" },
+          { k: "Wait time", v: "0 min" },
+        ],
+        audio: "/audio/restaurant.mp3",
+      },
+      {
+        title: "Automated Payment & Billing Assistant",
+        blurb: "Collects payments, verifies identity, sends receipts and reminders.",
+        image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Recovery uplift", v: "+22%" },
+          { k: "PCI-safe", v: "Yes" },
+        ],
+        audio: "/audio/billing.mp3",
+      },
+      {
+        title: "AI Concierge for Hotels & Hospitality",
+        blurb: "Answers guest questions, books amenities, handles special requests.",
+        image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Upsell lift", v: "+15%" },
+          { k: "Coverage", v: "24/7" },
+        ],
+        audio: "/audio/concierge.mp3",
+      },
+      {
+        title: "Order Management & Fulfillment Assistant",
+        blurb: "Tracks orders, updates ETAs, and resolves delivery issues.",
+        image: "https://images.unsplash.com/photo-1542834369-f10ebf06d3cb?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Status calls cut", v: "‑70%" },
+          { k: "NPS", v: "+9" },
+        ],
+        audio: "/audio/order.mp3",
+      },
+      {
+        title: "Technical Support Assistant",
+        blurb: "Guides troubleshooting, gathers logs, and files clean tickets.",
+        image: "https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "First‑contact fix", v: "+24%" },
+          { k: "AHT", v: "‑31%" },
+        ],
+        audio: "/audio/tech.mp3",
+      },
+      {
+        title: "Delivery & Logistics Assistant",
+        blurb: "Confirms addresses, schedules drop‑offs, and sends updates.",
+        image: "https://images.unsplash.com/photo-1549921296-3b4a6b2b06b8?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Failed deliveries", v: "‑28%" },
+          { k: "Reattempts", v: "‑36%" },
+        ],
+        audio: "/audio/logistics.mp3",
+      },
+      {
+        title: "Real Estate Inquiry Assistant",
+        blurb: "Answers listing questions and books showings instantly.",
+        image: "https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "Lead-to-tour", v: "2x" },
+          { k: "Coverage", v: "24/7" },
+        ],
+        audio: "/audio/realestate.mp3",
+      },
+      {
+        title: "Appointment Scheduling Assistant",
+        blurb: "Books, reschedules, and reminds—across phone, chat, and web.",
+        image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=1400&auto=format&fit=crop",
+        stats: [
+          { k: "No‑shows", v: "‑25%" },
+          { k: "Channels", v: "Omni" },
+        ],
+        audio: "/audio/scheduling.mp3",
+      },
+    ],
+    []
+  );
 
   return (
-    <section className="w-full py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-background to-muted/20">
-      <div className="section-container">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-brockmann font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-            Use Cases
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Choose from our proven use cases designed for maximum efficiency and customer satisfaction
-          </p>
-        </div>
-
-        {/* Main Slideshow Container */}
-        <div className="relative max-w-7xl mx-auto">
-          <div className="relative overflow-hidden rounded-3xl bg-card shadow-2xl">
-            {/* Slide Content */}
-            <div className="relative min-h-[600px] lg:min-h-[500px]">
-              <div className="grid lg:grid-cols-2 h-full">
-                {/* Image Section */}
-                <div className="relative order-2 lg:order-1">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-primary/5 z-10" />
-                  <img
-                    src={useCase.image}
-                    alt={useCase.title}
-                    className="w-full h-full object-cover transition-all duration-700 ease-in-out"
-                    style={{ 
-                      filter: 'brightness(0.9) contrast(1.1)',
-                      transform: `scale(${1 + currentCase * 0.02})` 
-                    }}
-                  />
-                </div>
-
-                {/* Content Section */}
-                <div className="relative order-1 lg:order-2 p-8 lg:p-12 xl:p-16 flex flex-col justify-center items-center text-center bg-gradient-to-br from-background via-background to-muted/30">
-                  <div className="space-y-8">
-                    {/* Title */}
-                    <h3 className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight">
-                      {useCase.title}
-                    </h3>
-
-                    {/* Round Play Button */}
-                    <div className="flex flex-col items-center space-y-3">
-                      <button
-                        onClick={handlePlayAudio}
-                        className="relative w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 flex items-center justify-center group shadow-lg"
-                        aria-label="Listen to example dialogue"
-                      >
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 to-primary/5 group-hover:from-primary/20 group-hover:to-primary/10 transition-all duration-300" />
-                        {isPlaying ? (
-                          <Pause className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10" />
-                        ) : (
-                          <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary relative z-10 ml-1" />
-                        )}
-                      </button>
-                      <p className="text-sm text-foreground font-medium">Click to listen Sample Dialogs</p>
-                    </div>
-
-                    {/* Compact Statistics */}
-                    <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto">
-                      <div>
-                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-foreground">
-                          {useCase.stats.primary.value}
-                        </div>
-                        <div className="text-xs lg:text-sm text-muted-foreground font-medium">
-                          {useCase.stats.primary.label}
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-2xl lg:text-3xl font-bold mb-1 text-foreground">
-                          {useCase.stats.secondary.value}
-                        </div>
-                        <div className="text-xs lg:text-sm text-muted-foreground font-medium">
-                          {useCase.stats.secondary.label}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevCase}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-background transition-all duration-200 hover:scale-110"
-              aria-label="Previous use case"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextCase}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-background/90 backdrop-blur-sm border border-border hover:bg-background transition-all duration-200 hover:scale-110"
-              aria-label="Next use case"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-
-          {/* Navigation Dots */}
-          <div className="flex justify-center mt-8 space-x-3">
-            {useCases.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToCase(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  index === currentCase 
-                    ? 'w-12 h-3 bg-primary' 
-                    : 'w-3 h-3 bg-muted hover:bg-muted-foreground/30'
-                }`}
-                aria-label={`Go to use case ${index + 1}`}
-              />
-            ))}
-          </div>
-
-        </div>
+    <section className="w-full bg-white py-12 sm:py-16">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <header className="mb-6 sm:mb-8">
+          <h2 className="font-brockmann text-[clamp(28px,4vw,44px)] font-semibold tracking-tight text-slate-900">Use Cases</h2>
+          <p className="mt-2 max-w-2xl text-slate-500">Explore assistants built for real work. Subtle teal accents, minimal noise.</p>
+        </header>
+        <Carousel items={items} />
       </div>
     </section>
   );
+}
+
+type Slide = {
+  title: string;
+  blurb: string;
+  image: string;
+  stats: { k: string; v: string }[];
+  audio: string;
 };
 
-export default UseCases;
+function Carousel({ items }: { items: Slide[] }) {
+  const [idx, setIdx] = useState(0);
+  const timer = useRef<number | null>(null);
+
+  const go = (n: number) => setIdx((p) => (p + n + items.length) % items.length);
+  const to = (n: number) => setIdx(((n % items.length) + items.length) % items.length);
+
+  useEffect(() => {
+    stop();
+    timer.current = window.setInterval(() => {
+      setIdx((p) => (p + 1) % items.length);
+    }, 5000);
+    return stop;
+  }, [items.length]);
+
+  const stop = () => {
+    if (timer.current) {
+      clearInterval(timer.current);
+      timer.current = null;
+    }
+  };
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200">
+        {items.map((s, i) => (
+          <SlideCard key={i} s={s} active={i === idx} />
+        ))}
+      </div>
+
+      <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-2">
+          <button aria-label="Previous" onClick={() => go(-1)} className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-teal-700 ring-1 ring-teal-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 18l-6-6 6-6" stroke="#0f766e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+          <button aria-label="Next" onClick={() => go(1)} className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white text-teal-700 ring-1 ring-teal-200">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6l6 6-6 6" stroke="#0f766e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </button>
+        </div>
+        <div className="flex flex-wrap items-center gap-2">
+          {items.map((_, i) => (
+            <button key={i} aria-label={`Go to slide ${i + 1}`} onClick={() => to(i)} className={`h-2.5 w-2.5 rounded-full transition ${i === idx ? "bg-teal-600" : "bg-teal-200"}`} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SlideCard({ s, active }: { s: Slide; active: boolean }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    if (!active && playing && audioRef.current) {
+      audioRef.current.pause();
+      setPlaying(false);
+    }
+  }, [active, playing]);
+
+  return (
+    <div className={`grid grid-cols-1 overflow-hidden bg-white transition-opacity duration-500 sm:grid-cols-2 ${active ? "opacity-100" : "hidden opacity-0"}`}>
+      <div className="relative h-56 sm:h-[420px]">
+        <img src={s.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-teal-900/0 via-teal-900/0 to-teal-900/0" />
+      </div>
+      <div className="flex min-h-[320px] flex-col justify-between p-6 sm:p-8">
+        <div>
+          <h3 className="font-brockmann text-[clamp(20px,2.6vw,28px)] font-semibold leading-tight text-slate-900">{s.title}</h3>
+          <p className="mt-2 max-w-[52ch] text-slate-600">{s.blurb}</p>
+          <div className="mt-6 flex items-center gap-4">
+            <button onClick={() => {
+              const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
+            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-16 place-items-center rounded-full bg-white text-teal-700 shadow-sm ring-1 ring-teal-200">
+              {playing ? (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /><rect x="14" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /></svg>
+              ) : (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
+              )}
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-teal-100/70" />
+              <span className="pointer-events-none absolute -inset-2 rounded-full ring-8 ring-teal-50" />
+            </button>
+            <div className="text-sm text-slate-500">Listen to a sample dialog</div>
+            <audio ref={audioRef} src={s.audio} preload="none" />
+          </div>
+        </div>
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-0">
+          {s.stats.map((x, i) => (
+            <div key={i} className="rounded-2xl bg-slate-50 p-4 text-center ring-1 ring-slate-200">
+              <div className="font-brockmann text-xl font-semibold text-slate-900">{x.v}</div>
+              <div className="text-xs text-slate-500">{x.k}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
