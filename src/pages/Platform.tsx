@@ -130,8 +130,6 @@ const Platform = () => {
         {/* 1. Build AI Staff That Never Sleep */}
         <AssistantManagement />
 
-        {/* 2. Create Your Custom AI Assistants */}
-        <AssistantCreationFlow />
 
         {/* 3. Engage With Your Audience */}
         <ConversationsDashboard />
