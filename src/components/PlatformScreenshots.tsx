@@ -42,15 +42,16 @@ const PlatformScreenshots = () => {
             Meet your customers wherever they are,
             <br />
             however they{" "}
-            <span className="relative inline-block min-w-[160px] md:min-w-[200px] lg:min-w-[280px] h-[1.2em]">
+            <span className="relative inline-block min-w-[140px] md:min-w-[180px] lg:min-w-[220px] h-[1.2em] align-top">
               {/* word carousel items */}
               {words.map((w, i) => (
                 <span
                   key={w}
                   aria-hidden={i !== idx}
-                  className={`absolute left-1/2 top-0 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ease-in-out ${
+                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap transition-all duration-500 ease-in-out ${
                     i === idx ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"
                   } text-primary`}
+                  style={{ transform: i === idx ? 'translate(-50%, -50%)' : 'translate(-50%, calc(-50% + 12px))' }}
                 >
                   {w}
                 </span>
