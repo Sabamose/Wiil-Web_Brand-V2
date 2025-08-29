@@ -148,7 +148,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Appointment Scheduling Assistant",
         blurb: "Books, reschedules, and reminds—across phone, chat, and web.",
         images: [
-          "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/c75c1b86-231e-40cf-a70c-8f77fcd25f67.png",
           "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
