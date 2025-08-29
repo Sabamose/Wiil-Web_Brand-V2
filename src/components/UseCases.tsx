@@ -64,7 +64,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Automated Payment & Billing Assistant",
         blurb: "Collects payments, verifies identity, sends receipts and reminders.",
         images: [
-          "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/1c76beff-c610-4e89-aba8-2b80bb8ea2eb.png",
           "https://images.unsplash.com/photo-1605901309584-818e25960a8b?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
