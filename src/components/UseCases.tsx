@@ -270,7 +270,7 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
             <span className="mr-2 align-[-2px]">{s.emoji}</span>
             {s.title}
           </h3>
-          <p className="mt-2 max-w-[52ch] text-slate-600">{s.blurb}</p>
+          
           <div className="mt-6 flex items-center gap-4">
             <button onClick={() => {
               const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
