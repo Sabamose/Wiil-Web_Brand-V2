@@ -89,7 +89,7 @@ const PlatformScreenshots = () => {
               className="group relative overflow-hidden rounded-full border-2 border-border bg-background/80 backdrop-blur-sm px-8 py-4 text-base font-medium text-foreground shadow-sm transition-all duration-300 hover:shadow-md hover:bg-accent/50 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span className="relative z-10 flex items-center gap-2">
-                See Live Demo
+                Book a Demo
                 <svg className="w-4 h-4 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M19 10a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
