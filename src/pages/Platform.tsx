@@ -120,7 +120,7 @@ const Platform = () => {
             <Button 
               variant="glass"
               className="animate-on-scroll"
-              onClick={() => window.open('https://youtu.be/YZZZbfTs-ys', '_blank')}
+              onClick={() => window.open('https://www.youtube.com/watch?v=YZZZbfTs-ys', '_blank')}
             >
               Watch Demo
               <ArrowRight size={20} />
