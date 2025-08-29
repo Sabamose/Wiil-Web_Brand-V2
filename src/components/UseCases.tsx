@@ -120,7 +120,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Delivery & Logistics Assistant",
         blurb: "Confirms addresses, schedules drop‑offs, and sends updates.",
         images: [
-          "https://images.unsplash.com/photo-1549921296-3b4a6b2b06b8?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/a4ffc20d-8684-4eef-8d9d-6c022e5fda03.png",
           "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
