@@ -253,34 +253,34 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
       <div className="relative h-64 sm:h-[480px]">
         <ImageWithFallback sources={s.images} alt="" />
       </div>
-      <div className="flex min-h-[380px] flex-col justify-between p-8 sm:p-10">
-        <div>
-          <h3 className="font-brockmann text-[clamp(24px,3vw,32px)] font-semibold leading-tight text-slate-900">
-            <span className="mr-3 align-[-2px] text-2xl">{s.emoji}</span>
+      <div className="flex min-h-[380px] flex-col justify-between p-8 sm:p-10 bg-gradient-to-br from-white to-slate-50/30 group transition-all duration-300">
+        <div className="transform transition-all duration-300 group-hover:translate-y-[-2px]">
+          <h3 className="font-brockmann text-[clamp(24px,3vw,32px)] font-semibold leading-tight text-slate-900 transition-colors duration-300 group-hover:text-slate-800">
+            <span className="mr-3 align-[-2px] text-2xl transform transition-transform duration-300 group-hover:scale-110 inline-block">{s.emoji}</span>
             {s.title}
           </h3>
-          <p className="mt-3 max-w-[52ch] text-lg text-slate-600">{s.blurb}</p>
+          <p className="mt-3 max-w-[52ch] text-lg text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">{s.blurb}</p>
           <div className="mt-8 flex items-center gap-4">
             <button onClick={() => {
               const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
-            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-18 place-items-center rounded-full bg-white text-teal-700 shadow-sm ring-1 ring-teal-200">
+            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-18 place-items-center rounded-full bg-white text-teal-700 shadow-lg ring-1 ring-teal-200 transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-teal-300 hover:scale-105 group/btn">
               {playing ? (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /><rect x="14" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover/btn:scale-110"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /><rect x="14" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /></svg>
               ) : (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover/btn:scale-110"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
               )}
-              <span className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-teal-100/70" />
-              <span className="pointer-events-none absolute -inset-2 rounded-full ring-8 ring-teal-50" />
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-teal-100/70 transition-all duration-300 group-hover/btn:ring-teal-100/90" />
+              <span className="pointer-events-none absolute -inset-2 rounded-full ring-8 ring-teal-50 transition-all duration-300 group-hover/btn:ring-teal-50/80" />
             </button>
-            <div className="text-base text-slate-500">Listen to a sample dialog</div>
+            <div className="text-base text-slate-500 transition-colors duration-300 group-hover:text-slate-600 font-medium">Listen to a sample dialog</div>
             <audio ref={audioRef} src={s.audio} preload="none" />
           </div>
         </div>
-        <div className="mt-8 grid grid-cols-2 gap-5 sm:mt-0">
+        <div className="mt-8 grid grid-cols-2 gap-5 sm:mt-0 transform transition-all duration-300 group-hover:translate-y-[-1px]">
           {s.stats.map((x, i) => (
-            <div key={i} className="rounded-2xl bg-slate-50 p-5 text-center ring-1 ring-slate-200">
-              <div className="font-brockmann text-2xl font-semibold text-slate-900">{x.v}</div>
-              <div className="text-sm text-slate-500">{x.k}</div>
+            <div key={i} className="rounded-2xl bg-gradient-to-br from-slate-50 to-white p-5 text-center ring-1 ring-slate-200/50 transition-all duration-300 hover:shadow-md hover:ring-slate-300/60 hover:scale-105 group/stat">
+              <div className="font-brockmann text-2xl font-semibold text-slate-900 transition-colors duration-300 group-hover/stat:text-teal-700">{x.v}</div>
+              <div className="text-sm text-slate-500 transition-colors duration-300 group-hover/stat:text-slate-600 font-medium">{x.k}</div>
             </div>
           ))}
         </div>
