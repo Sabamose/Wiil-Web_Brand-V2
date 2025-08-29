@@ -109,8 +109,8 @@ export default function CustomizeAssistantsShowcase() {
 
 function StepCard({ title, index, children }: { title: string; index: number; children: React.ReactNode }) {
   return (
-    <div className="relative rounded-2xl border border-slate-200 bg-white/90 p-4 sm:p-5 shadow-sm">
-      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-2.5 py-1 text-[11px] font-medium text-teal-700">
+    <div className="relative rounded-2xl border border-slate-200 bg-white/90 p-4 sm:p-5 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.1)] hover:shadow-[0_16px_48px_-8px_rgba(0,0,0,0.15)] transform-gpu transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 [transform-style:preserve-3d] hover:[transform:perspective(1000px)_rotateX(2deg)_rotateY(-2deg)_translateZ(20px)]">
+      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-2.5 py-1 text-[11px] font-medium text-teal-700 shadow-sm">
         <span className="inline-flex h-2 w-2 rounded-full bg-teal-600"></span>
         {title}
       </div>
@@ -134,8 +134,8 @@ function Glow({ children, intensity = "sm" }: { children: React.ReactNode; inten
 
 function GhostOption({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div className="rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200">{icon}</div>
+    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.15)] transform-gpu transition-all duration-300 hover:scale-105 hover:-translate-y-1 [transform-style:preserve-3d] hover:[transform:perspective(800px)_rotateX(5deg)_translateZ(10px)]">
+      <div className="rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200 shadow-sm">{icon}</div>
       <div>
         <div className="text-sm font-medium text-slate-900">{label}</div>
         <div className="text-xs text-slate-400">Illustrative</div>
@@ -175,8 +175,8 @@ function VoiceChip({ name, desc, gender, look }: { name: string; desc: string; g
   const audioSrc = audioSources[look || (gender === "female" ? "maria" : "james")];
 
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
-      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-slate-200">
+    <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.15)] transform-gpu transition-all duration-300 hover:scale-105 hover:-translate-y-1 [transform-style:preserve-3d] hover:[transform:perspective(800px)_rotateX(5deg)_translateZ(10px)]">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white ring-1 ring-slate-200 shadow-sm">
         <AvatarFace variant={look || (gender === "female" ? "maria" : "james")} />
       </div>
       <div className="min-w-0 flex-1">
@@ -365,8 +365,8 @@ function FlagChip({ flag, label, muted }: { flag: string; label: string; muted?:
 
 function IconTile({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-sm">
-      <div className="rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200">{icon}</div>
+    <div className="flex flex-col items-center gap-2 rounded-2xl border border-slate-200 bg-white p-4 text-center shadow-[0_4px_16px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_24px_-4px_rgba(0,0,0,0.15)] transform-gpu transition-all duration-300 hover:scale-105 hover:-translate-y-1 [transform-style:preserve-3d] hover:[transform:perspective(800px)_rotateX(5deg)_translateZ(10px)]">
+      <div className="rounded-xl bg-slate-50 p-2 ring-1 ring-slate-200 shadow-sm">{icon}</div>
       <div className="text-xs font-medium text-slate-700">{label}</div>
     </div>
   );
