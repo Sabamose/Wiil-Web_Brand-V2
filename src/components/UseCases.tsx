@@ -271,7 +271,7 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
             {s.title}
           </h3>
           
-          <div className="mt-6 flex items-center gap-4">
+          <div className="mt-6 flex items-center justify-center gap-4">
             <button onClick={() => {
               const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
             }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-16 place-items-center rounded-full bg-white text-teal-700 shadow-sm ring-1 ring-teal-200">
