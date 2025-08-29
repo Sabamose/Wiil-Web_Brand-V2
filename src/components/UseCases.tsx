@@ -183,7 +183,7 @@ export default function AssistantUseCasesSlideshowV2() {
               rel="noopener noreferrer"
               className="relative h-11 rounded-full bg-teal-600 hover:bg-teal-700 border border-teal-600 px-6 text-sm font-medium text-white shadow-[0_8px_32px_0_rgba(20,184,166,0.4)] transition-all duration-300 overflow-hidden group inline-flex items-center"
             >
-              <span className="relative z-10 font-semibold">📞 Book A Demo</span>
+              <span className="relative z-10 font-semibold">Book A Demo</span>
             </a>
             
             <a 
