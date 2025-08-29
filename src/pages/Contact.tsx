@@ -7,8 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import GoogleMap from "@/components/GoogleMap";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -51,6 +55,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     try {
       const response = await fetch(`https://zyaosogliekotdebnzpr.supabase.co/functions/v1/send-contact-email`, {
@@ -72,13 +77,28 @@ const Contact = () => {
           message: ""
         });
         
-        alert("Thank you! Your message has been sent successfully.");
+        setIsSubmitted(true);
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for contacting us. We'll get back to you soon.",
+        });
+
+        // Reset button text after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
       } else {
         throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      alert("Sorry, there was an error sending your message. Please try again.");
+      toast({
+        title: "Error sending message",
+        description: "Sorry, there was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -220,8 +240,9 @@ const Contact = () => {
                     type="submit"
                     variant="default"
                     className="w-full"
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : isSubmitted ? "Sent ✓" : "Send Message"}
                   </Button>
                 </form>
               </div>
