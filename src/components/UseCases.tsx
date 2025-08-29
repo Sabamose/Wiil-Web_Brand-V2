@@ -78,7 +78,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "AI Concierge for Hotels & Hospitality",
         blurb: "Answers guest questions, books amenities, handles special requests.",
         images: [
-          "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/71aefd02-f071-4407-8d13-85c7dc9df843.png",
           "https://images.unsplash.com/photo-1501117716987-c8e3f4f04954?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
