@@ -260,19 +260,40 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
             {s.title}
           </h3>
           <p className="mt-3 max-w-[52ch] text-lg text-slate-600 leading-relaxed transition-colors duration-300 group-hover:text-slate-700">{s.blurb}</p>
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-8 flex items-center gap-6">
             <button onClick={() => {
               const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
-            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-18 place-items-center rounded-full bg-white text-teal-700 shadow-lg ring-1 ring-teal-200 transition-all duration-300 hover:shadow-xl hover:ring-2 hover:ring-teal-300 hover:scale-105 group/btn">
+            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-24 place-items-center rounded-full bg-gradient-to-br from-white via-white to-slate-50 text-teal-700 shadow-xl ring-2 ring-teal-200/40 transition-all duration-500 hover:shadow-2xl hover:ring-4 hover:ring-teal-300/60 hover:scale-110 group/btn backdrop-blur-sm border border-white/60">
               {playing ? (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover/btn:scale-110"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /><rect x="14" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-all duration-300 group-hover/btn:scale-105">
+                  <rect x="6" y="5" width="4" height="14" rx="2" fill="url(#pauseGradient)" />
+                  <rect x="14" y="5" width="4" height="14" rx="2" fill="url(#pauseGradient)" />
+                  <defs>
+                    <linearGradient id="pauseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0f766e" />
+                      <stop offset="100%" stopColor="#134e4a" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               ) : (
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover/btn:scale-110"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-all duration-300 group-hover/btn:scale-105 translate-x-0.5">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="url(#playGradient)"/>
+                  <defs>
+                    <linearGradient id="playGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#0f766e" />
+                      <stop offset="100%" stopColor="#134e4a" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               )}
-              <span className="pointer-events-none absolute inset-0 rounded-full ring-12 ring-teal-100/70 transition-all duration-300 group-hover/btn:ring-teal-100/90" />
-              <span className="pointer-events-none absolute -inset-4 rounded-full ring-16 ring-teal-50 transition-all duration-300 group-hover/btn:ring-teal-50/80" />
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-[20px] ring-teal-100/40 transition-all duration-500 group-hover/btn:ring-teal-100/60 group-hover/btn:ring-[24px]" />
+              <span className="pointer-events-none absolute -inset-6 rounded-full ring-[24px] ring-teal-50/60 transition-all duration-500 group-hover/btn:ring-teal-50/80 group-hover/btn:ring-[32px]" />
+              <span className="pointer-events-none absolute -inset-10 rounded-full ring-[20px] ring-teal-25/30 transition-all duration-700 group-hover/btn:ring-teal-25/50 group-hover/btn:ring-[28px]" />
             </button>
-            <div className="text-base text-slate-500 transition-colors duration-300 group-hover:text-slate-600 font-medium">Listen to a sample dialog</div>
+            <div className="flex flex-col gap-1">
+              <div className="text-lg font-semibold text-slate-700 transition-colors duration-300 group-hover:text-slate-800">Listen to sample dialog</div>
+              <div className="text-sm text-slate-500 transition-colors duration-300 group-hover:text-slate-600">Experience natural AI conversation</div>
+            </div>
             <audio ref={audioRef} src={s.audio} preload="none" />
           </div>
         </div>
