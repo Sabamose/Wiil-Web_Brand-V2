@@ -49,7 +49,7 @@ const MissionStatement = () => {
           <img 
             src="/lovable-uploads/2e37e38b-9885-4e58-83c1-28f146f40a90.png" 
             alt="Isometric office environment showing various business departments using AI-powered conversational interfaces"
-            className="max-w-full h-auto rounded-lg shadow-lg"
+            className="w-full max-w-6xl h-auto"
           />
         </div>
       </div>
