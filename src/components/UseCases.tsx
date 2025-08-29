@@ -298,65 +298,76 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
       </div>
 
       {/* Right panel */}
-      <div className="relative flex min-h-[420px] flex-col justify-between">
+      <div className="relative flex min-h-[420px] flex-col">
         {/* background gradient + divider to blend with the image */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-white to-teal-50/50" />
         <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
 
-        <div className="relative px-6 py-7 md:px-10 md:py-10">
-          {/* Title */}
-          <h3 className="text-[clamp(22px,2.2vw,30px)] font-semibold tracking-tight text-slate-900">
-            <span className="mr-2 align-[-2px]">{s.emoji}</span>
+        {/* Top: Title with icon */}
+        <div className="relative px-6 py-6 md:px-10 md:py-8">
+          <h3 className="text-[clamp(20px,2.2vw,26px)] font-semibold tracking-tight text-slate-900 flex items-center">
+            <span className="mr-3 text-2xl">{s.emoji}</span>
             {s.title}
           </h3>
+          <p className="mt-3 text-slate-600 text-sm leading-relaxed">{s.blurb}</p>
+        </div>
 
-          {/* Play Orb */}
-          <div className="mt-8 flex items-center justify-center gap-4">
-            <button
-              type="button"
-              onClick={() => {
-                const a = audioRef.current; 
-                if (!a) return; 
-                if (playing) { 
-                  a.pause(); 
-                  setPlaying(false); 
-                } else { 
-                  a.currentTime = 0; 
-                  a.play(); 
-                  setPlaying(true); 
-                  a.onended = () => setPlaying(false); 
-                }
-              }}
-              aria-label="Listen to a sample dialog"
-              className="relative grid size-20 place-items-center rounded-full bg-teal-50 ring-1 ring-teal-100"
-            >
-              {/* pulsing rings */}
-              <span className="pointer-events-none absolute inset-0 rounded-full bg-teal-200/40" style={{ animation: "softPulse 2s infinite" }} />
-              <span className="pointer-events-none absolute -inset-1 rounded-full bg-teal-100/40" style={{ animation: "softPulse 2s infinite", animationDelay: "150ms" }} />
-              {/* inner circle */}
-              <span className="relative grid size-10 place-items-center rounded-full bg-teal-600">
-                {playing ? (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <rect x="6" y="5" width="4" height="14" rx="1.5" fill="white" />
-                    <rect x="14" y="5" width="4" height="14" rx="1.5" fill="white" />
-                  </svg>
-                ) : (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="white" />
-                  </svg>
-                )}
-              </span>
-            </button>
-            <div className="text-sm text-slate-500">Listen to a sample dialog</div>
-            <audio ref={audioRef} src={s.audio} preload="none" />
+        {/* Middle: Stats grid */}
+        <div className="relative flex-1 px-6 md:px-10">
+          <div className="grid grid-cols-2 gap-4">
+            {s.stats.map((stat, i) => (
+              <div key={i} className="bg-white rounded-xl p-4 border border-slate-100 shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-teal-50 rounded-lg flex items-center justify-center text-sm">
+                    {getStatIcon(stat.k)}
+                  </div>
+                  <div>
+                    <div className="text-lg font-semibold text-slate-900">{stat.v}</div>
+                    <div className="text-xs text-slate-500 leading-tight">{stat.k}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Stats pills */}
-        <div className="relative grid grid-cols-2 gap-4 px-6 pb-7 md:px-10 md:pb-10">
-          {s.stats.map((stat, i) => (
-            <StatPill key={i} icon={getStatIcon(stat.k)} value={stat.v} label={stat.k} />
-          ))}
+        {/* Bottom: CTA Button */}
+        <div className="relative px-6 py-6 md:px-10 md:py-8">
+          <button
+            type="button"
+            onClick={() => {
+              const a = audioRef.current; 
+              if (!a) return; 
+              if (playing) { 
+                a.pause(); 
+                setPlaying(false); 
+              } else { 
+                a.currentTime = 0; 
+                a.play(); 
+                setPlaying(true); 
+                a.onended = () => setPlaying(false); 
+              }
+            }}
+            className="w-full h-12 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors duration-200 flex items-center justify-center gap-2"
+          >
+            {playing ? (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect x="6" y="5" width="4" height="14" rx="1.5" fill="currentColor" />
+                  <rect x="14" y="5" width="4" height="14" rx="1.5" fill="currentColor" />
+                </svg>
+                Pause Sample
+              </>
+            ) : (
+              <>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor" />
+                </svg>
+                Listen to Sample
+              </>
+            )}
+          </button>
+          <audio ref={audioRef} src={s.audio} preload="none" />
         </div>
       </div>
     </div>
