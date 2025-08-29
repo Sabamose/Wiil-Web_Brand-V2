@@ -167,6 +167,15 @@ export default function AssistantUseCasesSlideshowV2() {
         <header className="mb-6 sm:mb-8">
           <h2 className="font-brockmann text-[clamp(28px,4vw,44px)] font-semibold tracking-tight text-slate-900">Use Cases</h2>
           <p className="mt-2 max-w-2xl text-slate-500">Explore assistants built for real work. Subtle teal accents, minimal noise.</p>
+          
+          {/* Get Started CTA Button */}
+          <div className="mt-6 sm:mt-8">
+            <button className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-400/30 via-teal-500/20 to-teal-600/30 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 rounded-md bg-white/20 backdrop-blur-sm border border-white/30 opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
+              <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
+            </button>
+          </div>
         </header>
         <Carousel items={items} />
       </div>
