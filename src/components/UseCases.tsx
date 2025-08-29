@@ -328,7 +328,7 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
                 }
               }}
               aria-label="Listen to a sample dialog"
-              className="relative grid size-16 place-items-center rounded-full bg-white ring-1 ring-teal-200"
+              className="relative grid size-20 place-items-center rounded-full bg-teal-50 ring-1 ring-teal-100"
             >
               {/* pulsing rings */}
               <span className="pointer-events-none absolute inset-0 rounded-full bg-teal-200/40" style={{ animation: "softPulse 2s infinite" }} />
