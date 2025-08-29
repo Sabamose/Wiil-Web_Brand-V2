@@ -18,7 +18,7 @@ export default function ConversationMonitorArtistic() {
         <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-12 items-start">
           {/* Left: Title and Description */}
           <div className="lg:col-span-1">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-light tracking-tight text-slate-900 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold tracking-tight text-slate-900 leading-tight">
               Monitor <span className="text-teal-600">Conversations</span>
             </h1>
             <p className="mt-4 lg:mt-6 text-base sm:text-lg text-slate-500 leading-relaxed">
