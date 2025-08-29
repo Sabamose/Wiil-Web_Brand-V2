@@ -134,7 +134,7 @@ const HumanoidSection = () => {
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-teal-800 font-bold leading-tight mb-4">
                     Define Your Use Case
                   </h3>
-                  <p className="text-teal-700 text-lg">Identify industry use case and its role</p>
+                  <p className="text-teal-700 text-lg">Identify the industry, pick a role</p>
                 </div>
               </div>
             </div>
