@@ -311,7 +311,7 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
           </h3>
 
           {/* Play Orb */}
-          <div className="mt-10 flex flex-col items-center gap-3">
+          <div className="mt-8 flex items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => {
@@ -328,26 +328,26 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
                 }
               }}
               aria-label="Listen to a sample dialog"
-              className="relative grid size-20 place-items-center rounded-full bg-white ring-1 ring-teal-200 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="relative grid size-16 place-items-center rounded-full bg-white ring-1 ring-teal-200"
             >
               {/* pulsing rings */}
               <span className="pointer-events-none absolute inset-0 rounded-full bg-teal-200/40" style={{ animation: "softPulse 2s infinite" }} />
               <span className="pointer-events-none absolute -inset-1 rounded-full bg-teal-100/40" style={{ animation: "softPulse 2s infinite", animationDelay: "150ms" }} />
               {/* inner circle */}
-              <span className="relative grid size-12 place-items-center rounded-full bg-teal-600">
+              <span className="relative grid size-10 place-items-center rounded-full bg-teal-600">
                 {playing ? (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <rect x="6" y="5" width="4" height="14" rx="1.5" fill="white" />
                     <rect x="14" y="5" width="4" height="14" rx="1.5" fill="white" />
                   </svg>
                 ) : (
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="white" />
                   </svg>
                 )}
               </span>
             </button>
-            <div className="text-sm text-slate-500 font-medium">Listen to a sample dialog</div>
+            <div className="text-sm text-slate-500">Listen to a sample dialog</div>
             <audio ref={audioRef} src={s.audio} preload="none" />
           </div>
         </div>
