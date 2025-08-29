@@ -134,7 +134,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Real Estate Inquiry Assistant",
         blurb: "Answers listing questions and books showings instantly.",
         images: [
-          "https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/f835bbd6-2188-4c07-80a9-600632d7b327.png",
           "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
