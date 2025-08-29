@@ -269,8 +269,8 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
               ) : (
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform duration-200 group-hover/btn:scale-110"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
               )}
-              <span className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-teal-100/70 transition-all duration-300 group-hover/btn:ring-teal-100/90" />
-              <span className="pointer-events-none absolute -inset-2 rounded-full ring-8 ring-teal-50 transition-all duration-300 group-hover/btn:ring-teal-50/80" />
+              <span className="pointer-events-none absolute inset-0 rounded-full ring-12 ring-teal-100/70 transition-all duration-300 group-hover/btn:ring-teal-100/90" />
+              <span className="pointer-events-none absolute -inset-4 rounded-full ring-16 ring-teal-50 transition-all duration-300 group-hover/btn:ring-teal-50/80" />
             </button>
             <div className="text-base text-slate-500 transition-colors duration-300 group-hover:text-slate-600 font-medium">Listen to a sample dialog</div>
             <audio ref={audioRef} src={s.audio} preload="none" />
