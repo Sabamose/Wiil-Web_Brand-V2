@@ -162,7 +162,7 @@ export default function AssistantUseCasesSlideshowV2() {
   );
 
   return (
-    <section className="w-full bg-white py-16 sm:py-24">
+    <section id="use-cases" className="w-full bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <header className="mb-6 sm:mb-8">
           <h2 className="font-brockmann text-[clamp(28px,4vw,44px)] font-semibold tracking-tight text-slate-900">Use Cases</h2>
