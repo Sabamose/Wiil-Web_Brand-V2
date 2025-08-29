@@ -114,7 +114,7 @@ const Hero = () => {
                 asChild
                 className="group w-full sm:w-auto"
               >
-                <a href="#get-access">
+                <a href="https://console.wiil.io/login?from=%2F" target="_blank" rel="noopener noreferrer">
                   Get Early Access
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </a>
