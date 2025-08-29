@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Button } from "./ui/button";
+import { Twitter, Linkedin, Facebook, Instagram, Github } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -53,9 +54,27 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
+        {/* Social Media & Copyright */}
         <div className="pt-8 mt-8 border-t border-teal-300">
           <div className="text-center text-gray-500 text-sm">
+            {/* Social Media Icons */}
+            <div className="flex justify-center gap-4 mb-6">
+              <a href="#" className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center hover:bg-teal-200 transition-colors group">
+                <Twitter className="w-5 h-5 text-teal-600 group-hover:text-teal-700" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center hover:bg-teal-200 transition-colors group">
+                <Linkedin className="w-5 h-5 text-teal-600 group-hover:text-teal-700" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center hover:bg-teal-200 transition-colors group">
+                <Facebook className="w-5 h-5 text-teal-600 group-hover:text-teal-700" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center hover:bg-teal-200 transition-colors group">
+                <Instagram className="w-5 h-5 text-teal-600 group-hover:text-teal-700" />
+              </a>
+              <a href="#" className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center hover:bg-teal-200 transition-colors group">
+                <Github className="w-5 h-5 text-teal-600 group-hover:text-teal-700" />
+              </a>
+            </div>
             <p className="mb-2">© 2024 Travnex. All rights reserved.</p>
             <p className="text-xs">Owned and powered by Travnex</p>
           </div>
