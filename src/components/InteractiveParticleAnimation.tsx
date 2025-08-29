@@ -11,8 +11,8 @@ const InteractiveParticleAnimation = () => {
   const frameRef = useRef(0);
   const animationIdRef = useRef<number>();
 
-  const maxParticles = 4000;
-  const baseParticles = 2000;
+  const maxParticles = 8000; // Doubled quantity
+  const baseParticles = 4000; // Doubled quantity
   const colors = ['#0d9488', '#14b8a6', '#5eead4'];
 
   useEffect(() => {
@@ -88,8 +88,8 @@ const InteractiveParticleAnimation = () => {
           }
         }
 
-        const mainPulse = Math.sin(frameRef.current * 0.01 + this.offset * 0.01) * 10;
-        const secondaryPulse = Math.sin(frameRef.current * 0.03 + this.offset) * 5;
+        const mainPulse = Math.sin(frameRef.current * 0.01 + this.offset * 0.01) * 15; // Increased strength
+        const secondaryPulse = Math.sin(frameRef.current * 0.03 + this.offset) * 8; // Increased strength
         const dynamicRadius = this.baseRadius + mainPulse + secondaryPulse;
         
         const targetX = canvas.width / 2 + Math.cos(this.angle) * dynamicRadius;
@@ -107,7 +107,7 @@ const InteractiveParticleAnimation = () => {
     const initParticles = () => {
       particlesArrayRef.current = [];
       for (let i = 0; i < maxParticles; i++) {
-        let size = Math.random() * 1.2 + 0.3;
+        let size = Math.random() * 0.8 + 0.2; // Made particles smaller
         
         const angle = Math.random() * Math.PI * 2;
         const radius = Math.sqrt(Math.random()) * (canvas.width / 2.5);
