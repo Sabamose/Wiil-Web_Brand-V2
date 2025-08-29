@@ -50,7 +50,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Smart Reservation Assistant for Restaurants",
         blurb: "Takes reservations, changes, and cancellations without hold time.",
         images: [
-          "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/9d291a01-2ecb-43eb-8c4f-34eb7b927b5a.png",
           "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
