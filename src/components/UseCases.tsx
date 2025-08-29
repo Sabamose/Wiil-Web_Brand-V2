@@ -174,8 +174,7 @@ export default function AssistantUseCasesSlideshowV2() {
       {/* Get Started CTA Section - Between UseCases and Footer */}
       <div className="w-full bg-gradient-to-br from-slate-50 to-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
-          <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-4">Ready to transform your customer interactions?</h3>
-          <p className="text-slate-600 mb-8 max-w-2xl mx-auto">Join thousands of businesses using AI assistants to deliver exceptional customer experiences.</p>
+          <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8">Ready to transform your customer interactions?</h3>
           
           <button className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group">
             <div className="absolute inset-0 bg-gradient-to-r from-teal-400/30 via-teal-500/20 to-teal-600/30 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
