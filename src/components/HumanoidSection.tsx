@@ -100,7 +100,7 @@ const HumanoidSection = () => {
               </div>
             </div>
             
-            <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2 text-teal-600">
+            <h2 className="mt-2 text-4xl font-display font-semibold tracking-tight text-slate-900 md:text-5xl">
               Your AI Customer Support Platform
             </h2>
           </div>
