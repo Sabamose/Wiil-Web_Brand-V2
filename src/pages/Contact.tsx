@@ -115,7 +115,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-transparent" />
           
           <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-on-scroll">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-12 leading-tight animate-on-scroll">
               Let's build something amazing together
             </h1>
             <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4 items-center justify-center animate-on-scroll">
