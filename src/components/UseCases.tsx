@@ -22,7 +22,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "24/7 Customer Support Assistant",
         blurb: "Resolves common issues, gathers context, escalates cleanly.",
         images: [
-          "https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/bd91f4f9-67a7-4b26-b0ae-cf2085a36dc6.png",
           "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
