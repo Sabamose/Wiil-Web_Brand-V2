@@ -8,7 +8,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "AI Sales Assistant for Credit & Finance",
         blurb: "Qualifies borrowers, answers FAQs and routes hot leads.",
         images: [
-          "/lovable-uploads/0f7e61ef-7ccc-4d98-9027-d81175e0668b.png",
+          "/lovable-uploads/6a321e0d-49a0-491d-ad3d-d7549536651f.png",
           "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
