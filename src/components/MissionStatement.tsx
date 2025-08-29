@@ -9,19 +9,19 @@ interface MissionValue {
 const missionValues: MissionValue[] = [
   {
     title: "Democratize AI",
-    description: "We believe every business, regardless of size or technical expertise, should have access to powerful AI technology that transforms customer experiences."
+    description: "Powerful AI technology accessible to every business, regardless of size or expertise."
   },
   {
     title: "Human-Centered AI", 
-    description: "Our AI assistants are designed to enhance human capabilities, not replace them. We create technology that empowers teams to focus on what matters most."
+    description: "AI that enhances human capabilities and empowers teams to focus on what matters."
   },
   {
     title: "Effortless Innovation",
-    description: "Complex technology should be simple to use. We build no-code solutions that make advanced AI accessible to everyone, everywhere."
+    description: "No-code solutions that make advanced AI simple and accessible to everyone."
   },
   {
     title: "Scale with Purpose",
-    description: "We help businesses grow meaningfully by automating conversations that matter, creating genuine connections at scale."
+    description: "Automate conversations that matter and create genuine connections at scale."
   }
 ];
 
