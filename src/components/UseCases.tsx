@@ -92,7 +92,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Order Management & Fulfillment Assistant",
         blurb: "Tracks orders, updates ETAs, and resolves delivery issues.",
         images: [
-          "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/bf1daee4-f271-4621-9009-7ddd1f5e1404.png",
           "https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
