@@ -118,9 +118,6 @@ const Contact = () => {
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight animate-on-scroll">
               Let's build something amazing together
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed animate-on-scroll">
-              Ready to transform your customer conversations? We're here to help you get started with AI assistants that work for your business.
-            </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:space-x-4 items-center justify-center animate-on-scroll">
               <Button 
                 variant="glass"
