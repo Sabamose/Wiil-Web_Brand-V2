@@ -36,7 +36,7 @@ export default function AssistantUseCasesSlideshowV2() {
         title: "Virtual Receptionist for Clinics",
         blurb: "Books and manages appointments; answers pre‑visit questions.",
         images: [
-          "https://images.unsplash.com/photo-1584811649383-fb3f0b7d1a2b?auto=format&fit=crop&w=1600&q=80",
+          "/lovable-uploads/bce82357-f09a-470d-8191-174869eee285.png",
           "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=1600&q=80"
         ],
         stats: [
