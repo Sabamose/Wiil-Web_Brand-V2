@@ -4,12 +4,12 @@ import { Button } from "./ui/button";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-gradient-to-b from-white via-teal-50/30 to-teal-50/50 border-t border-teal-100/60 shadow-sm text-gray-900 mt-8">
+    <footer className="w-full bg-gradient-to-b from-white via-teal-100/60 to-teal-100 border-t border-teal-200 shadow-sm text-gray-900 mt-8">
       {/* CTA Section */}
       <div className="section-container py-8 sm:py-12 lg:py-16">
 
         {/* Footer Links */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-8 sm:pt-12 border-t border-teal-200/40">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 pt-8 sm:pt-12 border-t border-teal-300">
           {/* Company Info */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -54,7 +54,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 mt-8 border-t border-teal-200/40">
+        <div className="pt-8 mt-8 border-t border-teal-300">
           <div className="text-center text-gray-500 text-sm">
             <p className="mb-2">© 2024 Travnex. All rights reserved.</p>
             <p className="text-xs">Owned and powered by Travnex</p>
