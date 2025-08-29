@@ -13,7 +13,7 @@ const InteractiveParticleAnimation = () => {
 
   const maxParticles = 8000; // Doubled quantity
   const baseParticles = 4000; // Doubled quantity
-  const colors = ['#0d9488', '#14b8a6', '#5eead4'];
+  const colors = ['#0f766e', '#0d9488', '#14b8a6', '#5eead4']; // Added a darker teal
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -110,7 +110,7 @@ const InteractiveParticleAnimation = () => {
         let size = Math.random() * 0.8 + 0.2; // Made particles smaller
         
         const angle = Math.random() * Math.PI * 2;
-        const radius = Math.sqrt(Math.random()) * (canvas.width / 2.5);
+        const radius = Math.sqrt(Math.random()) * (canvas.width / 2.2); // Changed divisor from 2.5 to 2.2 to increase the circle size
         
         let x = canvas.width / 2 + Math.cos(angle) * radius;
         let y = canvas.height / 2 + Math.sin(angle) * radius;
