@@ -88,7 +88,9 @@ const PlatformScreenshots = () => {
             </a>
             
             <a 
-              href="#demo" 
+              href="https://calendly.com/sabamoseshvili-trav-nex/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative overflow-hidden rounded-full border-2 border-border bg-background/80 backdrop-blur-sm px-8 py-4 text-base font-medium text-foreground shadow-sm transition-all duration-300 hover:shadow-md hover:bg-accent/50 hover:-translate-y-0.5 active:translate-y-0"
             >
               <span className="relative z-10 flex items-center gap-2">
