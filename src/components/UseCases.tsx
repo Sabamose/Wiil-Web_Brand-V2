@@ -163,6 +163,18 @@ export default function AssistantUseCasesSlideshowV2() {
 
   return (
     <section id="use-cases" className="w-full bg-white py-16 sm:py-24">
+      {/* Inline keyframes for pulse animation */}
+      <style>{`
+        @keyframes softPulse {
+          0%   { transform: scale(1); opacity: .40; }
+          50%  { transform: scale(1.06); opacity: .15; }
+          100% { transform: scale(1); opacity: .40; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-softPulse { animation: none !important; }
+        }
+      `}</style>
+      
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
         <header className="mb-6 sm:mb-8">
           <h2 className="font-brockmann text-[clamp(28px,4vw,44px)] font-semibold tracking-tight text-slate-900">Use Cases</h2>
@@ -223,7 +235,7 @@ function Carousel({ items }: { items: Slide[] }) {
 
   return (
     <div className="relative">
-      <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200">
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
         {items.map((s, i) => (
           <SlideCard key={i} s={s} active={i === idx} />
         ))}
@@ -259,42 +271,107 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
     }
   }, [active, playing]);
 
+  // Get appropriate icons for stats
+  const getStatIcon = (key: string) => {
+    if (key.toLowerCase().includes('uplift') || key.toLowerCase().includes('lift') || key.toLowerCase().includes('response')) return "📈";
+    if (key.toLowerCase().includes('24/7') || key.toLowerCase().includes('coverage') || key.toLowerCase().includes('availability')) return "⏰";
+    if (key.toLowerCase().includes('deflect') || key.toLowerCase().includes('cut') || key.toLowerCase().includes('reduc')) return "📉";
+    if (key.toLowerCase().includes('fix') || key.toLowerCase().includes('contact')) return "🔧";
+    if (key.toLowerCase().includes('auto') || key.toLowerCase().includes('reminder')) return "🤖";
+    if (key.toLowerCase().includes('safe') || key.toLowerCase().includes('pci')) return "🔒";
+    if (key.toLowerCase().includes('channel') || key.toLowerCase().includes('omni')) return "📱";
+    if (key.toLowerCase().includes('nps') || key.toLowerCase().includes('csat')) return "⭐";
+    if (key.toLowerCase().includes('tour') || key.toLowerCase().includes('lead')) return "🎯";
+    if (key.toLowerCase().includes('wait') || key.toLowerCase().includes('time') || key.toLowerCase().includes('aht')) return "⚡";
+    if (key.toLowerCase().includes('call') || key.toLowerCase().includes('delivery') || key.toLowerCase().includes('reattempt')) return "📞";
+    if (key.toLowerCase().includes('show') || key.toLowerCase().includes('no-show')) return "📅";
+    return "📊";
+  };
+
   return (
-    <div className={`grid grid-cols-1 overflow-hidden bg-white transition-opacity duration-500 sm:grid-cols-2 ${active ? "opacity-100" : "hidden opacity-0"}`}>
-      <div className="relative h-56 sm:h-[420px]">
+    <div className={`grid grid-cols-1 overflow-hidden bg-white transition-opacity duration-500 md:grid-cols-2 ${active ? "opacity-100" : "hidden opacity-0"}`}>
+      {/* Left image */}
+      <div className="relative h-[260px] md:h-[420px]">
         <ImageWithFallback sources={s.images} alt="" />
+        {/* gentle vignette for blend */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/5 via-black/0 to-transparent" />
       </div>
-      <div className="flex min-h-[320px] flex-col justify-between p-6 sm:p-8">
-        <div>
-          <h3 className="font-brockmann text-[clamp(20px,2.6vw,28px)] font-semibold leading-tight text-slate-900">
+
+      {/* Right panel */}
+      <div className="relative flex min-h-[420px] flex-col justify-between">
+        {/* background gradient + divider to blend with the image */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white via-white to-teal-50/50" />
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent" />
+
+        <div className="relative px-6 py-7 md:px-10 md:py-10">
+          {/* Title */}
+          <h3 className="text-[clamp(22px,2.2vw,30px)] font-semibold tracking-tight text-slate-900">
             <span className="mr-2 align-[-2px]">{s.emoji}</span>
             {s.title}
           </h3>
-          
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <button onClick={() => {
-              const a = audioRef.current; if (!a) return; if (playing) { a.pause(); setPlaying(false); } else { a.currentTime = 0; a.play(); setPlaying(true); a.onended = () => setPlaying(false); }
-            }} aria-label={playing ? "Pause sample dialog" : "Play sample dialog"} className="relative inline-grid size-16 place-items-center rounded-full bg-white text-teal-700 shadow-sm ring-1 ring-teal-200">
-              {playing ? (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="6" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /><rect x="14" y="5" width="4" height="14" rx="1.5" fill="#0f766e" /></svg>
-              ) : (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 6.5v11l9-5.5-9-5.5Z" fill="#0f766e"/></svg>
-              )}
-              <span className="pointer-events-none absolute inset-0 rounded-full ring-8 ring-teal-100/70" />
-              <span className="pointer-events-none absolute -inset-2 rounded-full ring-8 ring-teal-50" />
+
+          {/* Play Orb */}
+          <div className="mt-8 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => {
+                const a = audioRef.current; 
+                if (!a) return; 
+                if (playing) { 
+                  a.pause(); 
+                  setPlaying(false); 
+                } else { 
+                  a.currentTime = 0; 
+                  a.play(); 
+                  setPlaying(true); 
+                  a.onended = () => setPlaying(false); 
+                }
+              }}
+              aria-label="Listen to a sample dialog"
+              className="relative grid size-16 place-items-center rounded-full bg-white ring-1 ring-teal-200"
+            >
+              {/* pulsing rings */}
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-teal-200/40" style={{ animation: "softPulse 2s infinite" }} />
+              <span className="pointer-events-none absolute -inset-1 rounded-full bg-teal-100/40" style={{ animation: "softPulse 2s infinite", animationDelay: "150ms" }} />
+              {/* inner circle */}
+              <span className="relative grid size-10 place-items-center rounded-full bg-teal-600">
+                {playing ? (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <rect x="6" y="5" width="4" height="14" rx="1.5" fill="white" />
+                    <rect x="14" y="5" width="4" height="14" rx="1.5" fill="white" />
+                  </svg>
+                ) : (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="white" />
+                  </svg>
+                )}
+              </span>
             </button>
             <div className="text-sm text-slate-500">Listen to a sample dialog</div>
             <audio ref={audioRef} src={s.audio} preload="none" />
           </div>
         </div>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:mt-0">
-          {s.stats.map((x, i) => (
-            <div key={i} className="rounded-2xl bg-slate-50 p-4 text-center ring-1 ring-slate-200">
-              <div className="font-brockmann text-xl font-semibold text-slate-900">{x.v}</div>
-              <div className="text-xs text-slate-500">{x.k}</div>
-            </div>
+
+        {/* Stats pills */}
+        <div className="relative grid grid-cols-2 gap-4 px-6 pb-7 md:px-10 md:pb-10">
+          {s.stats.map((stat, i) => (
+            <StatPill key={i} icon={getStatIcon(stat.k)} value={stat.v} label={stat.k} />
           ))}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function StatPill({ icon, value, label }: { icon: string; value: string; label: string }) {
+  return (
+    <div className="flex items-center gap-3 rounded-2xl bg-white px-4 py-4 shadow-sm ring-1 ring-slate-200">
+      <span className="grid size-8 place-items-center rounded-full bg-teal-50 text-[18px]">
+        {icon}
+      </span>
+      <div className="leading-tight">
+        <div className="text-[18px] font-semibold text-slate-900">{value}</div>
+        <div className="text-xs text-slate-500">{label}</div>
       </div>
     </div>
   );
