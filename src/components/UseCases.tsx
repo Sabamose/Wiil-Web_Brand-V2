@@ -186,7 +186,7 @@ export default function AssistantUseCasesSlideshowV2() {
       {/* Get Started CTA Section - Between UseCases and Footer */}
       <div className="w-full bg-gradient-to-br from-slate-50 to-white py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 text-center">
-          <h3 className="text-2xl sm:text-3xl font-semibold text-slate-900 mb-8">Ready to transform your customer interactions?</h3>
+          <h3 className="text-2xl sm:text-3xl font-brockmann font-semibold text-slate-900 mb-8">Ready to transform your customer interactions?</h3>
           
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <a 
