@@ -113,7 +113,7 @@ function TranscriptsContent() {
   return (
     <div className="relative mx-auto max-w-3xl">
       <div className="absolute inset-0 -z-10 mx-auto h-full w-full rounded-3xl bg-gradient-to-br from-teal-50 to-white blur-2xl" />
-      <div className="space-y-4">
+      <div className="space-y-4 transform-gpu perspective-1000 [transform-style:preserve-3d]">
         <Bubble who="Customer">I noticed unexpected charges on my account.</Bubble>
         <Bubble who="Assistant" teal>
           Those are premium features from your upgrade. Let me explain.
@@ -224,8 +224,10 @@ function DetailsContent() {
 
 function Bubble({ children, who, teal }: { children: React.ReactNode; who: string; teal?: boolean }) {
   return (
-    <div className={`max-w-[85%] sm:max-w-[80%] rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 text-left text-xs sm:text-sm leading-relaxed shadow-sm ${
-      teal ? "ml-auto bg-teal-600 text-white" : "mr-auto bg-slate-100 text-slate-800"
+    <div className={`max-w-[85%] sm:max-w-[80%] rounded-xl sm:rounded-2xl px-3 sm:px-5 py-2 sm:py-3 text-left text-xs sm:text-sm leading-relaxed transform-gpu hover:scale-105 transition-all duration-300 ${
+      teal 
+        ? "ml-auto bg-teal-600 text-white shadow-[0_8px_32px_-8px_rgba(20,184,166,0.4)] hover:shadow-[0_12px_40px_-8px_rgba(20,184,166,0.5)] [transform:translateZ(20px)_rotateY(-5deg)]" 
+        : "mr-auto bg-slate-100 text-slate-800 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.15)] hover:shadow-[0_12px_40px_-8px_rgba(0,0,0,0.2)] [transform:translateZ(20px)_rotateY(5deg)]"
     }`}>
       <div className="mb-1 text-[10px] sm:text-xs uppercase tracking-wider opacity-70 font-medium">{who}</div>
       <div className="break-words">{children}</div>
