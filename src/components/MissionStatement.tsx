@@ -28,14 +28,14 @@ const MissionStatement = () => {
         </div>
         
         <div className="mb-12">
-          <h2 className="text-5xl font-display font-bold mb-6 text-left">Our Mission </h2>
+          <h2 className="text-5xl font-display font-bold mb-6 text-left">Exceptional CX for Every Business</h2>
           <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
             We're on a mission to make <span className="text-teal-600 font-semibold">AI-powered customer experiences accessible</span> to <span className="text-teal-600 font-semibold">every business</span>, no matter their size, location, or technical expertise. We believe technology should be <span className="text-teal-600 font-semibold">simple, affordable, and human-centered</span>—a world where <span className="text-teal-600 font-semibold">people focus on people</span>, while <span className="text-teal-600 font-semibold">AI handles the repetitive</span>
           </p>
         </div>
         
         <div className="mt-16 flex justify-center">
-          <img src="/lovable-uploads/2e37e38b-9885-4e58-83c1-28f146f40a90.png" alt="Isometric office environment showing various business departments using AI-powered conversational interfaces" className="max-w-full h-auto" />
+          <img src="/lovable-uploads/2e37e38b-9885-4e58-83c1-28f146f40a90.png" alt="Isometric office environment showing various business departments using AI-powered conversational interfaces" className="max-w-full h-auto rounded-lg shadow-lg" />
         </div>
       </div>
     </section>;
