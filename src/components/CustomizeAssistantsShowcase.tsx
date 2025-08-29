@@ -100,10 +100,10 @@ export default function CustomizeAssistantsShowcase() {
 
         <div className="mt-8 flex flex-col items-stretch gap-3 sm:mt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm text-slate-500">Role • Language • Voice • Industry — set once, refine anytime.</p>
-          <button className="relative h-11 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-5 text-sm font-medium text-slate-800 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:bg-white/20 transition-all duration-300 overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 via-blue-500/20 to-purple-600/30 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
+          <button className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group">
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-400/30 via-teal-500/20 to-teal-600/30 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-teal-400/40 via-teal-300/20 to-transparent"></div>
-            <span className="relative z-10 bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent font-semibold">Create Your Assistant</span>
+            <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">Create Your Assistant</span>
           </button>
         </div>
       </div>
