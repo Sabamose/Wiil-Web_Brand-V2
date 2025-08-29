@@ -30,7 +30,7 @@ const MissionStatement = () => {
         <div className="mb-12">
           <h2 className="text-5xl font-display font-bold mb-6 text-left">Our Mission </h2>
           <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-            AI for every business. Simple, affordable, and human-first. A world where people connect, and AI handles the rest.
+            We're on a mission to make AI-powered customer experiences accessible to every business, no matter their size, location, or technical expertise. We believe technology should be simple, affordable, and human-centered—a world where people focus on people, while AI handles the repetitive
           </p>
         </div>
         
