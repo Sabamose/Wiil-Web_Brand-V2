@@ -49,10 +49,37 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, inquiryType: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    
+    try {
+      const response = await fetch(`https://zyaosogliekotdebnzpr.supabase.co/functions/v1/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          company: "",
+          inquiryType: "",
+          subject: "",
+          message: ""
+        });
+        
+        alert("Thank you! Your message has been sent successfully.");
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      alert("Sorry, there was an error sending your message. Please try again.");
+    }
   };
 
   return (
