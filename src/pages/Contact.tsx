@@ -218,7 +218,7 @@ const Contact = () => {
 
                   <Button 
                     type="submit"
-                    variant="glass"
+                    variant="default"
                     className="w-full"
                   >
                     Send Message
