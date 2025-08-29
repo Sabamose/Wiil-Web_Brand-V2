@@ -110,7 +110,7 @@ const InteractiveParticleAnimation = () => {
         let size = Math.random() * 0.8 + 0.2; // Made particles smaller
         
         const angle = Math.random() * Math.PI * 2;
-        const radius = Math.sqrt(Math.random()) * (canvas.width / 2.2); // Changed divisor from 2.5 to 2.2 to increase the circle size
+        const radius = Math.sqrt(Math.random()) * (canvas.width / 1.8); // Increased circle size further
         
         let x = canvas.width / 2 + Math.cos(angle) * radius;
         let y = canvas.height / 2 + Math.sin(angle) * radius;
