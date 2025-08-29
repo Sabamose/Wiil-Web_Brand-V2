@@ -190,7 +190,7 @@ const InteractiveParticleAnimation = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-white">
       <div 
         ref={containerRef}
         className="relative w-[500px] h-[500px] flex justify-center items-center cursor-pointer"
