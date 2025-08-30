@@ -119,7 +119,7 @@ const Features = () => {
             index={2}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><rect width="7" height="13" x="3" y="3" rx="1"></rect><path d="m22 2-3 3-2-2-3 3"></path></svg>}
+            icon={<img src="/lovable-uploads/640d3ebc-ffee-4bd9-b6d8-6c4d44e4ceed.png" alt="Mobile Apps" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="Mobile Apps"
             description="Native iOS and Android support with push notifications and offline conversation handling."
             index={3}
