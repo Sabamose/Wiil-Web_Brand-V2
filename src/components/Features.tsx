@@ -126,7 +126,7 @@ const Features = () => {
             index={3}
           />
           <FeatureCard
-            icon={<img src="/lovable-uploads/6dfe3a67-0c16-4aab-9588-fe6fd32f2e91.png" alt="No-Code Setup" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
+            icon={<img src="/lovable-uploads/895ad6e2-82c9-4a14-b30d-a0d048ccb553.png" alt="No-Code Setup" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="No-Code Setup"
             description="Build and deploy AI assistants in 5 minutes without any programming knowledge or technical skills."
             index={4}
