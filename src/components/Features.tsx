@@ -101,7 +101,7 @@ const Features = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>}
+            icon={<img src="/lovable-uploads/cf8bf532-5c0f-429d-b86a-36d70f9c0fb3.png" alt="Voice Calls" className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />}
             title="Voice Calls"
             description="Handle unlimited voice conversations with natural speech recognition and synthesis across global phone networks."
             index={0}
