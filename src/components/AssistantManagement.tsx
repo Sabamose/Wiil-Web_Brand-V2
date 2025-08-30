@@ -124,31 +124,6 @@ export default function PlatformElegantShowroom() {
           </Card>
         </div>
 
-        {/* Details */}
-        <div className="flex flex-col justify-between">
-          <div className="rounded-3xl border border-slate-200 bg-white/70 p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-slate-400">What you get</p>
-            <ul className="mt-3 space-y-3 text-slate-700">
-              <li className="flex items-center gap-3"><ConciergeBell className="size-4" /> Concierge requests & hospitality</li>
-              <li className="flex items-center gap-3"><Headphones className="size-4" /> Customer support, 24/7</li>
-              <li className="flex items-center gap-3"><Calendar className="size-4" /> Scheduling & reminders</li>
-              <li className="flex items-center gap-3"><Phone className="size-4" /> Service booking via calls</li>
-              <li className="flex items-center gap-3"><ShoppingCart className="size-4" /> Sales assistant</li>
-              <li className="flex items-center gap-3"><MessageSquare className="size-4" /> SMS follow ups</li>
-            </ul>
-            <div className="mt-6 space-y-2">
-              <RedactedLine w="w-3/4" />
-              <RedactedLine w="w-2/3" />
-              <RedactedLine w="w-1/2" />
-            </div>
-            <Button className="mt-6 w-full rounded-2xl">Try a Live Demo</Button>
-          </div>
-          <Card className="mt-6 rounded-3xl border-0 bg-gradient-to-br from-white to-teal-50 shadow-sm ring-1 ring-black/5">
-            <CardContent className="p-6">
-              <p className="text-sm text-slate-500">Our assistants book, solve, and greet—without pause or fatigue.</p>
-            </CardContent>
-          </Card>
-        </div>
       </div>
 
       {/* Dots */}
