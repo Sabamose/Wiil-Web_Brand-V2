@@ -148,14 +148,6 @@ export default function PlatformElegantShowroom() {
         ))}
       </div>
 
-      {/* Philosophy */}
-      <div className="border-t border-slate-100 bg-slate-50/60 py-10">
-        <div className="mx-auto max-w-6xl px-6">
-          <p className="text-center text-sm text-slate-600">
-            We craft assistants that take care of details—so your people can focus on the big picture.
-          </p>
-        </div>
-      </div>
     </section>
   );
 }
