@@ -79,11 +79,11 @@ export default function PlatformElegantShowroom() {
       </div>
 
       {/* Poster Carousel */}
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-8 pt-10 md:grid-cols-[1.15fr,0.85fr]">
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-10">
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-[28px] bg-gradient-to-br from-white to-teal-50" />
           <Card className="overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
-            <CardContent className="relative h-[540px] p-0">
+            <CardContent className="relative h-[500px] p-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={slides[index].id}
@@ -91,22 +91,34 @@ export default function PlatformElegantShowroom() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.15 }}
-                  className={`relative flex h-full items-end justify-between overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[index].bg}`}
+                  className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[index].bg}`}
                 >
+                  {/* Background decoration - spans full width */}
                   <div className="pointer-events-none absolute inset-0 opacity-80">
                     {slides[index].deco}
                   </div>
-                  <div className="relative z-10 p-8 md:p-10">
-                    <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
-                      {slides[index].title}
-                    </h2>
-                    <p className="mt-2 max-w-md text-slate-600">{slides[index].line}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {slides[index].tags.map((t) => (
-                        <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
-                      ))}
+                  
+                  {/* Left half - Content */}
+                  <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
+                    <div>
+                      <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
+                        {slides[index].title}
+                      </h2>
+                      <p className="mt-2 max-w-md text-slate-600">{slides[index].line}</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {slides[index].tags.map((t) => (
+                          <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                  
+                  {/* Right half - Reserved for isometric images */}
+                  <div className="relative z-10 flex flex-1 items-center justify-center">
+                    {/* This space is reserved for your isometric image models */}
+                    <div className="text-slate-400 text-sm">Isometric Image Area</div>
+                  </div>
+                  
                   <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
                     Preview
                   </div>
@@ -123,7 +135,6 @@ export default function PlatformElegantShowroom() {
             </CardContent>
           </Card>
         </div>
-
       </div>
 
       {/* Dots */}
