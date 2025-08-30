@@ -46,7 +46,7 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
       )}
       style={{ animationDelay: `${0.1 * index}s` }}
     >
-      <div className="rounded-full bg-teal-50 w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center text-teal-600 mb-4 sm:mb-5">
+      <div className="w-24 h-24 sm:w-28 sm:h-28 flex items-center justify-center text-teal-600 mb-4 sm:mb-5">
         {icon}
       </div>
       <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{title}</h3>
