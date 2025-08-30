@@ -124,14 +124,6 @@ export default function PlatformElegantShowroom() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-              <div className="absolute inset-x-0 bottom-4 flex items-center justify-between px-4">
-                <button onClick={prev} className="rounded-full bg-white/80 p-2 shadow ring-1 ring-black/5 backdrop-blur transition hover:bg-white">
-                  <ChevronLeft className="size-5 text-slate-700" />
-                </button>
-                <button onClick={next} className="rounded-full bg-white/80 p-2 shadow ring-1 ring-black/5 backdrop-blur transition hover:bg-white">
-                  <ChevronRight className="size-5 text-slate-700" />
-                </button>
-              </div>
             </CardContent>
           </Card>
         </div>
