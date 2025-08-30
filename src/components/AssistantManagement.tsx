@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -47,99 +47,194 @@ export default function PlatformElegantShowroom() {
     },
   ];
 
-  const [index, setIndex] = useState(0);
-  const next = () => setIndex((i) => (i + 1) % slides.length);
-  const prev = () => setIndex((i) => (i - 1 + slides.length) % slides.length);
+  // Scroll animation state
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrollHandlerRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // Intersection Observer to detect when section is in view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+        if (!entry.isIntersecting) {
+          setActiveCardIndex(0);
+        }
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '-10% 0px -10% 0px',
+      }
+    );
+
+    observer.observe(section);
+
+    // Scroll handler with throttling
+    const handleScroll = () => {
+      if (scrollHandlerRef.current) return;
+      
+      scrollHandlerRef.current = requestAnimationFrame(() => {
+        if (!isIntersecting || !section) {
+          scrollHandlerRef.current = null;
+          return;
+        }
+
+        const rect = section.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionTop = rect.top;
+        const sectionHeight = rect.height;
+        
+        // Calculate scroll progress through the section
+        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight * 0.5)));
+        
+        // Determine active card based on scroll progress
+        if (scrollProgress < 0.33) {
+          setActiveCardIndex(0);
+        } else if (scrollProgress < 0.66) {
+          setActiveCardIndex(1);
+        } else {
+          setActiveCardIndex(2);
+        }
+        
+        scrollHandlerRef.current = null;
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollHandlerRef.current) {
+        cancelAnimationFrame(scrollHandlerRef.current);
+      }
+    };
+  }, [isIntersecting]);
+
+  // Calculate card styles based on scroll position
+  const getCardStyle = (cardIndex: number) => {
+    const isVisible = isIntersecting;
+    const isActive = activeCardIndex >= cardIndex;
+    
+    const baseStyle = {
+      transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+      willChange: 'transform, opacity',
+      pointerEvents: (isActive ? 'auto' : 'none') as React.CSSProperties['pointerEvents'],
+    };
+
+    if (!isVisible) {
+      return {
+        ...baseStyle,
+        transform: 'translateY(200px) scale(0.9)',
+        opacity: 0,
+        zIndex: 10 + cardIndex,
+      };
+    }
+
+    // Card-specific transforms based on position
+    if (cardIndex === 0) {
+      return {
+        ...baseStyle,
+        transform: isActive ? 'translateY(90px) scale(0.9)' : 'translateY(200px) scale(0.9)',
+        opacity: isActive ? 0.9 : 0,
+        zIndex: 10,
+      };
+    } else if (cardIndex === 1) {
+      return {
+        ...baseStyle,
+        transform: isActive ? 'translateY(45px) scale(0.95)' : 'translateY(200px) scale(0.95)',
+        opacity: isActive ? 1 : 0,
+        zIndex: 20,
+      };
+    } else {
+      return {
+        ...baseStyle,
+        transform: isActive ? 'translateY(0px) scale(1)' : 'translateY(200px) scale(1)',
+        opacity: isActive ? 1 : 0,
+        zIndex: 30,
+      };
+    }
+  };
 
   return (
-    <section className="relative w-full overflow-hidden bg-white">
+    <section ref={sectionRef} className="relative w-full overflow-hidden bg-white" style={{ height: '300vh' }}>
       {/* Header */}
-      <div className="mx-auto max-w-6xl px-6 pt-16">
-        <div className="flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Wiil Platform</p>
-            <h1 className="mt-2 text-4xl font-display font-semibold tracking-tight md:text-5xl">
-              <span className="text-slate-900">Create</span><span className="text-teal-600"> AI Assistants</span>
-            </h1>
-            <p className="mt-2 max-w-xl text-slate-500">
-              A quiet, capable workforce. Minimal setup. Maximum presence.
-            </p>
-          </div>
-          <div className="flex gap-2">
-            <button 
-              className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group"
-              onClick={() => window.open('https://console.wiil.io/login?from=%2F', '_blank')}
-            >
-              
-              
-              <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
-            </button>
+      <div className="sticky top-0 z-40 bg-white">
+        <div className="mx-auto max-w-6xl px-6 pt-16">
+          <div className="flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Wiil Platform</p>
+              <h1 className="mt-2 text-4xl font-display font-semibold tracking-tight md:text-5xl">
+                <span className="text-slate-900">Create</span><span className="text-teal-600"> AI Assistants</span>
+              </h1>
+              <p className="mt-2 max-w-xl text-slate-500">
+                A quiet, capable workforce. Minimal setup. Maximum presence.
+              </p>
+            </div>
+            <div className="flex gap-2">
+              <button 
+                className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group"
+                onClick={() => window.open('https://console.wiil.io/login?from=%2F', '_blank')}
+              >
+                <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Poster Carousel */}
-      <div className="mx-auto max-w-7xl px-6 pb-8 pt-10">
-        <div className="relative">
-          <div className="absolute inset-0 -z-10 rounded-[28px] bg-gradient-to-br from-white to-teal-50" />
-          <Card className="overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
-            <CardContent className="relative h-[500px] p-0">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={slides[index].id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.15 }}
-                  className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[index].bg}`}
-                >
-                  {/* Background decoration - spans full width */}
-                  <div className="pointer-events-none absolute inset-0 opacity-80">
-                    {slides[index].deco}
-                  </div>
-                  
-                  {/* Left half - Content */}
-                  <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
-                    <div>
-                      <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
-                        {slides[index].title}
-                      </h2>
-                      <p className="mt-2 max-w-md text-slate-600">{slides[index].line}</p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {slides[index].tags.map((t) => (
-                          <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
-                        ))}
+      {/* Scrolling Cards Stack */}
+      <div className="sticky top-0 mx-auto max-w-7xl px-6 pb-8 pt-10">
+        <div className="relative h-[500px]">
+          {slides.slice(0, 3).map((slide, cardIndex) => (
+            <div
+              key={slide.id}
+              className="absolute inset-0 animate-card-enter"
+              style={getCardStyle(cardIndex)}
+            >
+              <div className="absolute inset-0 -z-10 rounded-[28px] bg-gradient-to-br from-white to-teal-50" />
+              <Card className="h-full overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
+                <CardContent className="relative h-full p-0">
+                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slide.bg}`}>
+                    {/* Background decoration */}
+                    <div className="pointer-events-none absolute inset-0 opacity-80">
+                      {slide.deco}
+                    </div>
+                    
+                    {/* Left half - Content */}
+                    <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
+                      <div>
+                        <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
+                          {slide.title}
+                        </h2>
+                        <p className="mt-2 max-w-md text-slate-600">{slide.line}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {slide.tags.map((t) => (
+                            <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                          ))}
+                        </div>
                       </div>
                     </div>
+                    
+                    {/* Right half - Reserved for isometric images */}
+                    <div className="relative z-10 flex flex-1 items-center justify-center">
+                      <div className="text-slate-400 text-sm">Isometric Image Area</div>
+                    </div>
+                    
+                    <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
+                      Step {cardIndex + 1}
+                    </div>
                   </div>
-                  
-                  {/* Right half - Reserved for isometric images */}
-                  <div className="relative z-10 flex flex-1 items-center justify-center">
-                    {/* This space is reserved for your isometric image models */}
-                    <div className="text-slate-400 text-sm">Isometric Image Area</div>
-                  </div>
-                  
-                  <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
-                    Preview
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-            </CardContent>
-          </Card>
+                </CardContent>
+              </Card>
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* Dots */}
-      <div className="mx-auto flex max-w-6xl items-center justify-center gap-2 pb-14">
-        {slides.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => setIndex(i)}
-            className={`h-2 w-8 rounded-full transition ${i === index ? "bg-slate-800" : "bg-slate-200"}`}
-          />
-        ))}
-      </div>
-
     </section>
   );
 }
