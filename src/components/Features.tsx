@@ -131,7 +131,7 @@ const Features = () => {
             index={4}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M3 6h18l-2 13H5L3 6Z"></path><path d="M8 6V4c0-1 1-2 2-2h4c0 1 1 2 1 2v2"></path></svg>}
+            icon={<img src="/lovable-uploads/e7638423-6cb2-4acb-a167-caf0b6fed534.png" alt="90% Automation" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="90% Automation"
             description="Achieve up to 90% automation rate with intelligent conversation routing and response generation."
             index={5}
