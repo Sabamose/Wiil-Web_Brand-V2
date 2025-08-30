@@ -13,7 +13,6 @@ const ImageShowcaseSection = () => {
         </div>
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 animate-on-scroll">
           <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">Built for automating customer conversations</h2>
-          <p className="text-base sm:text-lg text-gray-600">Our  conversational AI platform is designed to transform how businesses interact with customers across all communication channels.</p>
         </div>
         
         <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-elegant mx-auto max-w-4xl animate-on-scroll">
