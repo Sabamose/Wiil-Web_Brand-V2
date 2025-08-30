@@ -113,7 +113,7 @@ const Features = () => {
             index={1}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M22 2L11 13l-3-3-6 6L7 21l5-5 9-9V2z"></path></svg>}
+            icon={<img src="/lovable-uploads/69da6fd3-10ef-4fe2-9360-01ad82be0f10.png" alt="SMS" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="SMS"
             description="Reach customers via text messaging in 160+ countries with intelligent conversation routing."
             index={2}
