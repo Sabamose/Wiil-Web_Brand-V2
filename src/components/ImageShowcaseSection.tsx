@@ -22,6 +22,11 @@ const ImageShowcaseSection = () => {
           </div>
           <div className="bg-white p-4 sm:p-8">
             <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Next Generation AI Platform</h3>
+            <p className="text-gray-700 text-sm sm:text-base">
+              Built with advanced natural language processing and multi-channel deployment, 
+              our AI assistants seamlessly integrate into various business environments, 
+              from customer service to sales, providing intelligent automation and enriching customer experiences.
+            </p>
           </div>
         </div>
       </div>
