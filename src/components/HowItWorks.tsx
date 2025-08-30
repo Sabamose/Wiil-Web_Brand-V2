@@ -150,6 +150,7 @@ const HowItWorks = () => {
                 <img
                   src={step.image}
                   alt={step.title}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-900/70 to-transparent">

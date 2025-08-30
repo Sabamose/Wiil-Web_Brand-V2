@@ -53,6 +53,7 @@ const RobotShowcaseSection = () => {
             <img 
               src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e" 
               alt="Advanced humanoid robot with white exterior" 
+              loading="lazy"
               className="w-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
