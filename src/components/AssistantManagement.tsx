@@ -1,9 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Phone, Calendar, Headphones, ConciergeBell, MessageCircle, ShoppingCart, Wrench, MessageSquare } from "lucide-react";
 
 /**
  * Wiil Platform — ELEGANT SHOWROOM (Creative Variants)
@@ -47,204 +44,285 @@ export default function PlatformElegantShowroom() {
     },
   ];
 
-  // Scroll animation state
-  const [isIntersecting, setIsIntersecting] = useState(false);
-  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const scrollHandlerRef = useRef<number | null>(null);
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const ticking = useRef(false);
+
+  // Card style matching HumanoidSection
+  const cardStyle = {
+    height: '60vh',
+    maxHeight: '600px',
+    borderRadius: '28px',
+    transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
+    willChange: 'transform, opacity'
+  };
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    // Intersection Observer to detect when section is in view
+    // Create intersection observer to detect when section is in view
     const observer = new IntersectionObserver(
-      ([entry]) => {
+      (entries) => {
+        const [entry] = entries;
         setIsIntersecting(entry.isIntersecting);
-        if (!entry.isIntersecting) {
-          setActiveCardIndex(0);
-        }
       },
-      {
-        threshold: 0.3,
-        rootMargin: '-10% 0px -10% 0px',
-      }
+      { threshold: 0.1 }
     );
 
-    observer.observe(section);
-
-    // Scroll handler with throttling
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    // Optimized scroll handler using requestAnimationFrame
     const handleScroll = () => {
-      if (scrollHandlerRef.current) return;
-      
-      scrollHandlerRef.current = requestAnimationFrame(() => {
-        if (!isIntersecting || !section) {
-          scrollHandlerRef.current = null;
-          return;
-        }
-
-        const rect = section.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const sectionTop = rect.top;
-        const sectionHeight = rect.height;
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          if (!sectionRef.current) return;
+          
+          const sectionRect = sectionRef.current.getBoundingClientRect();
+          const viewportHeight = window.innerHeight;
+          const totalScrollDistance = viewportHeight * 2;
+          
+          // Calculate the scroll progress
+          let progress = 0;
+          if (sectionRect.top <= 0) {
+            progress = Math.min(1, Math.max(0, Math.abs(sectionRect.top) / totalScrollDistance));
+          }
+          
+          // Determine which card should be visible based on progress (4 cards)
+          if (progress >= 0.75) {
+            setActiveCardIndex(3);
+          } else if (progress >= 0.5) {
+            setActiveCardIndex(2);
+          } else if (progress >= 0.25) {
+            setActiveCardIndex(1);
+          } else {
+            setActiveCardIndex(0);
+          }
+          
+          ticking.current = false;
+        });
         
-        // Calculate scroll progress through the section
-        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight * 0.5)));
-        
-        // Determine active card based on scroll progress (4 cards)
-        if (scrollProgress < 0.25) {
-          setActiveCardIndex(0);
-        } else if (scrollProgress < 0.5) {
-          setActiveCardIndex(1);
-        } else if (scrollProgress < 0.75) {
-          setActiveCardIndex(2);
-        } else {
-          setActiveCardIndex(3);
-        }
-        
-        scrollHandlerRef.current = null;
-      });
+        ticking.current = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    handleScroll(); // Initial calculation
+    
     return () => {
-      observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
-      if (scrollHandlerRef.current) {
-        cancelAnimationFrame(scrollHandlerRef.current);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
-  }, [isIntersecting]);
+  }, []);
 
-  // Calculate card styles based on scroll position
-  const getCardStyle = (cardIndex: number) => {
-    const isVisible = isIntersecting;
-    const isActive = activeCardIndex >= cardIndex;
-    
-    const baseStyle = {
-      transition: 'transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1)',
-      willChange: 'transform, opacity',
-      pointerEvents: (isActive ? 'auto' : 'none') as React.CSSProperties['pointerEvents'],
-    };
-
-    if (!isVisible) {
-      return {
-        ...baseStyle,
-        transform: 'translateY(200px) scale(0.9)',
-        opacity: 0,
-        zIndex: 10 + cardIndex,
-      };
-    }
-
-    // Card-specific transforms based on position (4 cards)
-    if (cardIndex === 0) {
-      return {
-        ...baseStyle,
-        transform: isActive ? 'translateY(120px) scale(0.85)' : 'translateY(200px) scale(0.85)',
-        opacity: isActive ? 0.8 : 0,
-        zIndex: 10,
-      };
-    } else if (cardIndex === 1) {
-      return {
-        ...baseStyle,
-        transform: isActive ? 'translateY(80px) scale(0.9)' : 'translateY(200px) scale(0.9)',
-        opacity: isActive ? 0.9 : 0,
-        zIndex: 20,
-      };
-    } else if (cardIndex === 2) {
-      return {
-        ...baseStyle,
-        transform: isActive ? 'translateY(40px) scale(0.95)' : 'translateY(200px) scale(0.95)',
-        opacity: isActive ? 0.95 : 0,
-        zIndex: 30,
-      };
-    } else {
-      return {
-        ...baseStyle,
-        transform: isActive ? 'translateY(0px) scale(1)' : 'translateY(200px) scale(1)',
-        opacity: isActive ? 1 : 0,
-        zIndex: 40,
-      };
-    }
-  };
+  // Card visibility based on active index
+  const isFirstCardVisible = isIntersecting;
+  const isSecondCardVisible = activeCardIndex >= 1;
+  const isThirdCardVisible = activeCardIndex >= 2;
+  const isFourthCardVisible = activeCardIndex >= 3;
 
   return (
-    <section ref={sectionRef} className="relative w-full overflow-hidden bg-white" style={{ height: '300vh' }}>
-      {/* Header */}
-      <div className="sticky top-0 z-40 bg-white">
-        <div className="mx-auto max-w-6xl px-6 pt-16">
-          <div className="flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Wiil Platform</p>
-              <h1 className="mt-2 text-4xl font-display font-semibold tracking-tight md:text-5xl">
-                <span className="text-slate-900">Create</span><span className="text-teal-600"> AI Assistants</span>
-              </h1>
-              <p className="mt-2 max-w-xl text-slate-500">
-                A quiet, capable workforce. Minimal setup. Maximum presence.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <button 
-                className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group"
-                onClick={() => window.open('https://console.wiil.io/login?from=%2F', '_blank')}
-              >
-                <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
-              </button>
+    <div 
+      ref={sectionRef} 
+      className="relative" 
+      style={{ height: '300vh' }}
+    >
+      <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden bg-white">
+        <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
+          {/* Header */}
+          <div className="mb-2 md:mb-3">
+            <div className="flex flex-col items-start gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-slate-400">Wiil Platform</p>
+                <h1 className="mt-2 text-4xl font-display font-semibold tracking-tight md:text-5xl">
+                  <span className="text-slate-900">Create</span><span className="text-teal-600"> AI Assistants</span>
+                </h1>
+                <p className="mt-2 max-w-xl text-slate-500">
+                  A quiet, capable workforce. Minimal setup. Maximum presence.
+                </p>
+              </div>
+              <div className="flex gap-2">
+                <button 
+                  className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group"
+                  onClick={() => window.open('https://console.wiil.io/login?from=%2F', '_blank')}
+                >
+                  <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Scrolling Cards Stack */}
-      <div className="sticky top-0 mx-auto max-w-7xl px-6 pb-8 pt-10">
-        <div className="relative h-[500px]">
-          {slides.map((slide, cardIndex) => (
-            <div
-              key={slide.id}
-              className="absolute inset-0 animate-card-enter"
-              style={getCardStyle(cardIndex)}
+          {/* Scrolling Cards Stack */}
+          <div ref={cardsContainerRef} className="relative flex-1 perspective-1000">
+            {/* First Card */}
+            <div 
+              className={`absolute inset-0 overflow-hidden shadow-xl ${isFirstCardVisible ? 'animate-card-enter' : ''}`} 
+              style={{
+                ...cardStyle,
+                zIndex: 10,
+                transform: `translateY(${isFirstCardVisible ? '90px' : '200px'}) scale(0.9)`,
+                opacity: isFirstCardVisible ? 0.9 : 0
+              }}
             >
-              <div className="absolute inset-0 -z-10 rounded-[28px] bg-gradient-to-br from-white to-teal-50" />
               <Card className="h-full overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
                 <CardContent className="relative h-full p-0">
-                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slide.bg}`}>
-                    {/* Background decoration */}
+                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[0].bg}`}>
                     <div className="pointer-events-none absolute inset-0 opacity-80">
-                      {slide.deco}
+                      {slides[0].deco}
                     </div>
-                    
-                    {/* Left half - Content */}
                     <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
                       <div>
                         <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
-                          {slide.title}
+                          {slides[0].title}
                         </h2>
-                        <p className="mt-2 max-w-md text-slate-600">{slide.line}</p>
+                        <p className="mt-2 max-w-md text-slate-600">{slides[0].line}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
-                          {slide.tags.map((t) => (
+                          {slides[0].tags.map((t) => (
                             <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
                           ))}
                         </div>
                       </div>
                     </div>
-                    
-                    {/* Right half - Reserved for isometric images */}
                     <div className="relative z-10 flex flex-1 items-center justify-center">
                       <div className="text-slate-400 text-sm">Isometric Image Area</div>
                     </div>
-                    
                     <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
-                      Step {cardIndex + 1}
+                      Step 1
                     </div>
                   </div>
                 </CardContent>
               </Card>
             </div>
-          ))}
+
+            {/* Second Card */}
+            <div 
+              className={`absolute inset-0 overflow-hidden shadow-xl ${isSecondCardVisible ? 'animate-card-enter' : ''}`} 
+              style={{
+                ...cardStyle,
+                zIndex: 20,
+                transform: `translateY(${isSecondCardVisible ? activeCardIndex === 1 ? '55px' : '45px' : '200px'}) scale(0.95)`,
+                opacity: isSecondCardVisible ? 1 : 0,
+                pointerEvents: isSecondCardVisible ? 'auto' : 'none'
+              }}
+            >
+              <Card className="h-full overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
+                <CardContent className="relative h-full p-0">
+                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[1].bg}`}>
+                    <div className="pointer-events-none absolute inset-0 opacity-80">
+                      {slides[1].deco}
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
+                      <div>
+                        <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
+                          {slides[1].title}
+                        </h2>
+                        <p className="mt-2 max-w-md text-slate-600">{slides[1].line}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {slides[1].tags.map((t) => (
+                            <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-center justify-center">
+                      <div className="text-slate-400 text-sm">Isometric Image Area</div>
+                    </div>
+                    <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
+                      Step 2
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Third Card */}
+            <div 
+              className={`absolute inset-0 overflow-hidden shadow-xl ${isThirdCardVisible ? 'animate-card-enter' : ''}`} 
+              style={{
+                ...cardStyle,
+                zIndex: 30,
+                transform: `translateY(${isThirdCardVisible ? activeCardIndex === 2 ? '15px' : '0' : '200px'}) scale(1)`,
+                opacity: isThirdCardVisible ? 1 : 0,
+                pointerEvents: isThirdCardVisible ? 'auto' : 'none'
+              }}
+            >
+              <Card className="h-full overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
+                <CardContent className="relative h-full p-0">
+                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[2].bg}`}>
+                    <div className="pointer-events-none absolute inset-0 opacity-80">
+                      {slides[2].deco}
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
+                      <div>
+                        <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
+                          {slides[2].title}
+                        </h2>
+                        <p className="mt-2 max-w-md text-slate-600">{slides[2].line}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {slides[2].tags.map((t) => (
+                            <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-center justify-center">
+                      <div className="text-slate-400 text-sm">Isometric Image Area</div>
+                    </div>
+                    <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
+                      Step 3
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Fourth Card */}
+            <div 
+              className={`absolute inset-0 overflow-hidden shadow-xl ${isFourthCardVisible ? 'animate-card-enter' : ''}`} 
+              style={{
+                ...cardStyle,
+                zIndex: 40,
+                transform: `translateY(${isFourthCardVisible ? '0px' : '200px'}) scale(1)`,
+                opacity: isFourthCardVisible ? 1 : 0,
+                pointerEvents: isFourthCardVisible ? 'auto' : 'none'
+              }}
+            >
+              <Card className="h-full overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
+                <CardContent className="relative h-full p-0">
+                  <div className={`relative flex h-full overflow-hidden rounded-[28px] bg-gradient-to-br ${slides[3].bg}`}>
+                    <div className="pointer-events-none absolute inset-0 opacity-80">
+                      {slides[3].deco}
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-end p-8 md:p-10">
+                      <div>
+                        <h2 className="text-3xl font-medium tracking-tight text-slate-900 md:text-4xl">
+                          {slides[3].title}
+                        </h2>
+                        <p className="mt-2 max-w-md text-slate-600">{slides[3].line}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {slides[3].tags.map((t) => (
+                            <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="relative z-10 flex flex-1 items-center justify-center">
+                      <div className="text-slate-400 text-sm">Isometric Image Area</div>
+                    </div>
+                    <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
+                      Step 4
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }
 
