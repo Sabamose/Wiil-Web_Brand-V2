@@ -113,7 +113,7 @@ const Features = () => {
             index={1}
           />
           <FeatureCard
-            icon={<img src="/lovable-uploads/69da6fd3-10ef-4fe2-9360-01ad82be0f10.png" alt="SMS" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
+            icon={<img src="/lovable-uploads/3b43f743-0330-4e15-ab8e-933ae81bec49.png" alt="SMS" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="SMS"
             description="Reach customers via text messaging in 160+ countries with intelligent conversation routing."
             index={2}
