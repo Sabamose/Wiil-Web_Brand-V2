@@ -91,13 +91,15 @@ export default function PlatformElegantShowroom() {
         // Calculate scroll progress through the section
         const scrollProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight * 0.5)));
         
-        // Determine active card based on scroll progress
-        if (scrollProgress < 0.33) {
+        // Determine active card based on scroll progress (4 cards)
+        if (scrollProgress < 0.25) {
           setActiveCardIndex(0);
-        } else if (scrollProgress < 0.66) {
+        } else if (scrollProgress < 0.5) {
           setActiveCardIndex(1);
-        } else {
+        } else if (scrollProgress < 0.75) {
           setActiveCardIndex(2);
+        } else {
+          setActiveCardIndex(3);
         }
         
         scrollHandlerRef.current = null;
@@ -135,27 +137,34 @@ export default function PlatformElegantShowroom() {
       };
     }
 
-    // Card-specific transforms based on position
+    // Card-specific transforms based on position (4 cards)
     if (cardIndex === 0) {
       return {
         ...baseStyle,
-        transform: isActive ? 'translateY(90px) scale(0.9)' : 'translateY(200px) scale(0.9)',
-        opacity: isActive ? 0.9 : 0,
+        transform: isActive ? 'translateY(120px) scale(0.85)' : 'translateY(200px) scale(0.85)',
+        opacity: isActive ? 0.8 : 0,
         zIndex: 10,
       };
     } else if (cardIndex === 1) {
       return {
         ...baseStyle,
-        transform: isActive ? 'translateY(45px) scale(0.95)' : 'translateY(200px) scale(0.95)',
-        opacity: isActive ? 1 : 0,
+        transform: isActive ? 'translateY(80px) scale(0.9)' : 'translateY(200px) scale(0.9)',
+        opacity: isActive ? 0.9 : 0,
         zIndex: 20,
+      };
+    } else if (cardIndex === 2) {
+      return {
+        ...baseStyle,
+        transform: isActive ? 'translateY(40px) scale(0.95)' : 'translateY(200px) scale(0.95)',
+        opacity: isActive ? 0.95 : 0,
+        zIndex: 30,
       };
     } else {
       return {
         ...baseStyle,
         transform: isActive ? 'translateY(0px) scale(1)' : 'translateY(200px) scale(1)',
         opacity: isActive ? 1 : 0,
-        zIndex: 30,
+        zIndex: 40,
       };
     }
   };
@@ -190,7 +199,7 @@ export default function PlatformElegantShowroom() {
       {/* Scrolling Cards Stack */}
       <div className="sticky top-0 mx-auto max-w-7xl px-6 pb-8 pt-10">
         <div className="relative h-[500px]">
-          {slides.slice(0, 3).map((slide, cardIndex) => (
+          {slides.map((slide, cardIndex) => (
             <div
               key={slide.id}
               className="absolute inset-0 animate-card-enter"
