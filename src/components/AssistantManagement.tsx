@@ -83,7 +83,7 @@ export default function PlatformElegantShowroom() {
         <div className="relative">
           <div className="absolute inset-0 -z-10 rounded-[28px] bg-gradient-to-br from-white to-teal-50" />
           <Card className="overflow-hidden rounded-[28px] border-0 shadow-sm ring-1 ring-black/5">
-            <CardContent className="relative h-[680px] p-0">
+            <CardContent className="relative h-[540px] p-0">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={slides[index].id}
