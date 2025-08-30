@@ -107,7 +107,7 @@ const Features = () => {
             index={0}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>}
+            icon={<img src="/lovable-uploads/4cf6d69a-d90c-4237-9784-bafdde55fceb.png" alt="Web Chat" className="w-40 h-40 sm:w-48 sm:h-48 object-contain" />}
             title="Web Chat"
             description="Deploy intelligent chat widgets on any website with seamless integration and customizable branding."
             index={1}
