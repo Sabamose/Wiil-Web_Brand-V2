@@ -30,7 +30,7 @@ const PlatformScreenshots = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto max-w-6xl">
         <div className="text-center relative">
           {/* Main heading with enhanced typography */}
-          <div className="space-y-6">
+          <div className="space-y-6 font-brockmann">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-light text-foreground leading-[1.1] tracking-tight max-w-5xl mx-auto">
               <span className="block">Meet your customers</span>
               <span className="block">wherever they are,</span>
