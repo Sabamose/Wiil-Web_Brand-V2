@@ -308,7 +308,6 @@ export default function PlatformElegantShowroom() {
                       </div>
                     </div>
                     <div className="relative z-10 flex flex-1 items-center justify-center">
-                      <div className="text-slate-400 text-sm">Isometric Image Area</div>
                     </div>
                     <div className="pointer-events-none absolute right-8 top-8 rounded-full bg-white/60 px-3 py-1 text-xs text-slate-600 backdrop-blur">
                       Step 4
