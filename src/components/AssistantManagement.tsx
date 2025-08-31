@@ -304,7 +304,7 @@ export default function PlatformElegantShowroom() {
                         <p className="mt-2 max-w-md text-slate-600">{slides[3].line}</p>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {slides[3].tags.map((t) => (
-                            <Badge key={t} variant="secondary" className="rounded-full">{t}</Badge>
+                            <Badge key={t} variant="secondary">{t}</Badge>
                           ))}
                         </div>
                       </div>
