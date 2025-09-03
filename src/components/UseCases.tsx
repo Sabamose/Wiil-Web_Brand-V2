@@ -331,44 +331,6 @@ function SlideCard({ s, active }: { s: Slide; active: boolean }) {
           </div>
         </div>
 
-        {/* Bottom: CTA Button */}
-        <div className="relative px-6 py-6 md:px-10 md:py-8">
-          <button
-            type="button"
-            onClick={() => {
-              const a = audioRef.current; 
-              if (!a) return; 
-              if (playing) { 
-                a.pause(); 
-                setPlaying(false); 
-              } else { 
-                a.currentTime = 0; 
-                a.play(); 
-                setPlaying(true); 
-                a.onended = () => setPlaying(false); 
-              }
-            }}
-            className="w-full h-12 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-xl transition-colors duration-200 flex items-center justify-center gap-2"
-          >
-            {playing ? (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <rect x="6" y="5" width="4" height="14" rx="1.5" fill="currentColor" />
-                  <rect x="14" y="5" width="4" height="14" rx="1.5" fill="currentColor" />
-                </svg>
-                Pause Sample
-              </>
-            ) : (
-              <>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M8 6.5v11l9-5.5-9-5.5Z" fill="currentColor" />
-                </svg>
-                Listen to Sample
-              </>
-            )}
-          </button>
-          <audio ref={audioRef} src={s.audio} preload="none" />
-        </div>
       </div>
     </div>
   );
