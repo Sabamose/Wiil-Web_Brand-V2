@@ -189,14 +189,6 @@ export default function AssistantUseCasesSlideshowV2() {
           <h3 className="text-2xl sm:text-3xl font-brockmann font-semibold text-slate-900 mb-8">Ready to transform your customer interactions?</h3>
           
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <a 
-              href="https://calendly.com/sabamoseshvili-trav-nex/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative h-11 rounded-full bg-teal-600 hover:bg-teal-700 border border-teal-600 px-6 text-sm font-medium text-white shadow-[0_8px_32px_0_rgba(20,184,166,0.4)] transition-all duration-300 overflow-hidden group inline-flex items-center"
-            >
-              <span className="relative z-10 font-semibold">Book A Demo</span>
-            </a>
             
             <a 
               href="https://calendly.com/sabamoseshvili-trav-nex/30min"
