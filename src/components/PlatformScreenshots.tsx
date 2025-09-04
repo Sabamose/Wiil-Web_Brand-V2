@@ -71,21 +71,6 @@ const PlatformScreenshots = () => {
 
           {/* Enhanced CTA buttons */}
           <div className="mt-12 flex flex-col sm:flex-row items-center gap-4 justify-center">
-            <a 
-              href="https://console.wiil.io/login?from=%2F"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden inline-flex items-center gap-2"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-400/30 via-teal-500/20 to-teal-600/30 opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
-              
-              <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">
-                + Create an Assistant
-              </span>
-              <svg className="relative z-10 w-4 h-4 transition-transform group-hover:translate-x-1 text-teal-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
             
             <a 
               href="https://calendly.com/sabamoseshvili-trav-nex/30min"
