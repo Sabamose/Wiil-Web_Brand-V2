@@ -250,7 +250,7 @@ const Contact = () => {
         {/* Location & Social */}
         <section id="contact-info" className="py-16 sm:py-24 bg-white">
           <div className="section-container mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start justify-center max-w-6xl mx-auto">
+            <div className="max-w-2xl mx-auto text-center">
               <div className="animate-on-scroll">
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                   Our Location
@@ -284,7 +284,7 @@ const Contact = () => {
 
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-4">Follow us</h4>
-                    <div className="flex space-x-4">
+                    <div className="flex space-x-4 justify-center">
                       <a 
                         href="https://x.com/Wiil76581537624" 
                         target="_blank"
@@ -328,13 +328,6 @@ const Contact = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="animate-on-scroll">
-                <GoogleMap 
-                  address="1177 Market Street, San Francisco, CA 94102"
-                  className="h-96 relative"
-                />
               </div>
             </div>
           </div>
