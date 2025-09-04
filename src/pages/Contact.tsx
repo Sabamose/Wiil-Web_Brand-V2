@@ -331,26 +331,10 @@ const Contact = () => {
               </div>
 
               <div className="animate-on-scroll">
-                <div className="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-8 h-96 flex flex-col justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">Visit Our Office</h3>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
-                      Located in the bustling heart of San Francisco's tech district. We're easily accessible by public transport and just minutes from major landmarks.
-                    </p>
-                    <div className="space-y-3 text-sm text-gray-500">
-                      <p>📍 Near Union Square & Financial District</p>
-                      <p>🚇 Montgomery Street BART - 5 min walk</p>
-                      <p>🚌 Multiple bus lines nearby</p>
-                      <p>🅿️ Parking available on Market Street</p>
-                    </div>
-                  </div>
-                </div>
+                <GoogleMap 
+                  address="1177 Market Street, San Francisco, CA 94102"
+                  className="h-96 relative"
+                />
               </div>
             </div>
           </div>
