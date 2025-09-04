@@ -117,10 +117,7 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ address, className = "" }) => {
   }, [apiKey, address]);
 
   return (
-    <div className={`${className} bg-gray-100 rounded-2xl p-8 flex items-center justify-center`}>
-      <div className="text-center text-gray-600">
-        <p>Map functionality disabled</p>
-      </div>
+    <div className={className}>
     </div>
   );
 };
