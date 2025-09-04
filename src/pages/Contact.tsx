@@ -249,8 +249,8 @@ const Contact = () => {
 
         {/* Location & Social */}
         <section id="contact-info" className="py-16 sm:py-24 bg-white">
-          <div className="section-container">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="section-container mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start justify-center max-w-6xl mx-auto">
               <div className="animate-on-scroll">
                 <h2 className="font-display text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                   Our Location
