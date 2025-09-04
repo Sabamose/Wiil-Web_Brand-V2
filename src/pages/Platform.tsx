@@ -122,7 +122,7 @@ const Platform = () => {
               className="animate-on-scroll"
               onClick={() => window.open('https://www.youtube.com/watch?v=YZZZbfTs-ys', '_blank')}
             >
-              Watch Demo
+              Watch How it works
               <ArrowRight size={20} />
             </Button>
           </div>
