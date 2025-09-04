@@ -116,59 +116,11 @@ const GoogleMap: React.FC<GoogleMapProps> = ({ address, className = "" }) => {
     }
   }, [apiKey, address]);
 
-  if (showApiKeyInput) {
-    return (
-      <div className={`${className} bg-gray-50 rounded-2xl p-8 flex flex-col items-center justify-center space-y-4`}>
-        <div className="text-center">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Google Maps Setup Required</h3>
-          <p className="text-sm text-gray-600 mb-4">
-            To display the map, please enter your Google Maps API key.<br />
-            Get your API key from the <a href="https://console.cloud.google.com/google/maps-apis" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">Google Cloud Console</a>.
-          </p>
-        </div>
-        <div className="w-full max-w-md space-y-3">
-          <Input
-            type="password"
-            placeholder="Enter Google Maps API Key"
-            value={apiKeyInput}
-            onChange={(e) => setApiKeyInput(e.target.value)}
-            className="focus-visible:ring-teal-500"
-          />
-          <Button 
-            onClick={handleApiKeySubmit}
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white focus-visible:ring-teal-500"
-            disabled={!apiKeyInput.trim()}
-          >
-            Load Map
-          </Button>
-        </div>
-        <button
-          onClick={() => setShowApiKeyInput(false)}
-          className="text-sm text-gray-500 hover:text-gray-700 underline"
-        >
-          Skip for now
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div className={className}>
-      <div ref={mapRef} className="w-full h-full rounded-2xl" />
-      {error && (
-        <div className="absolute inset-0 bg-gray-50 rounded-2xl flex items-center justify-center">
-          <div className="text-center p-4">
-            <p className="text-red-600 mb-2">{error}</p>
-            <Button
-              onClick={() => setShowApiKeyInput(true)}
-              variant="outline"
-              className="focus-visible:ring-teal-500"
-            >
-              Update API Key
-            </Button>
-          </div>
-        </div>
-      )}
+    <div className={`${className} bg-gray-100 rounded-2xl p-8 flex items-center justify-center`}>
+      <div className="text-center text-gray-600">
+        <p>Map functionality disabled</p>
+      </div>
     </div>
   );
 };
