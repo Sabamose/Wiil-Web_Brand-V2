@@ -55,8 +55,8 @@ const CTA = () => {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button variant="glass" asChild className="group w-full sm:w-auto">
-              <a href="#contact">
-                Request Early Access
+              <a href="https://calendly.com/sabamoseshvili-trav-nex/30min" target="_blank" rel="noopener noreferrer">
+                Book a demo
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>

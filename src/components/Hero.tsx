@@ -114,8 +114,8 @@ const Hero = () => {
                 asChild
                 className="group w-full sm:w-auto"
               >
-                <a href="https://console.wiil.io/login?from=%2F" target="_blank" rel="noopener noreferrer">
-                  Get Early Access
+                <a href="https://calendly.com/sabamoseshvili-trav-nex/30min" target="_blank" rel="noopener noreferrer">
+                  Book a demo
                   <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
