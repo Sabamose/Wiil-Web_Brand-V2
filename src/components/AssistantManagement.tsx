@@ -147,9 +147,9 @@ export default function PlatformElegantShowroom() {
               <div className="flex gap-2">
                 <button 
                   className="relative h-11 rounded-full bg-teal-50/20 backdrop-blur-md border border-teal-200/30 px-5 text-sm font-medium text-teal-800 shadow-[0_8px_32px_0_rgba(20,184,166,0.25)] hover:bg-teal-100/30 transition-all duration-300 overflow-hidden group"
-                  onClick={() => window.open('https://console.wiil.io/login?from=%2F', '_blank')}
+                  onClick={() => window.open('https://calendly.com/sabamoseshvili-trav-nex/30min', '_blank')}
                 >
-                  <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">+ Get Started</span>
+                  <span className="relative z-10 bg-gradient-to-r from-teal-700 to-teal-900 bg-clip-text text-transparent font-semibold">Book a demo</span>
                 </button>
               </div>
             </div>
